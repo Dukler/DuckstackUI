@@ -1,10 +1,12 @@
 import React from 'react';
+import Form from './Form';
 
-class ClientForm extends React.Component {
+class ClientForm extends Form {
     constructor(props) {
         super(props);
         this.state = {
           name: '',
+          active: true,
           telephones: [
               {
                 number:'',
@@ -19,11 +21,11 @@ class ClientForm extends React.Component {
               location: '',
               default: '' 
             },
-        ] ,
-          active: true
+        ] 
         };
     
         this.handleInputChange = this.handleInputChange.bind(this);
+        
       }
     
       handleInputChange(event) {
@@ -86,6 +88,8 @@ class ClientForm extends React.Component {
             [name]: value
           });
         }
+      }
+      handlePost(){
       }
 
 
@@ -167,7 +171,12 @@ class ClientForm extends React.Component {
                 checked={this.state.active}
                 onChange={this.handleInputChange} />
             </label>
-          </form>
+            <br />
+            <br />
+            <button onClick={this.handlePost}>
+              Save
+            </button>
+            </form>
         );
       }
   }

@@ -2,9 +2,9 @@
 import React from 'react';
 import withFetching from './FetchApp';
 import ClientForm from './Forms/ClientForm'
+import Constants from './Constants';
 
-const API = 'http://192.168.0.5:8080/';
-const DEFAULT_QUERY = 'api/1';
+
 
 const App = ({ data, isLoading, error }) => {
   // const hits = data.hits || [];
@@ -38,4 +38,4 @@ const App = ({ data, isLoading, error }) => {
   );
 }
 
-export default withFetching(API + DEFAULT_QUERY)(App);
+export default withFetching(Constants.API + "1")(App);
