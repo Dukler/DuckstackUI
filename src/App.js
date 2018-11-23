@@ -1,41 +1,28 @@
-// import React, { Component } from 'react';
-import React from 'react';
-import withFetching from './FetchApp';
-import ClientForm from './Forms/ClientForm'
-import Constants from './Constants';
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-
-
-const App = ({ data, isLoading, error }) => {
-  // const hits = data.hits || [];
-
-  if (error) {
-    return <p>{error.message}</p>;
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    );
   }
-
-  if (isLoading) {
-    return <p>Loading ...</p>;
-  }
-
-  return (
-    // <div><pre>{data }</pre></div>
-    // <div>
-    //   {appointments.map(appointments =>
-    //     <div key={appointments.id}>
-    //       <a>{appointments.id}</a>
-    //       <a>{appointments.name}</a>
-    //     </div>
-    //   )}
-    // </div>
-    
-    <div>
-      <ClientForm />
-      {/* <div key={data.id}>
-        <a>{data.id}</a>
-        <a>{data.name}</a>
-      </div> */}
-    </div>
-  );
 }
 
-export default withFetching(Constants.API + "1")(App);
+export default App;
