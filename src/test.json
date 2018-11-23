@@ -36,14 +36,17 @@
 //testing
 
 {
-    "name": "a",
+    "name": "1",
+    "active": true,
     "telephones": [{
-        "number": "123",
+        "number": 1,
         "type": "",
-        "default": ""
+        "default": true
     }],
-    "addressStreet": "",
-    "addressNumber": "",
-    "addressLocation": "",
-    "active": true
+    "addresses": [{
+        "street": "1",
+        "number": 1,
+        "location": "1",
+        "default": true
+    }]
 }
