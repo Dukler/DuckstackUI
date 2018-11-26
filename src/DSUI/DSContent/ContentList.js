@@ -1,28 +1,30 @@
 import React from 'react';
-import Widget from "./Widget";
 import List from "../DSList/List";
+import Content from "./Content";
 
 
-export default class WidgetList extends React.Component {
+export default class ContentList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list:null
+            list: null
         };
         this.updateList = this.updateList.bind(this);
+        this.getList = this.getList.bind(this);
+    }
+    getList(){
+        return this.state.list;
     }
     updateList(List){
         this.setState({list:List});
     }
-    componentDidMount(){
-    }
+
     render() {
         return (
             <List url = {this.props.url}
                   updateList = {this.updateList}
-                  item = {new Widget({attributes:{}})}
-                  className ="Widgets"
-                  filter = {this.props.filter}
+                  item = {new Content({attributes:{}})}
+                  className ="Content"
             />
         );
     }

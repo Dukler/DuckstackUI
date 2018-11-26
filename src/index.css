@@ -1,7 +1,8 @@
 body {
-  background-color: #FFCC00;
+  background-color: #111;
   padding: 20px;
   margin: 0;
+  color: #FFF
 }
 h1, h2, p, ul, li {
   font-family: sans-serif;
@@ -12,7 +13,7 @@ ul.header li {
   margin: 0;
 }
 ul.header {
-  background-color: #111;
+  background-color: #006400;
   padding: 0;
 }
 ul.header li a {
@@ -23,7 +24,7 @@ ul.header li a {
   display: inline-block;
 }
 .content {
-  background-color: #FFF;
+  background-color: #006400;
   padding: 20px;
 }
 .content h2 {

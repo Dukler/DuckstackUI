@@ -31,13 +31,14 @@ export default class WidgetRender extends React.Component {
                             id = {attributes.id}
                             name={attributes.name}
                             type={attributes.type}
+                            suggested ={attributes.suggested}
                             value={attributes.value}
                             onChange={wdg.handleInputChange}/>
                     </div>;
                 break;
             case "button":
                 render =
-                    <button onClick={wdg.handleClick}>{attributes.caption}</button>;
+                    <button onClick={wdg.handleSubmit}>{attributes.caption}</button>;
                 break;
             default:
                 break;

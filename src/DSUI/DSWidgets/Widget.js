@@ -7,12 +7,12 @@ export default class Widget extends React.Component {
         super(props);
         this.setValue = this.setValue.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     setValue = (val) => {
         this.props.attributes.value = val;
     };
     componentDidMount() {
-        console.log("mounted widget " + this.props.attributes.name);
         //this.attributes = this.props.attributes;
     }
     componentDidUpdate(prevProps){
@@ -23,6 +23,9 @@ export default class Widget extends React.Component {
     }
     handleInputChange(event){
         this.props.onValueChange(event.target);
+    }
+    handleSubmit(event){
+        this.props.handleSubmit(event)
     }
     render(){
         return (

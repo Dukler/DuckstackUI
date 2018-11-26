@@ -1,24 +1,32 @@
-import React from 'react';
+//import React from 'react';
+import * as constants from './Constants';
 
 
-export default class Api extends React.Component {
+export default class Api {
     constructor(props) {
-        super(props);
-        this.state = {
-            url:'http://192.168.0.5:8080/api/',
-            online:false
-        };
+        //super(props);
+        this.props = props;
         this.post = this.post.bind(this);
         this.get= this.get.bind(this);
-        this.getUrl= this.getUrl.bind(this);
+        this.urlTo= this.urlTo.bind(this);
+        this.currentURL= this.currentURL.bind(this);
     }
-    getUrl(){
-        return this.state.url + this.props.url;
+    urlTo(url){
+        return constants.api + url;
     }
-    post(object){
+    currentURL(){
+        return this.urlTo(this.props.url)
+    }
+    post(object,props){
+        let url;
+        if (typeof props === 'undefined'){
+            url = this.props.url
+        }else {
+            url = props.url
+        }
         //let response,error;
         (async () => {
-            /*const rawResponse =*/ await fetch(this.state.url + 'save/Client', {
+            /*const rawResponse =*/ await fetch(this.urlTo(url), {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -34,8 +42,8 @@ export default class Api extends React.Component {
             // console.log(content);
         })();
     }
-    get(callback){
-        fetch(this.getUrl())
+    get(callback,props){
+        fetch(constants.api + props.url)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -49,9 +57,9 @@ export default class Api extends React.Component {
             .catch(error => alert(error));
     }
 
-    render() {
-        return (
-            <div></div>
-        );
-    }
+    // render() {
+    //     return (
+    //         <div></div>
+    //     );
+    // }
 }
