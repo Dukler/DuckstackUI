@@ -3,6 +3,7 @@ import Widget from "../DSWidgets/Widget";
 import Menu from "../DSNavMenu/Menu";
 import Content from "../DSContent/Content";
 import Api from "../../Api/Api";
+import {listRender, RenderList} from "./RenderList";
 
 
 export default class List extends React.Component {
@@ -53,46 +54,18 @@ export default class List extends React.Component {
         event.preventDefault();
         this.api.post(this.state.list);
     }
+
     render() {
-        let render = '';
-        switch (this.props.className){
-            case "Widgets":
-                const filteredList = this.getList().filter(wdg => wdg.props.attributes.contentFilter === this.props.filter);
-                render =
-                    <div className={this.props.className}>
-                        {filteredList.map((wdg, index) =>
-                            <Widget
-                                key = {index}
-                                attributes = {wdg.props.attributes}
-                                onValueChange = {this.refreshList}
-                                handleSubmit = {this.handleSubmit}
-                            />)}
-                    </div>;
-                break;
-            case "NavMenu":
-                render =
-                    <ul className="header">
-                        {this.getList().map((menu, index) =>
-                            <Menu
-                                key = {index}
-                                attributes = {menu.props.attributes}
-                            />)}
-                    </ul>;
-                break;
-            case "Content":
-                render =
-                    <div className="content">
-                        {this.getList().map((content, index) =>
-                            <Content
-                                key = {index}
-                                attributes = {content.props.attributes}
-                                url = {this.props.url}
-                            />)}
-                    </div>;
-                break;
-            default:
-                break;
-        }
+        let render;
+        let props = {refreshList:this.refreshList,
+            handleSubmit:this.handleSubmit,
+            filter:this.props.filter,
+            className:this.props.className,
+            url:this.props.url};
+        render = <RenderList
+            list = {this.getList()}
+            opts = {props}/>;
+
         return (render);
     }
 }
