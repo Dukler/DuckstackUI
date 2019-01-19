@@ -1,10 +1,10 @@
 import React from "react";
 import Api from "../Api/Api";
-import {HashRouter, Route} from "react-router-dom";
-import Login from "./DSScreens/Login";
+import {HashRouter } from "react-router-dom";
 import NavMenu from "./DSNavMenu/NavMenu";
 import * as constants from '../Api/Constants';
 import ContentList from "./DSContent/ContentList";
+
 
 export default class UI extends  React.Component{
     constructor(props) {
@@ -17,16 +17,6 @@ export default class UI extends  React.Component{
         this.renderUI= this.renderUI.bind(this);
     }
     componentDidMount() {
-    }
-    testing(){
-        return <Route exact path="/" component={Login}/> +
-            <div>
-                <NavMenu url = {constants.login}/>
-
-                    <Route exact path="/" component={Login}/>
-                </div>
-
-
     }
     isLoggedIn(){
         return this.state.loggedIn;

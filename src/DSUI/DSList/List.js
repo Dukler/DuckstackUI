@@ -1,9 +1,6 @@
 import React from 'react';
-import Widget from "../DSWidgets/Widget";
-import Menu from "../DSNavMenu/Menu";
-import Content from "../DSContent/Content";
 import Api from "../../Api/Api";
-import {listRender, RenderList} from "./RenderList";
+import {RenderList} from "./RenderList";
 
 
 export default class List extends React.Component {
@@ -27,11 +24,14 @@ export default class List extends React.Component {
         this.list = List;
         this.props.updateList(this);
     }
-    refreshList(target){
-        let index = this.getList().findIndex(wdg => wdg.props.attributes.id === target.id);
+    refreshList(target,item,itemName){
+        let index = this.getList().findIndex(wdg => wdg.attributes.id === target.id);
         let items = [...this.getList()];
-        let item = {...items[index]};
-        item.setValue(target.value);
+        //let item = {...items[index]};
+        //let x = Object.assign({},item,{attributes:attributes});
+        if(itemName === "widget"){
+            items[index] = item;
+        }
         this.updateList(items)
     }
     
@@ -45,27 +45,26 @@ export default class List extends React.Component {
     addItem(props) {
         //let item = Object.create(this.props.item);
         let item = this.props.item;
-        item.props.attributes = props;
+        item.attributes = props;
         let list = [...this.getList()];
-        list.push(item);
+        list = list.concat([item]);
         this.updateList(list)
     }
     handleSubmit(event){
         event.preventDefault();
-        this.api.post(this.state.list);
+        this.api.post(this.getList());
     }
 
     render() {
-        let render;
-        let props = {refreshList:this.refreshList,
+        let props = {
+            refreshList:this.refreshList,
             handleSubmit:this.handleSubmit,
             filter:this.props.filter,
             className:this.props.className,
             url:this.props.url};
-        render = <RenderList
-            list = {this.getList()}
-            opts = {props}/>;
 
-        return (render);
+        return (<RenderList
+            list = {this.getList()}
+            opts = {props}/>);
     }
 }

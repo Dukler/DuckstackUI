@@ -1,12 +1,12 @@
 import React from "react";
 import Widget from "./Widget";
 
-export const widgetListRender = ({ list, opts }) => (
+export const WidgetListRender = ({ list, opts }) => (
         <div className="Wigets">
-            {list.filter(wdg => wdg.props.attributes.contentFilter === opts.filter).map((wdg, index) =>
+            {list.filter(wdg => wdg.attributes.contentFilter === opts.filter).map((wdg, index) =>
                 <Widget
                     key = {index}
-                    attributes = {wdg.props.attributes}
+                    attributes = {wdg.attributes}
                     onValueChange = {opts.refreshList}
                     handleSubmit = {opts.handleSubmit}
                 />)

@@ -13,6 +13,7 @@ export default class Content extends React.Component {
     }
     renderTest(){
         //<Route id = {attributes.id} exact path={attributes.path} component={component}/>
+        //flag1
     }
     render() {
         const attributes = this.props.attributes;

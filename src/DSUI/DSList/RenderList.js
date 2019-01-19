@@ -1,13 +1,15 @@
 import React from "react";
-import {widgetListRender} from "../DSWidgets/widgetListRender";
+import {WidgetListRender} from "../DSWidgets/WidgetListRender";
 import Menu from "../DSNavMenu/Menu";
 import Content from "../DSContent/Content";
+
+
 
 export const RenderList = ({ list, opts }) => {
     let render;
     switch (opts.className){
         case "Widgets":
-            render = widgetListRender({list, opts});
+            render = WidgetListRender({list, opts});
             break;
         case "NavMenu":
             render =
@@ -15,7 +17,7 @@ export const RenderList = ({ list, opts }) => {
                     {list.map((menu, index) =>
                         <Menu
                             key = {index}
-                            attributes = {menu.props.attributes}
+                            attributes = {menu.attributes}
                         />)}
                 </ul>;
             break;
@@ -25,7 +27,7 @@ export const RenderList = ({ list, opts }) => {
                     {list.map((content, index) =>
                         <Content
                             key = {index}
-                            attributes = {content.props.attributes}
+                            attributes = {content.attributes}
                             url = {opts.url}
                         />)}
                 </div>;
@@ -33,7 +35,5 @@ export const RenderList = ({ list, opts }) => {
         default:
             break;
     }
-    return(
-        render
-    )
+    return(render)
 };

@@ -1,54 +1,39 @@
 import React from 'react';
 
+export const WidgetRender = ({attributes, opts }) => {
+    let render = null;
 
-export default class WidgetRender extends React.Component {
-    constructor(props) {
-        super(props);
-        this.wdgRender = this.wdgRender.bind(this);
-    }
-
-    wdgRender () {
-        let render = null;
-        const attributes = this.props.widget.props.attributes;
-        const wdg = this.props.widget;
-        switch (attributes.dstype) {
-            case "options":
-                render =
+    switch (attributes.dstype) {
+        case "options":
+            render =
                 <select
                     id={attributes.id}
                     name={attributes.name}
-                    value={attributes.value}
-                    onChange={wdg.onValueChange}>
+                    value={opts.value}
+                    onChange={opts.onValueChange}>
                     {attributes.options.map(option =>
                         <option id={option.id} value={option.value}>{option.value}</option>)}
                 </select>;
-                break;
-            case "input":
-                render =
-                    <div>
-                        <label htmlFor={attributes.id}>{attributes.caption}</label>
-                        <input
-                            id = {attributes.id}
-                            name={attributes.name}
-                            type={attributes.type}
-                            suggested ={attributes.suggested}
-                            value={attributes.value}
-                            onChange={wdg.handleInputChange}/>
-                    </div>;
-                break;
-            case "button":
-                render =
-                    <button onClick={wdg.handleSubmit}>{attributes.caption}</button>;
-                break;
-            default:
-                break;
-        }
-        return render;
+            break;
+        case "input":
+            render =
+                <div>
+                    <label htmlFor={attributes.id}>{attributes.caption}</label>
+                    <input
+                        id = {attributes.id}
+                        name={attributes.name}
+                        type={attributes.type}
+                        suggested ={attributes.suggested}
+                        value={attributes.value}
+                        onChange={opts.handleInputChange}/>
+                </div>;
+            break;
+        case "button":
+            render =
+                <button onClick={opts.handleSubmit}>{attributes.caption}</button>;
+            break;
+        default:
+            break;
     }
-    
-    render() {
-        return (
-            <div>{this.wdgRender()}</div>
-        );
-    }
-}
+    return render;
+};
