@@ -8,10 +8,13 @@ export default class NavMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: null
+            list: []
         };
         this.updateList = this.updateList.bind(this);
         this.getList = this.getList.bind(this);
+    }
+    componentDidMount() {
+        console.log("navmenu");
     }
 
     getList(){
@@ -22,9 +25,13 @@ export default class NavMenu extends React.Component {
     }
 
     render() {
+        let container = {
+            list: this.state.list,
+            set: this.updateList
+        };
         return (
             <List url = {this.props.url}
-                  updateList = {this.updateList}
+                  container = {container}
                   item = {new Menu({attributes:{}})}
                   className ="NavMenu"
             />

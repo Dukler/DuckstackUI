@@ -1,5 +1,6 @@
 import React from 'react';
 import {WidgetRender} from "./WidgetRender";
+import Api from "../../Api/Api";
 
 
 export default class Widget extends React.Component {
@@ -7,7 +8,13 @@ export default class Widget extends React.Component {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.getValue = this.getValue.bind(this);
         this.attributes = {};
+        this.api = new Api();
+
+    }
+    getValue(){
+        return this.attributes.value;
     }
     componentDidMount() {
         this.attributes = this.props.attributes;
@@ -32,7 +39,9 @@ export default class Widget extends React.Component {
         this.props.onValueChange(event.target,wdg,"widget");
     }
     handleSubmit(event){
-        this.props.handleSubmit(event)
+        event.preventDefault();
+        //api.post({url:"Login",list:this.props.getSerializedList()})
+        this.props.handleSubmit(this.props.getSerializedList());
     }
     render(){
         let props = {
@@ -41,6 +50,6 @@ export default class Widget extends React.Component {
 
         return (<WidgetRender
             attributes = {this.props.attributes}
-            opts = {props}/>);
+            props = {props}/>);
     }
 }

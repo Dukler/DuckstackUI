@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const WidgetRender = ({attributes, opts }) => {
+export const WidgetRender = ({attributes, props }) => {
     let render = null;
 
     switch (attributes.dstype) {
@@ -9,8 +9,8 @@ export const WidgetRender = ({attributes, opts }) => {
                 <select
                     id={attributes.id}
                     name={attributes.name}
-                    value={opts.value}
-                    onChange={opts.onValueChange}>
+                    value={props.value}
+                    onChange={props.onValueChange}>
                     {attributes.options.map(option =>
                         <option id={option.id} value={option.value}>{option.value}</option>)}
                 </select>;
@@ -25,12 +25,12 @@ export const WidgetRender = ({attributes, opts }) => {
                         type={attributes.type}
                         suggested ={attributes.suggested}
                         value={attributes.value}
-                        onChange={opts.handleInputChange}/>
+                        onChange={props.handleInputChange}/>
                 </div>;
             break;
         case "button":
             render =
-                <button onClick={opts.handleSubmit}>{attributes.caption}</button>;
+                <button onClick={props.handleSubmit}>{attributes.caption}</button>;
             break;
         default:
             break;

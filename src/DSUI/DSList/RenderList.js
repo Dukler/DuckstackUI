@@ -2,17 +2,19 @@ import React from "react";
 import {WidgetListRender} from "../DSWidgets/WidgetListRender";
 import Menu from "../DSNavMenu/Menu";
 import Content from "../DSContent/Content";
+import {hasProps, isList} from "../DSComposer/Composer";
+import {compose} from "redux";
 
 
 
-export const RenderList = ({ list, opts }) => {
-    let render;
-    switch (opts.className){
+export const RenderList = ({ list, props }) => {
+    let EnhancedRender;
+    switch (props.className){
         case "Widgets":
-            render = WidgetListRender({list, opts});
+            EnhancedRender = WidgetListRender({list, props});
             break;
         case "NavMenu":
-            render =
+            EnhancedRender =
                 <ul className="header">
                     {list.map((menu, index) =>
                         <Menu
@@ -22,18 +24,14 @@ export const RenderList = ({ list, opts }) => {
                 </ul>;
             break;
         case "Content":
-            render =
-                <div className="content">
-                    {list.map((content, index) =>
-                        <Content
-                            key = {index}
-                            attributes = {content.attributes}
-                            url = {opts.url}
-                        />)}
-                </div>;
+            EnhancedRender = compose(
+                isList({type:'content'}),
+                hasProps({url:props.url,handleSubmit:props.handleSubmit},
+                )
+            )(Content)({data:list});
             break;
         default:
             break;
     }
-    return(render)
+    return(EnhancedRender)
 };

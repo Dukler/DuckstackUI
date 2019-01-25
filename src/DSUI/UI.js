@@ -1,34 +1,30 @@
 import React from "react";
 import Api from "../Api/Api";
 import {HashRouter } from "react-router-dom";
-import NavMenu from "./DSNavMenu/NavMenu";
 import * as constants from '../Api/Constants';
-import ContentList from "./DSContent/ContentList";
+import {Screen} from "./DSScreens/Screen";
+import User from "./DSDataManager/User";
+import {Login} from "./DSScreens/Login";
 
 
 export default class UI extends  React.Component{
+    user = User.getInstance();
     constructor(props) {
         super(props);
         this.state ={
-            api: new Api({url:"ui/update"}),
-            loggedIn:false
+            api: new Api({url:"ui/update"})
         };
-        this.isLoggedIn= this.isLoggedIn.bind(this);
         this.renderUI= this.renderUI.bind(this);
+
     }
     componentDidMount() {
-    }
-    isLoggedIn(){
-        return this.state.loggedIn;
+        console.log("ui");
     }
     renderUI(){
-        if(this.isLoggedIn()){
-
+        if(this.user.isLoggedIn()){
+            return <Screen props={{url:constants.home}}/>
         }else {
-            return  <div>
-                        <NavMenu url = {constants.main}/>
-                        <ContentList url = {constants.main}/>
-                    </div>
+            return <Login/>
         }
     }
     render(){

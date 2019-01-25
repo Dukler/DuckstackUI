@@ -1,14 +1,15 @@
 import React from "react";
 import Widget from "./Widget";
 
-export const WidgetListRender = ({ list, opts }) => (
+export const WidgetListRender = ({ list, props }) => (
         <div className="Wigets">
-            {list.filter(wdg => wdg.attributes.contentFilter === opts.filter).map((wdg, index) =>
+            {list.filter(wdg => wdg.attributes.contentFilter === props.filter).map((wdg, index) =>
                 <Widget
                     key = {index}
                     attributes = {wdg.attributes}
-                    onValueChange = {opts.refreshList}
-                    handleSubmit = {opts.handleSubmit}
+                    onValueChange = {props.replace}
+                    getSerializedList = {props.getSerializedList}
+                    handleSubmit = {props.handleSubmit}
                 />)
             }
         </div>

@@ -17,33 +17,36 @@ export default class Api {
     currentURL(){
         return this.urlTo(this.props.url)
     }
-    post(object,props){
-        let url;
+    post(props){
+        let response,error;
         if (typeof props === 'undefined'){
-            url = this.props.url
-        }else {
-            url = props.url
+            return
         }
-        //let response,error;
         (async () => {
-            /*const rawResponse =*/ await fetch(this.urlTo(url), {
+            const rawResponse = await fetch(this.urlTo(props.url), {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(object)
-            })/*.then((res) => {
-                response = res;
+                body: JSON.stringify(props.list)
+            }).then((res) => {
+                props.callback(res);
             }).catch((err) => {
                 error = err;
-            });*/
-            // const content = await rawResponse.json();
-            // console.log(content);
+            });
+            const content = await rawResponse.json();
+            console.log(content);
         })();
     }
-    get(callback,props){
-        fetch(constants.api + props.url)
+    get(props){
+        let url;
+        if (typeof props === 'undefined'){
+            return
+        }else {
+            url = props.url
+        }
+        fetch(constants.api + url)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -52,14 +55,9 @@ export default class Api {
                 }
             })
             .then(data => {
-                callback (data);
+                props.callback (data);
             })
             .catch(error => alert(error));
     }
 
-    // render() {
-    //     return (
-    //         <div></div>
-    //     );
-    // }
 }

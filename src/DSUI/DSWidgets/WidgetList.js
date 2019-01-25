@@ -6,20 +6,19 @@ import List from "../DSList/List";
 export default class WidgetList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            list:null
-        };
+        this.state = {};
         this.updateList = this.updateList.bind(this);
     }
     updateList(List){
         this.setState({list:List});
     }
     componentDidMount(){
+        console.log("widglist");
     }
     render() {
         return (
             <List url = {this.props.url}
-                  updateList = {this.updateList}
+                  container = {this.props.container}
                   item = {new Widget({attributes:{}})}
                   className ="Widgets"
                   filter = {this.props.filter}
