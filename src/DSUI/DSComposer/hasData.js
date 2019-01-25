@@ -47,21 +47,16 @@ export const hasData = ({url, params, loadingMessage}) => WrappedComponent => {
             this.get(url, { params });
         }
         setData(List){
-            this.setState({list:List});
+            this.setState({data:List});
         }
         initList(data){
-            let arr = [];
-            // for (let index = 0; index < data[this.props.className].length; index++) {
-            //     this.addItem(data[this.props.className][index])
-            // }
-            for (let key in data) {
-                arr.push(data[key]);
+            for (let index = 0; index < data[this.props.className].length; index++) {
+                this.addItem(data[this.props.className][index])
             }
-            this.setData(arr);
         }
         addItem(props) {
             if (!this.getData().find(wdg => wdg.attributes.id === props.id) ){
-                let item = this.props.item;
+                let item = {...this.props.item};
                 item.attributes = props;
                 let list = [...this.getData()];
                 list = list.concat([item]);

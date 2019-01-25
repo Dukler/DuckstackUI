@@ -1,5 +1,4 @@
 import React from "react";
-import {WidgetListRender} from "../DSWidgets/WidgetListRender";
 import Menu from "../DSNavMenu/Menu";
 import Content from "../DSContent/Content";
 import {hasProps, isList} from "../DSComposer/Composer";
@@ -10,9 +9,6 @@ import {compose} from "redux";
 export const RenderList = ({ list, props }) => {
     let EnhancedRender;
     switch (props.className){
-        case "Widgets":
-            EnhancedRender = WidgetListRender({list, props});
-            break;
         case "NavMenu":
             EnhancedRender =
                 <ul className="header">
