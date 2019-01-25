@@ -5,31 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47b3efd1-ff97-4cd6-908f-2f9e0dd80e58" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DSUI/DSComposer/hasData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DSUI/DSDataManager/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DSUI/DSList/Container.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DSUI/DSScreens/Screen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSContent/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSContent/Content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSList/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSList/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DSUI/DSList/RenderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSList/RenderList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSNavMenu/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSNavMenu/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSScreens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSScreens/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSWebview/Webview.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSWidgets/Widget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSWidgets/Widget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetListRender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetListRender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetRender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetRender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/Form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSUI/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSUI/UI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Forms/ClientForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Forms/Form.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,79 +27,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/Content.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/List.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="90">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetList.js">
+        <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetListRender.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/UI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DSUI/DSScreens/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="306">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -132,12 +50,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/RenderList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="396">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#683#816#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="25" selection-start-line="25" selection-end-line="35" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -154,7 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>api.post</find>
       <find>attList</find>
       <find>refreshList</find>
       <find>replace</find>
@@ -184,6 +110,7 @@
       <find>&lt;WidgetListRender</find>
       <find>WidgetListRender</find>
       <find>&lt;RenderList</find>
+      <find>.Content</find>
     </findStrings>
     <replaceStrings>
       <replace>initList</replace>
@@ -212,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/DSUI/DSListController/ListController.js" />
         <option value="$PROJECT_DIR$/src/Constants.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSElements/NavMenu.js" />
@@ -242,19 +168,20 @@
         <option value="$PROJECT_DIR$/src/DSUI/DSComposer/HasData.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSComposer/Data.js" />
         <option value="$PROJECT_DIR$/src/Api/Api.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js" />
+        <option value="$PROJECT_DIR$/src/DSUI/DSList/List.js" />
+        <option value="$PROJECT_DIR$/src/DSUI/DSContent/Content.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSComposer/hasData.js" />
         <option value="$PROJECT_DIR$/src/DSUI/UI.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSList/List.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSList/RenderList.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSContent/Content.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="443" />
-    <option name="y" value="10" />
+    <option name="x" value="8" />
+    <option name="y" value="12" />
     <option name="width" value="1151" />
     <option name="height" value="1000" />
   </component>
@@ -309,6 +236,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DSUI" type="462c0819:PsiDirectoryNode" />
               <item name="DSContent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DSUI" type="462c0819:PsiDirectoryNode" />
+              <item name="DSList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
@@ -431,7 +365,7 @@
       <workItem from="1548180971907" duration="13161000" />
       <workItem from="1548254249721" duration="27397000" />
       <workItem from="1548340638145" duration="25754000" />
-      <workItem from="1548386097377" duration="956000" />
+      <workItem from="1548386097377" duration="2401000" />
     </task>
     <task id="LOCAL-00001" summary="fixed dependencies, widgetlist state moved to widgetlist">
       <created>1542998049397</created>
@@ -454,24 +388,31 @@
       <option name="project" value="LOCAL" />
       <updated>1543690252985</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="composing HoC, hasData not fully working">
+      <created>1548387302754</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548387302754</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222126000" />
+    <option name="totallyTimeSpent" value="223571000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="443" y="10" width="1151" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="8" y="12" width="1151" height="1000" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.574359" weight="0.20485175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.574359" visible="true" weight="0.20485175" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
+      <window_info anchor="bottom" id="Messages" weight="0.3298731" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32883435" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49824253" weight="0.24913494" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4947735" visible="true" weight="0.35640138" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4947735" visible="true" weight="0.35640138" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -553,18 +494,35 @@
     <MESSAGE value="fixed dependencies, widgetlist state moved to widgetlist" />
     <MESSAGE value="rendering dynamic content" />
     <MESSAGE value="renderlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="renderlist" />
+    <MESSAGE value="composing HoC, hasData not fully working" />
+    <option name="LAST_COMMIT_MESSAGE" value="composing HoC, hasData not fully working" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
         <watch expression="props.data" language="JavaScript" />
         <watch expression="data.json()" language="JavaScript" />
+        <watch expression="type" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>type</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>data.json()</expression-string>
         <language-id>JavaScript</language-id>
@@ -610,11 +568,6 @@
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>response.json()</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="setValue">
       <expression>
@@ -641,13 +594,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
       <provider selected="true" editor-type-id="text-editor" />
@@ -688,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="354" selection-start-line="354" selection-end-line="354" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -716,11 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-269" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -735,16 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/Container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -818,16 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="http://localhost:3000/static/js/bundle.js">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
@@ -842,43 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSComposer/hasData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSScreens/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/UI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -905,17 +782,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js">
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/Container.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="108">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSScreens/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DSUI/UI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSComposer/hasData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="954">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/List.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+        <state relative-caret-position="150">
+          <caret line="54" column="44" lean-forward="true" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/Content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="25" selection-start-line="25" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="355" selection-start-line="355" selection-end-line="355" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -924,8 +875,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/RenderList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="396">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#683#816#0" />
@@ -933,13 +884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/Content.js">
+    <entry file="file://$PROJECT_DIR$/src/DSUI/DSComposer/Composer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>

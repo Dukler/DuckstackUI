@@ -4,6 +4,7 @@ export const hasProps = injectedProps =>
     WrappedComponent => props => <WrappedComponent {...injectedProps} {...props} />;
 
 export const isList = type => WrappedComponent => {
+
     const IsList = props => (
         <div className={type}>
             {props.data.map((item,index) => (

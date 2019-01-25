@@ -25,7 +25,7 @@ export const RenderList = ({ list, props }) => {
             break;
         case "Content":
             EnhancedRender = compose(
-                isList({type:'content'}),
+                isList("content"),
                 hasProps({url:props.url,handleSubmit:props.handleSubmit},
                 )
             )(Content)({data:list});
