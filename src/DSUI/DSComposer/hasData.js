@@ -3,6 +3,7 @@ import * as React from "react";
 
 export const hasData = ({url, params, loadingMessage}) => WrappedComponent => {
     class HasData extends React.Component {
+        mounted = false;
         state = {
             data: [],
             hasError: false,
@@ -24,13 +25,15 @@ export const hasData = ({url, params, loadingMessage}) => WrappedComponent => {
                     }
                 })
                 .then(data => {
-                    this.initList(data);
-                    this.setState({
-                        //data,
-                        loading: false,
-                        hasError: false
-                        //useDefault: data.length === 0
-                    })
+                    if (this.mounted) {
+                        this.initList(data);
+                        this.setState({
+                            //data,
+                            loading: false,
+                            hasError: false
+                            //useDefault: data.length === 0
+                        })
+                    }
                 })
                 .catch(error => {
                     console.log(error);
@@ -42,10 +45,15 @@ export const hasData = ({url, params, loadingMessage}) => WrappedComponent => {
         }
 
         componentDidMount() {
+            this.mounted = true;
             console.log("data");
             this.setState({loading: true});
             this.get(url, { params });
         }
+        componentWillUnmount() {
+            this.mounted = false;
+        }
+
         setData(List){
             this.setState({data:List});
         }
@@ -66,11 +74,22 @@ export const hasData = ({url, params, loadingMessage}) => WrappedComponent => {
         getData(){
             return this.state.data
         }
+        replace(target,item,itemName){
+            let index = this.getData().findIndex(wdg => wdg.attributes.id === target.id);
+            let items = [...this.getData()];
+            if(itemName === "widget"){
+                items[index] = item;
+            }
+            items[index] = item;
+            this.setData(items)
+        }
+
         render() {
             return (
                 <WrappedComponent
                     {...this.state}
                     {...this.props}
+                    replace = {this.replace.bind(this)}
                 />
             )
         }

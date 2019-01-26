@@ -1,16 +1,15 @@
 import React from 'react';
 
-export const WidgetRender = ({attributes, props }) => {
+export const WidgetRender = ({attributes, actions }) => {
     let render = null;
-
     switch (attributes.dstype) {
         case "options":
             render =
                 <select
                     id={attributes.id}
                     name={attributes.name}
-                    value={props.value}
-                    onChange={props.onValueChange}>
+                    value={attributes.value}
+                    onChange={attributes.onValueChange}>
                     {attributes.options.map(option =>
                         <option id={option.id} value={option.value}>{option.value}</option>)}
                 </select>;
@@ -25,12 +24,12 @@ export const WidgetRender = ({attributes, props }) => {
                         type={attributes.type}
                         suggested ={attributes.suggested}
                         value={attributes.value}
-                        onChange={props.handleInputChange}/>
+                        onChange={actions.handleInputChange}/>
                 </div>;
             break;
         case "button":
             render =
-                <button onClick={props.handleSubmit}>{attributes.caption}</button>;
+                <button onClick={actions.handleSubmit}>{attributes.caption}</button>;
             break;
         default:
             break;

@@ -1,55 +1,49 @@
 import React from 'react';
 import {WidgetRender} from "./WidgetRender";
-import Api from "../../Api/Api";
 
 
-export default class Widget extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.getValue = this.getValue.bind(this);
-        this.attributes = {};
-        this.api = new Api();
-
+export const Widget = props => {
+    // constructor(props) {
+    //     super(props);
+    //     handleInputChange = handleInputChange.bind(this);
+    //     handleSubmit = handleSubmit.bind(this);
+    //     getValue = getValue.bind(this);
+    //     attributes = {};
+    //
+    // }
+    const attributes = props.attributes;
+    function getValue(){
+        return props.attributes.value;
     }
-    getValue(){
-        return this.attributes.value;
-    }
-    componentDidMount() {
-        this.attributes = this.props.attributes;
-    }
-    componentDidUpdate(prevProps){
-        if (this.props.attributes.value !== prevProps.attributes.value) {
-            console.log("updated widget " + this.props.attributes.name );
-        }
-    }
-    handleInputChange(event){
-        let att =  {
-                id: this.attributes.id,
-                caption: this.attributes.caption,
-                name: this.attributes.name,
-                type: this.attributes.type,
-                dstype: this.attributes.dstype,
-                suggested: this.attributes.suggested,
-                contentFilter: this.attributes.contentFilter,
-                value: event.target.value
-        };
-        let wdg = Object.assign(new Widget(),this,{attributes:att});
-        this.props.onValueChange(event.target,wdg,"widget");
-    }
-    handleSubmit(event){
+    function onValueChange(event){
         event.preventDefault();
-        //api.post({url:"Login",list:this.props.getSerializedList()})
-        this.props.handleSubmit(this.props.getSerializedList());
+        const target = event.target;
+        const value = target.value;
+        let att =  {
+            id: props.attributes.id,
+            caption: props.attributes.caption,
+            name: props.attributes.name,
+            type: props.attributes.type,
+            dstype: props.attributes.dstype,
+            suggested: props.attributes.suggested,
+            contentFilter: props.attributes.contentFilter,
+            value: value
+        };
+        let wdg = new Widget({attributes:att});
+        //let wdg = Object.assign(new Widget(),this,{attributes:att});
+        props.replace(target,wdg,"widget");
     }
-    render(){
-        let props = {
-            handleInputChange:this.handleInputChange,
-            handleSubmit:this.handleSubmit};
+    function onSubmit(event){
+        event.preventDefault();
+        //api.post({url:"Login",list:props.getSerializedList()})
+        props.handleSubmit(props.getSerializedList());
+    }
+    let actions = {
+        handleInputChange:onValueChange,
+        handleSubmit:onSubmit};
 
-        return (<WidgetRender
-            attributes = {this.props.attributes}
-            props = {props}/>);
-    }
-}
+    return (<WidgetRender
+        attributes = {attributes}
+        actions = {actions}
+    />);
+};

@@ -1,40 +1,27 @@
 import React from 'react';
-import Menu from "./Menu";
-import List from "../DSList/List";
+
+import {compose} from "recompose";
+import {hasProps, isList} from "../DSComposer/Composer";
+import {hasData} from "../DSComposer/hasData";
+import {Menu} from "./Menu";
 
 
 
-export default class NavMenu extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            list: []
-        };
-        this.updateList = this.updateList.bind(this);
-        this.getList = this.getList.bind(this);
-    }
-    componentDidMount() {
-        console.log("navmenu");
-    }
-
-    getList(){
-        return this.state.list;
-    }
-    updateList(List){
-        this.setState({list:List});
-    }
-
-    render() {
-        let container = {
-            list: this.state.list,
-            set: this.updateList
-        };
-        return (
-            <List url = {this.props.url}
-                  container = {container}
-                  item = {new Menu({attributes:{}})}
-                  className ="NavMenu"
-            />
-        );
-    }
-}
+export const NavMenu = props => {
+    let NM = compose(
+        hasProps({
+            className:"NavMenu",
+            item:new Menu({attributes:{}})
+        }),
+        hasData({
+            url: props.url,
+            params: {
+                _limit: 10,
+                page: 2
+            },
+            loadingMessage: 'Loading posts from JSON Placeholder...'
+        }),
+        isList({type:"header",tag:'ul'})
+    )(Menu);
+    return(<NM/>);
+};
