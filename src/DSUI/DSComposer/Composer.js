@@ -5,14 +5,20 @@ export const hasProps = injectedProps =>
 
 export const isList = ({ type, tag }) =>  WrappedComponent => {
     const CustomTag =`${tag}`;
-    const IsList = props => (
-        <CustomTag className={type}>
-            {props.data.map((item,index) => (
-                <WrappedComponent {...item} key={index}
-                                  attributes={item.attributes}
-                                  replace={props.replace}/>
-            ))}
-        </CustomTag>
-    );
+    const IsList = props => {
+        if (typeof props.actions === 'undefined'){
+            return null;
+        }
+        return(
+            <CustomTag className={type}>
+                {props.actions.getData(props.className).map((item,index) => (
+                    <WrappedComponent {...item.props}
+                                      key={item.props.id}
+                                      actions={props.actions}
+                    />
+                ))}
+            </CustomTag>
+        );
+    };
     return IsList
 };

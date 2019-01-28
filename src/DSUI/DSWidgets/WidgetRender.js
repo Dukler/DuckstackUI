@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const WidgetRender = ({attributes, actions }) => {
+export const WidgetRender = ({attributes, actions, value }) => {
     let render = null;
     switch (attributes.dstype) {
         case "options":
@@ -23,8 +23,8 @@ export const WidgetRender = ({attributes, actions }) => {
                         name={attributes.name}
                         type={attributes.type}
                         suggested ={attributes.suggested}
-                        value={attributes.value}
-                        onChange={actions.handleInputChange}/>
+                        value={value}
+                        onChange={actions.replace}/>
                 </div>;
             break;
         case "button":

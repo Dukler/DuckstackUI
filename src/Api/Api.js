@@ -7,7 +7,6 @@ export default class Api {
         //super(props);
         this.props = props;
         this.post = this.post.bind(this);
-        this.get= this.get.bind(this);
         this.urlTo= this.urlTo.bind(this);
         this.currentURL= this.currentURL.bind(this);
     }
@@ -39,14 +38,8 @@ export default class Api {
             console.log(content);
         })();
     }
-    get(props){
-        let url;
-        if (typeof props === 'undefined'){
-            return
-        }else {
-            url = props.url
-        }
-        fetch(constants.api + url)
+    static get(url, callback){
+        fetch("http://192.168.0.5:8080/api/" + url)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -55,9 +48,29 @@ export default class Api {
                 }
             })
             .then(data => {
-                props.callback (data);
+                callback(data);
             })
-            .catch(error => alert(error));
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    static getPromise(url,callback){
+        fetch("http://192.168.0.5:8080/api/" + url)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .then(data => {
+                return new Promise((resolve,reject) =>{
+
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
 }

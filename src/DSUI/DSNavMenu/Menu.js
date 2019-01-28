@@ -1,9 +1,20 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-export const Menu = props => {
-    const attributes = props.attributes;
-    return (
-        <li><NavLink id = {attributes.id} exact to={attributes.path}>{attributes.caption}</NavLink></li>
-    );
+
+export default class Menu extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    // }
+    render(){
+        return (
+            <li>
+                <NavLink id = {this.props.id}
+                         exact to={this.props.path}>
+                    {this.props.caption}
+                </NavLink>
+            </li>
+        );
+    }
+
 };
