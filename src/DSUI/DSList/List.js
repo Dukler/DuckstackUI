@@ -27,8 +27,6 @@ export default class List extends React.Component {
     refreshList(target,item,itemName){
         let index = this.getList().findIndex(wdg => wdg.attributes.id === target.id);
         let items = [...this.getList()];
-        //let item = {...items[index]};
-        //let x = Object.assign({},item,{attributes:attributes});
         if(itemName === "widget"){
             items[index] = item;
         }

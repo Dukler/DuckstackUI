@@ -1,5 +1,5 @@
 //import React from 'react';
-import * as constants from './Constants';
+import {constants} from '../Constants';
 
 
 export default class Api {

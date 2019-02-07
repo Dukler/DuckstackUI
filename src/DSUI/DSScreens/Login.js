@@ -1,6 +1,6 @@
 import React from 'react';
 import WidgetList from "../DSWidgets/WidgetList";
-import * as constants from '../../Api/Constants';
+import * as constants from '../../Constants';
 
 
 export default class Login extends React.Component {
