@@ -1,21 +1,29 @@
 import React from "react";
-import {WidgetListRender} from "../DSWidgets/WidgetListRender";
-import Menu from "../DSNavMenu/Menu";
-import Content from "../DSContent/Content";
-
-
+import Link from "../Components/Link";
+import Widget from "../Components/Widget";
+import Content from "../Components/Content";
 
 export const RenderList = ({ list, opts }) => {
     let render;
     switch (opts.className){
         case "Widgets":
-            render = WidgetListRender({list, opts});
+            render =
+                <div className="Wigets">
+                    {list.filter(wdg => wdg.attributes.contentFilter === opts.filter).map((wdg, index) =>
+                        <Widget
+                            key = {index}
+                            attributes = {wdg.attributes}
+                            onValueChange = {opts.refreshList}
+                            handleSubmit = {opts.handleSubmit}
+                        />)
+                    }
+                </div>;
             break;
         case "NavMenu":
             render =
                 <ul className="header">
                     {list.map((menu, index) =>
-                        <Menu
+                        <Link
                             key = {index}
                             attributes = {menu.attributes}
                         />)}

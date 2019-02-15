@@ -1,5 +1,5 @@
 import React from 'react';
-import {WidgetRender} from "./WidgetRender";
+import {WidgetRender} from "../Render/WidgetRender";
 
 
 export default class Widget extends React.Component {
@@ -7,10 +7,8 @@ export default class Widget extends React.Component {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.attributes = {};
     }
     componentDidMount() {
-        this.attributes = this.props.attributes;
     }
     componentDidUpdate(prevProps){
         if (this.props.attributes.value !== prevProps.attributes.value) {
@@ -19,17 +17,17 @@ export default class Widget extends React.Component {
     }
     handleInputChange(event){
         let att =  {
-                id: this.attributes.id,
-                caption: this.attributes.caption,
-                name: this.attributes.name,
-                type: this.attributes.type,
-                dstype: this.attributes.dstype,
-                suggested: this.attributes.suggested,
-                contentFilter: this.attributes.contentFilter,
+                id: this.props.attributes.id,
+                caption: this.props.attributes.caption,
+                name: this.props.attributes.name,
+                type: this.props.attributes.type,
+                dstype: this.props.attributes.dstype,
+                suggested: this.props.attributes.suggested,
+                contentFilter: this.props.attributes.contentFilter,
                 value: event.target.value
         };
         let wdg = Object.assign(new Widget(),this,{attributes:att});
-        this.props.onValueChange(event.target,wdg,"widget");
+        this.props.onValueChange(event.target,wdg);
     }
     handleSubmit(event){
         this.props.handleSubmit(event)

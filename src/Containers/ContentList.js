@@ -1,19 +1,18 @@
 import React from 'react';
-import List from "../DSList/List";
-import Content from "./Content";
+import List from "../Components/List";
+import Content from "../Components/Content";
 
 
 export default class ContentList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: null
+            list: []
         };
         this.updateList = this.updateList.bind(this);
         this.getList = this.getList.bind(this);
     }
     componentDidMount() {
-
     }
 
     getList(){
@@ -29,6 +28,7 @@ export default class ContentList extends React.Component {
                   updateList = {this.updateList}
                   item = {new Content({attributes:{}})}
                   className ="Content"
+                  {...this.state}
             />
         );
     }

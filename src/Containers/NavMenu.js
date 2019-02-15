@@ -1,28 +1,33 @@
 import React from 'react';
-import Widget from "./Widget";
-import List from "../DSList/List";
+import Link from "../Components/Link";
+import List from "../Components/List";
 
 
-export default class WidgetList extends React.Component {
+
+export default class NavMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list:null
+            list: []
         };
         this.updateList = this.updateList.bind(this);
+        this.getList = this.getList.bind(this);
+    }
+
+    getList(){
+        return this.state.list;
     }
     updateList(List){
         this.setState({list:List});
     }
-    componentDidMount(){
-    }
+
     render() {
         return (
             <List url = {this.props.url}
                   updateList = {this.updateList}
-                  item = {new Widget({attributes:{}})}
-                  className ="Widgets"
-                  filter = {this.props.filter}
+                  item = {new Link({attributes:{}})}
+                  className ="NavMenu"
+                  {...this.state}
             />
         );
     }

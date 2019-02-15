@@ -1,13 +1,13 @@
 import React from 'react';
-import Api from "../../Api/Api";
-import {RenderList} from "./RenderList";
+import Api from "../Api/Api";
+import {RenderList} from "../Render/RenderList";
 
 
 export default class List extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {list:[]};
         this.api = new Api(this.props.url);
-        this.list = [];
         this.initList = this.initList.bind(this);
         this.addItem = this.addItem.bind(this);
         this.refreshList = this.refreshList.bind(this);
@@ -15,21 +15,19 @@ export default class List extends React.Component {
         this.getList = this.getList.bind(this);
     }
     getList(){
-        return this.list;
+        return this.props.list;
     }
     componentDidMount(){
         this.api.get(this.initList,{url:this.props.url});
     }
     updateList(List){
-        this.list = List;
-        this.props.updateList(this);
+        //this.setState(List);
+        this.props.updateList(List);
     }
-    refreshList(target,item,itemName){
+    refreshList(target,item){
         let index = this.getList().findIndex(wdg => wdg.attributes.id === target.id);
         let items = [...this.getList()];
-        if(itemName === "widget"){
-            items[index] = item;
-        }
+        items[index] = item;
         this.updateList(items)
     }
     
@@ -41,12 +39,15 @@ export default class List extends React.Component {
         }
     }
     addItem(props) {
-        //let item = Object.create(this.props.item);
-        let item = this.props.item;
-        item.attributes = props;
-        let list = [...this.getList()];
-        list = list.concat([item]);
-        this.updateList(list)
+        const exists = this.getList().findIndex(wdg => wdg.attributes.id === props.id);
+        if (exists === -1){
+            let item = this.props.item;
+            item.attributes = props;
+            let list = [...this.getList()];
+            list = list.concat([item]);
+            this.updateList(list)
+        }
+
     }
     handleSubmit(event){
         event.preventDefault();

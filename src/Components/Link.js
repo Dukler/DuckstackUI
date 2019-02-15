@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 
 
-export default class Menu extends React.Component {
+export default class Link extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};

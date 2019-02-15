@@ -1,10 +1,11 @@
 import React from "react";
 import Api from "../Api/Api";
 import {HashRouter } from "react-router-dom";
-import NavMenu from "./DSNavMenu/NavMenu";
+import NavMenu from "../Containers/NavMenu";
 import {constants} from '../Constants';
-import ContentList from "./DSContent/ContentList";
-
+import ContentList from "../Containers/ContentList";
+import SignIn from "../Testing/SingIn";
+import ResponsiveDrawer from "../Testing/ResponsiveDrawer";
 
 export default class UI extends  React.Component{
     constructor(props) {
@@ -15,19 +16,25 @@ export default class UI extends  React.Component{
         };
         this.isLoggedIn= this.isLoggedIn.bind(this);
         this.renderUI= this.renderUI.bind(this);
+        this.testLogin= this.testLogin.bind(this);
     }
     componentDidMount() {
     }
     isLoggedIn(){
         return this.state.loggedIn;
     }
+    testLogin(){
+        this.setState({loggedIn:true});
+    }
     renderUI(){
-        if(this.isLoggedIn()){
-
+        if(!this.isLoggedIn()){
+            return <div>
+                <ResponsiveDrawer/>
+            </div>
         }else {
             return  <div>
-                        <NavMenu url = {constants.login}/>
-                        <ContentList url = {constants.login}/>
+                        <NavMenu url = {constants.home}/>
+                        <ContentList url = {constants.home}/>
                     </div>
         }
     }
@@ -35,10 +42,7 @@ export default class UI extends  React.Component{
         return(
             <div className='UI'>
                 <HashRouter>
-                    <div>
-                        <h1>DSUI</h1>
-                        {this.renderUI()}
-                    </div>
+                    {this.renderUI()}
                 </HashRouter>
             </div>
     )}
