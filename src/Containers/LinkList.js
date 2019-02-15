@@ -26,7 +26,7 @@ export default class LinkList extends React.Component {
             <List url = {this.props.url}
                   updateList = {this.updateList}
                   item = {new Link({attributes:{}})}
-                  className ="NavMenu"
+                  className ="LinkList"
                   {...this.state}
             />
         );
