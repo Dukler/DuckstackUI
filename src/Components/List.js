@@ -6,7 +6,6 @@ import {RenderList} from "../Render/RenderList";
 export default class List extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {list:[]};
         this.api = new Api(this.props.url);
         this.initList = this.initList.bind(this);
         this.addItem = this.addItem.bind(this);

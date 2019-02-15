@@ -19,7 +19,7 @@ export const RenderList = ({ list, opts }) => {
                     }
                 </div>;
             break;
-        case "NavMenu":
+        case "LinkList":
             render =
                 <ul className="header">
                     {list.map((menu, index) =>

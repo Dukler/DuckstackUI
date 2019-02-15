@@ -4,7 +4,7 @@ import List from "../Components/List";
 
 
 
-export default class NavMenu extends React.Component {
+export default class LinkList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

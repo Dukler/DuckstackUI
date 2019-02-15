@@ -1,7 +1,7 @@
 import React from "react";
 import Api from "../Api/Api";
 import {HashRouter } from "react-router-dom";
-import NavMenu from "../Containers/NavMenu";
+import LinkList from "../Containers/LinkList";
 import {constants} from '../Constants';
 import ContentList from "../Containers/ContentList";
 import SignIn from "../Testing/SingIn";
@@ -33,7 +33,7 @@ export default class UI extends  React.Component{
             </div>
         }else {
             return  <div>
-                        <NavMenu url = {constants.home}/>
+                        <LinkList url = {constants.home}/>
                         <ContentList url = {constants.home}/>
                     </div>
         }
