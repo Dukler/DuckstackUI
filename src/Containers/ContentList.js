@@ -1,5 +1,5 @@
 import React from 'react';
-import List from "../Components/List";
+import ListManager from "../Components/ListManager";
 import Content from "../Components/Content";
 
 
@@ -24,11 +24,11 @@ export default class ContentList extends React.Component {
 
     render() {
         return (
-            <List url = {this.props.url}
-                  updateList = {this.updateList}
-                  item = {new Content({attributes:{}})}
-                  className ="Content"
-                  {...this.state}
+            <ListManager url = {this.props.url}
+                         updateList = {this.updateList}
+                         item = {new Content({attributes:{}})}
+                         className ="Content"
+                         {...this.state}
             />
         );
     }

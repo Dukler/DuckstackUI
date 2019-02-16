@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from "../Components/Link";
-import List from "../Components/List";
-
+import ListManager from "../Components/ListManager";
+//const CustomTag =`${tag}`;
+//<CustomTag><CustomTag/>
 
 
 export default class LinkList extends React.Component {
@@ -23,11 +24,12 @@ export default class LinkList extends React.Component {
 
     render() {
         return (
-            <List url = {this.props.url}
-                  updateList = {this.updateList}
-                  item = {new Link({attributes:{}})}
-                  className ="LinkList"
-                  {...this.state}
+
+            <ListManager url = {this.props.url}
+                         updateList = {this.updateList}
+                         item = {new Link({attributes:{}})}
+                         className ="LinkList"
+                         {...this.state}
             />
         );
     }

@@ -13,7 +13,9 @@ export default class Link extends React.Component {
     render(){
         const attributes = this.props.attributes;
         return (
-            <li><NavLink id = {attributes.id} exact to={attributes.path}>{attributes.caption}</NavLink></li>
+            <NavLink id = {attributes.id} exact to={attributes.path}>
+                {attributes.caption}
+            </NavLink>
         );
     }
 }

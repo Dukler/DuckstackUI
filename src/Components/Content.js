@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import Widget from "./Widget";
-import List from "./List";
+import ListManager from "./ListManager";
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -23,12 +23,12 @@ export default class Content extends React.Component {
             <Route id = {attributes.id} exact path={attributes.path} render={()=>
                 <>
                     <h2>{attributes.caption}</h2>
-                    <List url = {this.props.url}
-                          updateList = {this.stateCache}
-                          item = {new Widget({attributes:{}})}
-                          className ="Widgets"
-                          filter = {attributes.id}
-                          list = {this.state.list}
+                    <ListManager url = {this.props.url}
+                                 updateList = {this.stateCache}
+                                 item = {new Widget({attributes:{}})}
+                                 className ="Widgets"
+                                 filter = {attributes.id}
+                                 list = {this.state.list}
                     />
                 </>
             }/>

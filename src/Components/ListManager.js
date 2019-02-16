@@ -3,7 +3,7 @@ import Api from "../Api/Api";
 import {RenderList} from "../Render/RenderList";
 
 
-export default class List extends React.Component {
+export default class ListManager extends React.Component {
     constructor(props) {
         super(props);
         this.api = new Api(this.props.url);
@@ -20,7 +20,7 @@ export default class List extends React.Component {
         this.api.get(this.initList,{url:this.props.url});
     }
     updateList(List){
-        //this.setState(List);
+        //this.setState(ListManager);
         this.props.updateList(List);
     }
     refreshList(target,item){
