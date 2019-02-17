@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "../Components/Link";
+import ListedLink from "../Components/ListedLink";
 import Widget from "../Components/Widget";
 import Content from "../Components/Content";
 
@@ -21,13 +21,13 @@ export const RenderList = ({ list, opts }) => {
             break;
         case "LinkList":
             render =
-                <ul className="header">
-                    {list.map((menu, index) =>
-                        <Link
+                <>
+                    {list.map((link, index) =>
+                        <ListedLink
                             key = {index}
-                            attributes = {menu.attributes}
+                            attributes = {link.attributes}
                         />)}
-                </ul>;
+                </>;
             break;
         case "Content":
             render =

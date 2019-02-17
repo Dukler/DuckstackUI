@@ -12,7 +12,7 @@ export default class UI extends  React.Component{
         super(props);
         this.state ={
             api: new Api({url:"ui/update"}),
-            loggedIn:true
+            loggedIn:false
         };
         this.isLoggedIn= this.isLoggedIn.bind(this);
         this.renderUI= this.renderUI.bind(this);

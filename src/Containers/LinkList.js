@@ -1,6 +1,8 @@
 import React from 'react';
-import Link from "../Components/Link";
+import ListedLink from "../Components/ListedLink";
 import ListManager from "../Components/ListManager";
+import List from '@material-ui/core/List';
+import Divider from "@material-ui/core/Divider";
 //const CustomTag =`${tag}`;
 //<CustomTag><CustomTag/>
 
@@ -24,13 +26,19 @@ export default class LinkList extends React.Component {
 
     render() {
         return (
-
-            <ListManager url = {this.props.url}
-                         updateList = {this.updateList}
-                         item = {new Link({attributes:{}})}
-                         className ="LinkList"
-                         {...this.state}
-            />
+            <div>
+                <div className={this.props.toolbar} />
+                <Divider />
+                <List>
+                    <ListManager url = {this.props.url}
+                                 updateList = {this.updateList}
+                                 item = {new ListedLink({attributes:{}})}
+                                 className ="LinkList"
+                                 {...this.state}
+                    />
+                </List>
+            <Divider />
+            </div>
         );
     }
 }
