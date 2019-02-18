@@ -1,17 +1,12 @@
 import React from 'react';
-import {WidgetRender} from "./WidgetRender";
+import {WidgetRender} from "../Render/WidgetRender";
 
 
 export default class Widget extends React.Component {
     constructor(props) {
         super(props);
-        this.onValueChange = this.onValueChange.bind(this);
-        this.changeValue = this.changeValue.bind(this);
-        this.state={value:""};
-        this.isUpdated = true;
-    }
-    changeValue(val){
-        this.setState(state =>({value:val}))
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
     }
@@ -23,14 +18,19 @@ export default class Widget extends React.Component {
 
         //this.props.actions.replace(this);
     }
-    static getDerivedStateFromProps(props, state){
-        console.log("asd");
-        if(props.value !== state.value){
-            return{
-                value:props.value
-            }
-        }
-        return null;
+    handleInputChange(event){
+        let att =  {
+                id: this.props.attributes.id,
+                caption: this.props.attributes.caption,
+                name: this.props.attributes.name,
+                type: this.props.attributes.type,
+                dstype: this.props.attributes.dstype,
+                suggested: this.props.attributes.suggested,
+                contentFilter: this.props.attributes.contentFilter,
+                value: event.target.value
+        };
+        let wdg = Object.assign(new Widget(),this,{attributes:att});
+        this.props.onValueChange(event.target,wdg);
     }
 
     onSubmit(event){

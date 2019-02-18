@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 export const WidgetRender = ({attributes, actions, value }) => {
     let render = null;
@@ -29,7 +30,11 @@ export const WidgetRender = ({attributes, actions, value }) => {
             break;
         case "button":
             render =
-                <button onClick={actions.handleSubmit}>{attributes.caption}</button>;
+                <Button onClick={opts.handleSubmit}
+                        variant="contained"
+                        color="primary">
+                    {attributes.caption}
+                </Button>;
             break;
         default:
             break;
