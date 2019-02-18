@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47b3efd1-ff97-4cd6-908f-2f9e0dd80e58" name="Default Changelist" comment="this and that">
-      <change afterPath="$PROJECT_DIR$/src/Components/ListedLink.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Link.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/LinkList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LinkList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Render/RenderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/RenderList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="82" column="27" lean-forward="true" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="73" />
+            <state relative-caret-position="1679">
+              <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="73" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#219#265#0" expanded="true" />
@@ -47,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/ListedLink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="365">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
               <folding>
                 <element signature="e#69#127#0" expanded="true" />
               </folding>
@@ -60,19 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/Containers/LinkList.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/ListManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -81,9 +61,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/ListManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9776" column="26" selection-start-line="9776" selection-start-column="26" selection-end-line="9776" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Render/RenderList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="483">
               <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="28" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -95,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/UI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="552">
               <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -116,8 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Menu</find>
-      <find>dsc</find>
       <find>redux</find>
       <find>data:</find>
       <find>&quot;test</find>
@@ -146,6 +154,8 @@
       <find>navmenu</find>
       <find>LinkList</find>
       <find>require</find>
+      <find>&quot;braces&quot;: &quot;^1</find>
+      <find>bra</find>
     </findStrings>
     <replaceStrings>
       <replace>initList</replace>
@@ -167,6 +177,7 @@
       <replace>enhancedRender</replace>
       <replace>EnhancedRender</replace>
       <replace>wdg.props.attributes</replace>
+      <replace>&quot;braces&quot;: &quot;^2.3.2&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -223,6 +234,7 @@
         <option value="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" />
         <option value="$PROJECT_DIR$/src/Render/RenderList.js" />
         <option value="$PROJECT_DIR$/src/Components/ListedLink.js" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
       </list>
     </option>
   </component>
@@ -233,8 +245,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="399" />
-    <option name="y" value="89" />
+    <option name="x" value="-1529" />
+    <option name="y" value="80" />
     <option name="width" value="1421" />
     <option name="height" value="966" />
   </component>
@@ -246,35 +258,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
+              <item name="DuckstackUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DuckstackUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -438,7 +433,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427590000" />
+    <option name="totallyTimeSpent" value="429125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -450,10 +445,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="399" y="89" width="1421" height="966" extended-state="0" />
+    <frame x="-1529" y="80" width="1421" height="966" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.219812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.219812" />
       <window_info id="Structure" order="1" sideWeight="0.4681275" side_tool="true" weight="0.23899914" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
@@ -650,7 +645,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Go/src/AppointmentServer/API/Login.json" />
     <entry file="file://$PROJECT_DIR$/src/clipboard.txt" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/ContentRender.js" />
     <entry file="file://$PROJECT_DIR$/src/backup code/high order component example.txt" />
@@ -704,13 +698,6 @@
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/RenderList.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/List.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSDataManager/User.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -794,7 +781,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="552">
           <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -804,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="82" column="27" lean-forward="true" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="73" />
+        <state relative-caret-position="1679">
+          <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="73" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#219#265#0" expanded="true" />
@@ -817,8 +804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ListedLink.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="365">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
           <folding>
             <element signature="e#69#127#0" expanded="true" />
           </folding>
@@ -828,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/src/Containers/LinkList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -837,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Render/RenderList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="483">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="28" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -847,11 +834,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ListManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+        <state relative-caret-position="253">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9776" column="26" selection-start-line="9776" selection-start-column="26" selection-end-line="9776" selection-end-column="26" />
         </state>
       </provider>
     </entry>
