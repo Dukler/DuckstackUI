@@ -37,7 +37,7 @@ export default class LinkList extends React.Component {
                                  {...this.state}
                     />
                 </List>
-            <Divider />
+                <Divider />
             </div>
         );
     }
