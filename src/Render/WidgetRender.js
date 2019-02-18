@@ -1,16 +1,17 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-export const WidgetRender = ({attributes, actions, value }) => {
+export const WidgetRender = ({attributes, opts }) => {
     let render = null;
+
     switch (attributes.dstype) {
         case "options":
             render =
                 <select
                     id={attributes.id}
                     name={attributes.name}
-                    value={attributes.value}
-                    onChange={attributes.onValueChange}>
+                    value={opts.value}
+                    onChange={opts.onValueChange}>
                     {attributes.options.map(option =>
                         <option id={option.id} value={option.value}>{option.value}</option>)}
                 </select>;
@@ -24,8 +25,8 @@ export const WidgetRender = ({attributes, actions, value }) => {
                         name={attributes.name}
                         type={attributes.type}
                         suggested ={attributes.suggested}
-                        value={value}
-                        onChange={actions.replace}/>
+                        value={attributes.value}
+                        onChange={opts.handleInputChange}/>
                 </div>;
             break;
         case "button":

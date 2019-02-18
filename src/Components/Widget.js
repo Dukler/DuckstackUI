@@ -10,13 +10,10 @@ export default class Widget extends React.Component {
     }
     componentDidMount() {
     }
-    onValueChange(event){
-        event.preventDefault();
-        const target = event.target;
-        this.setState({value:target.value});
-        this.props.actions.setUpdateStatus(this,false);
-
-        //this.props.actions.replace(this);
+    componentDidUpdate(prevProps){
+        if (this.props.attributes.value !== prevProps.attributes.value) {
+            console.log("updated widget " + this.props.attributes.name );
+        }
     }
     handleInputChange(event){
         let att =  {
@@ -32,22 +29,16 @@ export default class Widget extends React.Component {
         let wdg = Object.assign(new Widget(),this,{attributes:att});
         this.props.onValueChange(event.target,wdg);
     }
-
-    onSubmit(event){
-        event.preventDefault();
-        //api.post({url:"Login",list:props.getSerializedList()})
-        //this.props.handleSubmit(this.props.getSerializedList());
+    handleSubmit(event){
+        this.props.handleSubmit(event)
     }
-
     render(){
-        return (
-            <WidgetRender
-                attributes = {this.props}
-                value = {this.props.value}
-                actions = {{...this.props.actions,
-                    handleInputChange:this.onValueChange,
-                    handleSubmit:this.onSubmit}}
-            />);
-    }
+        let props = {
+            handleInputChange:this.handleInputChange,
+            handleSubmit:this.handleSubmit};
 
-};
+        return (<WidgetRender
+            attributes = {this.props.attributes}
+            opts = {props}/>);
+    }
+}

@@ -7,6 +7,7 @@ export default class Api {
         //super(props);
         this.props = props;
         this.post = this.post.bind(this);
+        this.get= this.get.bind(this);
         this.urlTo= this.urlTo.bind(this);
         this.currentURL= this.currentURL.bind(this);
     }
@@ -16,30 +17,33 @@ export default class Api {
     currentURL(){
         return this.urlTo(this.props.url)
     }
-    post(props){
-        let response,error;
+    post(object,props){
+        let url;
         if (typeof props === 'undefined'){
-            return
+            url = this.props.url
+        }else {
+            url = props.url
         }
+        //let response,error;
         (async () => {
-            const rawResponse = await fetch(this.urlTo(props.url), {
+            /*const rawResponse =*/ await fetch(this.urlTo(url), {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(props.list)
-            }).then((res) => {
-                props.callback(res);
+                body: JSON.stringify(object)
+            })/*.then((res) => {
+                response = res;
             }).catch((err) => {
                 error = err;
-            });
-            const content = await rawResponse.json();
-            console.log(content);
+            });*/
+            // const content = await rawResponse.json();
+            // console.log(content);
         })();
     }
-    static get(url, callback){
-        fetch("http://192.168.0.5:8080/api/" + url)
+    get(callback,props){
+        fetch(constants.api + props.url)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -48,29 +52,14 @@ export default class Api {
                 }
             })
             .then(data => {
-                callback(data);
+                callback (data);
             })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-    static getPromise(url,callback){
-        fetch("http://192.168.0.5:8080/api/" + url)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Something went wrong ...');
-                }
-            })
-            .then(data => {
-                return new Promise((resolve,reject) =>{
-
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
+            .catch(error => alert(error));
     }
 
+    // render() {
+    //     return (
+    //         <div></div>
+    //     );
+    // }
 }

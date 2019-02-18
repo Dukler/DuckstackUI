@@ -1,4 +1,5 @@
 import React from "react";
+import Api from "../Api/Api";
 import {HashRouter } from "react-router-dom";
 import LinkList from "../Containers/LinkList";
 import {constants} from '../Constants';
@@ -7,9 +8,13 @@ import SignIn from "../Testing/SingIn";
 import ResponsiveDrawer from "../Testing/ResponsiveDrawer";
 
 export default class UI extends  React.Component{
-    user = User.getInstance();
     constructor(props) {
         super(props);
+        this.state ={
+            api: new Api({url:"ui/update"}),
+            loggedIn:false
+        };
+        this.isLoggedIn= this.isLoggedIn.bind(this);
         this.renderUI= this.renderUI.bind(this);
         this.testLogin= this.testLogin.bind(this);
     }
