@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="47b3efd1-ff97-4cd6-908f-2f9e0dd80e58" name="Default Changelist" comment="this and that">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            <state relative-caret-position="-221">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -84,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9776" column="26" selection-start-line="9776" selection-start-column="26" selection-end-line="9776" selection-end-column="26" />
+            <state relative-caret-position="317">
+              <caret line="9771" column="36" lean-forward="true" selection-start-line="9771" selection-start-column="36" selection-end-line="9771" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -154,8 +155,8 @@
       <find>navmenu</find>
       <find>LinkList</find>
       <find>require</find>
-      <find>&quot;braces&quot;: &quot;^1</find>
       <find>bra</find>
+      <find>&quot;braces&quot;: &quot;^1</find>
     </findStrings>
     <replaceStrings>
       <replace>initList</replace>
@@ -245,8 +246,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1529" />
-    <option name="y" value="80" />
+    <option name="x" value="-1691" />
+    <option name="y" value="89" />
     <option name="width" value="1421" />
     <option name="height" value="966" />
   </component>
@@ -433,7 +434,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429125000" />
+    <option name="totallyTimeSpent" value="430644000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,7 +446,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1529" y="80" width="1421" height="966" extended-state="0" />
+    <frame x="-1691" y="89" width="1421" height="966" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.219812" />
@@ -670,13 +671,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-dev-utils/webpackHotDevClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dev-utils/webpackHotDevClient.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/Form.js" />
     <entry file="file://$PROJECT_DIR$/src/Forms/Form.js" />
     <entry file="http://localhost:3000/static/js/bundle.js">
@@ -698,13 +693,7 @@
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/RenderList.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/List.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSDataManager/User.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSHooks/Hooks.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetListRender.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSContent/ContentList.js" />
@@ -727,13 +716,7 @@
     <entry file="http://localhost:3000/static/js/main.chunk.js">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="15968" column="45" selection-start-line="15968" selection-start-column="45" selection-end-line="15968" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js" />
     <entry file="file://$PROJECT_DIR$/src/DSUI/DSScreens/Login.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -844,15 +827,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="-221">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9776" column="26" selection-start-line="9776" selection-start-column="26" selection-end-line="9776" selection-end-column="26" />
+        <state relative-caret-position="317">
+          <caret line="9771" column="36" lean-forward="true" selection-start-line="9771" selection-start-column="36" selection-end-line="9771" selection-end-column="36" />
         </state>
       </provider>
     </entry>
