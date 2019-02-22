@@ -2,26 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-// import EventIcon from '@material-ui/icons/EventAvailable';
-// import ContactsIcon from '@material-ui/icons/Contacts';
-// import CalendarIcon from '@material-ui/icons/DateRange';
-// import NotesIcon from '@material-ui/icons/Notes';
 import {constants} from "../Constants";
 import LinkList from "../Containers/LinkList";
+import {Route,Switch} from "react-router-dom";
+import Content from "../Components/Content";
+import ContentList from "../Containers/ContentList";
+
 
 const drawerWidth = 240;
 
@@ -71,37 +64,11 @@ class ResponsiveDrawer extends React.Component {
 
         const drawer = (
             <LinkList url = {constants.home} toolbar = {classes.toolbar}/>
-            // <div>
-            //     <div className={classes.toolbar} />
-            //     <Divider />
-            //     <List>
-            //         <ListItem button key={"Turnos"}>
-            //             <ListItemIcon>{<EventIcon/>}</ListItemIcon>
-            //             <ListItemText primary={"Turnos"}/>
-            //         </ListItem>
-            //         <ListItem button key={"Clientes"}>
-            //             <ListItemIcon>{<ContactsIcon/>}</ListItemIcon>
-            //             <ListItemText primary={"Clientes"}/>
-            //         </ListItem>
-            //         <ListItem button key={"Calendario"}>
-            //             <ListItemIcon>{<CalendarIcon/>}</ListItemIcon>
-            //             <ListItemText primary={"Calendario"}/>
-            //         </ListItem>
-            //         <ListItem button key={"Historiales?"}>
-            //             <ListItemIcon>{<NotesIcon/>}</ListItemIcon>
-            //             <ListItemText primary={"Historiales?"}/>
-            //         </ListItem>
-            //     </List>
-            //     <Divider />
-            //     <List>
-            //         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            //             <ListItem button key={text}>
-            //                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            //                 <ListItemText primary={text} />
-            //             </ListItem>
-            //         ))}
-            //     </List>
-            // </div>
+        );
+        const dGarch = (
+            <Switch>
+                <ContentList url = {constants.home}/>
+            </Switch>
         );
 
         return (
@@ -152,12 +119,7 @@ class ResponsiveDrawer extends React.Component {
                 </nav>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Typography paragraph>
-                        shit1
-                    </Typography>
-                    <Typography paragraph>
-                        shit2
-                    </Typography>
+                    {dGarch}
                 </main>
             </div>
         );

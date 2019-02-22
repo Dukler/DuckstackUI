@@ -31,14 +31,14 @@ export const RenderList = ({ list, opts }) => {
             break;
         case "Content":
             render =
-                <div className="content">
+                <>
                     {list.map((content, index) =>
                         <Content
                             key = {index}
                             attributes = {content.attributes}
                             url = {opts.url}
                         />)}
-                </div>;
+                </>;
             break;
         default:
             break;

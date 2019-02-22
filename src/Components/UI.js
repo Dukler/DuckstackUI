@@ -1,6 +1,6 @@
 import React from "react";
 import Api from "../Api/Api";
-import {HashRouter } from "react-router-dom";
+import {BrowserRouter } from "react-router-dom";
 import LinkList from "../Containers/LinkList";
 import {constants} from '../Constants';
 import ContentList from "../Containers/ContentList";
@@ -41,9 +41,9 @@ export default class UI extends  React.Component{
     render(){
         return(
             <div className='UI'>
-                <HashRouter>
+                <BrowserRouter>
                     {this.renderUI()}
-                </HashRouter>
+                </BrowserRouter>
             </div>
     )}
 

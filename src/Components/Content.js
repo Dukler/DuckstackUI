@@ -22,7 +22,6 @@ export default class Content extends React.Component {
         return (
             <Route id = {attributes.id} exact path={attributes.path} render={()=>
                 <>
-                    <h2>{attributes.caption}</h2>
                     <ListManager url = {this.props.url}
                                  updateList = {this.stateCache}
                                  item = {new Widget({attributes:{}})}

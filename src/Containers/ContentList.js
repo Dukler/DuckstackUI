@@ -24,12 +24,14 @@ export default class ContentList extends React.Component {
 
     render() {
         return (
-            <ListManager url = {this.props.url}
-                         updateList = {this.updateList}
-                         item = {new Content({attributes:{}})}
-                         className ="Content"
-                         {...this.state}
-            />
+            <>
+                <ListManager url = {this.props.url}
+                             updateList = {this.updateList}
+                             item = {new Content({attributes:{}})}
+                             className ="Content"
+                             {...this.state}
+                />
+            </>
         );
     }
 }
