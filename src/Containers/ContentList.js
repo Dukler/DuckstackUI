@@ -12,9 +12,6 @@ export default class ContentList extends React.Component {
         this.updateList = this.updateList.bind(this);
         this.getList = this.getList.bind(this);
     }
-    componentDidMount() {
-    }
-
     getList(){
         return this.state.list;
     }

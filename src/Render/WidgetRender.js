@@ -1,5 +1,10 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
 
 export const WidgetRender = ({attributes, opts }) => {
     let render = null;
@@ -18,16 +23,19 @@ export const WidgetRender = ({attributes, opts }) => {
             break;
         case "input":
             render =
-                <div>
-                    <label htmlFor={attributes.id}>{attributes.caption}</label>
-                    <input
-                        id = {attributes.id}
-                        name={attributes.name}
-                        type={attributes.type}
-                        suggested ={attributes.suggested}
-                        value={attributes.value}
-                        onChange={opts.handleInputChange}/>
-                </div>;
+                <>
+                    <FormControl margin="normal" required fullWidth>
+                        <InputLabel htmlFor={attributes.id}>{attributes.caption}</InputLabel>
+                        <Input id={attributes.id}
+                               name={attributes.name}
+                               autoComplete={attributes.suggested}
+                               type={attributes.type}
+                               value={attributes.value}
+                               onChange={opts.handleInputChange}
+                               autoFocus
+                        />
+                    </FormControl>
+                </>;
             break;
         case "button":
             render =
