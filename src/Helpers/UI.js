@@ -5,14 +5,14 @@ import LinkList from "../Containers/LinkList";
 import {constants} from '../Constants';
 import ContentList from "../Containers/ContentList";
 import SignIn from "../Testing/SingIn";
-import ResponsiveDrawer from "../Testing/ResponsiveDrawer";
+import ResponsiveDrawer from "../Components/ResponsiveDrawer";
 
 export default class UI extends  React.Component{
     constructor(props) {
         super(props);
         this.state ={
             api: new Api({url:"ui/update"}),
-            loggedIn:false
+            loggedIn:true
         };
         this.isLoggedIn= this.isLoggedIn.bind(this);
         this.renderUI= this.renderUI.bind(this);
@@ -28,13 +28,15 @@ export default class UI extends  React.Component{
     }
     renderUI(){
         if(!this.isLoggedIn()){
-            return <div>
-                <ResponsiveDrawer/>
-            </div>
+            return  <div>
+                        <SignIn/>
+                    </div>
         }else {
             return  <div>
-                        <LinkList url = {constants.home}/>
-                        <ContentList url = {constants.home}/>
+                        <ResponsiveDrawer
+                            contentList={<ContentList url = {constants.home}/>}
+                            linkList={<LinkList url = {constants.home}/>}
+                        />
                     </div>
         }
     }

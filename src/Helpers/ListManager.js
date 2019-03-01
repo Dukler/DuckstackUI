@@ -1,6 +1,8 @@
 import React from 'react';
 import Api from "../Api/Api";
-import {RenderList} from "../Render/RenderList";
+//import LazyComponent from "../BeLazy/LazyComponent";
+import AsyncComponent from "../BeLazy/AsyncComponent";
+import update from 'immutability-helper';
 
 
 export default class ListManager extends React.Component {
@@ -9,7 +11,7 @@ export default class ListManager extends React.Component {
         this.api = new Api(this.props.url);
         this.initList = this.initList.bind(this);
         this.addItem = this.addItem.bind(this);
-        this.refreshList = this.refreshList.bind(this);
+        this.updateItem = this.updateItem.bind(this);
         this.updateList = this.updateList.bind(this);
         this.getList = this.getList.bind(this);
     }
@@ -23,11 +25,17 @@ export default class ListManager extends React.Component {
         //this.setState(ListManager);
         this.props.updateList(List);
     }
-    refreshList(target,item){
+    updateItem(event){
+        event.preventDefault();
+        const target = event.target;
         let index = this.getList().findIndex(wdg => wdg.attributes.id === target.id);
-        let items = [...this.getList()];
-        items[index] = item;
-        this.updateList(items)
+        // let items = [...this.getList()];
+        // items[index].attributes.value=target.value;
+        const newList = update(this.getList(),{
+            [index]:{attributes:{value:{$set:target.value}}}
+        });
+
+        this.updateList(newList)
     }
     
     initList(data){
@@ -40,7 +48,7 @@ export default class ListManager extends React.Component {
     addItem(props) {
         const exists = this.getList().findIndex(wdg => wdg.attributes.id === props.id);
         if (exists === -1){
-            let item = this.props.item;
+            let item = {attributes:{}};
             item.attributes = props;
             let list = [...this.getList()];
             list = list.concat([item]);
@@ -55,14 +63,21 @@ export default class ListManager extends React.Component {
 
     render() {
         let props = {
-            refreshList:this.refreshList,
+            updateItem:this.updateItem,
             handleSubmit:this.handleSubmit,
             filter:this.props.filter,
             className:this.props.className,
             url:this.props.url};
 
-        return (<RenderList
-            list = {this.getList()}
-            opts = {props}/>);
+        return (
+            <>
+                {this.getList().filter(comp => comp.attributes.contentFilter === props.filter).map((comp, index) =>
+                    <AsyncComponent
+                        key={comp.attributes.id}
+                        componentName={comp.attributes.dscomponent}
+                        props={{attributes:comp.attributes, ...props}}/>
+                )}
+            </>
+        );
     }
 }

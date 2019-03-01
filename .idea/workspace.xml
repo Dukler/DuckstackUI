@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47b3efd1-ff97-4cd6-908f-2f9e0dd80e58" name="Default Changelist" comment="this and that">
+      <change afterPath="$PROJECT_DIR$/src/BeLazy/AsyncComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BeLazy/LazyComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BeLazy/LazyLoad.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/CustomButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/FormInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ListManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/ListManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ListedLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ListedLink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/UI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Widget.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/ContentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/ContentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Render/WidgetRender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/WidgetRender.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/LinkList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LinkList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Render/RenderList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Render/WidgetRender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ResponsiveDrawer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,37 +39,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Helpers/ListManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+            <state relative-caret-position="140">
+              <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Containers/ContentList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/ListManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#112#166#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Content.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="200">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -71,10 +65,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/UI.js">
+        <entry file="file://$PROJECT_DIR$/src/BeLazy/LazyComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="61" />
+            <state relative-caret-position="60">
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BeLazy/AsyncComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -83,10 +86,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Render/RenderList.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/FormInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="280">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -97,17 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/SingIn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1058">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="9" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Render/WidgetRender.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            <state relative-caret-position="1080">
+              <caret line="67" column="61" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="61" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -127,21 +121,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>render(){</find>
-      <find>{...</find>
-      <find>data</find>
-      <find>dsui</find>
-      <find>key={</find>
-      <find>&lt;route</find>
-      <find>&quot;debug&quot;</find>
-      <find>console.log(&quot;asd</find>
-      <find>getderiv</find>
-      <find>getDe</find>
-      <find>getderived</find>
-      <find>componentDidUpdate</find>
-      <find>192.168.0.5:8080</find>
       <find>constants</find>
-      <find>Widget</find>
       <find>widget</find>
       <find>actions</find>
       <find>new Content</find>
@@ -157,6 +137,20 @@
       <find>router</find>
       <find>browserro</find>
       <find>hashrouter</find>
+      <find>montado</find>
+      <find>updateItem</find>
+      <find>refreshList</find>
+      <find>render</find>
+      <find>&lt;Wid</find>
+      <find>&lt;Widget</find>
+      <find>Widget</find>
+      <find>&lt;ListManager</find>
+      <find>&lt;Render</find>
+      <find>dstype</find>
+      <find>&quot;asd&quot;</find>
+      <find>&lt;listmana</find>
+      <find>&lt;LazyComponent</find>
+      <find>user</find>
     </findStrings>
     <replaceStrings>
       <replace>initList</replace>
@@ -188,22 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/DSUI/DSListController/List.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSList/renderList.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSWidgets/widgetListRender.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/Main.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSList/Container.js" />
-        <option value="$PROJECT_DIR$/src/Api/Constants.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSScreen.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSState/StateManager.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSDataManager/DataManager.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSDataManager/LoginManager.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSDataManager/Login.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSDataManager/User.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSComposer/HasData.js" />
-        <option value="$PROJECT_DIR$/src/DSUI/DSComposer/Data.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSList/List.js" />
         <option value="$PROJECT_DIR$/src/DSUI/DSWidgets/WidgetList.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
@@ -225,20 +203,36 @@
         <option value="$PROJECT_DIR$/src/DSUI/DSComposer/hasData.js" />
         <option value="$PROJECT_DIR$/src/Constants.js" />
         <option value="$PROJECT_DIR$/src/Components/List.js" />
-        <option value="$PROJECT_DIR$/src/Components/ListManager.js" />
         <option value="$PROJECT_DIR$/src/Components/Link.js" />
         <option value="$PROJECT_DIR$/package-lock.json" />
-        <option value="$PROJECT_DIR$/src/Containers/LinkList.js" />
-        <option value="$PROJECT_DIR$/src/Components/ListedLink.js" />
         <option value="$PROJECT_DIR$/src/Components/ContentRoute.js" />
         <option value="$PROJECT_DIR$/src/Containers/RouteList.js" />
-        <option value="$PROJECT_DIR$/src/Components/Content.js" />
-        <option value="$PROJECT_DIR$/src/Render/RenderList.js" />
-        <option value="$PROJECT_DIR$/src/Components/UI.js" />
-        <option value="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/Containers/ContentList.js" />
+        <option value="$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js" />
+        <option value="$PROJECT_DIR$/src/Components/UI.js" />
+        <option value="$PROJECT_DIR$/src/Components/ResponsiveDrawer.js" />
+        <option value="$PROJECT_DIR$/src/Components/ListManager.js" />
+        <option value="$PROJECT_DIR$/src/Components/Widget.js" />
+        <option value="$PROJECT_DIR$/src/Render/renderWidget.js" />
+        <option value="$PROJECT_DIR$/src/Components/LazyLoadModule.js" />
+        <option value="$PROJECT_DIR$/src/Render/RenderWidget.js" />
+        <option value="$PROJECT_DIR$/src/Components/Widgets/formInput.js" />
         <option value="$PROJECT_DIR$/src/Render/WidgetRender.js" />
+        <option value="$PROJECT_DIR$/src/Render/LazyWidget.js" />
+        <option value="$PROJECT_DIR$/src/Components/Widgets/FormInput.js" />
+        <option value="$PROJECT_DIR$/src/Components/Button.js" />
+        <option value="$PROJECT_DIR$/src/Containers/Content.js" />
+        <option value="$PROJECT_DIR$/src/Containers/LinkList.js" />
+        <option value="$PROJECT_DIR$/src/Containers/ContentList.js" />
+        <option value="$PROJECT_DIR$/src/Render/RenderList.js" />
+        <option value="$PROJECT_DIR$/src/Components/ListedLink.js" />
+        <option value="$PROJECT_DIR$/src/Components/CustomButton.js" />
+        <option value="$PROJECT_DIR$/src/Render/LazyComponent.js" />
+        <option value="$PROJECT_DIR$/src/BeLazy/LazyLoad.js" />
+        <option value="$PROJECT_DIR$/src/BeLazy/AsyncComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/FormInput.js" />
+        <option value="$PROJECT_DIR$/src/Components/Content.js" />
+        <option value="$PROJECT_DIR$/src/Helpers/ListManager.js" />
       </list>
     </option>
   </component>
@@ -249,9 +243,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="257" />
-    <option name="y" value="63" />
-    <option name="width" value="1234" />
+    <option name="x" value="-1356" />
+    <option name="y" value="29" />
+    <option name="width" value="1300" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -273,6 +267,12 @@
               <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
               <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="BeLazy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
@@ -301,7 +301,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-writers-blog-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -313,16 +313,16 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\Components" />
+      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\Helpers" />
+      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\Containers" />
       <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src" />
       <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\backup code" />
-      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\DSUI\DSScreens" />
-      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\DSUI\DSElements" />
-      <recent name="C:\Users\iarwa\Workspace\React\duckstackui\src\DSUI\DSNavMenu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -406,6 +406,13 @@
       <workItem from="1550362598432" duration="4150000" />
       <workItem from="1550777794630" duration="12939000" />
       <workItem from="1550851428635" duration="28157000" />
+      <workItem from="1551121176766" duration="2249000" />
+      <workItem from="1551128158061" duration="13428000" />
+      <workItem from="1551155393310" duration="5408000" />
+      <workItem from="1551192802754" duration="18448000" />
+      <workItem from="1551283395717" duration="13785000" />
+      <workItem from="1551380403621" duration="2559000" />
+      <workItem from="1551457693716" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="fixed dependencies, widgetlist state moved to widgetlist">
       <created>1542998049397</created>
@@ -453,7 +460,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481437000" />
+    <option name="totallyTimeSpent" value="537662000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -465,17 +472,37 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="257" y="63" width="1234" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1356" y="29" width="1300" height="1000" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.19063546" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.22107765" />
       <window_info id="Structure" order="1" sideWeight="0.4681275" side_tool="true" weight="0.23899914" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.7256255" weight="0.24390244" />
-      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.76704055" weight="0.33681765" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.7256255" weight="0.24336794" />
+      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.76704055" weight="0.33679354" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.32960895" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49912128" weight="0.3277311" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.23295945" side_tool="true" weight="0.34422404" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3194925" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3298731" />
+      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.49952874" weight="0.32641292" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.22107765" />
+      <window_info id="Structure" order="1" sideWeight="0.4681275" side_tool="true" weight="0.23899914" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.7256255" weight="0.24336794" />
+      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.76704055" visible="true" weight="0.33679354" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32960895" />
@@ -484,28 +511,8 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.23295945" side_tool="true" weight="0.34422404" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3205575" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3298731" />
-      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.49952874" weight="0.32752612" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.574359" weight="0.23899914" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.6154571" weight="0.2462077" />
-      <window_info active="true" anchor="bottom" id="Debug" order="2" sideWeight="0.76852506" visible="true" weight="0.34422404" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32960895" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49912128" weight="0.32871974" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.23147495" side_tool="true" weight="0.3452514" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32205367" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3298731" />
-      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.49952874" weight="0.32849163" />
+      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.49952874" weight="0.32641292" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -585,8 +592,8 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
-        <watch expression="this.props" language="JavaScript" />
-        <watch expression="this.props.attributes" language="JavaScript" />
+        <watch expression="List" language="JavaScript" />
+        <watch expression="this.state.list" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>
@@ -612,52 +619,52 @@
     </expressions>
     <expressions id="watch">
       <expression>
-        <expression-string>this.props.attributes</expression-string>
+        <expression-string>this.state.list</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.props</expression-string>
+        <expression-string>list</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.getData(className)</expression-string>
+        <expression-string>List</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test</expression-string>
+        <expression-string>this.getList().findIndex(wdg =&gt; wdg.id === props.id)</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>&lt;MaterialIcon icon={attributes.icon}/&gt;</expression-string>
+        <expression-string>this.getList().findIndex(wdg =&gt; wdg.attributes.id === props.id)</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>{&lt;MaterialIcon icon={attributes.icon}/&gt;}</expression-string>
+        <expression-string>props</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.props.attributes.id</expression-string>
+        <expression-string>resolve</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.props.attributes.icon</expression-string>
+        <expression-string>resolve()</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.props.location</expression-string>
+        <expression-string>this.props.isNotWidget</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.state.widgetsData</expression-string>
+        <expression-string>require(`../Components/Widgets/${widgetName}`)</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -676,14 +683,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/react-dev-utils/webpackHotDevClient.js" />
-    <entry file="file://$PROJECT_DIR$/src/DSUI/Form.js" />
-    <entry file="file://$PROJECT_DIR$/src/Forms/Form.js" />
-    <entry file="http://localhost:3000/static/js/bundle.js">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DSUI/DSList/Container.js" />
-    <entry file="file://$PROJECT_DIR$/src/App.css" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -746,94 +745,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/styles/withStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Typography/Typography.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1219">
-          <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ListedLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/LinkList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ContentRoute.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="28" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/RouteList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9578" selection-start-line="9578" selection-end-line="9578" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="1800" selection-start-line="1800" selection-end-line="1800" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/styles/withStyles.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Typography/Typography.d.ts" />
+    <entry file="file://$PROJECT_DIR$/src/Components/ContentRoute.js" />
+    <entry file="file://$PROJECT_DIR$/src/Containers/RouteList.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js" />
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -848,47 +764,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/ResponsiveDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ListManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/ContentList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        <state relative-caret-position="527">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Widget.js">
+    <entry file="file://$PROJECT_DIR$/src/Containers/LinkList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Render/RenderList.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state relative-caret-position="183">
+          <caret line="20206" selection-start-line="20206" selection-end-line="20206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Helpers/UI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/LazyLoadModule.js" />
+    <entry file="file://$PROJECT_DIR$/src/Components/Widget.js" />
+    <entry file="file://$PROJECT_DIR$/src/Render/WidgetRender.js" />
+    <entry file="file://$PROJECT_DIR$/src/Components/CustomButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Render/RenderList.js" />
+    <entry file="file://$PROJECT_DIR$/src/Components/ResponsiveDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BeLazy/LazyLoad.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/ListedLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Helpers/ListManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#112#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BeLazy/LazyComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BeLazy/AsyncComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/FormInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -897,15 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/SingIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1058">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Render/WidgetRender.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        <state relative-caret-position="1080">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="61" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

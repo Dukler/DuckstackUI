@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route} from "react-router-dom";
-import Widget from "./Widget";
-import ListManager from "./ListManager";
+import ListManager from "../Helpers/ListManager";
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -12,7 +11,6 @@ export default class Content extends React.Component {
         this.stateCache = this.stateCache.bind(this);
     }
     componentDidMount() {
-        console.log("montado c");
     }
     stateCache(List){
         this.setState({list:List});
@@ -24,7 +22,6 @@ export default class Content extends React.Component {
                 <>
                     <ListManager url = {this.props.url}
                                  updateList = {this.stateCache}
-                                 item = {new Widget({attributes:{}})}
                                  className ="Widgets"
                                  filter = {attributes.id}
                                  list = {this.state.list}

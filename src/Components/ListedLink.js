@@ -6,11 +6,12 @@ import ListItem from "@material-ui/core/ListItem";
 import { asyncComponent } from 'react-async-component'
 
 const MaterialIcon = ({ icon }) => {
-    let iconName = icon.replace(/Icon$/, '');
+    //let iconName = icon.replace(/Icon$/, '');
+    //console.log("asd");
     return React.createElement(asyncComponent({
         resolve: () => import(
             /* webpackMode: "eager" */
-            `@material-ui/icons/${iconName}`)
+            `@material-ui/icons/${icon}`)
     }))
 };
 

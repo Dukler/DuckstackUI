@@ -1,6 +1,6 @@
 import React from 'react';
-import ListManager from "../Components/ListManager";
-import Content from "../Components/Content";
+import ListManager from "../Helpers/ListManager";
+import {Switch} from "react-router-dom";
 
 
 export default class ContentList extends React.Component {
@@ -21,14 +21,13 @@ export default class ContentList extends React.Component {
 
     render() {
         return (
-            <>
+            <Switch>
                 <ListManager url = {this.props.url}
                              updateList = {this.updateList}
-                             item = {new Content({attributes:{}})}
                              className ="Content"
                              {...this.state}
                 />
-            </>
+            </Switch>
         );
     }
 }

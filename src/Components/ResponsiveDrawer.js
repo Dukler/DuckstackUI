@@ -9,11 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import {constants} from "../Constants";
-import LinkList from "../Containers/LinkList";
-import {Route,Switch} from "react-router-dom";
-import Content from "../Components/Content";
-import ContentList from "../Containers/ContentList";
+import Divider from "@material-ui/core/Divider";
 
 
 const drawerWidth = 240;
@@ -63,12 +59,12 @@ class ResponsiveDrawer extends React.Component {
         const { classes, theme } = this.props;
 
         const drawer = (
-            <LinkList url = {constants.home} toolbar = {classes.toolbar}/>
-        );
-        const dGarch = (
-            <Switch>
-                <ContentList url = {constants.home}/>
-            </Switch>
+            <div>
+                <div className={classes.toolbar} />
+                <Divider />
+                {this.props.linkList}
+                <Divider />
+            </div>
         );
 
         return (
@@ -119,7 +115,7 @@ class ResponsiveDrawer extends React.Component {
                 </nav>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    {dGarch}
+                    {this.props.contentList}
                 </main>
             </div>
         );
@@ -134,4 +130,4 @@ ResponsiveDrawer.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+export default  withStyles(styles, { withTheme: true })(ResponsiveDrawer);

@@ -1,5 +1,5 @@
 import React from 'react';
-import UI from "./Components/UI";
+import UI from "./Helpers/UI";
 import 'typeface-roboto';
 
 
