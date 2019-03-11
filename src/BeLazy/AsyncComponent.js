@@ -1,17 +1,24 @@
-import React from "react";
+
 import {asyncComponent} from "react-async-component";
 
-const AsyncComponent = ({componentName, props}) => {
+const AsyncComponent = props => {
     //let iconName = icon.replace(/Icon$/, '');
-    //console.log("asd");
-    return React.createElement(asyncComponent({
+    let loadingComponent = null;
+    let errorComponent = null;
+    if (props.loadingComponent){
+        loadingComponent = props.loadingComponent;
+    }
+    if (props.errorComponent){
+        errorComponent = props.errorComponent;
+    }
+    return asyncComponent({
         resolve: () => import(
             /* webpackMode: "eager" */
-            `../Components/${componentName}`),
-        LoadingComponent: ()=> <div>puto</div>
-    }),
-        {...props}
-    )
+            `../Components/${props.componentName}`
+            ),
+        LoadingComponent: ()=> loadingComponent,
+        ErrorComponent: ()=> errorComponent
+    })
 };
 
 export default AsyncComponent;

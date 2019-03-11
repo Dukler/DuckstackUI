@@ -1,33 +1,18 @@
 import React from 'react';
 import {Route} from "react-router-dom";
-import ListManager from "../Helpers/ListManager";
+import List from "../Containers/List";
 
-export default class Content extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            list:[]
-        };
-        this.stateCache = this.stateCache.bind(this);
-    }
-    componentDidMount() {
-    }
-    stateCache(List){
-        this.setState({list:List});
-    }
-    render() {
-        const attributes = this.props.attributes;
-        return (
-            <Route id = {attributes.id} exact path={attributes.path} render={()=>
-                <>
-                    <ListManager url = {this.props.url}
-                                 updateList = {this.stateCache}
-                                 className ="Widgets"
-                                 filter = {attributes.id}
-                                 list = {this.state.list}
-                    />
-                </>
-            }/>
-        );
-    }
-}
+const Content = props =>  {
+    //let iconName = icon.replace(/Icon$/, '');
+    const attributes = props.attributes;
+    return <Route id = {attributes.id} exact path={attributes.path} render={()=>
+        <>
+            <List url = {props.url}
+                  className ="Widgets"
+                  filter = {attributes.id}
+            />
+        </>
+    }/>
+};
+
+export default Content;

@@ -26,11 +26,11 @@ export default class FormInput extends React.PureComponent {
             <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor={this.props.attributes.id}>{this.props.attributes.caption}</InputLabel>
                 <Input id={this.props.attributes.id}
+                       key={this.props.attributes.id}
                        name={this.props.attributes.name}
                        autoComplete={this.props.attributes.suggested}
                        type={this.props.attributes.type}
                        value={this.props.attributes.value}
-                       //onChange={e=> this.setState({value:e.target.value})}
                        onChange={this.props.updateItem}
                        autoFocus={false}
                 />

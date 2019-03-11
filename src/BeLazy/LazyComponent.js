@@ -8,7 +8,7 @@ const LazyComponent = ({componentName, props}) =>  {
             .catch(() => ({ default:() => <div>puto</div>}))
     );
     return  <Suspense fallback={<div>Loading...</div>}>
-                <LazyItem {...props}/>
+                <LazyItem {...props} key={props.attributes.id}/>
             </Suspense>
 };
 

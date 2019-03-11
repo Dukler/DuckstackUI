@@ -1,11 +1,13 @@
 import React from "react";
 import Api from "../Api/Api";
 import {BrowserRouter } from "react-router-dom";
-import LinkList from "../Containers/LinkList";
 import {constants} from '../Constants';
-import ContentList from "../Containers/ContentList";
 import SignIn from "../Testing/SingIn";
 import ResponsiveDrawer from "../Components/ResponsiveDrawer";
+import List from "../Containers/List";
+
+const contentList = <List url = {constants.home} className="Content"/>;
+const linkList = <List url = {constants.home} className ="LinkList"/>;
 
 export default class UI extends  React.Component{
     constructor(props) {
@@ -34,8 +36,8 @@ export default class UI extends  React.Component{
         }else {
             return  <div>
                         <ResponsiveDrawer
-                            contentList={<ContentList url = {constants.home}/>}
-                            linkList={<LinkList url = {constants.home}/>}
+                            contentList={contentList}
+                            linkList={linkList}
                         />
                     </div>
         }

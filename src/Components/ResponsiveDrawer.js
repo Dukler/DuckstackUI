@@ -8,8 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import {MuiThemeProvider, withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
+import {Switch} from "react-router-dom";
+import {dsTheme} from "../Utils/dsTheme";
+import MDIIcon from "../BeLazy/MDIIcon";
 
 
 const drawerWidth = 240;
@@ -49,6 +52,7 @@ const styles = theme => ({
 class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
+        darkTheme: true
     };
 
     handleDrawerToggle = () => {
@@ -68,56 +72,72 @@ class ResponsiveDrawer extends React.Component {
         );
 
         return (
-            <div className={classes.root}>
-                <CssBaseline />
-                <AppBar position="fixed" className={classes.appBar}>
-                    <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerToggle}
-                            className={classes.menuButton}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Responsive drawer
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <nav className={classes.drawer}>
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    <Hidden smUp implementation="css">
-                        <Drawer
-                            container={this.props.container}
-                            variant="temporary"
-                            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                            open={this.state.mobileOpen}
-                            onClose={this.handleDrawerToggle}
-                            classes={{
-                                paper: classes.drawerPaper,
-                            }}
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                    <Hidden xsDown implementation="css">
-                        <Drawer
-                            classes={{
-                                paper: classes.drawerPaper,
-                            }}
-                            variant="permanent"
-                            open
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                </nav>
-                <main className={classes.content}>
-                    <div className={classes.toolbar} />
-                    {this.props.contentList}
-                </main>
-            </div>
+            <MuiThemeProvider theme={dsTheme({darkTheme:this.state.darkTheme})}>
+                <div className={classes.root}>
+                    <CssBaseline />
+                    <AppBar position="fixed" className={classes.appBar}>
+                        <Toolbar>
+                            <IconButton
+                                color="inherit"
+                                aria-label="Open drawer"
+                                onClick={this.handleDrawerToggle}
+                                className={classes.menuButton}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" color="inherit" noWrap>
+                                Responsive drawer
+                            </Typography>
+
+                            <IconButton color="inherit" onClick={()=>this.setState({darkTheme:!this.state.darkTheme})}>
+                                <MDIIcon icon ={(this.state.darkTheme)?'Lightbulb':'LightbulbOnOutline'}/>
+                            </IconButton>
+
+                        </Toolbar>
+                    </AppBar>
+                    <nav className={classes.drawer}>
+                        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                        <Hidden smUp implementation="css">
+                            <Drawer
+                                container={this.props.container}
+                                variant="temporary"
+                                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                                open={this.state.mobileOpen}
+                                onClose={this.handleDrawerToggle}
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                            >
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    onClick={this.handleDrawerToggle}
+                                    onKeyDown={this.handleDrawerToggle}
+                                >
+                                {drawer}
+                                </div>
+                            </Drawer>
+                        </Hidden>
+                        <Hidden xsDown implementation="css">
+                            <Drawer
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                                variant="permanent"
+                                open
+                            >
+                                {drawer}
+                            </Drawer>
+                        </Hidden>
+                    </nav>
+                    <main className={classes.content}>
+                        <div className={classes.toolbar} />
+                        <Switch>
+                            {this.props.contentList}
+                        </Switch>
+                    </main>
+                </div>
+            </MuiThemeProvider>
         );
     }
 }
