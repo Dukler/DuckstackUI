@@ -7,20 +7,24 @@ import AsyncComponent from "../BeLazy/AsyncComponent";
 export default class List extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
-            list:[]
+        this.state= {
+            list: [],
+            container:React.Fragment
         };
         this.api = new Api(this.props.url);
-        this.initList = this.initList.bind(this);
+        this.setList = this.setList.bind(this);
         this.addItem = this.addItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
         this.getList = this.getList.bind(this);
+        this.init = this.init.bind(this);
+
     }
     getList(){
         return this.state.list;
     }
     componentDidMount(){
-        this.api.get(this.initList,{url:this.props.url});
+        this.init();
+        //this.api.get(this.setList,{url:this.props.url});
     }
     updateItem(event){
         event.preventDefault();
@@ -32,8 +36,14 @@ export default class List extends React.Component {
             })
         });
     }
-    
-    initList(data){
+    init(){
+        if (this.props.data){
+            this.setList(this.props.data);
+        }else{
+            this.api.get(this.setList,{url:this.props.url});
+        }
+    }
+    setList(data){
         if(data[this.props.className]){
             for (let index = 0; index < data[this.props.className].length; index++) {
                 this.addItem(data[this.props.className][index])
@@ -45,8 +55,9 @@ export default class List extends React.Component {
         if (exists === -1){
             let item = {attributes:{}};
             item.attributes = props;
+            //item.attributes.components = null;
             item.import = AsyncComponent({
-                componentName:props.dscomponent
+                componentName:props.componentName
             });
             this.setState(prevState => ({
                 list: [...prevState.list, item]
@@ -72,7 +83,8 @@ export default class List extends React.Component {
                     <comp.import
                         key={comp.attributes.id}
                         attributes={comp.attributes}
-                        {...props}/>
+                        {...props}>
+                    </comp.import>
                 )}
             </>
         );
