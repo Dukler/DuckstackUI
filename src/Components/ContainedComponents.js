@@ -1,18 +1,11 @@
 import React from 'react';
-import AsyncContainer from "../BeLazy/AsyncContainer";
 import AsyncComponent from "../BeLazy/AsyncComponent";
+import {getContainer} from "../Containers";
 
 const ContainedComponents = props =>  {
     //let iconName = icon.replace(/Icon$/, '');
     const attributes = props.attributes;
-    let Container = null;
-    if (isLowerCase(attributes.container.charAt(0))){
-        Container = `${attributes.container}`;
-    } else{
-        Container = AsyncContainer({
-            componentName:attributes.container
-        });
-    }
+    let Container = getContainer(attributes.container);
 
     return  <Container>
             <>
@@ -28,8 +21,4 @@ const ContainedComponents = props =>  {
             </Container>
 };
 
-function isLowerCase(str)
-{
-    return str == str.toLowerCase() && str != str.toUpperCase();
-}
 export default ContainedComponents;
