@@ -37,13 +37,27 @@ export default class List extends React.Component {
         });
     }
     init(){
+        const config = {
+            method: "GET"
+        };
         if (this.props.data){
-            this.setList(this.props.data);
+            this.setList(null);
         }else{
-            this.api.get(this.setList,{url:this.props.url});
+            //this.api.get(this.setList,{url:this.props.url});
+            this.api.request({
+                config,
+                url:this.props.url,
+                callback:this.setList
+            });
         }
     }
-    setList(data){
+     async setList(response){
+        let data= null;
+        if (response){
+            data = await response.json();
+        }else{
+            data = this.props.data;
+        }
         if(data[this.props.className]){
             for (let index = 0; index < data[this.props.className].length; index++) {
                 this.addItem(data[this.props.className][index])
@@ -67,6 +81,19 @@ export default class List extends React.Component {
     }
     handleSubmit(event){
         event.preventDefault();
+        const list = this.getList();
+        const config = {
+            method: "POST",
+            headers: new Headers({
+                "Accept": "application/xml"
+            }),
+            body: formData,
+        };
+        this.api.request({
+            config,
+            url:this.props.url,
+            callback:this.setList
+        });
         this.api.post(this.getList());
     }
 

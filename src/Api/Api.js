@@ -8,11 +8,23 @@ export default class Api {
         this.props = props;
         this.post = this.post.bind(this);
         this.get= this.get.bind(this);
-        this.urlTo= this.urlTo.bind(this);
         this.currentURL= this.currentURL.bind(this);
+        this.request= this.request.bind(this);
     }
-    urlTo(url){
-        return constants.api + url;
+    request(props){
+        fetch(constants.api + props.url,props.config)
+            .then(response => {
+                if (response.ok) {
+                    //return response.json();
+                    props.callback(response)
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            // .then(data => {
+            //     props.callback(data);
+            // })
+            .catch(error => alert(error));
     }
     currentURL(){
         return this.urlTo(this.props.url)
@@ -30,7 +42,7 @@ export default class Api {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(object)
             })/*.then((res) => {

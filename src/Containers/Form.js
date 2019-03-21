@@ -9,10 +9,11 @@ const styles = theme => ({
 });
 
 function Form(props) {
-    const { classes } = props;
+    const { classes, children } = props;
 
     return (
-        <form className={classes.form}>
+        <form className={classes.form} autoComplete="new-password">
+            {children}
         </form>
     );
 }

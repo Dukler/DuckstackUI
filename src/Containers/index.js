@@ -2,7 +2,7 @@ import AsyncContainer from "../BeLazy/AsyncContainer";
 
 function isLowerCase(str)
 {
-    return str == str.toLowerCase() && str != str.toUpperCase();
+    return str === str.toLowerCase() && str !== str.toUpperCase();
 }
 export const getContainer = name =>{
     let Container = null;

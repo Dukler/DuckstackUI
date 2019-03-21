@@ -10,6 +10,7 @@ export const dsTheme = props => createMuiTheme({
             // light: will be calculated from palette.primary.main, ff4400
             light: '#0066ff',
             main: '#0044ff',
+            dark: '#303030',
             // dark: will be calculated from palette.primary.main,
             //contrastText: '#ffcc00',
 

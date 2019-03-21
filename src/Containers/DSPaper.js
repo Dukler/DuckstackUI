@@ -27,7 +27,6 @@ const styles = theme => ({
 
 const DSPaper = props => {
     const { classes, children } = props;
-    console.log("paper");
     return (
         <main className={classes.main}>
             <CssBaseline />

@@ -12,7 +12,7 @@ import {MuiThemeProvider, withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import {Switch} from "react-router-dom";
 import {dsTheme} from "../Utils/dsTheme";
-import MDIIcon from "../BeLazy/MDIIcon";
+import MaterialIcon from "../BeLazy/MaterialIcon";
 
 
 const drawerWidth = 240;
@@ -90,7 +90,7 @@ class ResponsiveDrawer extends React.Component {
                             </Typography>
 
                             <IconButton color="inherit" onClick={()=>this.setState({darkTheme:!this.state.darkTheme})}>
-                                <MDIIcon icon ={(this.state.darkTheme)?'Lightbulb':'LightbulbOnOutline'}/>
+                                <MaterialIcon icon="EventAvailable"/>
                             </IconButton>
 
                         </Toolbar>

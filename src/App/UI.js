@@ -6,8 +6,9 @@ import SignIn from "../Testing/SingIn";
 import ResponsiveDrawer from "../Components/ResponsiveDrawer";
 import List from "../Containers/List";
 
-const contentList = <List url = {constants.home+'TEST'} className="Content"/>;
-const linkList = <List url = {constants.home+'TEST'} className ="LinkList"/>;
+const LcontentList = <List url = {constants.login} className="Content"/>;
+const LlinkList = <List url = {constants.login} className ="LinkList"/>;
+
 
 export default class UI extends  React.Component{
     constructor(props) {
@@ -36,8 +37,8 @@ export default class UI extends  React.Component{
         }else {
             return  <div>
                         <ResponsiveDrawer
-                            contentList={contentList}
-                            linkList={linkList}
+                            contentList={LcontentList}
+                            linkList={LlinkList}
                         />
                     </div>
         }

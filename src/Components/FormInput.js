@@ -2,8 +2,13 @@ import React from "react";
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import {withStyles} from "@material-ui/core";
 
-export default class FormInput extends React.PureComponent {
+const styles = theme => ({
+    boxShadow:'black'
+});
+
+class FormInput extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {value:''};
@@ -28,7 +33,7 @@ export default class FormInput extends React.PureComponent {
                 <Input id={this.props.attributes.id}
                        key={this.props.attributes.id}
                        name={this.props.attributes.name}
-                       autoComplete={this.props.attributes.suggested}
+                       autoComplete={this.props.attributes.autoComplete}
                        type={this.props.attributes.type}
                        value={this.props.attributes.value}
                        onChange={this.props.updateItem}
@@ -38,3 +43,5 @@ export default class FormInput extends React.PureComponent {
         )
     }
 }
+
+export default  withStyles(styles, { withTheme: true })(FormInput);
