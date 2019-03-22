@@ -6,8 +6,8 @@ import SignIn from "../Testing/SingIn";
 import ResponsiveDrawer from "../Components/ResponsiveDrawer";
 import List from "../Containers/List";
 
-const LcontentList = <List url = {constants.login} className="Content"/>;
-const LlinkList = <List url = {constants.login} className ="LinkList"/>;
+const LcontentList = <List url = {constants.ui.login} className="Content"/>;
+const LlinkList = <List url = {constants.ui.login} className ="LinkList"/>;
 
 
 export default class UI extends  React.Component{

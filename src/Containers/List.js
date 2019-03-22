@@ -2,6 +2,7 @@ import React from 'react';
 import Api from "../Api/Api";
 import update from 'immutability-helper';
 import AsyncComponent from "../BeLazy/AsyncComponent";
+import {constants} from "../Constants";
 
 
 export default class List extends React.Component {
@@ -15,12 +16,10 @@ export default class List extends React.Component {
         this.setList = this.setList.bind(this);
         this.addItem = this.addItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
-        this.getList = this.getList.bind(this);
         this.init = this.init.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.getPairByIds = this.getPairByIds.bind(this);
 
-    }
-    getList(){
-        return this.state.list;
     }
     componentDidMount(){
         this.init();
@@ -29,7 +28,7 @@ export default class List extends React.Component {
     updateItem(event){
         event.preventDefault();
         const target = event.target;
-        let index = this.getList().findIndex(item => item.attributes.id === target.id);
+        let index = this.state.list.findIndex(item => item.attributes.id === target.id);
         this.setState({
             list: update(this.state.list,{
                 [index]:{attributes:{value:{$set:target.value}}}
@@ -51,7 +50,7 @@ export default class List extends React.Component {
             });
         }
     }
-     async setList(response){
+    async setList(response){
         let data= null;
         if (response){
             data = await response.json();
@@ -65,11 +64,10 @@ export default class List extends React.Component {
         }
     }
     addItem(props) {
-        const exists = this.getList().findIndex(wdg => wdg.attributes.id === props.id);
+        const exists = this.state.list.findIndex(wdg => wdg.attributes.id === props.id);
         if (exists === -1){
             let item = {attributes:{}};
             item.attributes = props;
-            //item.attributes.components = null;
             item.import = AsyncComponent({
                 componentName:props.componentName
             });
@@ -79,22 +77,51 @@ export default class List extends React.Component {
         }
 
     }
+    getPairByIds(props){
+        let result = {};
+        for (let i = 0; i < props.ids.length; i++) {
+            for (let j = 0; j < this.state.list.length; j++){
+                if (props.ids[i]===this.state.list[j].attributes.id){
+                    const compAtt = {...this.state.list[j].attributes};
+                    result[compAtt[props.pair]]=compAtt.value;
+                    break;
+                }
+            } 
+        }
+        return result
+    }
     handleSubmit(event){
         event.preventDefault();
-        const list = this.getList();
+        const list = this.getPairByIds({ids:["userName","userPassword"],pair:"name"});
+        let header = null;
+        localStorage.removeItem('bToken');
+        const bToken = localStorage.getItem('bToken');
+        if (bToken){
+            header = new Headers({
+                'Accept': 'application/xml',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + bToken,
+            })
+        }else{
+            header = new Headers({
+                'Accept': 'application/xml',
+                'Content-Type': 'application/json',
+            })
+        }
         const config = {
             method: "POST",
-            headers: new Headers({
-                "Accept": "application/xml"
-            }),
-            body: formData,
+            headers: header,
+            body: JSON.stringify(list),
         };
         this.api.request({
             config,
-            url:this.props.url,
-            callback:this.setList
+            url:constants.login,
+            callback:this.setToken
         });
-        this.api.post(this.getList());
+    }
+    async setToken(response){
+        const data = await response.json();
+        localStorage.setItem('bToken',data.account.token);
     }
 
     render() {
@@ -106,7 +133,7 @@ export default class List extends React.Component {
             url:this.props.url};
         return (
             <>
-                {this.getList().filter(comp => comp.attributes.contentFilter === props.filter).map((comp, index) =>
+                {this.state.list.filter(comp => comp.attributes.contentFilter === props.filter).map((comp, index) =>
                     <comp.import
                         key={comp.attributes.id}
                         attributes={comp.attributes}

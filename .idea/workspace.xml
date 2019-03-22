@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47b3efd1-ff97-4cd6-908f-2f9e0dd80e58" name="Default Changelist" comment="this and that">
-      <change afterPath="$PROJECT_DIR$/src/BeLazy/MaterialComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BeLazy/MDIIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BeLazy/MDIIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FormInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ResponsiveDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ResponsiveDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/DSPaper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/DSPaper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/UI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/UI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/dsTheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/dsTheme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Containers/List.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+            <state relative-caret-position="72">
+              <caret line="92" column="24" lean-forward="true" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -52,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Api/Api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+            <state relative-caret-position="260">
+              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -61,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/UI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
+            <state relative-caret-position="-174">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -73,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -92,11 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>utils</find>
-      <find>cloneCrossUtils</find>
-      <find>date.clone</find>
-      <find>clone</find>
-      <find>handleAccept</find>
       <find>dayis</find>
       <find>sectionDesktop</find>
       <find>&lt;MaterialIcon</find>
@@ -122,6 +103,11 @@
       <find>autoc</find>
       <find>materialicon</find>
       <find>AsyncComponent</find>
+      <find>constants.login</find>
+      <find>for</find>
+      <find>this.getList()</find>
+      <find>getList(</find>
+      <find>...</find>
     </findStrings>
     <replaceStrings>
       <replace>initList</replace>
@@ -146,6 +132,7 @@
       <replace>&quot;braces&quot;: &quot;^2.3.2&quot;</replace>
       <replace>&quot;AutoComplete&quot;</replace>
       <replace>MaterialComponent</replace>
+      <replace>this.state.list</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -155,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Components/LazyLoadModule.js" />
         <option value="$PROJECT_DIR$/src/Render/RenderWidget.js" />
         <option value="$PROJECT_DIR$/src/Components/Widgets/formInput.js" />
         <option value="$PROJECT_DIR$/src/Render/WidgetRender.js" />
@@ -205,6 +191,7 @@
         <option value="$PROJECT_DIR$/src/Helpers/UI.js" />
         <option value="$PROJECT_DIR$/src/Api/Api.js" />
         <option value="$PROJECT_DIR$/src/App/UI.js" />
+        <option value="$PROJECT_DIR$/src/Constants.js" />
         <option value="$PROJECT_DIR$/src/Containers/List.js" />
       </list>
     </option>
@@ -216,8 +203,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="285" />
-    <option name="y" value="37" />
+    <option name="x" value="500" />
+    <option name="y" value="13" />
     <option name="width" value="1334" />
     <option name="height" value="1005" />
   </component>
@@ -241,30 +228,6 @@
               <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
               <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="duckstackui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duckstackui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,6 +383,7 @@
       <workItem from="1552956084290" duration="599000" />
       <workItem from="1553012525714" duration="5460000" />
       <workItem from="1553096765299" duration="21335000" />
+      <workItem from="1553274044346" duration="15023000" />
     </task>
     <task id="LOCAL-00001" summary="fixed dependencies, widgetlist state moved to widgetlist">
       <created>1542998049397</created>
@@ -467,7 +431,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="814015000" />
+    <option name="totallyTimeSpent" value="829038000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,16 +443,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="285" y="37" width="1334" height="1005" extended-state="0" />
+    <frame x="500" y="13" width="1334" height="1005" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.20910494" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5318725" visible="true" weight="0.20910494" />
       <window_info id="Structure" order="1" sideWeight="0.4681275" side_tool="true" weight="0.23899914" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.42564103" side_tool="true" weight="0.12855637" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.7256255" weight="0.24115756" />
-      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.7653302" visible="true" weight="0.31880733" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.7256255" weight="0.24082568" />
+      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.7653302" weight="0.31880733" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32960895" />
@@ -600,10 +564,8 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
-        <watch expression="props.componentName" language="JavaScript" />
-        <watch expression="response.body" language="JavaScript" />
-        <watch expression="this.state.list" language="JavaScript" />
-        <watch expression="this.props.data" language="JavaScript" />
+        <watch expression="JSON.stringify(list)" language="JavaScript" />
+        <watch expression="urltest" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>
@@ -644,52 +606,52 @@
     </expressions>
     <expressions id="watch">
       <expression>
-        <expression-string>this.props.data</expression-string>
+        <expression-string>urltest</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.state.list</expression-string>
+        <expression-string>constants.api</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>response.body</expression-string>
+        <expression-string>constants.login</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.componentName</expression-string>
+        <expression-string>constant</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.attributes.container</expression-string>
+        <expression-string>constant\</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Container</expression-string>
+        <expression-string>constants</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.attributes.components</expression-string>
+        <expression-string>header</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.attributes.components.map</expression-string>
+        <expression-string>JSON.stringify(list)</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.attributes.components.map()</expression-string>
+        <expression-string>components[0]['email']</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>props.attributes.components[1].contentFilter</expression-string>
+        <expression-string>components[0]</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -992,19 +954,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="http://localhost:3000/static/js/main.chunk.js">
       <provider selected="true" editor-type-id="httpFileEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="-174">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1012,17 +967,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        <state relative-caret-position="260">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/List.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+        <state relative-caret-position="72">
+          <caret line="92" column="24" lean-forward="true" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
