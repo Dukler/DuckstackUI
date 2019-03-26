@@ -9,6 +9,7 @@
     "@mdi/svg": "^3.5.95",
     "clsx": "latest",
     "date-fns": "^2.0.0-alpha.27",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "immutability-helper": "^3.0.0",
     "material-ui-pickers": "^2.2.4",
     "prop-types": "latest",

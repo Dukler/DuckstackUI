@@ -1,6 +1,6 @@
 import {asyncComponent} from "react-async-component";
 
-const AsyncContainer = props => {
+const AsyncWrapper = props => {
     //let iconName = icon.replace(/Icon$/, '');
     let loadingComponent = null;
     let errorComponent = null;
@@ -13,11 +13,11 @@ const AsyncContainer = props => {
     return asyncComponent({
         resolve: () => import(
             /* webpackMode: "eager" */
-            `../Containers/${props.componentName}`
+            `../Wrappers/${props.componentName}`
             ),
         LoadingComponent: ()=> loadingComponent,
         ErrorComponent: ()=> errorComponent
     })
 };
 
-export default AsyncContainer;
+export default AsyncWrapper;

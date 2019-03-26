@@ -36,7 +36,7 @@ class FormInput extends React.PureComponent {
                        autoComplete={this.props.attributes.autoComplete}
                        type={this.props.attributes.type}
                        value={this.props.attributes.value}
-                       onChange={this.props.updateItem}
+                       onChange={this.props.handleChange}
                        autoFocus={false}
                 />
             </FormControl>

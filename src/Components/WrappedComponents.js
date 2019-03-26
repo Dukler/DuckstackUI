@@ -1,13 +1,13 @@
 import React from 'react';
 import AsyncComponent from "../BeLazy/AsyncComponent";
-import {getContainer} from "../Containers";
+import {getWrapper} from "../Wrappers";
 
-const ContainedComponents = props =>  {
+const WrappedComponents = props =>  {
     //let iconName = icon.replace(/Icon$/, '');
     const attributes = props.attributes;
-    let Container = getContainer(attributes.container);
+    const Wrapper = getWrapper(attributes.wrapper);
 
-    return  <Container>
+    return  <Wrapper>
             <>
                 {props.attributes.components.map((comp, index) =>
                     React.createElement(
@@ -18,7 +18,7 @@ const ContainedComponents = props =>  {
                     )
                 )}
             </>
-            </Container>
+            </Wrapper>
 };
 
-export default ContainedComponents;
+export default WrappedComponents;

@@ -2,15 +2,15 @@ import React from 'react';
 import Api from "../Api/Api";
 import update from 'immutability-helper';
 import AsyncComponent from "../BeLazy/AsyncComponent";
-import {constants} from "../Constants";
+import EventHandler from "../Actions/EventHandler";
+import {requestJson} from "../Actions/network";
 
 
-export default class List extends React.Component {
+export default class DynamicList extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state= {
-            list: [],
-            container:React.Fragment
+            list: []
         };
         this.api = new Api(this.props.url);
         this.setList = this.setList.bind(this);
@@ -19,13 +19,14 @@ export default class List extends React.Component {
         this.init = this.init.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getPairByIds = this.getPairByIds.bind(this);
-
+        this.eventHandler = new EventHandler();
     }
     componentDidMount(){
         this.init();
         //this.api.get(this.setList,{url:this.props.url});
     }
     updateItem(event){
+        //this.eventHandler['test'](event);
         event.preventDefault();
         const target = event.target;
         let index = this.state.list.findIndex(item => item.attributes.id === target.id);
@@ -42,18 +43,17 @@ export default class List extends React.Component {
         if (this.props.data){
             this.setList(null);
         }else{
-            //this.api.get(this.setList,{url:this.props.url});
-            this.api.request({
+            requestJson({
                 config,
                 url:this.props.url,
                 callback:this.setList
             });
         }
     }
-    async setList(response){
+    setList(json){
         let data= null;
-        if (response){
-            data = await response.json();
+        if (json){
+            data = json;
         }else{
             data = this.props.data;
         }
@@ -92,52 +92,26 @@ export default class List extends React.Component {
     }
     handleSubmit(event){
         event.preventDefault();
-        const list = this.getPairByIds({ids:["userName","userPassword"],pair:"name"});
-        let header = null;
-        localStorage.removeItem('bToken');
-        const bToken = localStorage.getItem('bToken');
-        if (bToken){
-            header = new Headers({
-                'Accept': 'application/xml',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + bToken,
-            })
-        }else{
-            header = new Headers({
-                'Accept': 'application/xml',
-                'Content-Type': 'application/json',
-            })
-        }
-        const config = {
-            method: "POST",
-            headers: header,
-            body: JSON.stringify(list),
-        };
-        this.api.request({
-            config,
-            url:constants.login,
-            callback:this.setToken
-        });
-    }
-    async setToken(response){
-        const data = await response.json();
-        localStorage.setItem('bToken',data.account.token);
+        const json = this.getPairByIds({ids:["userName","userPassword"],pair:"name"});
+        this.eventHandler['login']({json});
     }
 
     render() {
         let props = {
-            updateItem:this.updateItem,
+            handleChange:this.updateItem,
             handleSubmit:this.handleSubmit,
             filter:this.props.filter,
             className:this.props.className,
-            url:this.props.url};
+            url:this.props.url
+        };
         return (
             <>
                 {this.state.list.filter(comp => comp.attributes.contentFilter === props.filter).map((comp, index) =>
                     <comp.import
                         key={comp.attributes.id}
                         attributes={comp.attributes}
-                        {...props}>
+                        {...props}
+                    >
                     </comp.import>
                 )}
             </>

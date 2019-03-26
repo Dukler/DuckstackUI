@@ -42,18 +42,3 @@ const DSPaper = props => {
 // };
 
 export default withStyles(styles)(DSPaper);
-
-// const DSPaper = props => {
-//
-//     console.log("paper");
-//     return (
-//         <>
-//             <CssBaseline />
-//             <Paper>
-//
-//             </Paper>
-//         </>
-//     );
-// };
-//
-// export default DSPaper;

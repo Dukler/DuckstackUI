@@ -4,10 +4,10 @@ import {BrowserRouter } from "react-router-dom";
 import {constants} from '../Constants';
 import SignIn from "../Testing/SingIn";
 import ResponsiveDrawer from "../Components/ResponsiveDrawer";
-import List from "../Containers/List";
+import DynamicList from "./DynamicList";
 
-const LcontentList = <List url = {constants.ui.login} className="Content"/>;
-const LlinkList = <List url = {constants.ui.login} className ="LinkList"/>;
+const LcontentList = <DynamicList url = {constants.ui.login} className="Content"/>;
+const LlinkList = <DynamicList url = {constants.ui.login} className ="LinkList"/>;
 
 
 export default class UI extends  React.Component{
