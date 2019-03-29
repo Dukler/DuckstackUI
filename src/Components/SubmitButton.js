@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-const CustomButton =  props => {
+const SubmitButton = props => {
     return (
         <Button onClick={props.handleSubmit}
                 variant="contained"
@@ -10,4 +10,4 @@ const CustomButton =  props => {
         </Button>
     )
 };
-export default CustomButton;
+export default SubmitButton;

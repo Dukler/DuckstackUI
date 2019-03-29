@@ -3,7 +3,7 @@ import UI from "./App/UI";
 import 'typeface-roboto';
 
 
-export default class Main extends React.Component {
+export default class Main extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {};

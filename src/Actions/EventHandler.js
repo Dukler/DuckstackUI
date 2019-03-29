@@ -9,10 +9,6 @@ class EventHandler extends PureComponent {
         this.login = login.bind(this);
         this.post = this.post.bind(this);
     }
-    test(){
-        console.log("cosa");
-        return 1;
-    }
 
     post({json,callback}){
         const config = {

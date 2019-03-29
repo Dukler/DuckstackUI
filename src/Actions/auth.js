@@ -1,7 +1,7 @@
 import {headerJsonApi, requestJson} from "./network";
 import {constants} from "../Constants";
 
-export const getToken = (props) =>{
+export const getToken = () =>{
     return localStorage.getItem('bToken');
 };
 
