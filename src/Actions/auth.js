@@ -23,3 +23,11 @@ export const login = (props) => {
         callback:setToken
     });
 };
+
+export const loggedIn = () =>{
+    return !!(getToken());
+};
+
+export const removeToken = () =>{
+    localStorage.removeItem('bTkoen');
+};

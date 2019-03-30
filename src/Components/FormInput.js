@@ -3,12 +3,13 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import {withStyles} from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
 
 });
 
-function FormInputTest ( props ) {
+function FormInput ( props ) {
     return (
         <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor={props.attributes.id}>{props.attributes.caption}</InputLabel>
@@ -25,4 +26,9 @@ function FormInputTest ( props ) {
     )
 }
 
-export default  withStyles(styles, { withTheme: true })(FormInputTest);
+FormInput.propTypes = {
+    attributes: PropTypes.object.isRequired,
+};
+
+
+export default  withStyles(styles, { withTheme: true })(FormInput);

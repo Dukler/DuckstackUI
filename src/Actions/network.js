@@ -42,3 +42,13 @@ export const headerJsonApi = (props) =>{
     }
     return header;
 };
+
+export const headerUIApi = (props) =>{
+    let header = null;
+    if (props.url !== constants.ui.login){
+        header= new Headers({
+            'Authorization': 'Bearer ' + localStorage.getItem('bToken'),
+        })
+    }
+    return header;
+};

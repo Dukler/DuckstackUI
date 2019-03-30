@@ -13,7 +13,6 @@ export default class ListedLink extends React.Component {
         this.state = {};
     }
     componentDidMount() {
-        //this.attributes = this.props.attributes;
     }
     render(){
         const attributes = this.props.attributes;
