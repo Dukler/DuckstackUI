@@ -4,17 +4,16 @@ import {getWrapper} from "../Wrappers";
 
 const WrappedComponents = props =>  {
     //let iconName = icon.replace(/Icon$/, '');
-    const attributes = props.attributes;
-    const Wrapper = getWrapper(attributes.wrapper);
+    const Wrapper = getWrapper(props.wrapper);
 
     return  <Wrapper>
             <>
-                {props.attributes.components.map((comp, index) =>
+                {props.components.map((comp, index) =>
                     React.createElement(
                         AsyncComponent({
                             componentName:comp.componentName
                         }),
-                        {key:comp.id,attributes:comp}
+                        {key:comp.id, ...comp}
                     )
                 )}
             </>

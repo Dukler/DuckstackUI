@@ -24,11 +24,10 @@ function useDynamicList(props){
     };
 
     const parseItem = (props) =>{
-        const exists = list.findIndex(cmp => cmp.attributes.id === props.id);
+        const exists = list.findIndex(cmp => cmp.id === props.id);
         if (exists === -1){
-            let item = {attributes:{}};
-            item.attributes = props;
-            item.import = AsyncComponent({
+            let item = {...props};
+            item.asyncImport = AsyncComponent({
                 componentName:props.componentName
             });
             return item;

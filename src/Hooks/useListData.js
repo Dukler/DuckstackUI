@@ -19,7 +19,6 @@ function useListData (url){
     }
     useEffect(()=>{
         init(url);
-        console.log(loggedIn());
     },[]);
 
     const init = (url) =>{

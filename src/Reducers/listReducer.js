@@ -6,9 +6,9 @@ function listReducer (list, action){
         case 'eventItemValue':
             const event = action.event;
             const target = event.target;
-            let index = list.findIndex(item => item.attributes.id === target.id);
+            let index = list.findIndex(item => item.id === target.id);
             return update(list, {
-                [index]: {attributes: {value: {$set: target.value}}}
+                [index]:  {value: {$set: target.value}}
             });
         case 'addItem':
             const attributes = action.payload;

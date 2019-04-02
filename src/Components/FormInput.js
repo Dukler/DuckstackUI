@@ -12,13 +12,13 @@ const styles = theme => ({
 function FormInput ( props ) {
     return (
         <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor={props.attributes.id}>{props.attributes.caption}</InputLabel>
-            <Input id={props.attributes.id}
-                   key={props.attributes.id}
-                   name={props.attributes.name}
-                   autoComplete={props.attributes.autoComplete}
-                   type={props.attributes.type}
-                   value={props.attributes.value}
+            <InputLabel htmlFor={props.id}>{props.caption}</InputLabel>
+            <Input id={props.id}
+                   key={props.id}
+                   name={props.name}
+                   autoComplete={props.autoComplete}
+                   type={props.type}
+                   value={props.value}
                    onChange={props.handleChange}
                    autoFocus={false}
             />
@@ -27,7 +27,13 @@ function FormInput ( props ) {
 }
 
 FormInput.propTypes = {
-    attributes: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    autoComplete: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    caption: PropTypes.string,
 };
 
 

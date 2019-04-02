@@ -8,11 +8,10 @@ import MaterialIcon from "../BeLazy/MaterialIcon";
 
 
 function ListedLink (props) {
-    const attributes = props.attributes;
     return(
-        <ListItem key={attributes.id} component={Link} to={attributes.path} button>
-            <ListItemIcon><MaterialIcon icon={attributes.icon}/></ListItemIcon>
-            <ListItemText primary={attributes.id}/>
+        <ListItem key={props.id} component={Link} to={props.path} button>
+            <ListItemIcon><MaterialIcon icon={props.icon}/></ListItemIcon>
+            <ListItemText primary={props.id}/>
         </ListItem>
     );
 }

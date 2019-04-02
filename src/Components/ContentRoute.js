@@ -5,13 +5,12 @@ import {DataContext} from "../App/UI";
 
 const ContentRoute = React.memo(function ContentRoute (props) {
     //let iconName = icon.replace(/Icon$/, '');
-    const attributes = props.attributes;
     const data = useContext(DataContext);
-    return <Route id = {attributes.id} exact path={attributes.path} render={()=>
+    return <Route id = {props.id} exact path={props.path} render={()=>
         <>
             <DynamicList data = {data}
                          className="Components"
-                         filter={attributes.id}
+                         filter={props.id}
             />
         </>
     }/>

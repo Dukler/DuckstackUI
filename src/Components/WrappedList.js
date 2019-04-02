@@ -4,13 +4,12 @@ import {getWrapper} from "../Wrappers";
 
 const WrappedList = props =>  {
     //let iconName = icon.replace(/Icon$/, '');
-    const attributes = props.attributes;
-    const Wrapper = getWrapper(attributes.wrapper);
+    const Wrapper = getWrapper(props.wrapper);
     return  <Wrapper>
                 <DynamicList className = "Components"
-                             filter = {attributes.contentFilter}
-                             data = {{Components:attributes.components}}
-                             container = {attributes.container}/>
+                             filter = {props.contentFilter}
+                             data = {{Components:props.components}}
+                             container = {props.container}/>
             </Wrapper>
 };
 

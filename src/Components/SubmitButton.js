@@ -6,7 +6,7 @@ const SubmitButton = props => {
         <Button onClick={props.handleSubmit}
                 variant="contained"
                 color="primary">
-            {props.attributes.caption}
+            {props.caption}
         </Button>
     )
 };
