@@ -1,21 +1,30 @@
 import {useEffect, useState} from "react";
 import {headerUIApi, requestJson} from "../Actions/network";
+import {constants} from "../Constants";
+import { loggedIn } from "../Actions/auth";
 
 function useListData (url){
     const [data,setState] = useState([]);
     const [loading,setLoading] = useState(true);
-    // const config = {
-    //     method: "GET",
-    //     headers: headerUIApi({url}),
-    // };
-    const config = {
-        method: "GET",
-    };
+    let config = null;
+    if(url === constants.ui.login){
+        config = {
+            method: "GET",
+        };
+    }else{
+        config = {
+            method: "GET",
+            headers: headerUIApi({url}),
+        };
+    }
     useEffect(()=>{
         init(url);
+        console.log(loggedIn());
     },[]);
 
     const init = (url) =>{
+        
+
         requestJson({
             config,
             url:url,

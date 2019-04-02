@@ -9,7 +9,7 @@ const ContentRoute = React.memo(function ContentRoute (props) {
     const data = useContext(DataContext);
     return <Route id = {attributes.id} exact path={attributes.path} render={()=>
         <>
-            <DynamicList data={data}
+            <DynamicList data = {data}
                          className="Components"
                          filter={attributes.id}
             />

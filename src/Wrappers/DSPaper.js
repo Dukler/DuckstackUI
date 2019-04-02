@@ -25,7 +25,7 @@ const styles = theme => ({
     },
 });
 
-const DSPaper = props => {
+const DSPaper = React.memo(function DSPaper (props) {
     const { classes, children } = props;
     return (
         <main className={classes.main}>
@@ -35,7 +35,7 @@ const DSPaper = props => {
             </Paper>
         </main>
     );
-};
+});
 
 // Paper.propTypes = {
 //     classes: PropTypes.object.isRequired,

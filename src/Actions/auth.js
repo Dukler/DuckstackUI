@@ -6,7 +6,7 @@ export const getToken = () =>{
 };
 
 export const setToken = (props) =>{
-    if (props.account.token !== getToken()){
+    if (props.status && props.account.token !== getToken()){
         localStorage.setItem('bToken',props.account.token);
     }
 };
@@ -29,5 +29,5 @@ export const loggedIn = () =>{
 };
 
 export const removeToken = () =>{
-    localStorage.removeItem('bTkoen');
+    localStorage.removeItem('bToken');
 };

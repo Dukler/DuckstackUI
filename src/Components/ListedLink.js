@@ -7,20 +7,14 @@ import MaterialIcon from "../BeLazy/MaterialIcon";
 
 
 
-export default class ListedLink extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    componentDidMount() {
-    }
-    render(){
-        const attributes = this.props.attributes;
-        return(
-            <ListItem key={attributes.id} component={Link} to={attributes.path} button>
-                <ListItemIcon><MaterialIcon icon={attributes.icon}/></ListItemIcon>
-                <ListItemText primary={attributes.id}/>
-            </ListItem>
-        );
-    }
+function ListedLink (props) {
+    const attributes = props.attributes;
+    return(
+        <ListItem key={attributes.id} component={Link} to={attributes.path} button>
+            <ListItemIcon><MaterialIcon icon={attributes.icon}/></ListItemIcon>
+            <ListItemText primary={attributes.id}/>
+        </ListItem>
+    );
 }
+
+export default ListedLink;

@@ -5,9 +5,7 @@ function listReducer (list, action){
     switch (action.type) {
         case 'eventItemValue':
             const event = action.event;
-            // event.preventDefault();
             const target = event.target;
-
             let index = list.findIndex(item => item.attributes.id === target.id);
             return update(list, {
                 [index]: {attributes: {value: {$set: target.value}}}

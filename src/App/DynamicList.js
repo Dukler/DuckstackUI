@@ -22,7 +22,6 @@ const DynamicList = React.memo(function DynamicList (props) {
     };
     const handleSubmit = (props) =>{
         props.event.persist();
-        props.event.preventDefault();
         const json = getPairByIds({ids:props.ids,pair:props.pair});
         eventHandler[props.action]({json});
     };
@@ -44,7 +43,7 @@ const DynamicList = React.memo(function DynamicList (props) {
                     key={comp.attributes.id}
                     attributes={comp.attributes}
                     handleChange={(e)=>handleChange({type:'eventItemValue',event:e})}
-                    handleSubmit={(e)=>handleSubmit({event:e,ids:['userName','userPassword'],pair:'name',action:'login'})}
+                    handleSubmit={(e)=>handleSubmit({event:e,ids:['userName','userPassword'],pair:'name',action:comp.action})}
                     {...shit}
                 >
                 </comp.import>

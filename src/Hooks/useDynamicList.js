@@ -1,4 +1,4 @@
-import { useEffect, useReducer} from "react";
+import { useEffect, useReducer } from "react";
 import AsyncComponent from "../BeLazy/AsyncComponent";
 import listReducer from "../Reducers/listReducer";
 
