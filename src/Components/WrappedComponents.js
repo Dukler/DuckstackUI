@@ -1,23 +1,14 @@
 import React from 'react';
-import AsyncComponent from "../BeLazy/AsyncComponent";
-import {getWrapper} from "../Wrappers";
+import useComponentWrapper from '../Hooks/useComponentWrapper';
+import AsyncComponents from '../BeLazy/AsyncComponents';
 
-const WrappedComponents = props =>  {
-    //let iconName = icon.replace(/Icon$/, '');
-    const Wrapper = getWrapper(props.wrapper);
 
-    return  <Wrapper>
-            <>
-                {props.components.map((comp, index) =>
-                    React.createElement(
-                        AsyncComponent({
-                            componentName:comp.componentName
-                        }),
-                        {key:comp.id, ...comp}
-                    )
-                )}
-            </>
+const WrappedComponents = React.memo(function WrappedList(props) {
+    const [Wrapper, wrapperProps] = useComponentWrapper(props);
+
+    return  <Wrapper {...wrapperProps}>
+                <AsyncComponents {...props}/>
             </Wrapper>
-};
+});
 
 export default WrappedComponents;

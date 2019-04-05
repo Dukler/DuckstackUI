@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import registerServiceWorker from "./registerServiceWorker";
-import Main from "./Main";
+import UI from './App/UI';
 import './index.css';
 
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<UI/>, document.getElementById('root'));
 
 registerServiceWorker();

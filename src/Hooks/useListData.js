@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {headerUIApi, requestJson} from "../Actions/network";
 import {constants} from "../Constants";
-import { loggedIn } from "../Actions/auth";
 
 function useListData (url){
     const [data,setState] = useState([]);

@@ -1,17 +1,19 @@
 import AsyncWrapper from "../BeLazy/AsyncWrapper";
 
-function isLowerCase(str)
+export function isLowerCase(str)
 {
     return str === str.toLowerCase() && str !== str.toUpperCase();
 }
-export const getWrapper = name =>{
-    let Container = null;
-    if (isLowerCase(name.charAt(0))){
-        Container = `${name}`;
+export const getWrapper = (wrapper) =>{
+    let Wrapper = null;
+    let isHtml = false;
+    if (isLowerCase(wrapper.charAt(0))){
+        Wrapper = `${wrapper}`;
+        isHtml = true;
     } else{
-        Container = AsyncWrapper({
-            componentName:name
-        });
+        Wrapper = AsyncWrapper({
+            componentName: wrapper
+        });   
     }
-    return Container
+    return [Wrapper, isHtml]
 };

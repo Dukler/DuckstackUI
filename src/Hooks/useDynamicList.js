@@ -27,7 +27,8 @@ function useDynamicList(props){
         const exists = list.findIndex(cmp => cmp.id === props.id);
         if (exists === -1){
             let item = {...props};
-            item.asyncImport = AsyncComponent({
+            item.contentFilter = (item.contentFilter)?item.contentFilter:"";
+            item.AsyncImport = AsyncComponent({
                 componentName:props.componentName
             });
             return item;

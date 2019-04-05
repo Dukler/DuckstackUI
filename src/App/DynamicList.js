@@ -1,11 +1,13 @@
 import React from 'react';
 import useDynamicList from "../Hooks/useDynamicList";
 import EventHandler from "../Actions/EventHandler";
+import PropTypes from "prop-types";
 
 
 const DynamicList = React.memo(function DynamicList (props) {
     const [list, dispatch ] = useDynamicList(props);
     const eventHandler = new EventHandler();
+    const filter = (typeof props.filter === "undefined")?"":props.filter;
 
     const getPairByIds = (props) =>{
         let result = {};
@@ -20,10 +22,12 @@ const DynamicList = React.memo(function DynamicList (props) {
         }
         return result
     };
+    
     const handleSubmit = (props) =>{
         props.event.persist();
         const json = getPairByIds({ids:props.ids,pair:props.pair});
         eventHandler[props.action]({json});
+        //modal.dispatch("close");
     };
 
     const handleChange = (props) =>{
@@ -33,21 +37,25 @@ const DynamicList = React.memo(function DynamicList (props) {
     
     return (
         <>
-            {list.filter(comp => comp.contentFilter === props.filter).map((comp, index) => {
-                const { asyncImport, actions, ...cleanComp } = comp;
-                const AsyncI = asyncImport;
+            {list.filter(comp => comp.contentFilter === filter).map(comp => {
+                const { AsyncImport, actions, ...cleanComp } = comp;
                 return (
-                    <AsyncI
+                    <AsyncImport
                         key={comp.id}
                         {...cleanComp}
                         handleChange={(e)=>handleChange({type:'eventItemValue',event:e})}
                         handleSubmit={(e)=>handleSubmit({event:e,ids:['userName','userPassword'],pair:'name',action:actions.onClick})}
                     >
-                    </AsyncI>)
+                    </AsyncImport>)
                 }
             )}
         </>
     );
 });
+
+DynamicList.propTypes = {
+    data: PropTypes.object.isRequired,
+    className: PropTypes.string.isRequired
+};
 
 export default DynamicList

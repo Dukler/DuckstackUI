@@ -19,7 +19,10 @@
     "react-inspector": "^2.3.1",
     "react-scripts": "^2.1.8",
     "recompose": "^0.30.0",
-    "typeface-roboto": "0.0.54"
+    "redux": "^4.0.1",
+    "redux-react-hook": "^3.2.1",
+    "typeface-roboto": "0.0.54",
+    "typescript": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,6 +40,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-router-dom": "^4.4.0"
+    "react-router-dom": "^5.0.0"
   }
 }
