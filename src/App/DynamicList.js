@@ -1,13 +1,14 @@
 import React from 'react';
-import useDynamicList from "../Hooks/useDynamicList";
 import EventHandler from "../Actions/EventHandler";
 import PropTypes from "prop-types";
+import useDynamicList from '../Hooks/useDynamicList';
 
 
 const DynamicList = React.memo(function DynamicList (props) {
-    const [list, dispatch ] = useDynamicList(props);
+    
+    const [list] = useDynamicList(props);
+    
     const eventHandler = new EventHandler();
-    const filter = (typeof props.filter === "undefined")?"":props.filter;
 
     const getPairByIds = (props) =>{
         let result = {};
@@ -32,12 +33,12 @@ const DynamicList = React.memo(function DynamicList (props) {
 
     const handleChange = (props) =>{
         props.event.persist();
-        dispatch({type:props.type,event:props.event});
+        //dispatch({type:props.type,event:props.event});
     };
     
     return (
         <>
-            {list.filter(comp => comp.contentFilter === filter).map(comp => {
+            {list.map(comp => {
                 const { AsyncImport, actions, ...cleanComp } = comp;
                 return (
                     <AsyncImport
@@ -45,8 +46,7 @@ const DynamicList = React.memo(function DynamicList (props) {
                         {...cleanComp}
                         handleChange={(e)=>handleChange({type:'eventItemValue',event:e})}
                         handleSubmit={(e)=>handleSubmit({event:e,ids:['userName','userPassword'],pair:'name',action:actions.onClick})}
-                    >
-                    </AsyncImport>)
+                    />)
                 }
             )}
         </>
@@ -54,7 +54,6 @@ const DynamicList = React.memo(function DynamicList (props) {
 });
 
 DynamicList.propTypes = {
-    data: PropTypes.object.isRequired,
     className: PropTypes.string.isRequired
 };
 

@@ -14,7 +14,6 @@ import {Switch} from "react-router-dom";
 import MaterialIcon from "../BeLazy/MaterialIcon";
 import rootReducer from "../Reducers/rootReducer";
 import DynamicList from "../App/DynamicList";
-import { DataContext } from '../App/UI';
 
 
 const drawerWidth = 240;
@@ -55,7 +54,6 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
     const [state, dispatch] = useReducer(rootReducer,{mobileOpen:false});
     const { classes, theme, themeDispatch } = props;
     //const data = props.data;
-    const data = useContext(DataContext);
 
     const handleDrawerToggle = (event) => {
         event.persist();
@@ -73,7 +71,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         <div>
             <div className={classes.toolbar} />
             <Divider />
-                <DynamicList data={data} className="LinkList"/>
+                <DynamicList className="linkList"/>
             <Divider />
         </div>
     );
@@ -140,7 +138,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 <Switch>
-                    <DynamicList data={data} className="Content"/>
+                    <DynamicList className="contentRoutes"/>
                 </Switch>
             </main>
         </div>

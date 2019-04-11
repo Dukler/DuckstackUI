@@ -3,7 +3,7 @@ import useComponentWrapper from '../Hooks/useComponentWrapper';
 import AsyncComponents from '../BeLazy/AsyncComponents';
 
 
-const WrappedComponents = React.memo(function WrappedList(props) {
+const WrappedComponents = React.memo(function WrappedComponents(props) {
     const [Wrapper, wrapperProps] = useComponentWrapper(props);
 
     return  <Wrapper {...wrapperProps}>

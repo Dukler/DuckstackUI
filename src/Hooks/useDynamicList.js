@@ -1,41 +1,23 @@
-import { useEffect, useReducer } from "react";
-import AsyncComponent from "../BeLazy/AsyncComponent";
-import listReducer from "../Reducers/listReducer";
+import  { useCallback } from 'react';
+import { useMappedState } from 'redux-react-hook';
 
 
 function useDynamicList(props){
-    const [list, dispatch] = useReducer(listReducer,[]);
+    //const {wrapper} = props
+    const mapState = useCallback(
+        state => ({
+            wrapper: (props.wrapper)?state["wrappers"][props.wrapper]:null,
+            list: state[props.className]
+        })
+    )
+    const { wrapper, list } = useMappedState(mapState);
+    
+    const filter = (props.wrapper)?wrapper.components:props.components;
 
-    useEffect(()=>{
-        init(props);
-    },[]);
-    const init = (props) =>{
-        dispatch({type:'setList',payload:jsonToList(props.data)})
-    };
-
-    const jsonToList = (data) =>{
-        let arr = [];
-        if(data[props.className]){
-            for (let index = 0; index < data[props.className].length; index++) {
-                arr = [...arr, parseItem(data[props.className][index])]
-            }
-            return arr;
-        }
-    };
-
-    const parseItem = (props) =>{
-        const exists = list.findIndex(cmp => cmp.id === props.id);
-        if (exists === -1){
-            let item = {...props};
-            item.contentFilter = (item.contentFilter)?item.contentFilter:"";
-            item.AsyncImport = AsyncComponent({
-                componentName:props.componentName
-            });
-            return item;
-        }
-    };
-
-    return [list, dispatch]
+    const filtered = (filter)?list.filter(f => filter.includes(f.id)):list;
+    
+    
+    return [filtered]
 }
 
 export default useDynamicList

@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
 import {headerUIApi, requestJson} from "../Actions/network";
 import {constants} from "../Constants";
+import { useDispatch } from 'redux-react-hook';
 
 function useListData (url){
     const [data,setState] = useState([]);
     const [loading,setLoading] = useState(true);
+    const dispatch = useDispatch();
     let config = null;
     if(url === constants.ui.login){
         config = {
@@ -21,8 +23,6 @@ function useListData (url){
     },[]);
 
     const init = (url) =>{
-        
-
         requestJson({
             config,
             url:url,
@@ -31,6 +31,12 @@ function useListData (url){
     };
     const setJson = (json) =>{
         setState(json);
+        //initstore
+        const {components,wrappers,contentRoutes,linkList} = json;
+        dispatch({ type: "setComponents", payload: components})
+        dispatch({ type: "setContent", payload: contentRoutes })
+        dispatch({ type: "setLinkList", payload: linkList })
+        dispatch({ type: "setWrappers", payload: wrappers })
         setLoading(false);
     };
 
