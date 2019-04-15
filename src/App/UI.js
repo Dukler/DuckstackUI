@@ -1,34 +1,31 @@
-import React, {useReducer} from "react";
-import {BrowserRouter } from "react-router-dom";
-import {constants} from '../Constants';
-import ResponsiveDrawer from "../Components/ResponsiveDrawer";
+import { MuiThemeProvider } from "@material-ui/core";
+import React, { useCallback } from "react";
+import { useMappedState } from "redux-react-hook";
+import DynamicList from "../Components/DynamicList";
+import { constants } from '../Constants';
 import useListData from "../Hooks/useListData";
-import themeReducer from "../Reducers/themeReducer"
-import {dsTheme} from "../Utils/dsTheme";
-import {MuiThemeProvider} from "@material-ui/core";
-// import {loggedIn} from "../Actions/auth"
-// import DynamicList from "./DynamicList";
+import { dsTheme } from "../Utils/dsTheme";
 
+const UI = React.memo(function UI() {
+    const [loading] = useListData(constants.ui.home);
+    const mapState = useCallback(
+        state => ({
+            theme: state["theme"]
+        })
+    )
+    const { theme } = useMappedState(mapState);
 
-
-
-export default function UI (){
-    const [data, loading] = useListData(constants.ui.home);
-    const [theme, themeDispatch] = useReducer(themeReducer,{darkTheme:true});
-    // const [login, loginLoading] = useListData(constants.ui.login);
-
-
-    // const isLoggedIn = loggedIn();
-
-    return(
+    return (
         <div className='UI'>
             {(loading) ? null :
-                <BrowserRouter>
-                    <MuiThemeProvider theme={dsTheme(theme)}>
-                        <ResponsiveDrawer themeDispatch={themeDispatch} />
-                    </MuiThemeProvider>
-                </BrowserRouter>
-            }  
+                <MuiThemeProvider theme={dsTheme(theme)}>
+                    <DynamicList
+                        className="components"
+                        root={true} />
+                </MuiThemeProvider>
+            }
         </div>
     )
-}
+})
+
+export default UI

@@ -2,8 +2,10 @@ import AsyncComponent from "./AsyncComponent";
 import React from 'react';
 
 function AsyncComponents(props){
+    const components = (props.components)?props.components:[props];
+    console.log("asyncComponents");
     return <>
-        {props.components.map(comp =>
+        {components.map(comp =>
             React.createElement(
                 AsyncComponent({
                     componentName: comp.componentName

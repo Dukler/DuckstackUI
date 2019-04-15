@@ -1,4 +1,4 @@
-import React, {useReducer, useContext} from 'react';
+import React, { useCallback} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,8 +12,9 @@ import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import {Switch} from "react-router-dom";
 import MaterialIcon from "../BeLazy/MaterialIcon";
-import rootReducer from "../Reducers/rootReducer";
-import DynamicList from "../App/DynamicList";
+import DynamicList from "./DynamicList";
+import { useMappedState, useDispatch } from 'redux-react-hook';
+import { BrowserRouter } from "react-router-dom";
 
 
 const drawerWidth = 240;
@@ -51,18 +52,26 @@ const styles = theme => ({
 });
 
 const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
-    const [state, dispatch] = useReducer(rootReducer,{mobileOpen:false});
-    const { classes, theme, themeDispatch } = props;
-    //const data = props.data;
+    
+    const mapState = useCallback(
+        state => ({
+            state: state["root"],
+            theme: state["theme"]
+        })
+    )
+    const {state,theme} = useMappedState(mapState);
+    const dispatch = useDispatch();
+
+    const { classes } = props;
 
     const handleDrawerToggle = (event) => {
         event.persist();
-        dispatch({type:'handleDrawerToggle'})
+        dispatch({ type:'toggleMobileOpen'})
     };
 
     const handleThemeToggle = (event) => {
         event.persist();
-        themeDispatch({type:'handleThemeToggle'})
+        dispatch({type:'handleThemeToggle'})
     };
 
 
@@ -77,7 +86,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
     );
 
     return (
-
+        <BrowserRouter>
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
@@ -142,7 +151,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
                 </Switch>
             </main>
         </div>
-
+        </BrowserRouter>                    
     );
     
 });

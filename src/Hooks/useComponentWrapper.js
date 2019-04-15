@@ -1,13 +1,17 @@
 import { getWrapper } from "../Wrappers";
-import wrapperReducer from "../Reducers/wrapperReducer"
-import { useReducer } from "react";
+import { useCallback } from "react";
+import { useMappedState, useDispatch } from "redux-react-hook";
 
 
 function useComponentWrapper(props){
-    const initialState = {
-        open: false
-    }
-    const [state, dispatch] = useReducer(wrapperReducer, initialState)
+    const mapState = useCallback(
+        state => ({
+            state: state["wrappers"][props.wrapper]
+        })
+    )
+    const { state } = useMappedState(mapState);
+    const dispatch = useDispatch();
+    
     const [Wrapper, isHtml] = getWrapper(props.wrapper);
     const htmlAttributes = {}
     const wrapperProps = (isHtml) ? htmlAttributes : { state, dispatch };

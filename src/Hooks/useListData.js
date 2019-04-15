@@ -4,7 +4,6 @@ import {constants} from "../Constants";
 import { useDispatch } from 'redux-react-hook';
 
 function useListData (url){
-    const [data,setState] = useState([]);
     const [loading,setLoading] = useState(true);
     const dispatch = useDispatch();
     let config = null;
@@ -20,7 +19,7 @@ function useListData (url){
     }
     useEffect(()=>{
         init(url);
-    },[]);
+    },[url]);
 
     const init = (url) =>{
         requestJson({
@@ -29,24 +28,17 @@ function useListData (url){
             callback:setJson
         });
     };
-    const setJson = (json) =>{
-        setState(json);
+    const setJson = (json) => {
         //initstore
-        const {components,wrappers,contentRoutes,linkList} = json;
-        dispatch({ type: "setComponents", payload: components})
+        const { components, wrappers, contentRoutes, linkList } = json;
+        dispatch({ type: 'setComponents', payload: components })
         dispatch({ type: "setContent", payload: contentRoutes })
         dispatch({ type: "setLinkList", payload: linkList })
         dispatch({ type: "setWrappers", payload: wrappers })
         setLoading(false);
     };
 
-    const reset = (url) =>{
-        setLoading(true);
-        init(url);
-        setLoading(false);
-    };
-
-    return [data,loading,reset];
+    return [loading];
 }
 
 export default useListData

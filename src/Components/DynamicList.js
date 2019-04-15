@@ -2,6 +2,7 @@ import React from 'react';
 import EventHandler from "../Actions/EventHandler";
 import PropTypes from "prop-types";
 import useDynamicList from '../Hooks/useDynamicList';
+import { useDispatch } from 'redux-react-hook';
 
 
 const DynamicList = React.memo(function DynamicList (props) {
@@ -9,6 +10,8 @@ const DynamicList = React.memo(function DynamicList (props) {
     const [list] = useDynamicList(props);
     
     const eventHandler = new EventHandler();
+
+    const dispatch = useDispatch();
 
     const getPairByIds = (props) =>{
         let result = {};
@@ -28,12 +31,12 @@ const DynamicList = React.memo(function DynamicList (props) {
         props.event.persist();
         const json = getPairByIds({ids:props.ids,pair:props.pair});
         eventHandler[props.action]({json});
-        //modal.dispatch("close");
     };
 
     const handleChange = (props) =>{
         props.event.persist();
-        //dispatch({type:props.type,event:props.event});
+        dispatch({ type:"inputValue",event:props.event});
+        //components.inputValue(props.event);
     };
     
     return (
@@ -44,8 +47,9 @@ const DynamicList = React.memo(function DynamicList (props) {
                     <AsyncImport
                         key={comp.id}
                         {...cleanComp}
-                        handleChange={(e)=>handleChange({type:'eventItemValue',event:e})}
-                        handleSubmit={(e)=>handleSubmit({event:e,ids:['userName','userPassword'],pair:'name',action:actions.onClick})}
+                        handleChange={(e) => handleChange({ type:'inputValue',event:e})}
+                        handleSubmit={(e) => handleSubmit({
+                            event:e,ids:['userName','userPassword'],pair:'name',action:actions.onClick})}
                     />)
                 }
             )}

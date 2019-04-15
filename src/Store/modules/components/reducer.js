@@ -2,6 +2,8 @@ import update from "immutability-helper";
 import { recursiveImport } from "../..";
 import AsyncComponent from './../../../BeLazy/AsyncComponent';
 
+
+
 const initialState = [];
 
 function useFindIndex({action,state}){
@@ -22,7 +24,6 @@ export default function reducer (state = initialState, action){
             const attributes = action.payload;
             if (index === -1) {
                 let item = { ...attributes };
-                item.contentFilter = (item.contentFilter) ? item.contentFilter : "";
                 item.AsyncImport = AsyncComponent({
                     componentName: attributes.componentName
                 });
@@ -31,15 +32,15 @@ export default function reducer (state = initialState, action){
                 });
             }
             return state;
-        case "open":
+        case 'open':
             return update(state, {
                 [index]: { open: { $set: true } }
             });
-        case "close":
+        case 'close':
             return update(state, {
                 [index]: { open: { $set: false } }
             });
-        case "toggleOpen":
+        case 'toggleOpen':
             return update(state, {
                 [index]: { open: { $set: !state[index].open } }
             });

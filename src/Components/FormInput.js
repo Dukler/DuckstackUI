@@ -14,7 +14,6 @@ function FormInput ( props ) {
         <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor={props.id}>{props.caption}</InputLabel>
             <Input id={props.id}
-                   key={props.id}
                    name={props.name}
                    autoComplete={props.autoComplete}
                    type={props.type}

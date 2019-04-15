@@ -5,9 +5,13 @@ import AsyncComponents from '../BeLazy/AsyncComponents';
 
 const WrappedComponents = React.memo(function WrappedComponents(props) {
     const [Wrapper, wrapperProps] = useComponentWrapper(props);
+    const mustWrapp = (props.wrapper && props.wrapper !== "")?true:false;
 
     return  <Wrapper {...wrapperProps}>
-                <AsyncComponents {...props}/>
+                {(mustWrapp)?
+                    <WrappedComponents {...props}/>:
+                    <AsyncComponents {...props} />
+                }
             </Wrapper>
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import useComponentWrapper from '../Hooks/useComponentWrapper';
-import DynamicList from './../App/DynamicList';
+import DynamicList from './DynamicList';
 
 
 const WrappedList = React.memo(function WrappedList(props) {
@@ -10,7 +10,7 @@ const WrappedList = React.memo(function WrappedList(props) {
     return  <Wrapper {...wrapperProps}>
                 <DynamicList 
                     className = "components"
-                    wrapper={props.wrapper}/>
+                    wrapper= {props.wrapper} />
             </Wrapper>
 });
 
