@@ -1,52 +1,55 @@
 import update from "immutability-helper";
-import { recursiveImport } from "../..";
 import AsyncComponent from './../../../BeLazy/AsyncComponent';
 
 
 
 const initialState = [];
 
-function useFindIndex({action,state}){
-    const event = action.event;
-    const target = event.target;
-    let index = state.findIndex(item => item.id === target.id);
-    return [index,target,event];
-}
-
 export default function reducer (state = initialState, action){
-    const [index, target] = (action.event) ? useFindIndex({ action, state }):[null,null];
+    //const [index, target] = (action.event) ? useFindIndex({ action, state }):[null,null];
+    const target = action.event? action.event.target:null;
     switch (action.type) {
+        case 'updateProperty':
+            const property = action.property;
+            return update(state, {
+                byIds: {[action.id]:{[property]: {$set: action.value}}}
+            });
         case 'inputValue':
             return update(state, {
-                [index]:  {value: {$set: target.value}}
+                byIds: {[action.id]:{value: {$set: target.value}}}
             });
-        case 'addItem':
-            const attributes = action.payload;
-            if (index === -1) {
-                let item = { ...attributes };
-                item.AsyncImport = AsyncComponent({
-                    componentName: attributes.componentName
-                });
-                return update(state, {
-                    $push:item
-                });
-            }
-            return state;
+        // case 'addItem':
+        //     const attributes = action.payload;
+        //     if (index === -1) {
+        //         let item = { ...attributes };
+        //         item.AsyncImport = AsyncComponent({
+        //             componentName: attributes.componentName
+        //         });
+        //         return update(state, {
+        //             $push:item
+        //         });
+        //     }
+        //     return state;
         case 'open':
             return update(state, {
-                [index]: { open: { $set: true } }
+                byIds: { [action.id]: { open: { $set: true } }}
             });
         case 'close':
             return update(state, {
-                [index]: { open: { $set: false } }
+                byIds: { [action.id]: { open: { $set: false } }}
             });
         case 'toggleOpen':
             return update(state, {
-                [index]: { open: { $set: !state[index].open } }
+                byIds: { [action.id]: { open: { $set: !state["byIds"][action.id].open } }}
             });
         case 'setComponents':
-            recursiveImport(action.payload);
-            return action.payload
+            const components = action.payload;
+            components.ids.forEach((cmp) => {
+                components.byIds[cmp].AsyncImport = AsyncComponent({
+                    componentName: components.byIds[cmp].componentName
+                });
+            });
+            return action.payload;
         default:
             return state;
     }

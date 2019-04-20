@@ -4,23 +4,30 @@ import { useMappedState } from 'redux-react-hook';
 
 
 function useDynamicList(props){
-    
-    
+
     const mapState = useCallback(
         state => ({
-            wrapper: props.wrapper?state["wrappers"][props.wrapper]["components"]:null,
-            list: state[props.className],
-            root: state["wrappers"]["root"]["components"]
+            wrapper: props.wrapper?state["wrappers"]["byIds"][props.wrapper]:null,
+            list: state[props.className]["byIds"],
+            order: state[props.className]["ids"],
         })
-    )
-    const { wrapper, list, root } = useMappedState(mapState);
+    );
+    const { wrapper, list, order } = useMappedState(mapState);
     
-    const filter = props.root?root:props.wrapper?wrapper:props.components;
+    const filter = props.className==="linkList"?wrapper.linkList:
+                props.wrapper?wrapper.components:
+                props.components;
 
-    const filtered = filter?list.filter(f => filter.includes(f.id)):list;
+    const filtered = filter?filter.map(
+            item=>list[item]
+        ).filter(item=>item!==undefined):
+    Object.values(list);
 
-    if (props.className === "components")
-        filtered.sort((a,b)=> filter.indexOf(a.id) - filter.indexOf(b.id));
+    if (props.className !== "contentRoutes" && filtered.length > 1)
+        if (filter)
+            filtered.sort((a, b)=> filter.indexOf(a.id) - filter.indexOf(b.id));
+        else
+            filtered.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
     
     return [filtered]
 }

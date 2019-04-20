@@ -31,10 +31,10 @@ function useListData (url){
     const setJson = (json) => {
         //initstore
         const { components, wrappers, contentRoutes, linkList } = json;
-        dispatch({ type: 'setComponents', payload: components })
-        dispatch({ type: "setContent", payload: contentRoutes })
-        dispatch({ type: "setLinkList", payload: linkList })
-        dispatch({ type: "setWrappers", payload: wrappers })
+        dispatch({ type: "setComponents", payload: components });
+        dispatch({ type: "setContent", payload: contentRoutes });
+        dispatch({ type: "setLinkList", payload: linkList });
+        dispatch({ type: "setWrappers", payload: wrappers });
         setLoading(false);
     };
 

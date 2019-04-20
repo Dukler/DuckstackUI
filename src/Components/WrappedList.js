@@ -5,7 +5,6 @@ import DynamicList from './DynamicList';
 
 const WrappedList = React.memo(function WrappedList(props) {
     const [Wrapper, wrapperProps] = useComponentWrapper(props);
-    //const {Wrapper, wrapperProps} = props;
 
     return  <Wrapper {...wrapperProps}>
                 <DynamicList 

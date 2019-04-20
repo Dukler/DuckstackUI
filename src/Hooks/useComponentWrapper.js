@@ -6,9 +6,9 @@ import { useMappedState } from "redux-react-hook";
 function useComponentWrapper(props){
     const mapState = useCallback(
         state => ({
-            state: state["wrappers"][props.wrapper]
+            state: state["wrappers"]["byIds"][props.wrapper]
         })
-    )
+    );
     const { state } = useMappedState(mapState);
     const {Wrapper} = state;
     const wrapperProps = null;

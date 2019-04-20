@@ -1,6 +1,6 @@
 import update from "immutability-helper";
 
-const initialState = { mobileOpen: false , open:false}
+const initialState = { mobileOpen: false , open:false};
 
 export default function reducer(state = initialState, action){
     switch (action.type) {

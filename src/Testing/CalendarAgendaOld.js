@@ -1,15 +1,15 @@
 import React, {PureComponent} from "react";
-import clsx from "clsx";
-import format from "date-fns/format";
-import isSameDay from "date-fns/isSameDay";
-import startOfWeek from "date-fns/startOfWeek";
-import endOfWeek from "date-fns/endOfWeek";
-import isWithinInterval from "date-fns/isWithinInterval";
-import parse from "date-fns/parse"
-import {BasePicker, Calendar, MuiPickersUtilsProvider} from "material-ui-pickers";
+import clsx from "clsx/clsx";
+import format from "date-fns/typings";
+import isSameDay from "date-fns/typings";
+import startOfWeek from "date-fns/typings";
+import endOfWeek from "date-fns/typings";
+import isWithinInterval from "date-fns/typings";
+import parse from "date-fns/typings"
+import {BasePicker, Calendar, MuiPickersUtilsProvider} from "material-ui-pickers/index";
 import { IconButton, withStyles } from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import Badge from '@material-ui/core/Badge';
+import DateFnsUtils from "@date-io/date-fns/build/index";
+import Badge from '@material-ui/core/Badge/index';
 
 class CalendarAgendaOld extends PureComponent {
     state = {

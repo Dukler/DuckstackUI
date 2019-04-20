@@ -58,7 +58,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
             state: state["root"],
             theme: state["theme"]
         })
-    )
+    );
     const {state,theme} = useMappedState(mapState);
     const dispatch = useDispatch();
 
@@ -80,7 +80,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         <div>
             <div className={classes.toolbar} />
             <Divider />
-                <DynamicList className="linkList"/>
+                <DynamicList className="linkList" wrapper="root"/>
             <Divider />
         </div>
     );

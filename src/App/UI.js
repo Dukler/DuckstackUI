@@ -12,7 +12,7 @@ const UI = React.memo(function UI() {
         state => ({
             theme: state["theme"]
         })
-    )
+    );
     const { theme } = useMappedState(mapState);
 
     return (
@@ -21,7 +21,7 @@ const UI = React.memo(function UI() {
                 <MuiThemeProvider theme={dsTheme(theme)}>
                     <DynamicList
                         className="components"
-                        root={true} />
+                        wrapper="root"/>
                 </MuiThemeProvider>
             }
         </div>
