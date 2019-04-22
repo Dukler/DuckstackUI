@@ -31,11 +31,11 @@ export default function reducer (state = initialState, action){
             });
         case "TOGGLE_OPEN":
             return update(state, {
-                byIds: { [id]: { open: { $set: !state["byIds"][action.id].open } }}
+                byIds: { [id]: { open: { $set: !state["byIds"][id].open } }}
             });
         case "TOGGLE_MOBILE_OPEN":
             return update(state, {
-                byIds: { [id]: { mobileOpen: { $set: !state["byIds"][action.id].mobileOpen } } }
+                byIds: { [id]: { mobileOpen: { $set: !state["byIds"][id].mobileOpen } } }
             });
         case "INIT_DATA_SUCCEEDED":
             const components = payload.components;

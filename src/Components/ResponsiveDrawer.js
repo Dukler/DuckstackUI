@@ -73,12 +73,12 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
     
     const handleDrawerToggle = (event) => {
         event.persist();
-        dispatch({ type:'TOGGLE_MOBILE_OPEN'})
+        dispatch({ type:'TOGGLE_MOBILE_OPEN', payload:{ id:props.id } })
     };
 
     const handleThemeToggle = (event) => {
         event.persist();
-        dispatch({type:'HANDLE_THEME_TOGGLE'})
+        dispatch({ type:'HANDLE_THEME_TOGGLE' })
     };
 
 
