@@ -4,7 +4,7 @@ const initialState = { darkTheme: true }
 
 export default function reducer(state = initialState, action){
     switch (action.type) {
-        case 'handleThemeToggle':
+        case 'HANDLE_THEME_TOGGLE':
             //action.event.persist();
             return update(state, {
                 darkTheme: {$set: ! state.darkTheme}

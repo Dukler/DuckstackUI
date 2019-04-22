@@ -1,18 +1,17 @@
-//import { recursiveImport } from "../..";
 import ContentRoute from './../../../Components/ContentRoute';
 
 const initialState = [];
 
 export default function reducer(state = initialState, action){
     switch (action.type) {
-        case 'setContent':
-            //recursiveImport(action.payload);
-            const components = action.payload;
-            components.ids.forEach((cmp) => {
-                components.byIds[cmp].AsyncImport = ContentRoute;
+        case "INIT_DATA_SUCCEEDED":
+            const contentRoutes = action.payload.contentRoutes;
+            contentRoutes.ids.forEach((cmp) => {
+                contentRoutes.byIds[cmp].AsyncImport = ContentRoute;
             });
-            return action.payload;
+            return contentRoutes;
         default:
             return state;
     }
 }
+//{ components, wrappers, contentRoutes, linkList }

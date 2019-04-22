@@ -37,11 +37,11 @@ const DSModal = React.memo(function DSModal (props) {
     //     setState({ open: true });
     // };
     useEffect(() => {
-        dispatch({type:"open"})
+        dispatch({type:"OPEN"})
     })
 
     const handleClose = () => {
-        dispatch({ type: "close" })
+        dispatch({ type: "CLOSE" })
     };
     
     return (

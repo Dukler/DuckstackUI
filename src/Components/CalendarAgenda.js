@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import clsx from "clsx";
 import format from "date-fns/format";
 import isSameDay from "date-fns/isSameDay";
@@ -12,7 +12,6 @@ import DateFnsUtils from "@date-io/date-fns";
 import Badge from '@material-ui/core/Badge';
 import useComponent from "../Hooks/useComponent";
 
-var init = true;
 
 const CalendarAgenda = React.memo(function CalendarAgenda (props) {
 
@@ -21,18 +20,16 @@ const CalendarAgenda = React.memo(function CalendarAgenda (props) {
     const handleDateChange = useCallback(
         (date) => {
             dispatch({
-                type: 'updateProperty',
+                type: 'UPDATE_PROPERTY',
                 property: 'selectedDate',
-                id: props.id,
-                value: date
+                payload:{id:props.id,value:date}
             });
         }
     )
-
-    if(init){
+    
+    useEffect(() => {
         handleDateChange(new Date());
-        init = false;
-    }
+    }, [])
 
     const {selectedDate} = state;
 

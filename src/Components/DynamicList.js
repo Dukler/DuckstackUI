@@ -11,7 +11,7 @@ const DynamicList = React.memo(function DynamicList (props) {
         <>
             {list.map(comp => {
                 const { AsyncImport, actions, ...cleanComp } = comp;
-                return (
+                 return (
                     <AsyncImport
                         key={comp.id}
                         {...cleanComp}

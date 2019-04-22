@@ -1,10 +1,11 @@
-import { useCallback } from 'react';
-import { useMappedState } from 'redux-react-hook';
+import { useCallback, useContext } from 'react';
+import { useMappedState, StoreContext } from 'redux-react-hook';
 
 
 
 function useDynamicList(props){
 
+    const state = useContext(StoreContext).getState();
     const mapState = useCallback(
         state => ({
             wrapper: props.wrapper?state["wrappers"]["byIds"][props.wrapper]:null,

@@ -1,23 +1,28 @@
 import { MuiThemeProvider } from "@material-ui/core";
-import React, { useCallback } from "react";
-import { useMappedState } from "redux-react-hook";
+import React, { useCallback, useEffect } from "react";
+import { useMappedState, useDispatch } from "redux-react-hook";
 import DynamicList from "../Components/DynamicList";
 import { constants } from '../Constants';
-import useListData from "../Hooks/useListData";
 import { dsTheme } from "../Utils/dsTheme";
 
 const UI = React.memo(function UI() {
-    const [loading] = useListData(constants.ui.home);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({ type: "INIT_DATA_REQUESTED", payload: { url: constants.api + constants.ui.home } });
+    }, [])
+
     const mapState = useCallback(
         state => ({
-            theme: state["theme"]
+            theme: state["theme"],
+            isLoading: state["root"]["isLoading"]
         })
     );
-    const { theme } = useMappedState(mapState);
+    const { theme, isLoading } = useMappedState(mapState);
 
     return (
         <div className='UI'>
-            {(loading) ? null :
+            {(isLoading) ? null :
                 <MuiThemeProvider theme={dsTheme(theme)}>
                     <DynamicList
                         className="components"

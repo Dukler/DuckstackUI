@@ -17,7 +17,7 @@ function FormInput ( props ) {
     const handleChange = (action) => useCallback(
         (event) => {
             event.persist();
-            dispatch({ ...action, event });
+            dispatch({ type:action.type, payload:{...action.payload,event} });
         },
         [action],
     );
@@ -30,7 +30,7 @@ function FormInput ( props ) {
                     autoComplete={state.autoComplete}
                     type={state.type}
                     value={state.value}
-                    onChange={handleChange({ type: "inputValue", id: state.id })}
+                    onChange={handleChange({ type: "INPUT_VALUE", payload:{id:state.id} })}
                     autoFocus={false}
             />
         </FormControl>

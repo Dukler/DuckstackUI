@@ -1,4 +1,4 @@
-import React, { useCallback} from 'react';
+import React, { useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -52,26 +52,33 @@ const styles = theme => ({
 });
 
 const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({
+            type: 'UPDATE',
+            payload: { id: props.id, mobileOpen: false, open: false }
+        });
+    }, [])
     
     const mapState = useCallback(
         state => ({
-            state: state["root"],
+            state: state["components"]["byIds"][props.id],
             theme: state["theme"]
         })
     );
     const {state,theme} = useMappedState(mapState);
-    const dispatch = useDispatch();
-
+    
     const { classes } = props;
-
+    
     const handleDrawerToggle = (event) => {
         event.persist();
-        dispatch({ type:'toggleMobileOpen'})
+        dispatch({ type:'TOGGLE_MOBILE_OPEN'})
     };
 
     const handleThemeToggle = (event) => {
         event.persist();
-        dispatch({type:'handleThemeToggle'})
+        dispatch({type:'HANDLE_THEME_TOGGLE'})
     };
 
 

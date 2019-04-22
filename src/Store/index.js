@@ -1,17 +1,16 @@
-import { createStore } from 'redux';
-//import AsyncComponent from './../BeLazy/AsyncComponent';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './modules';
+import {logger} from './middleware/index'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga  from './middleware/sagas';
 
 
-// export const recursiveImport = (components) => {
-//     components.forEach((cmp) => {
-//         cmp.AsyncImport = AsyncComponent({
-//             componentName: cmp.componentName
-//         });
-//         if (cmp.components) {
-//             recursiveImport(cmp.components)
-//         }
-//     })
-// }
+const sagaMiddleware = createSagaMiddleware()
+export const store = createStore(reducers,
+    applyMiddleware(
+        //logger,
+        sagaMiddleware,
+    )
+);
 
-export const store = createStore(reducers);
+sagaMiddleware.run(rootSaga)

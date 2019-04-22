@@ -1,41 +1,50 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Button from '@material-ui/core/Button';
-import EventHandler from "../Actions/EventHandler";
-import useFilteredList from '../Hooks/useFilteredList';
+//import useFilteredList from '../Hooks/useFilteredList';
+//import EventHandler from "../Actions/EventHandler";
+import { useDispatch } from 'redux-react-hook';
+
+//const eventHandler = new EventHandler();
 
 const SubmitButton = props => {
+    const dispatch = useDispatch();
+    const filter = ["tes2", "tes3"]
+    //const [list] = useFilteredList({ className: "components", filter })
     
-    const eventHandler = new EventHandler();
 
-    const list = useFilteredList({className:"components",filter:["tes2","tes3"]})
-
-    const getPairByIds = (props) => {
+    const prepareJson = (state) => {
         let result = {};
-        for (let i = 0; i < props.ids.length; i++) {
-            for (let j = 0; j < list.length; j++) {
-                if (props.ids[i] === list[j].id) {
-                    const compAtt = { ...list[j] };
-                    result[compAtt[props.pair]] = compAtt.value;
-                    break;
-                }
-            }
-        }
+        const list = state["components"]["byIds"]
+        const filtered = Object.keys(list)
+            .filter(key => filter.includes(key))
+            .reduce((obj, key) => {
+                obj[key] = list[key];
+                return obj;
+            }, {});
+        Object.values(filtered).forEach((item)=>{
+            result[item.name]=item.value
+        })
+
         return result
     };
 
-    const handleClick = (props) => {
-        props.event.persist();
-        const json = { [list["tes2"].name]: [list["tes2"].value], [list["tes3"].name]: [list["tes3"].value]}
-        //const json = getPairByIds({ ids: props.ids, pair: props.pair });
-        eventHandler[props.action]({ json });
-    };
+    const handleClick = (props) => useCallback(
+        (event) => {
+            event.persist();
+            const json = dispatch(prepareJson);
+            console.log("test");
+            //const json = getPairByIds({ ids: props.ids, pair: props.pair });
+            //eventHandler[props.action]({ json });
+        },
+        [props],
+    );
 
     const {actions} = props;
 
     return (
-        <Button onClick={(e) => handleClick({
-                event: e, ids: ['userName', 'userPassword'], 
-                pair: 'name', action: actions.onClick})}
+        <Button onClick={handleClick({
+                ids: ['userName', 'userPassword'], 
+                action: actions.onClick})}
                 variant="contained"
                 color="primary">
             {props.caption}
