@@ -1,20 +1,13 @@
-import { useCallback } from 'react';
-import { useMappedState, useDispatch} from 'redux-react-hook';
+import { useDispatch} from 'redux-react-hook';
+import useClassState from './useClassState';
 
 
 
 function useComponent(id){
 
-    const mapState = useCallback(
-        state => ({
-            state: state["components"]["byIds"][id]
-        })
-    );
-
-    const { state } = useMappedState(mapState);
+    const state = useClassState({ id, element:"components"})
     
     const dispatch = useDispatch()
-
 
     return [state, dispatch]
 }

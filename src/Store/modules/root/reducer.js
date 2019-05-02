@@ -8,7 +8,6 @@ export default function reducer(state = initialState, action){
             return update(state,{
                 isLoading:{$set: action.payload.isLoading}
             })
-        
         default:
             return state;
     }

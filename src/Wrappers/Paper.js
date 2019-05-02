@@ -1,7 +1,7 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
+import MPaper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = theme => ({
@@ -25,14 +25,15 @@ const styles = theme => ({
     },
 });
 
-const DSPaper = React.memo(function DSPaper (props) {
+const Paper = React.memo(function Paper(props) {
     const { classes, children } = props;
+    console.log();
     return (
         <main className={classes.main}>
             <CssBaseline />
-            <Paper className={classes.paper}>
+            <MPaper className={classes.paper}>
                 {children}
-            </Paper>
+            </MPaper>
         </main>
     );
 });
@@ -41,4 +42,4 @@ const DSPaper = React.memo(function DSPaper (props) {
 //     classes: PropTypes.object.isRequired,
 // };
 
-export default withStyles(styles)(DSPaper);
+export default withStyles(styles)(Paper);

@@ -1,4 +1,5 @@
-import AsyncWrapper from "../BeLazy/AsyncWrapper";
+//import AsyncWrapper from "../BeLazy/AsyncWrapper";
+import AsyncComponent from './../BeLazy/AsyncComponent';
 
 export function isLowerCase(str)
 {
@@ -7,12 +8,14 @@ export function isLowerCase(str)
 export const getWrapper = (wrapper) =>{
     let Wrapper = null;
     let isHtml = false;
-    if (isLowerCase(wrapper.charAt(0))){
-        Wrapper = `${wrapper}`;
+    if (isLowerCase(wrapper.className.charAt(0))){
+        Wrapper = `${wrapper.className}`;
         isHtml = true;
     } else{
-        Wrapper = AsyncWrapper({
-            componentName: wrapper
+        Wrapper = AsyncComponent({
+            className: wrapper.className,
+            root:"Wrappers",
+            type: wrapper.classType
         });   
     }
     return [Wrapper, isHtml]

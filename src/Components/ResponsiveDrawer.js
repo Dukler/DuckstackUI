@@ -11,10 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import {Switch} from "react-router-dom";
-import MaterialIcon from "../BeLazy/MaterialIcon";
-import DynamicList from "./DynamicList";
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import { BrowserRouter } from "react-router-dom";
+import DynamicList from '../BeLazy/DynamicList';
+import AsyncComponent from './../BeLazy/AsyncComponent';
 
 
 const drawerWidth = 240;
@@ -53,19 +53,20 @@ const styles = theme => ({
 
 const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
         dispatch({
             type: 'UPDATE',
             payload: { id: props.id, mobileOpen: false, open: false }
         });
-    }, [])
+    }, [dispatch, props.id])
     
     const mapState = useCallback(
         state => ({
             state: state["components"]["byIds"][props.id],
             theme: state["theme"]
-        })
+        }),[props.id]
     );
     const {state,theme} = useMappedState(mapState);
     
@@ -87,7 +88,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         <div>
             <div className={classes.toolbar} />
             <Divider />
-                <DynamicList className="linkList" wrapper="root"/>
+            <DynamicList element="linkList" wrapper="root"/>
             <Divider />
         </div>
     );
@@ -111,7 +112,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
                     </Typography>
 
                     <IconButton color="inherit" onClick={handleThemeToggle}>
-                        <MaterialIcon icon="EventAvailable"/>
+                        <AsyncComponent className="EventAvailable" type="mIcon" create/>
                     </IconButton>
 
                 </Toolbar>
@@ -154,7 +155,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 <Switch>
-                    <DynamicList className="contentRoutes"/>
+                    <DynamicList element="contentRoutes"/>
                 </Switch>
             </main>
         </div>

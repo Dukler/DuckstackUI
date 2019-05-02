@@ -1,13 +1,5 @@
 import {constants} from '../Constants';
 
-export const fetchUI = (url) =>{
-    const config = {
-        method: "GET",
-    };
-    fetch(constants.api + url)
-        .then(response => response.json(), )
-}
-
 export const request = (props) =>{
     fetch(constants.api + props.url,props.config)
         .then(response => {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
+import MModal from '@material-ui/core/Modal';
 import { isAbsolute } from 'path';
 
 
@@ -30,12 +30,9 @@ const styles = theme => ({
         outline: 'none',
     }
 });
-const DSModal = React.memo(function DSModal (props) {
-    //const [state,setState] = useState({open:true});
+const Modal = React.memo(function Modal (props) {
     const { classes, children, state, dispatch } = props;
-    // const handleOpen = () => {
-    //     setState({ open: true });
-    // };
+
     useEffect(() => {
         dispatch({type:"OPEN"})
     })
@@ -46,7 +43,7 @@ const DSModal = React.memo(function DSModal (props) {
     
     return (
         <div>
-            <Modal
+            <MModal
                 className="modal"
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
@@ -57,16 +54,16 @@ const DSModal = React.memo(function DSModal (props) {
                 <div style={getModalStyle()} className={classes.paper}>
                     {children}
                 </div>
-            </Modal>
+            </MModal>
         </div>
     );
 });
 
-DSModal.propTypes = {
+Modal.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 // We need an intermediary variable for handling the recursive nesting.
 //const DSModalWrapped = withStyles(styles)(DSModal);
 
-export default withStyles(styles)(DSModal);
+export default withStyles(styles)(Modal);

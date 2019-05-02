@@ -1,21 +1,20 @@
-import { useCallback, useContext } from 'react';
-import { useMappedState, StoreContext } from 'redux-react-hook';
+import { useCallback } from 'react';
+import { useMappedState } from 'redux-react-hook';
 
 
 
 function useDynamicList(props){
 
-    const state = useContext(StoreContext).getState();
     const mapState = useCallback(
         state => ({
             wrapper: props.wrapper?state["wrappers"]["byIds"][props.wrapper]:null,
-            list: state[props.className]["byIds"],
-            order: state[props.className]["ids"],
-        })
+            list: state[props.element]["byIds"],
+            order: state[props.element]["ids"],
+        }),[props]
     );
     const { wrapper, list, order } = useMappedState(mapState);
     
-    const filter = props.className==="linkList"?wrapper.linkList:
+    const filter = props.element==="linkList"?wrapper.linkList:
                 props.wrapper?wrapper.components:
                 props.components;
 
@@ -24,7 +23,7 @@ function useDynamicList(props){
         ).filter(item=>item!==undefined):
     Object.values(list);
 
-    if (props.className !== "contentRoutes" && filtered.length > 1)
+    if (props.element !== "contentRoutes" && filtered.length > 1)
         if (filter)
             filtered.sort((a, b)=> filter.indexOf(a.id) - filter.indexOf(b.id));
         else

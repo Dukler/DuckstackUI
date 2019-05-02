@@ -14,13 +14,13 @@ function FormInput ( props ) {
 
     const [state, dispatch] = useComponent(props.id)
 
-    const handleChange = (action) => useCallback(
-        (event) => {
-            event.persist();
-            dispatch({ type:action.type, payload:{...action.payload,event} });
-        },
-        [action],
-    );
+    const handleChange = useCallback( 
+        (action) => 
+            (event)=>{
+                event.persist()
+                dispatch({ type: action.type, payload: { ...action.payload, event } })
+            },[dispatch]
+    )
 
     return (
         <FormControl margin="normal" required fullWidth>
