@@ -5,6 +5,7 @@ import useDynamicList from '../Hooks/useDynamicList';
 
 const DynamicList = React.memo(function DynamicList (props) {
     
+    console.log();
     const [list] = useDynamicList(props);
     
     return (
