@@ -2,8 +2,8 @@ import update from "immutability-helper";
 import AsyncComponent from './../../../BeLazy/AsyncComponent';
 import reduceReducer from "reduce-reducers";
 import { inputFields } from "./inputFields";
-import { overlays } from "./overlays";
 import { buttons } from "./buttons";
+import { overlays } from "../common/overlays";
 
 
 const initialState = [];

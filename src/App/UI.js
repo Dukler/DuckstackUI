@@ -24,7 +24,7 @@ const UI = React.memo(function UI() {
 
     return (
         <div className='UI'>
-            {(isLoading) ? <div>"My render</div> :
+            {(isLoading) ? <div>"My render"</div> :
                 <MuiThemeProvider theme={dsTheme(theme)}>
                     <DynamicList
                         element="components"
@@ -33,6 +33,7 @@ const UI = React.memo(function UI() {
             }
         </div>
     )
+    
 })
 
 export default UI

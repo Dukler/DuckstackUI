@@ -1,21 +1,23 @@
 import update from "immutability-helper";
 
-export function overlays(state = [], action) {
+export function overlays(state = [], action,suffix="") {
     const { id } = action.payload ? action.payload : { id: null, ...null };
+    //const suffix =""
+    const suf = suffix === "" ? "" : `_${suffix}`
     switch (action.type) {
-        case "OPEN":
+        case `OPEN${suf}`:
             return update(state, {
                 byIds: { [id]: { open: { $set: true } } }
             });
-        case "CLOSE":
+        case `CLOSE${suf}`:
             return update(state, {
                 byIds: { [id]: { open: { $set: false } } }
             });
-        case "TOGGLE_OPEN":
+        case `TOGGLE_OPEN${suf}`:
             return update(state, {
                 byIds: { [id]: { open: { $set: !state["byIds"][id].open } } }
             });
-        case "TOGGLE_MOBILE_OPEN":
+        case `TOGGLE_MOBILE_OPEN${suf}`:
             return update(state, {
                 byIds: { [id]: { mobileOpen: { $set: !state["byIds"][id].mobileOpen } } }
             });

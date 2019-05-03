@@ -14,14 +14,6 @@ const AsyncComponent = props => {
     }
     const getImport = () =>{
         switch(props.type){
-            // case 'mCore':
-            //     const fuckery = 'Paper'
-            //     return () => import(
-            //         /* webpackMode: "eager" */
-            //         /* webpackExclude: "^.\/node_modules\/@material-ui\/core\/es" */
-            //         `@material-ui/core/${fuckery}`
-            //     )
-                
             case 'mIcon':
                 return () => import(
                     /* webpackMode: "eager" */

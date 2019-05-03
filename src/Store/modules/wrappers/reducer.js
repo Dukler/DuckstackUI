@@ -1,8 +1,16 @@
 import { getWrapper } from "../../../Wrappers";
+import reduceReducer from "reduce-reducers";
+import { overlays } from "../common/overlays";
 
 const initialState = []
 
-export default function reducer(state = initialState, action) {
+const reducer = reduceReducer(
+    wrappers,
+    (state,action)=>overlays(state,action,"WRAPPER")
+)
+export default reducer
+
+function wrappers(state = initialState, action) {
     switch (action.type) {
         case "INIT_DATA_SUCCEEDED":
             const wrappers = {...action.payload.wrappers};

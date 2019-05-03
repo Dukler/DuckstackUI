@@ -9,7 +9,6 @@
     "@mdi/svg": "^3.6.95",
     "clsx": "^1.0.4",
     "date-fns": "^2.0.0-alpha.27",
-    "eslint-plugin-react-hooks": "^1.6.0",
     "immutability-helper": "^3.0.0",
     "material-ui-pickers": "^2.2.4",
     "prop-types": "^15.7.2",
@@ -17,18 +16,20 @@
     "react-async-component": "^2.0.0",
     "react-dom": "^16.8.4",
     "react-inspector": "^2.3.1",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.0",
     "reduce-reducers": "^1.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-react-hook": "^3.3.2",
     "redux-saga": "^1.0.2",
-    "typeface-roboto": "0.0.54",
-    "typescript": "^3.4.5"
+    "source-map-explorer": "^1.8.0",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "analyze": "source-map-explorer build/static/js/main.*",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,6 +43,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-router-dom": "^5.0.0"
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "typescript": "^3.4.5"
   }
 }

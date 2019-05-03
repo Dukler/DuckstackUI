@@ -1,12 +1,12 @@
-
+import { prepareJSON } from './../../../Utils/index';
 
 export function buttons(state = [], action) {
     const { id, ...payload } = action.payload ? action.payload : { id: null, ...null };
     switch (action.type) {
         case "SUBMIT_JSON":
-            const { post, filter, prepareJSON } = payload;
+            const { post, filter } = payload;
             post(
-                prepareJSON({ state, filter })
+                prepareJSON({ state:state["byIds"], filter })
             )
             return state;
         default:
