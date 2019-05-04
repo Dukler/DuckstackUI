@@ -1,8 +1,9 @@
 import Loadable from 'react-loadable'
 import { getIcon } from '../Utils/icons';
 
+
 const LazyComponent = props => {
-    const {type,LoadingComponent} = props;
+    const {type,LoadingComponent,create} = props;
     const getImport = () => {
         switch (type) {
             case 'mIcon':
@@ -14,11 +15,20 @@ const LazyComponent = props => {
                 );
         }
     }
+    const enhance = () =>{
+        const comp = Loadable({
+            loader: getImport(),
+            loading: () => LoadingComponent ? LoadingComponent : null
+        })
+        if(create){
+            const React = require('react')
+            return React.createElement(comp);
+        }else{
+            return comp;
+        }
+    }
 
-    return Loadable ({
-        loader: getImport(),
-        loading: () => LoadingComponent ? LoadingComponent : null
-    })
+    return enhance();
 
 };
 

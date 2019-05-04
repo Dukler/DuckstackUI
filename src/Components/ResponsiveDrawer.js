@@ -14,6 +14,7 @@ import {Switch} from "react-router-dom";
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import { BrowserRouter } from "react-router-dom";
 import DynamicList from '../BeLazy/DynamicList';
+import LazyComponent from './../BeLazy/LazyComponent';
 
 
 const drawerWidth = 240;
@@ -110,9 +111,9 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
                         Responsive drawer
                     </Typography>
 
-                    {/* <IconButton color="inherit" onClick={handleThemeToggle}>
+                    <IconButton color="inherit" onClick={handleThemeToggle}>
                         <LazyComponent className="EventAvailable" type="mIcon" create/>
-                    </IconButton> */}
+                    </IconButton>
 
                 </Toolbar>
             </AppBar>

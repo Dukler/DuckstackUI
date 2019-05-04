@@ -1,9 +1,9 @@
-import { put, takeLatest, all } from 'redux-saga/effects'
+import { put, takeLatest, all, call } from 'redux-saga/effects'
+import { requestUI } from '../../Utils/api';
 
 export function* fetchData(action) {
     try {
-        const data = yield fetch(action.payload.url)
-                    .then(response => response.json())
+        const data = yield call (requestUI,action.payload.url)
         yield put({ type: "INIT_DATA_SUCCEEDED", payload: {...data} })
         yield put({ type: "SHOW_LOADING_ACTION", payload: { isLoading: false } })
     } catch (error) {
