@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import AsyncComponent from './../../../BeLazy/AsyncComponent';
+import LazyComponent from './../../../BeLazy/LazyComponent';
 import reduceReducer from "reduce-reducers";
 import { inputFields } from "./inputFields";
 import { buttons } from "./buttons";
@@ -26,7 +26,7 @@ function components (state = initialState, action){
         case "INIT_DATA_SUCCEEDED":
             const components = {...payload.components};
             components.ids.forEach((cmp) => {
-                components.byIds[cmp].AsyncImport = AsyncComponent({
+                components.byIds[cmp].AsyncImport = LazyComponent({
                     className: components.byIds[cmp].className,
                     root:"Components"
                 });

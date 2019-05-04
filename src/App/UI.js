@@ -1,7 +1,6 @@
 import { MuiThemeProvider } from "@material-ui/core";
 import React, { useCallback, useEffect } from "react";
 import { useMappedState, useDispatch } from "redux-react-hook";
-
 import { constants } from '../Constants';
 import { dsTheme } from "../Theme/dsTheme";
 import DynamicList from './../BeLazy/DynamicList';

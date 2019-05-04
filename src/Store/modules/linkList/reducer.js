@@ -1,5 +1,5 @@
 import ListedLink from './../../../Components/ListedLink';
-import AsyncComponent from './../../../BeLazy/AsyncComponent';
+import LazyComponent from './../../../BeLazy/LazyComponent';
 
 const initialState = [];
 
@@ -9,10 +9,11 @@ export default function reducer(state = initialState, action){
             const linkList = {...action.payload.linkList};
             linkList.ids.forEach((cmp) => {
                 linkList.byIds[cmp].AsyncImport = ListedLink;
-                linkList.byIds[cmp].Icon = AsyncComponent({
+                linkList.byIds[cmp].Icon = LazyComponent({
                     className: linkList.byIds[cmp].icon,
                     type:"mIcon"
                 });;
+                //linkList.byIds[cmp].Icon = getIcon({ name: linkList.byIds[cmp].icon})
             });
             return linkList;
         default:

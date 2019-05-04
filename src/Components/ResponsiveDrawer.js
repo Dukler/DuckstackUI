@@ -111,7 +111,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
                     </Typography>
 
                     {/* <IconButton color="inherit" onClick={handleThemeToggle}>
-                        <AsyncComponent className="EventAvailable" type="mIcon" create/>
+                        <LazyComponent className="EventAvailable" type="mIcon" create/>
                     </IconButton> */}
 
                 </Toolbar>

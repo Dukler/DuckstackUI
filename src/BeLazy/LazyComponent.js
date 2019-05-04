@@ -1,24 +1,25 @@
-// import React, { Suspense } from 'react';
+import Loadable from 'react-loadable'
+import { getIcon } from '../Utils/icons';
 
-// const LazyComponent = props => {
-//     const getImport = () => {
-//         switch (props.type) {
-//             case 'mIcon':
-//                 return () => import(
-//                     `@material-ui/icons/${props.className}`
-//                 )
-//             default:
-//                 return () => import(
-//                     `../${props.root}/${props.className}`
-//                 );
-//         }
-//     }
+const LazyComponent = props => {
+    const {type,LoadingComponent} = props;
+    const getImport = () => {
+        switch (type) {
+            case 'mIcon':
+                return getIcon(props);
+            default:
+                return () => import(
+                /* webpackMode: "lazy-once" */
+                    `../${props.root}/${props.className}`
+                );
+        }
+    }
 
-//     const component =   <Suspense fallback={<div>Loading...</div>}>
-//                             {React.lazy(getImport())}
-//                         </Suspense>
+    return Loadable ({
+        loader: getImport(),
+        loading: () => LoadingComponent ? LoadingComponent : null
+    })
 
-//     return component
-// };
+};
 
-// export default LazyComponent;
+export default LazyComponent;
