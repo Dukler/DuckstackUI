@@ -1,5 +1,5 @@
 import {PureComponent} from "react";
-import {constants} from "../Constants";
+import {constants} from "./Constants";
 import {headerJsonApi, requestJson} from "./network";
 import {login,removeToken} from "./auth";
 

@@ -1,4 +1,4 @@
-import {constants} from '../Constants';
+import {constants} from './Constants';
 
 export const request = (props) =>{
     fetch(constants.api + props.url,props.config)

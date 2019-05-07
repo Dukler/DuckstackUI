@@ -5,18 +5,20 @@ import { overlays } from "../common/overlays";
 const initialState = []
 
 const reducer = reduceReducer(
-    wrappers,
+    wrappersReducer,
     (state,action)=>overlays(state,action,"WRAPPER")
 )
 export default reducer
 
-function wrappers(state = initialState, action) {
+function wrappersReducer(state = initialState, action) {
     switch (action.type) {
         case "INIT_DATA_SUCCEEDED":
-            const wrappers = {...action.payload.wrappers};
+            const { wrappers, componentsPool } = { ...action.payload };
+            //const wrappers = {...action.payload.wrappers};
             wrappers.ids.forEach((cmp) => {
                 const wrapper = wrappers.byIds[cmp];
-                [wrapper.Wrapper, wrapper.isHtml] = getWrapper(wrapper);
+                const className = wrappers.byIds[cmp].className;
+                [wrapper.Wrapper, wrapper.isHtml] = getWrapper({ wrapper, instance: componentsPool[className]});
             });
             return wrappers
         default:

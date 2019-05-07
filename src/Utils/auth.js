@@ -1,5 +1,5 @@
 import {headerJsonApi, requestJson} from "./network";
-import {constants} from "../Constants";
+import {constants} from "./Constants";
 
 export const getToken = () =>{
     return localStorage.getItem('bToken');

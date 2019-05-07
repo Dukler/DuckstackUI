@@ -10,7 +10,8 @@ const LazyComponent = props => {
                 return getIcon(props);
             default:
                 return () => import(
-                /* webpackMode: "lazy-once" */
+                /* webpackMode: "lazy", 
+                webpackChunkName: '[request]' */
                     `../${props.root}/${props.className}`
                 );
         }

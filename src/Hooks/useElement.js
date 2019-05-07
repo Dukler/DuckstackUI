@@ -7,13 +7,13 @@ function useElement( element ) {
 
     const mapState = useCallback(
         state => ({
-            state: state[element]["byIds"]
+            state: state[element]
         }),[element]
     );
 
     const { state } = useMappedState(mapState);
 
-    return state
+    return [state["byIds"], state[["ids"]]]
 }
 
 export default useElement

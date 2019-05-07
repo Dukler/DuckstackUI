@@ -5,7 +5,7 @@ import { useMemo, useRef } from "react";
 
 function useFilteredList(props) {
     const {filter, element} = props;
-    const list = useElement(element);
+    const [list] = useElement(element);
     let refFiltered = useRef([]);
     let refResult = useRef({});
     //let result = {};
@@ -18,7 +18,7 @@ function useFilteredList(props) {
                 return obj;
             }, {});
         Object.values(refFiltered.current).forEach((item) => {
-            refResult.current[item.name] = item.value
+            refResult.current[item.id] = item.value
         })
     }, [list, filter])
     // const filtered = Object.keys(list)

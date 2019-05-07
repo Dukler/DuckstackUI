@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import registerServiceWorker from "./registerServiceWorker";
-import UI from './App/UI';
 import './index.css';
 import { StoreContext } from 'redux-react-hook';
 import { store } from './Store';
-
-//const {store} = makeStore();
+import UI from './UI';
 
 
 ReactDOM.render(
