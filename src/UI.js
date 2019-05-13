@@ -32,6 +32,7 @@ const UI = React.memo(function UI() {
                 componentsPool[key].preload();
             });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoading])
 
     return (
