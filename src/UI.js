@@ -1,9 +1,7 @@
-import { MuiThemeProvider } from "@material-ui/core";
 import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useMappedState } from "redux-react-hook";
 import DynamicList from './BeLazy/DynamicList';
 import { constants } from './Utils/Constants';
-import { dsTheme } from './Theme/dsTheme';
 
 
 
@@ -13,14 +11,11 @@ const UI = React.memo(function UI() {
    
     const mapState = useCallback(
         state => ({
-            theme: state["theme"],
             isLoading: state["root"]["isLoading"],
             componentsPool: state["root"]["componentsPool"]
         }),[]
     );
-    const { theme, isLoading, componentsPool} = useMappedState(mapState);
-    
-    console.log();
+    const { isLoading, componentsPool} = useMappedState(mapState);
 
     useEffect(() => {
         if(!init.current){
@@ -38,11 +33,11 @@ const UI = React.memo(function UI() {
     return (
         <div className='UI'>
             {isLoading ? null :
-                <MuiThemeProvider theme={dsTheme(theme)}>
+                
                     <DynamicList
                         element="components"
-                        wrapper="root"/>
-                </MuiThemeProvider>
+                        wrapper={{ id: "root" }}/>
+                
             }
         </div>
     )

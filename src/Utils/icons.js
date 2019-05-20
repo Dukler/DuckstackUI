@@ -1,4 +1,4 @@
-export const getIcon = (props) =>{
+export function getIcon (props) {
     const { className} = props;
     switch (className){
         case 'EventAvailable':

@@ -1,18 +1,33 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+//import { colors } from '@material-ui/core';
+// const darkOrLight = (dark, light) => {
+//     return props.paletteType === 'dark' ? dark : light;
+// }
 
+export const dsTheme = createMuiTheme({
+        overrides: {
+            MuiButtonBase: {
+                root: {
 
-export function dsTheme (props) {
-    const darkOrLight = (dark, light) => {
-        return props.paletteType === 'dark' ? dark : light;
-    }
-    return createMuiTheme({
+                   "@media(pointer: coarse)":{
+                        "&& button: hover" :{
+                            background: "none!important"
+                            //textDecoration: "line-through"
+                        }
+                    }
+                },
+            },
+        },
         typography:{
             useNextVariants:true,
+            caption:{
+                //fontSize:300,
+            }
         },
         palette: {
-            type: props.paletteType,
+            type: 'dark',
             text:{
-                disabled: darkOrLight('#676767', '#D3D3D3'),
+                disabled: '#676767',//darkOrLight('#676767', '#D3D3D3'),
             },
             primary: {
                 // light: will be calculated from palette.primary.main, ff4400
@@ -30,5 +45,4 @@ export function dsTheme (props) {
                 // contrastText: will be calculated to contrast with palette.primary.main
             },
         },
-    })
-};
+    });

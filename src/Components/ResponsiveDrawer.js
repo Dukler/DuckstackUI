@@ -1,20 +1,18 @@
-import React, { useCallback, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import {Switch} from "react-router-dom";
-import { useMappedState, useDispatch } from 'redux-react-hook';
 import { BrowserRouter } from "react-router-dom";
 import DynamicList from '../BeLazy/DynamicList';
-import LazyComponent from './../BeLazy/LazyComponent';
+import { MuiThemeProvider } from "@material-ui/core";
+import { dsTheme } from '../Theme/dsTheme';
+import SimpleList from '../Wrappers/SimpleList';
+import PrimarySearchAppBar from './PrimarySearchAppBar'
+import useComponent from './../Hooks/useComponent';
 
 
 const drawerWidth = 240;
@@ -27,12 +25,6 @@ const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             width: drawerWidth,
             flexShrink: 0,
-        },
-    },
-    appBar: {
-        marginLeft: drawerWidth,
-        [theme.breakpoints.up('sm')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
         },
     },
     menuButton: {
@@ -52,8 +44,8 @@ const styles = theme => ({
 });
 
 const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
-    const dispatch = useDispatch();
-    
+
+    const [state, dispatch] = useComponent(props.id)
 
     useEffect(() => {
         dispatch({
@@ -62,14 +54,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         });
     }, [dispatch, props.id])
     
-    const mapState = useCallback(
-        state => ({
-            state: state["components"]["byIds"][props.id],
-            theme: state["theme"]
-        }),[props.id]
-    );
-    const {state,theme} = useMappedState(mapState);
-    
+    const theme = {};
     const { classes } = props;
     
     const handleDrawerToggle = (event) => {
@@ -77,46 +62,23 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         dispatch({ type:'TOGGLE_MOBILE_OPEN', payload:{ id:props.id } })
     };
 
-    const handleThemeToggle = (event) => {
-        event.persist();
-        dispatch({ type:'HANDLE_THEME_TOGGLE' })
-    };
-
-
-
     const drawer = (
         <div>
             <div className={classes.toolbar} />
             <Divider />
-            <DynamicList element="linkList" wrapper="root"/>
+            <SimpleList>
+                <DynamicList element="linkList" wrapper={{ id: "root" }} />
+            </SimpleList>
             <Divider />
         </div>
     );
 
     return (
         <BrowserRouter>
+        <MuiThemeProvider theme={dsTheme}>
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="Open drawer"
-                        onClick={handleDrawerToggle}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Responsive drawer
-                    </Typography>
-
-                    <IconButton color="inherit" onClick={handleThemeToggle}>
-                        <LazyComponent className="EventAvailable" type="mIcon" create/>
-                    </IconButton>
-
-                </Toolbar>
-            </AppBar>
+                    <PrimarySearchAppBar/>
             <nav className={classes.drawer}>
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
@@ -159,6 +121,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
                 </Switch>
             </main>
         </div>
+            </MuiThemeProvider>
         </BrowserRouter>                    
     );
     

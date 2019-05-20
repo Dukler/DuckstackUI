@@ -3,7 +3,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import {withStyles} from "@material-ui/core";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import useComponent from "../Hooks/useComponent";
 
 const styles = theme => ({
@@ -18,33 +18,30 @@ function FormInput ( props ) {
         (action) => 
             (event)=>{
                 event.persist()
-                dispatch({ type: action.type, payload: { ...action.payload, event } })
-            },[dispatch]
+                dispatch({ type: action.type, payload: { ...action.payload, event, id:state.id } })
+            },[dispatch,state.id]
     )
+    const {caption, ...extras} = state.extProperties;
 
     return (
         <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor={state.id}>{state.caption}</InputLabel>
+            <InputLabel htmlFor={state.id}>{caption}</InputLabel>
             <Input  id={state.id}
-                    name={state.name}
-                    autoComplete={state.autoComplete}
-                    type={state.type}
                     value={state.value}
-                    onChange={handleChange({ type: "INPUT_VALUE", payload:{id:state.id} })}
-                    autoFocus={false}
+                    onChange={handleChange({ type: "INPUT_VALUE" })}
+                    {...extras}
             />
         </FormControl>
     )
 }
 
-FormInput.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    autoComplete: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    caption: PropTypes.string,
-};
-
+// FormInput.propTypes = {
+//     id: PropTypes.string.isRequired,
+//     name: PropTypes.string.isRequired,
+//     autoComplete: PropTypes.string.isRequired,
+//     type: PropTypes.string.isRequired,
+//     value: PropTypes.string.isRequired,
+//     caption: PropTypes.string,
+// };
 
 export default  withStyles(styles, { withTheme: true })(FormInput);

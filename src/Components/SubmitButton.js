@@ -14,14 +14,13 @@ const SubmitButton = props => {
         (props) => 
             (event) =>{
                 event.persist();
-                
                 dispatch({ type: "SUBMIT_JSON", payload: { filter, post }})
                 //const json = getPairByIds({ ids: props.ids, pair: props.pair });
                 //eventHandler[props.action]({ json });
             },
             [dispatch,filter]
     );
-
+    const { caption, ...extras } = props.extProperties;
 
     const {actions} = props;
 
@@ -29,9 +28,8 @@ const SubmitButton = props => {
         <Button onClick={handleClick({ 
                 ids: ['userName', 'userPassword'], 
                 action: actions.onClick})}
-                variant="contained"
-                color="primary">
-            {props.caption}
+                {...extras}>
+            {caption}
         </Button>
     )
 };

@@ -1,18 +1,17 @@
 import React from 'react';
 import useClassState from '../Hooks/useClassState';
 import DynamicList from '../BeLazy/DynamicList';
+import useFilteredList from '../Hooks/useFilteredList';
 
 
 
 const WrappedComponents = React.memo(function WrappedComponents(props) {
-    const wrapperState = useClassState({ id: props.wrapper, element: "wrappers" });
+    const wrapperState = useClassState({ id: props.wrapper.id, element: "wrappers" });
     const isList = wrapperState.components.length > 1 ? true : false;
-    //fix useClassState to conditianlly call this shit
-    const componentState = useClassState({ id: wrapperState.components, element:"components"});
-    ///this shit
-    const { Wrapper, attributes, isHtml } = wrapperState;
-    const { AsyncImport, actions, ...cleanComp } = !isList ? componentState:{...null};
-    const wrapperProps = isHtml?{...attributes}:null;
+    const componentsState = useFilteredList({ filter: wrapperState.components, element: "components" });
+    const { Wrapper, extProperties, isHtml } = wrapperState;
+    const { AsyncImport, ...cleanComp } = !isList ? componentsState[wrapperState.components[0]]:{...null};
+    const wrapperProps = isHtml ? { ...extProperties } : {componentsState, wrapperState};
     return ( 
         <Wrapper {...wrapperProps}>
             {isList ?
@@ -22,7 +21,6 @@ const WrappedComponents = React.memo(function WrappedComponents(props) {
                 <AsyncImport 
                     key={cleanComp.id}
                     {...cleanComp}
-                    actions={actions}
                 />
             }
         </Wrapper>

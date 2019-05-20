@@ -13,7 +13,6 @@ export default function reducer(state = initialState, action){
                     className: linkList.byIds[cmp].icon,
                     type:"mIcon"
                 });;
-                //linkList.byIds[cmp].Icon = getIcon({ name: linkList.byIds[cmp].icon})
             });
             return linkList;
         default:
