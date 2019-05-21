@@ -8,31 +8,15 @@ import { withRouter } from "react-router-dom"
 import { withStyles } from '@material-ui/core';
 
 const styles = theme =>({
-    listItem:{
-        // '&:hover': {
-        //     backgroundColor: colors.primary,
-        //     "@media (hover: none)": {
-        //         backgroundColor: colors.surface,
-        //         "&,&:focus": {
-        //             backgroundColor: colors.primary
-        //         }
-        //     }
-        // },
-        // "&,&:focus": {
-        //     backgroundColor: colors.primary,
-        //     //textDecoration: "line-through"
-        // },
-        // '&$selected, &$selected:hover': {
-        //     backgroundColor: theme.palette.action.selected,
-        // },
-    }
+
 })
 
 function ListedLink (props) {
     const state = useClassState({ id: props.id, element: "linkList" })
-    const { Icon } = state;
+    const { Icon, id, path, extProperties } = state;
     const [selected, setSelected] = useState(false)
     const pathname = props.location.pathname;
+    const {isMain} = extProperties;
 
     useEffect(() => {
       setSelected(pathname === state.path)
@@ -41,16 +25,16 @@ function ListedLink (props) {
 
     return(
         <ListItem 
-            key={state.id} 
+            key={id} 
             component={Link} 
-            to={state.path}
-            //selected={true} 
+            to={path}
+            selected={isMain?selected:null} 
             //className={classes.listItem}
             button>
             <ListItemIcon >
                 <Icon/>
             </ListItemIcon>
-            <ListItemText primary={state.id}/>
+            <ListItemText primary={id}/>
         </ListItem>
     );
 }

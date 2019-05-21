@@ -17,6 +17,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useDispatch } from 'redux-react-hook';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import classNames from 'classnames';
 
 const drawerWidth = 240;
 
@@ -90,11 +92,20 @@ const styles = theme => ({
         },
     },
     appBar: {
-        marginLeft: drawerWidth,
-        [theme.breakpoints.up('sm')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
-        },
+        zIndex: theme.zIndex.drawer + 1,
+        // transition: theme.transitions.create(['width', 'margin'], {
+        //     easing: theme.transitions.easing.sharp,
+        //     duration: theme.transitions.duration.leavingScreen,
+        // }),
     },
+    // appBarShift: {
+    //     marginLeft: drawerWidth,
+    //     width: `calc(100% - ${drawerWidth}px)`,
+    //     transition: theme.transitions.create(['width', 'margin'], {
+    //         easing: theme.transitions.easing.sharp,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
 });
 
 
@@ -104,6 +115,8 @@ const PrimarySearchAppBar = React.memo(function PrimarySearchAppBar(props) {
     const [mobileMoreAnchorEl, setMobileAnchor] = useState(null);
     const [isMenuOpen, setMenu] = useState(false);
     const [isMobileMenuOpen, setMobileMenu] = useState(false);
+    const { classes, theme } = props;
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
     const handleProfileMenuOpen = event => {
         setAnchor(event.currentTarget);
@@ -128,12 +141,12 @@ const PrimarySearchAppBar = React.memo(function PrimarySearchAppBar(props) {
 
     const handleDrawerToggle = (event) => {
         event.persist();
-        dispatch({ type: 'TOGGLE_MOBILE_OPEN', payload: { id: "responsiveDrawer" } });
+        if(matches){
+            dispatch({ type: 'TOGGLE_OPEN', payload: { id: "responsiveDrawer" } });
+        }else{
+            dispatch({ type: 'TOGGLE_MOBILE_OPEN', payload: { id: "responsiveDrawer" } });
+        }
     };
-    
-    
-    const { classes } = props;
-    
 
     const renderMenu = (
         <Menu
@@ -183,7 +196,12 @@ const PrimarySearchAppBar = React.memo(function PrimarySearchAppBar(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar position="fixed" 
+                // className={classNames(classes.appBar, {
+                //     [classes.appBarShift]: props.open,
+                // })}
+                className={classes.appBar}
+            >
                 <Toolbar>
                     <IconButton className={classes.menuButton} 
                     color="inherit" 
@@ -246,4 +264,4 @@ PrimarySearchAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PrimarySearchAppBar);
+export default withStyles(styles, {withTheme: true})(PrimarySearchAppBar);
