@@ -5,11 +5,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem"; 
 import useClassState from '../Hooks/useClassState';
 import { withRouter } from "react-router-dom"
-import { withStyles } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core/styles';
 
-const styles = theme =>({
 
-})
+// const useStyles = makeStyles(theme => ({
+
+// }));
 
 function ListedLink (props) {
     const state = useClassState({ id: props.id, element: "linkList" })
@@ -37,6 +38,6 @@ function ListedLink (props) {
             <ListItemText primary={id}/>
         </ListItem>
     );
-}
+};
 
-export default withRouter(withStyles(styles)(ListedLink));
+export default withRouter(ListedLink);

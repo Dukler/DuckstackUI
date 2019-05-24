@@ -21,6 +21,10 @@ export function overlays(state = [], action,suffix="") {
             return update(state, {
                 byIds: { [id]: { mobileOpen: { $set: !state["byIds"][id].mobileOpen } } }
             });
+        case `CLOSE_MOBILE${suf}`:
+            return update(state, {
+                byIds: { [id]: { mobileOpen: { $set: false } } }
+            });
         default:
             return state;
     }

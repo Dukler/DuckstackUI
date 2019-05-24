@@ -1,9 +1,7 @@
 import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import MModal from '@material-ui/core/Modal';
 import { isAbsolute } from 'path';
-
+import { makeStyles } from '@material-ui/core/styles';
 
 
 function getModalStyle() {
@@ -20,18 +18,19 @@ function getModalStyle() {
     };
 }
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     paper: {
         position: 'absolute',
-        width: theme.spacing.unit * 50,
+        width: theme.spacing(50),
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing(4),
         outline: 'none',
     }
-});
+}));
 const Modal = React.memo(function Modal (props) {
-    const { classes, children, state, dispatch } = props;
+    const { children, state, dispatch } = props;
+    const classes = useStyles();
 
     useEffect(() => {
         dispatch({type:"OPEN"})
@@ -59,11 +58,5 @@ const Modal = React.memo(function Modal (props) {
     );
 });
 
-Modal.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-// We need an intermediary variable for handling the recursive nesting.
-//const DSModalWrapped = withStyles(styles)(DSModal);
-
-export default withStyles(styles)(Modal);
+export default Modal;

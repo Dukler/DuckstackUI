@@ -2,16 +2,16 @@ import React, { useCallback } from "react";
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import {withStyles} from "@material-ui/core";
-//import PropTypes from "prop-types";
 import useComponent from "../Hooks/useComponent";
+// import { makeStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+// const useStyles = makeStyles(theme => ({
 
-});
+// }));
 
 function FormInput ( props ) {
-
+    // const classes = useStyles();
+    // const theme = useTheme();
     const [state, dispatch] = useComponent(props.id)
 
     const handleChange = useCallback( 
@@ -35,13 +35,5 @@ function FormInput ( props ) {
     )
 }
 
-// FormInput.propTypes = {
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     autoComplete: PropTypes.string.isRequired,
-//     type: PropTypes.string.isRequired,
-//     value: PropTypes.string.isRequired,
-//     caption: PropTypes.string,
-// };
 
-export default  withStyles(styles, { withTheme: true })(FormInput);
+export default  FormInput;

@@ -1,20 +1,21 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
 import MGrid from '@material-ui/core/Grid';
-import withStyles from '@material-ui/core/styles/withStyles';
 import { orderList } from '../Utils';
+import { makeStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
     Grid: {
     },
-});
+}));
 
 const Grid = React.memo(function Grid(props) {
-    const { classes, componentsState, wrapperState } = props;
+    const { componentsState, wrapperState } = props;
+    const classes = useStyles();
     const list = orderList (componentsState,wrapperState.components)
+    
     return (
         <div className={classes.root}>
             <MGrid {...wrapperState.extProperties}>
@@ -33,8 +34,4 @@ const Grid = React.memo(function Grid(props) {
     );
 });
 
-// Grid.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
-
-export default withStyles(styles)(Grid);
+export default Grid;

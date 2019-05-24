@@ -1,19 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import { makeStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
         maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
     },
-});
+}));
 
 
 function SimpleList(props) {
-    const { classes, children } = props;
+    const { children } = props;
+    const classes = useStyles();
+
     return (
         <div className={classes.root}>
             <List component="nav">
@@ -22,10 +23,6 @@ function SimpleList(props) {
         </div>
     );
 }
-//<DynamicList element="linkList" wrapper={{ id: "root" }} />
-SimpleList.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(SimpleList);
+export default SimpleList;
 

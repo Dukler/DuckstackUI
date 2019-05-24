@@ -25,8 +25,10 @@ const Calendar = React.memo(function Calendar(props) {
                         {format(currentMonth, dateFormat)}
                     </span>
                 </div>
-                <div className="col col-end" onClick={nextMonth}>
-                    <div className="icon">chevron_right</div>
+                <div className="col col-end">
+                    <div className="icon" onClick={nextMonth}>
+                        chevron_right
+                    </div>
                 </div>
             </div>
         );
