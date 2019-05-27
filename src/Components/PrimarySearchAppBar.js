@@ -1,13 +1,6 @@
-import AppBar from '@material-ui/core/AppBar';
-import Badge from '@material-ui/core/Badge';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { AppBar, Badge, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
@@ -18,8 +11,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { useDispatch } from 'redux-react-hook';
 
-
-//const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -88,7 +79,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
+    // [theme.breakpoints.up("sm")]: {
+    //   height:"10px"
+    // }
     // transition: theme.transitions.create(['width', 'margin'], {
     //     easing: theme.transitions.easing.sharp,
     //     duration: theme.transitions.duration.leavingScreen,

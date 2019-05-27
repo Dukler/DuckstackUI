@@ -1,19 +1,12 @@
-import React, { useEffect, useState} from 'react';
+import { Divider, Drawer, Hidden } from "@material-ui/core";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import Divider from "@material-ui/core/Divider";
-import {Switch} from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
-import DynamicList from '../BeLazy/DynamicList';
-import { MuiThemeProvider } from "@material-ui/core";
-import { dsTheme } from '../Theme/dsTheme';
-import SimpleList from '../Wrappers/SimpleList';
-import PrimarySearchAppBar from './PrimarySearchAppBar'
-import useComponent from './../Hooks/useComponent';
-import classNames from 'classnames';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import classNames from 'classnames';
+import React, { useEffect, useState } from 'react';
+import useRouter from '../Hooks/useRouter';
+import useComponent from './../Hooks/useComponent';
+import PrimarySearchAppBar from './PrimarySearchAppBar';
 
 
 const drawerWidth = 240;
@@ -70,6 +63,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
     const [state, dispatch] = useComponent(props.id);
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
     const [peek, setPeek] = useState(false);
+    const [Router, LinkList, ContentRoutes] = useRouter();
     
     
     let peekTime;
@@ -96,12 +90,6 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
         dispatch({ type: 'CLOSE', payload: { id: props.id } })
     };
 
-    const clearPeek = () =>{
-        if(matches){
-            clearTimeout(peekTime);
-        }
-    };
-
     const peekEnter = (event) => {
         if (matches && !state.open) {
             peekTime = setTimeout(()=>{
@@ -114,83 +102,78 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer (props) {
 
     const peekLeave = (event) => {
         if (matches) {
-            clearPeek();
-            if(peek){
-                event.persist();
-                setPeek(false);
-                closeDrawer();
-            };
+            clearTimeout(peekTime);
+            if (peek) {
+            event.persist();
+            setPeek(false);
+            closeDrawer();
+            }
         };
     };
 
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
-            <Divider />
-            <div
-                role="button"
-                onClick={closeMobileDrawer}
-                onKeyDown={closeMobileDrawer}
-            >
-                <SimpleList>
-                    <DynamicList element="linkList" wrapper={{ id: "root" }} />
-                </SimpleList>
-            </div>
-            <Divider />
+          <div className={classes.toolbar} />
+          <Divider />
+          <div
+              role="button"
+              onClick={closeMobileDrawer}
+              onKeyDown={closeMobileDrawer}
+          >
+            <LinkList/>
+          </div>
+          <Divider />
         </div>
     );
 
     return (
-        <BrowserRouter>
-            
-        <MuiThemeProvider theme={dsTheme}>
-        <div className={classes.root}>
+      <Router>
+          <div className={classes.root}>
             <CssBaseline />
-            <PrimarySearchAppBar open={state.open}/>
-            <div onMouseEnter={peekEnter} onMouseLeave={peekLeave} >
-            <Hidden smUp implementation="css">
+            <PrimarySearchAppBar open={state.open} />
+            <div
+              onPointerEnter={peekEnter}
+              onPointerLeave={peekLeave}
+            >
+              <Hidden smUp implementation="css">
                 <Drawer
-                    container={props.container}
-                    variant="temporary"
-                    anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                    open={state.mobileOpen}
-                    onClose={closeMobileDrawer}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
+                  container={props.container}
+                  variant="temporary"
+                  anchor={theme.direction === "rtl" ? "right" : "left"}
+                  open={state.mobileOpen}
+                  onClose={closeMobileDrawer}
+                  classes={{
+                    paper: classes.drawerPaper
+                  }}
                 >
-                    {drawer}
+                  {drawer}
                 </Drawer>
-            </Hidden>
-            <Hidden xsDown implementation="css">
+              </Hidden>
+              <Hidden xsDown implementation="css">
                 <Drawer
-                    variant="permanent"
-                    className={classNames(classes.drawer, {
-                        [classes.drawerOpen]: state.open,
-                        [classes.drawerClose]: !state.open,
-                    })}
-                    classes={{
-                        paper: classNames({
-                            [classes.drawerOpen]: state.open,
-                            [classes.drawerClose]: !state.open,
-                        }),
-                    }}
-                    open={state.open}
+                  variant="permanent"
+                  className={classNames(classes.drawer, {
+                    [classes.drawerOpen]: state.open,
+                    [classes.drawerClose]: !state.open
+                  })}
+                  classes={{
+                    paper: classNames({
+                      [classes.drawerOpen]: state.open,
+                      [classes.drawerClose]: !state.open
+                    })
+                  }}
+                  open={state.open}
                 >
-                    {drawer}
+                  {drawer}
                 </Drawer>
-            </Hidden>
-                    </div>
+              </Hidden>
+            </div>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Switch>
-                    <DynamicList element="contentRoutes"/>
-                </Switch>
+              <div className={classes.toolbar} />
+              <ContentRoutes />
             </main>
-        </div>
-            </MuiThemeProvider>
-                
-        </BrowserRouter>                    
+          </div>
+      </Router>
     );
     
 });

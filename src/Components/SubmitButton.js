@@ -20,17 +20,20 @@ const SubmitButton = props => {
             },
             [dispatch,filter]
     );
-    const { caption, ...extras } = props.extProperties;
+    const { label, ...extras } = props.extProperties;
 
     const {actions} = props;
 
     return (
-        <Button onClick={handleClick({ 
-                ids: ['userName', 'userPassword'], 
-                action: actions.onClick})}
-                {...extras}>
-            {caption}
-        </Button>
-    )
+      <Button
+        onClick={handleClick({
+          ids: ["userName", "userPassword"],
+          action: actions.onClick
+        })}
+        {...extras}
+      >
+        {label}
+      </Button>
+    );
 };
 export default SubmitButton;

@@ -1,15 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-//import { colors } from '@material-ui/core';
-// const darkOrLight = (dark, light) => {
-//     return props.paletteType === 'dark' ? dark : light;
-// }
 
-export const dsTheme = createMuiTheme({
+
+export function dsTheme (theme) {
+    const darkOrLight = (dark, light) => {
+        return theme.paletteType === 'dark' ? dark : light;
+    }
+    return createMuiTheme({
         overrides: {
             MuiButtonBase: {
                 root: {
-
-                   "@media(pointer: coarse)":{
+                    "@media(pointer: coarse)":{
                         "&& button: hover" :{
                             background: "none!important"
                             //textDecoration: "line-through"
@@ -25,9 +25,10 @@ export const dsTheme = createMuiTheme({
             }
         },
         palette: {
-            type: 'dark',
+            type: theme.paletteType,
             text:{
-                disabled: '#676767',//darkOrLight('#676767', '#D3D3D3'),
+                //disabled: '#676767',
+                disabled: darkOrLight('#676767', '#D3D3D3'),
             },
             primary: {
                 // light: will be calculated from palette.primary.main, ff4400
@@ -45,4 +46,5 @@ export const dsTheme = createMuiTheme({
                 // contrastText: will be calculated to contrast with palette.primary.main
             },
         },
-    });
+    })
+};

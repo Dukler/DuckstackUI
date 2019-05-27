@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     paper: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        //alignItems: 'center',
         padding: theme.spacing(1,2,2),
         width: "100%",
     },
