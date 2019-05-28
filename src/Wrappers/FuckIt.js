@@ -2,11 +2,10 @@ import React from "react";
 import { orderList } from "../Utils";
 
 function FuckIt(props) {
-	const parentName = "";
+	const { parents, parentName } = props;
 	const filter = props.wrapperState.renderComponents[parentName].components;
 	const ordList = orderList(props.list, filter);
 	let list = [];
-	const { parents } = props;
 
 	list.push(...ordList.filter(item => filter.includes(item.id)));
 	if (filter.includes("null")) {

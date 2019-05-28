@@ -6,30 +6,37 @@ function useWrapper(props) {
 
 	let renders = {};
 	props.parents.forEach(parent => {
-		if (props.render[parent.id]) {
-			const filter = props.render[parent.id].components;
+		if (props.render[parent]) {
+			const filter = props.render[parent].components;
 			let list = [];
 			list.push(...ordList.filter(item => filter.includes(item.id)));
 			if (filter.includes("null")) {
 				list.push({ id: "null" });
 				list = orderList(list, filter);
 			}
-			renders[parent.id] = list.map(comp => {
-				let ParentComponent = parent.component;
+			renders[parent] = list.map(comp => {
+				let ParentComponent = props.styleContainers.Default;
+				if (
+					comp.styles != null &&
+					typeof comp.styles.name !== "undefined"
+				) {
+					ParentComponent = props.styleContainers[comp.styles.name];
+				}
 				if (comp.id === "null") {
+					ParentComponent = props.styleContainers.Null;
 					return <ParentComponent key={comp.id} />;
 				} else {
 					const { AsyncImport, ...cleanComp } = comp;
-					if (
-						props.parentByStyle &&
-						cleanComp.styles != null &&
-						typeof cleanComp.styles.name !== "undefined"
-					) {
-						ParentComponent =
-							props.parentByStyle[cleanComp.styles.name];
-					}
+					const parentProps =
+						ParentComponent === React.Fragment
+							? null
+							: {
+									...cleanComp.wrapper,
+									styles: cleanComp.styles
+							  };
+					console.log();
 					return (
-						<ParentComponent {...cleanComp.wrapper} key={comp.id}>
+						<ParentComponent key={comp.id} {...parentProps}>
 							<AsyncImport {...cleanComp} />
 						</ParentComponent>
 					);

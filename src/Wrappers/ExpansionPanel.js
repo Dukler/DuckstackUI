@@ -46,44 +46,39 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+function Column(props) {
+	const classes = useStyles(props.styles);
+	return <div className={classes.column}>{props.children}</div>;
+}
+function Helper(props) {
+	const classes = useStyles(props.styles);
+	return (
+		<div className={classNames(classes.column, classes.helper)}>
+			{props.children}
+		</div>
+	);
+}
+
 function ExpansionPanel(props) {
 	const classes = useStyles();
 	const { wrapperState, componentsState } = props;
-
-	const column = props => {
-		return <div className={classes.column}>{props.children}</div>;
-	};
-	const helper = props => {
-		return (
-			<div className={classNames(classes.column, classes.helper)}>
-				{props.children}
-			</div>
-		);
-	};
 
 	const [renders] = useWrapper({
 		list: componentsState,
 		order: wrapperState.components,
 		render: wrapperState.renderComponents,
 		parents: [
-			{
-				id: "ExpansionPanelSummary",
-				component: column
-			},
-			{
-				id: "ExpansionPanelDetails",
-				component: column
-			},
-			{
-				id: "ExpansionPanelActions",
-				component: React.Fragment
-			}
+			"ExpansionPanelSummary",
+			"ExpansionPanelDetails",
+			"ExpansionPanelActions"
 		],
-		parentByStyle: {
-			helper
+		styleContainers: {
+			Default: React.Fragment,
+			Helper,
+			Column,
+			Null: Column
 		}
 	});
-	//{renders.ExpansionPanelSummary}
 	return (
 		<div className={classes.root}>
 			<MExpansionPanel {...wrapperState.extProperties}>

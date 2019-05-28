@@ -18,7 +18,10 @@ const Grid = React.memo(function Grid(props) {
 		list: componentsState,
 		order: wrapperState.components,
 		render: wrapperState.renderComponents,
-		parents: [{ id: "All", component: MGrid }]
+		parents: ["All"],
+		styleContainers: {
+			Default: MGrid
+		}
 	});
 
 	return (
