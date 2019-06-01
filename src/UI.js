@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useMappedState } from "redux-react-hook";
-import DynamicList from "./BeLazy/DynamicList";
+import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
 import { ThemeProvider } from "@material-ui/styles";
 import { dsTheme } from "./Theme/dsTheme";
@@ -39,7 +39,7 @@ const UI = React.memo(function UI() {
 		<div className="UI">
 			{isLoading ? null : (
 				<ThemeProvider theme={dsTheme(theme)}>
-					<DynamicList
+					<DynamicComponents
 						element="components"
 						wrapper={{ id: "root" }}
 					/>

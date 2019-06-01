@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import { isSameDay, startOfMonth, startOfWeek, subMonths } from 'date-fns';
+import { addDays, addMonths, endOfMonth, endOfWeek, isSameMonth } from 'date-fns/esm';
 import format from "date-fns/format";
-import './Calendar.css'
-import { addMonths, addDays, endOfMonth, endOfWeek, isSameMonth } from 'date-fns/esm';
-import { subMonths, startOfWeek, startOfMonth, isSameDay } from 'date-fns';
+import React, { useState } from 'react';
+import { objectRequired } from '../../Utils/customProptypes';
+import './Calendar.css';
+
 
 
 const Calendar = React.memo(function Calendar(props) {
-    const [currentMonth, setCurrentMonth] =useState(new Date());
-    const [selectedDate, setSelectedDate] =useState(new Date());
+    const [currentMonth, setCurrentMonth] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
 
-    const renderHeader = ()=> {
+    const renderHeader = () => {
         const dateFormat = "MMMM-yyyy";
 
         return (
@@ -32,12 +34,12 @@ const Calendar = React.memo(function Calendar(props) {
                 </div>
             </div>
         );
-     };
+    };
 
-    const renderDays = ()=> { 
+    const renderDays = () => {
         const dateFormat = 'E';
         const days = [];
-        
+
         let startDate = startOfWeek(currentMonth);
 
         for (let i = 0; i < 7; i++) {
@@ -47,13 +49,13 @@ const Calendar = React.memo(function Calendar(props) {
                 </div>
             );
         }
-        
-        
+
+
 
         return <div className="days row">{days}</div>;
     };
 
-    const renderCells = ()=> { 
+    const renderCells = () => {
         const monthStart = startOfMonth(currentMonth);
         const monthEnd = endOfMonth(monthStart);
         const startDate = startOfWeek(monthStart);
@@ -70,7 +72,7 @@ const Calendar = React.memo(function Calendar(props) {
 
         while (day <= endDate) {
             for (let i = 0; i < 7; i++) {
-                
+
                 formattedDate = format(day, dateFormat);
                 const cloneDay = day;
                 days.push(
@@ -81,7 +83,7 @@ const Calendar = React.memo(function Calendar(props) {
                                 : isSameDay(day, selectedDate) ? "selected" : ""
                             }`}
                         key={day}
-                        onClick={() => onDateClick( cloneDay )}
+                        onClick={() => onDateClick(cloneDay)}
                     >
                         <span className="number">{formattedDate}</span>
                         <span className="bg">{formattedDate}</span>
@@ -99,19 +101,19 @@ const Calendar = React.memo(function Calendar(props) {
         return <div className="body">{rows}</div>;
     };
 
-    const onDateClick = (day) => { 
+    const onDateClick = (day) => {
         setSelectedDate(day);
     };
 
-    const nextMonth = () => { 
-        setCurrentMonth(addMonths(currentMonth,1))
+    const nextMonth = () => {
+        setCurrentMonth(addMonths(currentMonth, 1))
     };
 
-    const prevMonth = () => { 
-        setCurrentMonth(subMonths(currentMonth,1))
+    const prevMonth = () => {
+        setCurrentMonth(subMonths(currentMonth, 1))
     };
 
-    
+
     return (
         <div className="calendar">
             {renderHeader()}
@@ -119,7 +121,12 @@ const Calendar = React.memo(function Calendar(props) {
             {renderCells()}
         </div>
     );
-    
+
 })
+
+Calendar.propTypes = {
+    styles: objectRequired
+};
+
 
 export default Calendar

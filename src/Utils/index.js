@@ -13,7 +13,7 @@ export const prepareJSON = ({ state, filter }) => {
     return result
 }
 
-export const orderList = (list, order) =>{
-    const aux = Array.isArray(list) ? list : Object.values(list);
+export const orderList = (list, order) => {
+    const aux = Array.isArray(list) ? [...list] : Object.values({ ...list });
     return aux.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
 }

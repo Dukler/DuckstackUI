@@ -3,27 +3,27 @@ import PropTypes from "prop-types";
 import useDynamicList from '../Hooks/useDynamicList';
 
 
-const DynamicList = React.memo(function DynamicList (props) {
+const DynamicComponents = React.memo(function DynamicComponents(props) {
     const [list] = useDynamicList(props);
-    
+    console.log();
     return (
         <>
             {list.map(comp => {
-                const { AsyncImport, actions, ...cleanComp } = comp;
+                const { AsyncImport, ...cleanComp } = comp;
                 return (
                     <AsyncImport
                         key={comp.id}
                         {...cleanComp}
-                        actions={actions}
                     />
-                )}
+                )
+            }
             )}
         </>
     );
 });
 
-DynamicList.propTypes = {
+DynamicComponents.propTypes = {
     element: PropTypes.string.isRequired
 };
 
-export default DynamicList
+export default DynamicComponents

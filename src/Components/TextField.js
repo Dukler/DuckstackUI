@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import MTextField from "@material-ui/core/TextField";
 import useComponent from "../Hooks/useComponent";
 import { makeStyles } from "@material-ui/core/styles";
+import { objectRequired } from "../Utils/customProptypes";
 
 const useStyles = makeStyles(theme => ({
 	textField: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 function TextField(props) {
 	const classes = useStyles();
 	const [state, dispatch] = useComponent(props.id);
+	const { ...extras } = state.extProperties;
 
 	const handleChange = useCallback(
 		action => event => {
@@ -25,7 +27,10 @@ function TextField(props) {
 		},
 		[dispatch, state.id]
 	);
-	const { ...extras } = state.extProperties;
+
+	const handleFocus = useCallback(event => {
+		event.stopPropagation();
+	}, []);
 
 	return (
 		<MTextField
@@ -34,8 +39,13 @@ function TextField(props) {
 			value={state.value}
 			onChange={handleChange({ type: "INPUT_VALUE" })}
 			{...extras}
+			onFocus={handleFocus}
 		/>
 	);
 }
+
+TextField.propTypes = {
+	styles: objectRequired
+};
 
 export default TextField;

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import useRouter from "../Hooks/useRouter";
 import useComponent from "./../Hooks/useComponent";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
+import { objectRequired } from "../Utils/customProptypes";
 
 const drawerWidth = 240;
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(3)
+		padding: theme.spacing(2)
 	},
 	drawerOpen: {
 		width: drawerWidth,
@@ -128,7 +129,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
 		<Router>
 			<div className={classes.root}>
 				<CssBaseline />
-				<PrimarySearchAppBar open={state.open} />
+				<PrimarySearchAppBar styles={{}} open={state.open} />
 				<div onPointerEnter={peekEnter} onPointerLeave={peekLeave}>
 					<Hidden smUp implementation="css">
 						<Drawer
@@ -173,5 +174,10 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
 		</Router>
 	);
 });
+
+ResponsiveDrawer.propTypes = {
+	styles: objectRequired
+};
+
 
 export default ResponsiveDrawer;

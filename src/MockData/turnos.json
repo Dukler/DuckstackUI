@@ -1,0 +1,79 @@
+{
+    "format": {
+        "primary": [
+            "cliente"
+        ]
+    },
+    "sections": [
+        0,
+        1,
+        2
+    ],
+    "sectionNames": {
+        "0": "hoy",
+        "1": "mañana",
+        "2": "pasado mañana"
+    },
+    "data": {
+        "0": [
+            {
+                "cliente": "martin ochoa",
+                "hora": "5: 30",
+                "tipo": "carie",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "agustin ochoa",
+                "hora": "3: 30",
+                "tipo": "limpieza",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "adriana giancaspro",
+                "hora": "6: 35",
+                "tipo": "otro",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            }
+        ],
+        "1": [
+            {
+                "cliente": "christian fernandez",
+                "hora": "2: 30",
+                "tipo": "otro",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "macri gato",
+                "hora": "1: 30",
+                "tipo": "limpieza",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "alexis val",
+                "hora": "5: 30",
+                "tipo": "limpieza",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            }
+        ],
+        "2": [
+            {
+                "cliente": "juan perez",
+                "hora": "5: 30",
+                "tipo": "operacion",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "pedro gomez",
+                "hora": "5: 30",
+                "tipo": "remover diente",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "cliente": "pelotudo",
+                "hora": "5: 30",
+                "tipo": "no se",
+                "descripcion": "no se que escribrir aca entonces la hago larga"
+            }
+        ]
+    }
+}

@@ -63,35 +63,29 @@ function ExpansionPanel(props) {
 	const classes = useStyles();
 	const { wrapperState, componentsState } = props;
 
-	const [renders] = useWrapper({
-		list: componentsState,
-		order: wrapperState.components,
-		render: wrapperState.renderComponents,
-		parents: [
-			"ExpansionPanelSummary",
-			"ExpansionPanelDetails",
-			"ExpansionPanelActions"
-		],
+	const { Summary, Details, Actions } = useWrapper({
+		componentsState,
+		wrapperState,
+		parents: ["Summary", "Details", "Actions"],
 		styleContainers: {
 			Default: React.Fragment,
 			Helper,
 			Column,
-			Null: Column
+			Empty: Column
 		}
 	});
+
 	return (
 		<div className={classes.root}>
 			<MExpansionPanel {...wrapperState.extProperties}>
 				<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-					{renders.ExpansionPanelSummary}
+					{Summary}
 				</ExpansionPanelSummary>
 				<ExpansionPanelDetails className={classes.details}>
-					{renders.ExpansionPanelDetails}
+					{Details}
 				</ExpansionPanelDetails>
 				<Divider />
-				<ExpansionPanelActions>
-					{renders.ExpansionPanelActions}
-				</ExpansionPanelActions>
+				<ExpansionPanelActions>{Actions}</ExpansionPanelActions>
 			</MExpansionPanel>
 		</div>
 	);

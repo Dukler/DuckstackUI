@@ -1,6 +1,8 @@
 import React from "react";
 import MTypography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import useHtmlReact from "../Hooks/useHtmlReact";
+import { objectRequired } from "../Utils/customProptypes";
 
 const useStyles = makeStyles(theme => ({
 	component: props => ({
@@ -13,18 +15,10 @@ function Typography(props) {
 	const state = props;
 	const classes = useStyles(state.styles);
 	let value = state.value;
-
-	if (state.valueProps.isHtml) {
-		//const ReactDOMServer = require("react-dom/server");
-		const HtmlToReactParser = require("html-to-react").Parser;
-
-		const htmlInput = state.value;
-		const htmlToReactParser = new HtmlToReactParser();
-		value = htmlToReactParser.parse(htmlInput);
-		// const reactHtml = ReactDOMServer.renderToStaticMarkup(
-		// 	reactElement
-		// );
-	}
+	[value] = useHtmlReact({
+		value,
+		shouldParse: state.valueProps.isHtml
+	});
 
 	return (
 		<MTypography className={classes.component} {...state.extProperties}>
@@ -32,5 +26,10 @@ function Typography(props) {
 		</MTypography>
 	);
 }
+
+
+Typography.propTypes = {
+	styles: objectRequired
+};
 
 export default Typography;

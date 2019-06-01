@@ -1,37 +1,42 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useMappedState } from 'redux-react-hook';
 import { orderList } from '../Utils';
 
 
 
-function useDynamicList(props){
+function useDynamicList(props) {
+    const [filtered, setFiltered] = useState([])
 
     const mapState = useCallback(
         state => ({
-            wrapper: props.wrapper?state["wrappers"]["byIds"][props.wrapper.id]:null,
+            wrapper: props.wrapper ? state["wrappers"]["byIds"][props.wrapper.id] : null,
             list: state[props.element]["byIds"],
             order: state[props.element]["ids"],
-        }),[props]
+        }), [props]
     );
     const { wrapper, list, order } = useMappedState(mapState);
-    
-    const filter = props.element === "linkList" ? wrapper.extProperties.linkList:
-                props.wrapper?wrapper.components:
-                props.components;
 
-    const filtered = filter?filter.map(
-            item=>list[item]
-        ).filter(item=>item!==undefined):
-    Object.values(list);
+    const filter = props.element === "linkList" ? wrapper.extProperties.linkList :
+        props.wrapper ? wrapper.components : props.components;
 
-    if (props.element !== "contentRoutes" && filtered.length > 1)
-        if (filter)
-            orderList(filtered,filter)
-            //filtered.sort((a, b)=> filter.indexOf(a.id) - filter.indexOf(b.id));
-        else
-            orderList(filtered, order)
-            //filtered.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-    
+
+    useEffect(() => {
+        setFiltered(filter ? filter.map(
+            item => list[item]
+        ).filter(item => item !== undefined) : Object.values(list));
+        if (props.element !== "contentRoutes" && filtered.length > 1)
+            if (filter)
+                setFiltered(orderList(filtered, filter));
+            else
+                setFiltered(orderList(filtered, order));
+
+    }, [filter, filtered, list, order, props.element])
+
+
+
+
+
+
     return [filtered]
 }
 

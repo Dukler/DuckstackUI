@@ -14,10 +14,9 @@ const Grid = React.memo(function Grid(props) {
 	const { componentsState, wrapperState } = props;
 	const classes = useStyles();
 
-	const [renders] = useWrapper({
-		list: componentsState,
-		order: wrapperState.components,
-		render: wrapperState.renderComponents,
+	const { All } = useWrapper({
+		componentsState,
+		wrapperState,
 		parents: ["All"],
 		styleContainers: {
 			Default: MGrid
@@ -26,7 +25,7 @@ const Grid = React.memo(function Grid(props) {
 
 	return (
 		<div className={classes.root}>
-			<MGrid {...wrapperState.extProperties}>{renders.All}</MGrid>
+			<MGrid {...wrapperState.extProperties}>{All}</MGrid>
 		</div>
 	);
 });

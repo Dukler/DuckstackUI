@@ -1,40 +1,62 @@
 import React from "react";
 import { orderList } from "../Utils";
 
+const addEmptySpace = ({ filter, list }) => {
+	let emptyList = list;
+	if (filter.includes("empty")) {
+		let i = 0;
+		filter.forEach((item) => {
+			if (item === "empty") {
+				list.push({ id: "empty", key: "empty" + i });
+				i++;
+			}
+		});
+		emptyList = orderList(list, filter);
+	}
+	return emptyList
+}
+
+const getParentProps = ({ ParentComponent, comp }) => {
+	return ParentComponent === React.Fragment
+		? null
+		: {
+			...comp.wrapper,
+			styles: { ...comp.styles }
+		};
+}
+
 function useWrapper(props) {
-	const ordList = orderList(props.list, props.order);
+	const order = props.wrapperState.components;
+	const list = props.componentsState;
+	const styleContainers = props.styleContainers;
+	const render = props.wrapperState.renderComponents;
+	const ordList = orderList(list, order);
 
 	let renders = {};
 	props.parents.forEach(parent => {
-		if (props.render[parent]) {
-			const filter = props.render[parent].components;
+		if (render[parent]) {
+			const filter = render[parent].components;
 			let list = [];
 			list.push(...ordList.filter(item => filter.includes(item.id)));
-			if (filter.includes("null")) {
-				list.push({ id: "null" });
-				list = orderList(list, filter);
-			}
+			list = addEmptySpace({ filter, list });
 			renders[parent] = list.map(comp => {
-				let ParentComponent = props.styleContainers.Default;
-				if (
-					comp.styles != null &&
-					typeof comp.styles.name !== "undefined"
-				) {
-					ParentComponent = props.styleContainers[comp.styles.name];
+				const { AsyncImport, ...cleanComp } = comp;
+				if (comp.id === "empty") {
+					return <styleContainers.Empty key={comp.key} />;
 				}
-				if (comp.id === "null") {
-					ParentComponent = props.styleContainers.Null;
-					return <ParentComponent key={comp.id} />;
+				else if (
+					comp.styles !== null && typeof comp.styles.name !== "undefined"
+				) {
+					const ParentComponent = styleContainers[comp.styles.name];
+					const parentProps = getParentProps({ ParentComponent, comp })
+					return (
+						<ParentComponent key={comp.id} {...parentProps} >
+							<AsyncImport {...cleanComp} />
+						</ParentComponent>
+					);
 				} else {
-					const { AsyncImport, ...cleanComp } = comp;
-					const parentProps =
-						ParentComponent === React.Fragment
-							? null
-							: {
-									...cleanComp.wrapper,
-									styles: cleanComp.styles
-							  };
-					console.log();
+					const ParentComponent = styleContainers.Default;
+					const parentProps = getParentProps({ ParentComponent, comp })
 					return (
 						<ParentComponent key={comp.id} {...parentProps}>
 							<AsyncImport {...cleanComp} />
@@ -45,7 +67,7 @@ function useWrapper(props) {
 		}
 	});
 
-	return [renders];
+	return renders;
 }
 
 export default useWrapper;
