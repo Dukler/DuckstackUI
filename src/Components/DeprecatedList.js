@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import { objectRequired } from "../Utils/customProptypes";
 import useList from "../Hooks/useList";
-import useComponent from './../Hooks/useComponent';
-import useResponsiveSize from "../Hooks/useResponsiveSize";
+import useComponent from '../Hooks/useComponent';
 
 const useStyles = makeStyles(theme => ({
 	root: props => ({
 		width: "100%",
-		maxWidth: props.rWidth,
+		//maxWidth: props.rWidth,
+		maxWidth: "100%",
 		backgroundColor: theme.palette.background.paper,
 		position: "relative",
 		overflow: "auto",
-		maxHeight: props.rHeight
+		//maxHeight: props.rHeight
+		maxHeight: "100%"
 	}),
 	listSection: {
 		backgroundColor: "inherit"
@@ -31,8 +32,6 @@ const useStyles = makeStyles(theme => ({
 		overflow: "hidden"
 	}
 }));
-
-//import '../MockData/turnos'
 
 
 
@@ -55,33 +54,41 @@ function Sections(props) {
 	);
 }
 
-//lost 19
-function CustomList(props) {
+function DeprecatedList(props) {
 	const { source, extProperties } = props;
 	const { items, hasFiller, secondaryText, isDense, offset, ...listProps } = extProperties;
 	const [Items] = useComponent(extProperties.items);
+	const listRef = useRef(null);
+
 	const [showSecondary, setShowSecondary] = useState(secondaryText);
 	const [dense, setDense] = useState(isDense);
-
-	const [rHeight, rWidth] = useResponsiveSize({ offset: { width: 270, height: offset }, sidebar: { breakpoint: "up" } });
-
 	const [filler, setFiller] = useState();
-	const classes = useStyles({ rHeight, filler, rWidth });
+	const [refreshFiller, setRefreshFiller] = useState();
+
+
+	const classes = useStyles({ filler });
 	const testSource = require('../MockData/turnosR.json');
 	const actualSource = source ? source : testSource;
 	const [list, lastSection] = useList({ source: actualSource, Sections, Items, classes, showSecondary });
-	const [scroll, setScroll] = useState();
+
+	const handleFillerUpdate = (event) => {
+		setRefreshFiller(Math.random(100));
+	}
 
 	useEffect(() => {
-		//Filler with scrolling response
-		if (lastSection.current) {
-			setFiller(hasFiller ? rHeight - lastSection.current.clientHeight : 0);
+		//Filler so last section stays on top
+		if (lastSection.current && listRef.current !== null) {
+			setFiller(hasFiller ? listRef.current.clientHeight - lastSection.current.clientHeight : 0);
 		}
-	}, [hasFiller, lastSection, rHeight, scroll, dense, showSecondary]);
-
+	}, [hasFiller, lastSection, listRef, refreshFiller, dense, showSecondary]);
 
 	return (
-		<List className={classes.root} subheader={<li />} dense={dense} {...listProps} onScroll={() => { setScroll(Math.random(100)) }}>
+		<List className={classes.root} subheader={<li />} dense={dense}
+			onScroll={handleFillerUpdate}
+			onMouseOver={handleFillerUpdate}
+			{...listProps}
+			ref={listRef}
+		>
 			<button onClick={() => { setShowSecondary(!showSecondary) }}></button>
 			<button onClick={() => { setDense(!dense) }}></button>
 			{list}
@@ -90,8 +97,8 @@ function CustomList(props) {
 	);
 }
 
-CustomList.propTypes = {
+DeprecatedList.propTypes = {
 	styles: objectRequired
 };
 
-export default CustomList;
+export default DeprecatedList;

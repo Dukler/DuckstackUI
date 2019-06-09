@@ -7,8 +7,7 @@ const LazyComponents = props => {
         Object.keys(props).forEach(component => {
             pool[component] = LazyComponent({
                 className: component,
-                root: props[component],
-                type: component.includes("Item") ? "listItem" : null,
+                root: props[component]
             });
         })
         return pool;

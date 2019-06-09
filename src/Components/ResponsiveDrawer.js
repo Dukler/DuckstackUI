@@ -27,7 +27,10 @@ const useStyles = makeStyles(theme => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(2)
+		padding: theme.spacing(1),
+		//width: "90%",
+		//maxWidth: "100vw",
+		height: "92vh"
 	},
 	drawerOpen: {
 		width: drawerWidth,
@@ -53,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "flex-end",
 		padding: "0 8px",
 		...theme.mixins.toolbar
-	}
+	},
 }));
 
 const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
@@ -64,6 +67,10 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
 	const matches = useMediaQuery(theme.breakpoints.up("sm"));
 	const [peek, setPeek] = useState(false);
 	const [Router, LinkList, ContentRoutes] = useRouter();
+
+	const handleChange = event => {
+		console.log("asd");
+	};
 
 	let peekTime;
 
@@ -166,10 +173,10 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
 						</Drawer>
 					</Hidden>
 				</div>
-				<main className={classes.content}>
+				<div className={classes.content} onChange={handleChange} >
 					<div className={classes.toolbar} />
 					{ContentRoutes}
-				</main>
+				</div>
 			</div>
 		</Router>
 	);

@@ -1,79 +1,184 @@
 {
-    "format": {
-        "primary": [
-            "cliente"
-        ]
-    },
-    "sections": [
-        0,
-        1,
-        2
+    "subHeaders": [
+        "hoy",
+        "mañana",
+        "pasado mañana",
+        "mañana",
+        "mañana",
+        "mañana"
     ],
-    "sectionNames": {
-        "0": "hoy",
-        "1": "mañana",
-        "2": "pasado mañana"
-    },
-    "data": {
-        "0": [
+    "list": [
+        [
             {
-                "cliente": "martin ochoa",
-                "hora": "5: 30",
-                "tipo": "carie",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "1",
+                "primary": "martin ochoa - 15:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago largaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
             },
             {
-                "cliente": "agustin ochoa",
-                "hora": "3: 30",
-                "tipo": "limpieza",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "2",
+                "primary": "agustin ochoa - 14:30hs - limpieza",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             },
             {
-                "cliente": "adriana giancaspro",
-                "hora": "6: 35",
-                "tipo": "otro",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "3",
+                "primary": "adriana giancaspro - 17:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "4",
+                "primary": "christian fernandez - 19:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             }
         ],
-        "1": [
+        [
             {
-                "cliente": "christian fernandez",
-                "hora": "2: 30",
-                "tipo": "otro",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "5",
+                "primary": "macri gato - 14:30hs - limpieza",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             },
             {
-                "cliente": "macri gato",
-                "hora": "1: 30",
-                "tipo": "limpieza",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
-            },
-            {
-                "cliente": "alexis val",
-                "hora": "5: 30",
-                "tipo": "limpieza",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "6",
+                "primary": "alexis val - 17:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             }
         ],
-        "2": [
+        [
             {
-                "cliente": "juan perez",
-                "hora": "5: 30",
-                "tipo": "operacion",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "7",
+                "primary": "juan perez - 09:00hs - operacion",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             },
             {
-                "cliente": "pedro gomez",
-                "hora": "5: 30",
-                "tipo": "remover diente",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "8",
+                "primary": "martin ochoa - 11:30hs - remover diente",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             },
             {
-                "cliente": "pelotudo",
-                "hora": "5: 30",
-                "tipo": "no se",
-                "descripcion": "no se que escribrir aca entonces la hago larga"
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - no se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "9",
+                "primary": "pelotudo - 17:30hs - si se",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            }
+        ],
+        [
+            {
+                "id": "1",
+                "primary": "martin ochoa - 15:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago largaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+                "id": "2",
+                "primary": "agustin ochoa - 14:30hs - limpieza",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "1",
+                "primary": "martin ochoa - 15:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago largaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+        ],
+        [
+            {
+                "id": "1",
+                "primary": "martin ochoa - 15:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago largaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+                "id": "2",
+                "primary": "agustin ochoa - 14:30hs - limpieza",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "3",
+                "primary": "adriana giancaspro - 17:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "4",
+                "primary": "christian fernandez - 19:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            }
+        ],
+        [
+            {
+                "id": "1",
+                "primary": "martin ochoa - 15:30hs - carie",
+                "secondary": "no se que escribrir aca entonces la hago largaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+                "id": "2",
+                "primary": "agustin ochoa - 14:30hs - limpieza",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "3",
+                "primary": "adriana giancaspro - 17:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
+            },
+            {
+                "id": "4",
+                "primary": "christian fernandez - 19:30hs - otro",
+                "secondary": "no se que escribrir aca entonces la hago larga"
             }
         ]
-    }
+    ]
 }

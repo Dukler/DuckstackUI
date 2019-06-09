@@ -10,17 +10,16 @@ function useResponsiveSize(props) {
     const size = useWindowSize();
     const { offset, sidebar } = props;
     const matches = useMediaQuery(theme.breakpoints.up(sidebar.breakpoint));
-
     const [height, setHeight] = useState(Math.round(size.height - offset.height));
-    const [width, setWidth] = useState(Math.round(size.width - (matches ? offset.width : 0)));
+    const [width, setWidth] = useState(Math.round(size.width - (matches ? offset.width + sidebar.offset : offset.width)));
 
     useEffect(() => {
         //Resize window responsive
         setHeight(Math.round(size.height - offset.height));
-        setWidth(Math.round(size.width - (matches ? offset.width : 0)));
-    }, [matches, size, offset]);
+        setWidth(Math.round(size.width - (matches ? offset.width + sidebar.offset : offset.width)));
+    }, [matches, size, offset, sidebar.offset]);
 
-    return [height, width]
+    return { height, width }
 }
 
 export default useResponsiveSize

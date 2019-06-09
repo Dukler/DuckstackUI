@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
+import Icon from '@material-ui/core/Icon';
 import { withRouter } from "react-router-dom"
 
 
 function LinkItem(props) {
-    const { Icon, id, path, extProperties } = props;
+    const { icon, id, path, extProperties } = props;
     const [selected, setSelected] = useState(false)
     const pathname = props.location.pathname;
     const { isMain } = extProperties;
@@ -26,7 +27,7 @@ function LinkItem(props) {
             //className={classes.listItem}
             button>
             <ListItemIcon >
-                <Icon />
+                <Icon>{`${icon}_icon`}</Icon>
             </ListItemIcon>
             <ListItemText primary={id} />
         </ListItem>

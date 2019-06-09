@@ -12,16 +12,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Typography(props) {
-	const state = props;
-	const classes = useStyles(state.styles);
-	let value = state.value;
+	const classes = useStyles(props.styles);
+	let value = props.value;
+	const { isHtml, ...typoProps } = props.extProperties;
 	[value] = useHtmlReact({
 		value,
-		shouldParse: state.valueProps.isHtml
+		shouldParse: isHtml
 	});
 
+
 	return (
-		<MTypography className={classes.component} {...state.extProperties}>
+		<MTypography className={classes.component} {...typoProps}>
 			{value}
 		</MTypography>
 	);

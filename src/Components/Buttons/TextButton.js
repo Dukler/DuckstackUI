@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
-import Button from '@material-ui/core/Button';
+import MButton from '@material-ui/core/Button';
 import { useDispatch } from 'redux-react-hook';
-import { objectRequired } from '../Utils/customProptypes';
+import { objectRequired } from '../../Utils/customProptypes';
 
-const SubmitButton = props => {
+const TextButton = props => {
   const filter = ["tes2", "tes3"]
   const dispatch = useDispatch()
 
@@ -26,7 +26,7 @@ const SubmitButton = props => {
   const { actions } = props;
 
   return (
-    <Button
+    <MButton
       onClick={handleClick({
         ids: ["userName", "userPassword"],
         action: actions.onClick
@@ -34,12 +34,12 @@ const SubmitButton = props => {
       {...extras}
     >
       {label}
-    </Button>
+    </MButton>
   );
 };
 
-SubmitButton.propTypes = {
+TextButton.propTypes = {
   styles: objectRequired
 };
 
-export default SubmitButton;
+export default TextButton;

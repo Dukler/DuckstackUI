@@ -4,6 +4,7 @@ import DynamicComponents from "./../BeLazy/DynamicComponents";
 import { withRouter } from "react-router-dom";
 
 const ContentRoute = React.memo(function ContentRoute(props) {
+
 	return (
 		<Route
 			id={props.id}
