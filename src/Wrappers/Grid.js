@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
 	Grid: {}
 }));
 
-const Grid = React.memo(function Grid(props) {
+function Grid(props) {
 	const { componentsState, wrapperState } = props;
 	const classes = useStyles();
 
@@ -28,6 +28,6 @@ const Grid = React.memo(function Grid(props) {
 			<MGrid {...wrapperState.extProperties}>{All}</MGrid>
 		</div>
 	);
-});
+};
 
 export default Grid;

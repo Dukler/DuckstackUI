@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
         //top: theme.spacing(1),
         //left: theme.spacing(2)
     },
+    action: {
+        backgroundColor: "black",
+    },
     // '&$directionUp, &$directionLeft': {
     //     bottom: theme.spacing(2),
     //     right: theme.spacing(3),
@@ -33,19 +36,19 @@ const useStyles = makeStyles(theme => ({
     // },
 }));
 
-const actions = [
-    { icon: <FileCopyIcon />, name: 'Copy' },
-    { icon: <SaveIcon />, name: 'Save' },
-    { icon: <PrintIcon />, name: 'Print' },
-    { icon: <ShareIcon />, name: 'Share' },
-    { icon: <DeleteIcon />, name: 'Delete' },
-];
+
 
 function SpeedDial(props) {
     const classes = useStyles();
     const [state, setState] = useState({ open: false, hidden: false, direction: 'up' })
 
-
+    const actions = [
+        { icon: <FileCopyIcon />, name: 'Copy' },
+        { icon: <SaveIcon />, name: 'Save' },
+        { icon: <PrintIcon />, name: 'Print' },
+        { icon: <ShareIcon />, name: 'Share' },
+        { icon: <DeleteIcon />, name: 'Delete' },
+    ];
     // const handleVisibility = () => {
     //     setState(state => ({
     //         open: false,
@@ -102,11 +105,13 @@ function SpeedDial(props) {
         >
             {actions.map(action => (
                 <SpeedDialAction
+                    className={classes.action}
                     key={action.name}
                     icon={action.icon}
                     tooltipTitle={action.name}
                     tooltipOpen
                     onClick={handleClick}
+                    open={false}
                 />
             ))}
         </MSpeedDial>

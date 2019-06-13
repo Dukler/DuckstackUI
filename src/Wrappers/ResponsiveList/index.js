@@ -73,8 +73,6 @@ const createList = memoize((sectionCount, itemSizes, source, componentsState, ex
     <AutoSizer key="list">
         {({ height, width }) => (
             <VariableSizeList
-                // height={createHeight(height)}
-                // width={createWidth(width)}
                 height={height}
                 width={width}
                 itemCount={sectionCount}
@@ -115,10 +113,6 @@ function ResponsiveList({ componentsState, wrapperState, children, ...rest }) {
         )
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [classes, componentsState, extProps, sectionCount, source])
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <List className={classes.root} subheader={<li />} >

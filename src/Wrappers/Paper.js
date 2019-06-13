@@ -12,15 +12,15 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         //alignItems: 'center',
-        padding: theme.spacing(1,2,2),
+        padding: theme.spacing(1, 2, 2),
         width: "100%",
     },
 }));
 
-const Paper = React.memo(function Paper(props) {
+function Paper(props) {
     const { children } = props;
     const classes = useStyles();
-    
+
     return (
         <main className={classes.main}>
             <CssBaseline />
@@ -29,7 +29,7 @@ const Paper = React.memo(function Paper(props) {
             </MPaper>
         </main>
     )
-});
+};
 
 
 export default Paper;

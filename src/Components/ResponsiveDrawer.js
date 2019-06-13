@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
+function ResponsiveDrawer(props) {
 	//const { theme } = props;
 	const classes = useStyles();
 	const theme = useTheme();
@@ -180,7 +180,7 @@ const ResponsiveDrawer = React.memo(function ResponsiveDrawer(props) {
 			</div>
 		</Router>
 	);
-});
+};
 
 ResponsiveDrawer.propTypes = {
 	styles: objectRequired

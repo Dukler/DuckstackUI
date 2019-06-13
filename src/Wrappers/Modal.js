@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import MModal from '@material-ui/core/Modal';
 import { isAbsolute } from 'path';
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,18 +28,18 @@ const useStyles = makeStyles(theme => ({
         outline: 'none',
     }
 }));
-const Modal = React.memo(function Modal (props) {
+function Modal(props) {
     const { children, state, dispatch } = props;
     const classes = useStyles();
 
     useEffect(() => {
-        dispatch({type:"OPEN"})
+        dispatch({ type: "OPEN" })
     })
 
     const handleClose = () => {
         dispatch({ type: "CLOSE" })
     };
-    
+
     return (
         <div>
             <MModal
@@ -56,7 +56,7 @@ const Modal = React.memo(function Modal (props) {
             </MModal>
         </div>
     );
-});
+};
 
 
 export default Modal;

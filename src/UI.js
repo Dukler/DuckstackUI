@@ -4,8 +4,10 @@ import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
 import { ThemeProvider } from "@material-ui/styles";
 import { dsTheme } from "./Theme/dsTheme";
+import DateFnsUtils from "@date-io/date-fns/build/index";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
-const UI = React.memo(function UI() {
+function UI() {
 	const dispatch = useDispatch();
 	const init = useRef(false);
 
@@ -38,15 +40,17 @@ const UI = React.memo(function UI() {
 	return (
 		<div className="UI">
 			{isLoading ? null : (
-				<ThemeProvider theme={dsTheme(theme)}>
-					<DynamicComponents
-						element="components"
-						wrapper={{ id: "root" }}
-					/>
-				</ThemeProvider>
+				<MuiPickersUtilsProvider utils={DateFnsUtils}>
+					<ThemeProvider theme={dsTheme(theme)}>
+						<DynamicComponents
+							element="components"
+							wrapper={{ id: "root" }}
+						/>
+					</ThemeProvider>
+				</MuiPickersUtilsProvider>
 			)}
 		</div>
 	);
-});
+};
 
 export default UI;

@@ -3,7 +3,7 @@ import useClassState from "../Hooks/useClassState";
 import DynamicComponents from "../BeLazy/DynamicComponents";
 import useFilteredList from "../Hooks/useFilteredList";
 
-const WrappedComponents = React.memo(function WrappedComponents(props) {
+function WrappedComponents(props) {
 	const { wrapper } = props;
 	const wrapperState = useClassState({
 		id: wrapper.id,
@@ -26,10 +26,10 @@ const WrappedComponents = React.memo(function WrappedComponents(props) {
 			{isList ? (
 				<DynamicComponents element="components" wrapper={wrapper} />
 			) : (
-				<AsyncImport key={cleanComp.id} {...cleanComp} />
-			)}
+					<AsyncImport key={cleanComp.id} {...cleanComp} />
+				)}
 		</LazyWrapper>
 	);
-});
+};
 
 export default WrappedComponents;

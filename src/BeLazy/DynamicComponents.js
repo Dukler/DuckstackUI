@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import useDynamicList from '../Hooks/useDynamicList';
 
 
-const DynamicComponents = React.memo(function DynamicComponents(props) {
+function DynamicComponents(props) {
     const [list] = useDynamicList(props);
-    console.log();
+
     return (
         <>
             {list.map(comp => {
@@ -20,7 +20,7 @@ const DynamicComponents = React.memo(function DynamicComponents(props) {
             )}
         </>
     );
-});
+};
 
 DynamicComponents.propTypes = {
     element: PropTypes.string.isRequired

@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const PrimarySearchAppBar = React.memo(function PrimarySearchAppBar(props) {
+function PrimarySearchAppBar(props) {
     const dispatch = useDispatch()
     const [anchorEl, setAnchor] = useState(null);
     const [mobileMoreAnchorEl, setMobileAnchor] = useState(null);
@@ -251,7 +251,7 @@ const PrimarySearchAppBar = React.memo(function PrimarySearchAppBar(props) {
             {renderMobileMenu}
         </div>
     );
-});
+};
 
 PrimarySearchAppBar.propTypes = {
     styles: objectRequired

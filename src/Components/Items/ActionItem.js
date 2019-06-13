@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import memoize from 'memoize-one';
+import { areEqual } from 'react-window'
 
 const createCheck = memoize((hasCheck, showCheck, checked, id) => (
     hasCheck && showCheck ? <ListItemIcon>
@@ -34,9 +35,9 @@ const createSecondaryWithCheck = memoize((extProperties, hasCheck) => (
         !hasCheck ? createSecondary(extProperties) : null
 ));
 
+//ItemRow = memo(({ index, style, data }) =>
 
-
-const ActionItem = React.memo(function ActionItem({ index, style, data }) {
+const ActionItem = React.memo(({ index, style, data }) => {
     const [checked, setChecked] = React.useState([0]);
     const { list, itemProps, showCheck } = data;
     const { extProperties } = itemProps;
@@ -78,6 +79,6 @@ const ActionItem = React.memo(function ActionItem({ index, style, data }) {
             </ListItem>
         </div>
     );
-})
+}, areEqual)
 
 export default ActionItem;
