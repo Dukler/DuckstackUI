@@ -30,7 +30,8 @@ function useDynamicList(props) {
             else
                 setFiltered(orderList(filtered, order));
 
-    }, [filter, filtered, list, order, props.element])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [filter, list, order, props.element])
 
 
 

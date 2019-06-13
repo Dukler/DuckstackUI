@@ -1,7 +1,6 @@
 import DynamicComponents from "../BeLazy/DynamicComponents";
 import React from "react";
-import { Switch } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Switch, BrowserRouter } from "react-router-dom";
 
 function useRouter() {
 
