@@ -5,7 +5,8 @@ import { orderList } from '../Utils';
 
 
 function useDynamicList(props) {
-    const [filtered, setFiltered] = useState([])
+    const [filtered, setFiltered] = useState([]);
+    const [dynamicList, setDynamicList] = useState([]);
 
     const mapState = useCallback(
         state => ({
@@ -21,24 +22,24 @@ function useDynamicList(props) {
 
 
     useEffect(() => {
-        setFiltered(filter ? filter.map(
+        const aux = filter ? filter.map(
             item => list[item]
-        ).filter(item => item !== undefined) : Object.values(list));
+        ).filter(item => item !== undefined) : Object.values(list)
+        setFiltered(aux);
+        setDynamicList(aux);
+    }, [filter, list]);
+
+    useEffect(() => {
         if (props.element !== "contentRoutes" && filtered.length > 1)
             if (filter)
-                setFiltered(orderList(filtered, filter));
+                setDynamicList(orderList(filtered, filter));
             else
-                setFiltered(orderList(filtered, order));
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [filter, list, order, props.element])
+                setDynamicList(orderList(filtered, order));
+    }, [filter, filtered, order, props.element]);
 
 
 
-
-
-
-    return [filtered]
+    return [dynamicList]
 }
 
 export default useDynamicList
