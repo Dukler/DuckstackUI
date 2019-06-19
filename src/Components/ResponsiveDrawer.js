@@ -73,10 +73,6 @@ function ResponsiveDrawer(props) {
 	const [peek, setPeek] = useState(false);
 	const [Router, LinkList, ContentRoutes] = useRouter();
 
-	const handleChange = event => {
-		console.log("asd");
-	};
-
 	let peekTime;
 
 	useEffect(() => {
@@ -180,7 +176,7 @@ function ResponsiveDrawer(props) {
 						</Drawer>
 					</Hidden>
 				</div>
-				<div className={classes.content} onChange={handleChange} >
+				<div className={classes.content} >
 					{/* <div className={classes.toolbar} /> */}
 					{ContentRoutes}
 				</div>

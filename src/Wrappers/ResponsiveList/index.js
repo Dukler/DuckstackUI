@@ -103,7 +103,6 @@ function ResponsiveList({ componentsState, wrapperState, children, ...rest }) {
 
 
     useEffect(() => {
-        //console.log(clientHeight, clientWidth);
         setComponents(
             extProps.order.map(key => {
                 return (key === "list") ?

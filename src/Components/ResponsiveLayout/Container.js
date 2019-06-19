@@ -36,7 +36,7 @@ function Container({ children, isResponsive = false }) {
         setState(memoChildren(children));
     }, [children]);
 
-    console.log("responsive");
+
     return (
         <RefMapContext.Provider value={refsMap}>
             <div ref={refsMap["containerRef"]} style={{ height: "100%" }}>

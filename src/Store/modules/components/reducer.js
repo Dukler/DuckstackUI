@@ -19,9 +19,6 @@ function componentsReducer(state = initialState, action) {
 		? action.payload
 		: { id: null, ...null };
 	switch (action.type) {
-		case "test":
-			console.log("test worked");
-			return state;
 		case "UPDATE":
 			return update(state, {
 				byIds: { [id]: { $merge: payload } }
