@@ -1,30 +1,55 @@
-import { isSameDay, startOfMonth, startOfWeek, subMonths } from 'date-fns';
-import { addDays, addMonths, endOfMonth, endOfWeek, isSameMonth } from 'date-fns/esm';
+import { isSameDay, startOfWeek } from 'date-fns';
+import { addDays, endOfWeek, isSameMonth } from 'date-fns/esm';
 import format from "date-fns/format";
-import React, { useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import './Calendar.css';
 import RightIcon from '@material-ui/icons/ChevronRightRounded';
 import LeftIcon from '@material-ui/icons/ChevronLeftRounded';
 import classNames from 'classnames';
+import { reducer } from './reducer'
+import { isNotUndefined } from '../../Utils';
+import useResponsiveOffset from '../../Hooks/useResponsiveOffset';
 
-const check = (object) => {
-    return object ? object : null;
-}
+const initialState = { currentMonth: new Date(), selectedDate: new Date(), weekCount: 0, startDate: null, endDate: null };
 
 function Calendar(props) {
-    const [currentMonth, setCurrentMonth] = useState(new Date());
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const { calendarClass, dayClass, renderDay } = props;
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { currentMonth, selectedDate, weekCount, startDate, endDate } = state;
+    const { calendarClass, dayClass, renderDay, picker, showHeader } = props;
+
+    const { headerRef, daysRef, bodyRef, calendarRef } = useResponsiveOffset({
+        offsetArray: ['headerRef', 'daysRef'],
+        responsive: 'bodyRef',
+        container: 'calendarRef'
+    });
+
+
+    useEffect(() => {
+        switch (picker) {
+            case "week":
+                const currentDate = new Date();
+                dispatch({ payload: { startDate: startOfWeek(currentDate), endDate: endOfWeek(currentDate) } });
+                dispatch({ type: "COUNT_WEEKS" });
+                break;
+            default:
+                dispatch({ type: "INIT_CALENDAR" });
+                dispatch({ type: "COUNT_WEEKS" });
+                break;
+        };
+        // return () => {
+        //     effect
+        // };
+    }, [currentMonth, picker]);
 
 
 
-    const dayRender = ({ date, monthStart, dateFormat }) => {
+    const dayRender = ({ date, dateFormat }) => {
         const formattedDate = format(date, dateFormat);
-        const isInCurrentMonth = isSameMonth(date, monthStart);
+        const isInCurrentMonth = isSameMonth(date, currentMonth);
         const dayComponent = (
             <>
                 <span className="number">{formattedDate}</span>
-                <span className="bg">{formattedDate}</span>
+                {/* <span className="bg">{formattedDate}</span> */}
             </>
         )
         const customDay = renderDay({ date, selectedDate, isInCurrentMonth, dayComponent });
@@ -32,7 +57,7 @@ function Calendar(props) {
             <div
                 className={classNames(`col cell ${!isInCurrentMonth
                     ? "disabled"
-                    : isSameDay(date, selectedDate) ? "selected" : ""}`, check(dayClass))}
+                    : isSameDay(date, selectedDate) ? "selected" : ""}`, isNotUndefined(dayClass))}
                 key={date}
                 onClick={() => onDateClick(new Date(date))}
             >
@@ -47,13 +72,13 @@ function Calendar(props) {
         const dateFormat = "MMMM-yyyy";
 
         return (
-            <div className="header row flex-middle">
+            <div ref={headerRef} className="header row flex-middle">
                 <div className="col col-start">
                     <LeftIcon className="icon"
                         aria-label="Previous month"
                         onClick={prevMonth} />
                 </div>
-                <div className="col col-center">
+                <div className="date col-center">
                     <span>
                         {format(currentMonth, dateFormat)}
                     </span>
@@ -79,59 +104,54 @@ function Calendar(props) {
                     {format(addDays(startDate, i), dateFormat)}
                 </div>
             );
-        }
+        };
 
-
-
-        return <div className="days row">{days}</div>;
+        return <div ref={daysRef} className="days row">{days}</div>;
     };
 
     const renderCells = () => {
-        const monthStart = startOfMonth(currentMonth);
-        const monthEnd = endOfMonth(monthStart);
-        const startDate = startOfWeek(monthStart);
-        const endDate = endOfWeek(monthEnd);
-
         const dateFormat = "d";
         const rows = [];
 
         let days = [];
-        let date = startDate;
-        // let formattedDate = "";
+        let date = new Date(startDate);
 
         while (date <= endDate) {
             for (let i = 0; i < 7; i++) {
                 days.push(
-                    dayRender({ date, monthStart, dateFormat })
+                    dayRender({ date, dateFormat })
                 );
                 date = addDays(date, 1);
             }
             rows.push(
-                <div className="row" key={date}>
+                <div className="row" key={date} style={{ height: `calc(100%/${weekCount})` }}>
                     {days}
                 </div>
             );
             days = [];
         }
-        return <div className="body">{rows}</div>;
+        // let offset = "0px";
+
+        return <div ref={bodyRef} className="body" >{rows}</div>;
+        // return <div ref={bodyRef} className="body" style={{ height: `calc(100% - 30px)` }} >{rows}</div>;
     };
 
     const onDateClick = (day) => {
-        setSelectedDate(day);
+        dispatch({ payload: { selectedDate: day } });
     };
 
     const nextMonth = () => {
-        setCurrentMonth(addMonths(currentMonth, 1))
+        dispatch({ type: "ADD_MONTH" });
     };
 
     const prevMonth = () => {
-        setCurrentMonth(subMonths(currentMonth, 1))
+        dispatch({ type: "SUB_MONTH" });
     };
 
 
     return (
-        <div className={classNames("calendar", check(calendarClass))}>
-            {renderHeader()}
+        <div ref={calendarRef} className={classNames("calendar", isNotUndefined(calendarClass))}>
+            {showHeader === false ? null : renderHeader()}
             {renderDays()}
             {renderCells()}
         </div>
@@ -140,3 +160,4 @@ function Calendar(props) {
 };
 
 export default Calendar
+

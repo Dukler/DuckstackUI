@@ -1,9 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 .icon {
-  font-family: 'Material Icons', serif;
-  font-style: normal;
+  /* font-family: 'Material Icons', serif;
+  font-style: normal; */
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
@@ -47,6 +45,12 @@
   align-items: center;
 }
 
+.date {
+  font-size: 125%;
+  max-width: 100%;
+  flex-grow: 0;
+}
+
 .col {
   flex-grow: 1;
   flex-basis: 0;
@@ -71,6 +75,7 @@
 
 /* Calendar */
 
+
 .calendar {
   font-size: 1em;
   font-weight: 300;
@@ -89,20 +94,22 @@
   display: block;
   position: relative;
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   /* background: var(--neutral-color); */
-  background: inherit;
-  border: 1px solid var(--main-color);
-  /* max-height: 100%;
-  max-width: 100%; */
+  background: black;
+  /* border: 1px solid var(--main-color); */
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .calendar .header {
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: 115%;
-  padding: 1.5em 0;
-  border-bottom: 1px solid var(--border-color);
+  font-weight: 500;
+  font-size: 100%;
+  padding: 0.5em 0;
+  border-bottom: 0.5px solid var(--border-color);
+  height: 8%;
+  min-height: 45px;
 }
 
 .calendar .header .icon {
@@ -131,18 +138,21 @@
   font-size: 70%;
   padding: .75em 0;
   border-bottom: 1px solid var(--border-color);
+  min-height: 30px;
 }
 
 .calendar .body .cell {
   position: relative;
-  height: calc(1px + 11vh);
-  /* height: calc(100% / 6); */
+  /* height: calc(1px + 11vh); */
+  /* height: calc(100vh/9); */
+  /* height: calc(100% / 8); */
   /* width: 50%; */
   border-right: 1px solid var(--border-color);
-  overflow: hidden;
+  overflow: auto;
   cursor: pointer;
   background: var(--neutral-color);
   transition: 0.25s ease-out;
+  
 }
 
 /* .calendar .body .cell:after {
@@ -188,7 +198,7 @@
   pointer-events: none;
 }
 
-.calendar .body .cell .bg {
+/* .calendar .body .cell .bg {
   font-weight: 700;
   line-height: 1;
   color: var(--main-color);
@@ -204,7 +214,7 @@
 .calendar .body .cell:hover .bg, .calendar .body .selected .bg  {
   opacity: 0.05;
   transition: .5s ease-in;
-}
+} */
 
 .calendar .body .col {
   flex-grow: 0;

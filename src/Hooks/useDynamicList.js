@@ -24,7 +24,7 @@ function useDynamicList(props) {
     useEffect(() => {
         const aux = filter ? filter.map(
             item => list[item]
-        ).filter(item => item !== undefined) : Object.values(list)
+        ).filter(item => item !== undefined) : Object.values(list);
         setFiltered(aux);
         setDynamicList(aux);
     }, [filter, list]);

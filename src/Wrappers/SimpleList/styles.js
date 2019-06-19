@@ -2,15 +2,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(theme => ({
     root: {
-        height: "100%"
+        maxHeight: "100%",
+        height: "100%",
     },
     header: {
         height: "80px"
     },
     list: {
-        padding: "10px",
-        // height: "calc(100% - 90px)"
-        height: "100%"
+        height: "100%",
     },
     row: {
         borderBottom: "1px solid #ebeced",
@@ -18,26 +17,6 @@ export const useStyles = makeStyles(theme => ({
         margin: "5px 0",
         display: "flex",
         alignItems: "center",
-    },
-    image: {
-        marginRight: "10px",
-    },
-    content: {
-        padding: "10px"
-    },
-    leftSide: {
-        overflow: "hidden!important",
-        //scrollBehavior: "smooth",
-    },
-    leftContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-    },
-    rightContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 50,
     },
     subHeader: {
         position: "sticky",
@@ -50,3 +29,4 @@ export const useStyles = makeStyles(theme => ({
         zIndex: 2,
     },
 }))
+

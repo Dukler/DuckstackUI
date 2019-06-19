@@ -17,3 +17,11 @@ export const orderList = (list, order) => {
     const aux = Array.isArray(list) ? [...list] : Object.values({ ...list });
     return aux.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
 }
+
+export const isNotUndefined = (object, returnValue) => {
+    return (typeof object !== 'undefined') ? object : returnValue ? returnValue : null;
+}
+
+export const isNotNull = (object, returnValue) => {
+    return (object !== null) ? object : returnValue ? returnValue : false;
+}

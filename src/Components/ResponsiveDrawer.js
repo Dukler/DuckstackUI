@@ -13,31 +13,36 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		display: "flex"
+		display: "flex",
+		height: "100%"
 	},
 	drawer: {
 		[theme.breakpoints.up("sm")]: {
 			width: drawerWidth,
 			flexShrink: 0,
 			whiteSpace: "nowrap"
-		}
+		},
+
 	},
 	drawerPaper: {
-		width: drawerWidth
+		width: drawerWidth,
 	},
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(1),
-		//width: "90%",
-		//maxWidth: "100vw",
-		height: "92vh"
+		marginTop: "54px",
+		[theme.breakpoints.up("sm")]: {
+			marginTop: "64px",
+		},
+		maxHeight: "100%"
 	},
 	drawerOpen: {
 		width: drawerWidth,
 		transition: theme.transitions.create("width", {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.enteringScreen
-		})
+		}),
+		overflowX: "hidden",
 	},
 	drawerClose: {
 		transition: theme.transitions.create("width", {
@@ -125,6 +130,8 @@ function ResponsiveDrawer(props) {
 				role="button"
 				onClick={closeMobileDrawer}
 				onKeyDown={closeMobileDrawer}
+				className={classes.drawer}
+			// style={{ overflow: "hidden"}}
 			>
 				{LinkList}
 			</div>
@@ -174,7 +181,7 @@ function ResponsiveDrawer(props) {
 					</Hidden>
 				</div>
 				<div className={classes.content} onChange={handleChange} >
-					<div className={classes.toolbar} />
+					{/* <div className={classes.toolbar} /> */}
 					{ContentRoutes}
 				</div>
 			</div>

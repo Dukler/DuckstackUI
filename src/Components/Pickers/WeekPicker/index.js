@@ -3,27 +3,24 @@ import { useStyles } from './styles'
 import Calendar from '../../Calendar/index'
 import { objectRequired } from "../../../Utils/customProptypes";
 
-
-
-function CalendarPicker(props) {
+function WeekPicker() {
     const classes = useStyles();
-
-
 
     return (
         <Calendar
             renderDay={({ date, selectedDate, isInCurrentMonth, dayComponent }) => {
                 // return <div>dick</div>
             }}
-            // showHeader={false}
-            // picker="week"
+            showHeader={false}
+            picker="week"
             calendarClass={classes.calendar}
         />
     );
 }
 
-CalendarPicker.propTypes = {
+WeekPicker.propTypes = {
     styles: objectRequired
 };
 
-export default CalendarPicker;
+
+export default WeekPicker;

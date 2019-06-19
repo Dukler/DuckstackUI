@@ -1,5 +1,5 @@
 {
-    "hoy": [
+    "15": [
         {
             "id": "1",
             "primary": "martin ochoa - 15:30hs - carie",
@@ -16,7 +16,7 @@
             "secondary": "no se que escribrir aca entonces la hago larga"
         }
     ],
-    "mañana": [
+    "16": [
         {
             "id": "4",
             "primary": "christian fernandez - 13:30hs - otro",
@@ -33,7 +33,7 @@
             "secondary": "no se que escribrir aca entonces la hago larga"
         }
     ],
-    "pasado mañana": [
+    "17": [
         {
             "id": "7",
             "primary": "juan perez - 09:00hs - operacion",

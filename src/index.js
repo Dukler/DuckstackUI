@@ -6,12 +6,13 @@ import { StoreContext } from 'redux-react-hook';
 import { store } from './Store';
 import UI from './UI';
 
+const root = document.getElementById('root');
 
 ReactDOM.render(
     <StoreContext.Provider value={store}>
         <UI />
-    </StoreContext.Provider>, 
-    document.getElementById('root')
+    </StoreContext.Provider>,
+    root
 );
 
 registerServiceWorker();

@@ -4,8 +4,6 @@ import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
 import { ThemeProvider } from "@material-ui/styles";
 import { dsTheme } from "./Theme/dsTheme";
-import DateFnsUtils from "@date-io/date-fns/build/index";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 function UI() {
 	const dispatch = useDispatch();
@@ -38,16 +36,14 @@ function UI() {
 	}, [isLoading]);
 
 	return (
-		<div className="UI">
+		<div className="UI" style={{ height: "100vh" }}>
 			{isLoading ? null : (
-				<MuiPickersUtilsProvider utils={DateFnsUtils}>
-					<ThemeProvider theme={dsTheme(theme)}>
-						<DynamicComponents
-							element="components"
-							wrapper={{ id: "root" }}
-						/>
-					</ThemeProvider>
-				</MuiPickersUtilsProvider>
+				<ThemeProvider theme={dsTheme(theme)}>
+					<DynamicComponents
+						element="components"
+						wrapper={{ id: "root" }}
+					/>
+				</ThemeProvider>
 			)}
 		</div>
 	);

@@ -1,117 +1,105 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 //import logo from './logo.svg';
-import { loremIpsum } from "lorem-ipsum";
+// import { loremIpsum } from "lorem-ipsum";
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window'
 import memoize from 'memoize-one';
 import { useStyles } from './styles'
 import { List } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import ResponsiveLayout from '../../Components/ResponsiveLayout/index';
 
-const rowCount = 40;
-const rowHeight = 58;
-
-const list = Array(rowCount).fill().map((val, idx) => {
-    return {
-        id: idx,
-        name: 'John Doe',
-        image: 'http://via.placeholder.com/40',
-        primary: loremIpsum({
-            count: 1,
-            units: 'sentences',
-            sentenceLowerBound: 4,
-            sentenceUpperBound: 8
-        }),
-    }
-});
-
-
-// const createItemData = memoize((list, classes) => ({
-//     list,
-//     classes,
-// }));
+const rowHeight = 48;
 
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
     list, classes, itemProps, showCheck
 }));
 
-const createList = memoize((itemData, listRef, Item) => (
-    <AutoSizer key="list">
-        {({ height, width }) => (
-            <FixedSizeList
-                width={width}
-                height={height}
-                itemCount={list.length}
-                itemSize={rowHeight}
-                overscanCount={10}
-                itemData={itemData}
-                ref={listRef}
-            >
-                {Item.AsyncImport}
-            </FixedSizeList>
-        )}
-    </AutoSizer>
-));
+const createList = (itemData, listRefs, Item, listHandlers, classes) => (
+    <ClickAwayListener onClickAway={listHandlers.handleClickAway} key="list">
+        <List
+            className={classes.list}
+            onMouseDown={listHandlers.handleShowCheck}
+            onMouseUp={listHandlers.handleShowCheck}
+            onTouchStart={listHandlers.handleShowCheck}
+            onTouchEnd={listHandlers.handleShowCheck}
+            onTouchMove={listHandlers.handleShowCheck}
+
+        >
+            <AutoSizer >
+                {({ height, width }) => (
+                    <FixedSizeList
+                        width={width}
+                        height={height}
+                        itemCount={itemData.list.length}
+                        itemSize={rowHeight}
+                        overscanCount={10}
+                        itemData={itemData}
+                    >
+                        {Item.AsyncImport}
+                    </FixedSizeList>
+                )}
+            </AutoSizer>
+        </List>
+    </ClickAwayListener>
+);
 
 const createComp = ({ AsyncImport, ...cleanComp }) => (
-    //const { AsyncImport, ...cleanComp } = comp;
     <AsyncImport key={cleanComp.id} {...cleanComp} />
 );
 
 function SimpleList({ componentsState, wrapperState, children, ...rest }) {
     const classes = useStyles();
-    const listRef = useRef();
-    const listContainerRef = useRef();
     const [showCheck, setShowCheck] = React.useState(false);
     const [components, setComponents] = useState([]);
     const extProps = wrapperState.extProperties;
+    const source = require('../../MockData/turnosR.json');
+    const list = extProps.isDivided ? source["15"] : source;
     const Item = componentsState[extProps.item];
     const itemData = createItemData(list, classes, Item, showCheck);
-
-    let mouseDownTimer;
+    const mouseDownTimer = useRef();
 
     const handleClickAway = () => {
         setShowCheck(false);
-    }
+    };
 
-    const handleShowCheck = (e) => {
+    const handleShowCheck = useCallback((e) => {
         if (Item.extProperties.hasCheck) {
             if (e.type === "mousedown" || e.type === "touchstart") {
-                mouseDownTimer = setTimeout(() => {
+                mouseDownTimer.current = setTimeout(() => {
                     //e.persist();
                     setShowCheck(true);
                 }, 1500);
-
             } else {
-                clearTimeout(mouseDownTimer);
+                clearTimeout(mouseDownTimer.current);
             }
         }
-    }
+    }, [Item.extProperties.hasCheck]);
+
 
     useEffect(() => {
-        //console.log(clientHeight, clientWidth);
+        const listHandlers = { handleClickAway, handleShowCheck };
         setComponents(
             extProps.order.map(key => {
                 return (key === "list") ?
-                    createList(itemData, listRef, Item) :
+                    createList(itemData, null, Item, listHandlers, classes) :
                     createComp(componentsState[key])
             })
-        )
-    }, [Item, componentsState, extProps.order, itemData])
+        );
+    }, [Item, classes, componentsState, extProps.order, handleShowCheck, itemData])
 
     return (
-        <ClickAwayListener onClickAway={handleClickAway} >
-            <List className={classes.root}
-                onMouseDown={handleShowCheck}
-                onMouseUp={handleShowCheck}
-                onTouchStart={handleShowCheck}
-                onTouchEnd={handleShowCheck}
-                onTouchMove={handleShowCheck}
-                ref={listContainerRef}
-            >
+        <ResponsiveLayout container>
+            <ResponsiveLayout>
+                <div className={classes.header}>PORONGA</div>
+            </ResponsiveLayout>
+            <ResponsiveLayout>
+                <div className={classes.header}>PORONGA</div>
+            </ResponsiveLayout>
+            <ResponsiveLayout setOffset>
                 {components}
-            </List>
-        </ClickAwayListener>
+            </ResponsiveLayout>
+        </ResponsiveLayout>
     );
 
 }
