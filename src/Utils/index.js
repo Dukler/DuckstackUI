@@ -19,9 +19,9 @@ export const orderList = (list, order) => {
 }
 
 export const isNotUndefined = (object, returnValue) => {
-    return (typeof object !== 'undefined') ? object : returnValue ? returnValue : null;
+    return (typeof object !== 'undefined') ? object : (typeof returnValue !== 'undefined') ? returnValue : null;
 }
 
 export const isNotNull = (object, returnValue) => {
-    return (object !== null) ? object : returnValue ? returnValue : false;
+    return (object !== null) ? object : (typeof returnValue !== 'undefined') ? returnValue : false;
 }

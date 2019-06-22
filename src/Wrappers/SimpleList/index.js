@@ -99,6 +99,9 @@ function SimpleList({ componentsState, wrapperState, children, ...rest }) {
             <ResponsiveLayout setOffset>
                 {components}
             </ResponsiveLayout>
+            <ResponsiveLayout setOffset addHeight={50}>
+                {components}
+            </ResponsiveLayout>
         </ResponsiveLayout>
     );
 

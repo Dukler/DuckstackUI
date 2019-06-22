@@ -17,12 +17,11 @@ function Calendar(props) {
     const { currentMonth, selectedDate, weekCount, startDate, endDate } = state;
     const { calendarClass, dayClass, renderDay, picker, showHeader } = props;
 
-    const { headerRef, daysRef, bodyRef, calendarRef } = useResponsiveOffset({
-        offsetArray: ['headerRef', 'daysRef'],
-        responsive: 'bodyRef',
-        container: 'calendarRef'
-    });
+    const { headerRef, daysRef, bodyRef, containerRef } = useResponsiveOffset({
+        offsetArr: ['headerRef', 'daysRef'],
+        responsiveArr: ['bodyRef'],
 
+    });
 
     useEffect(() => {
         switch (picker) {
@@ -150,7 +149,7 @@ function Calendar(props) {
 
 
     return (
-        <div ref={calendarRef} className={classNames("calendar", isNotUndefined(calendarClass))}>
+        <div ref={containerRef} className={classNames("calendar", isNotUndefined(calendarClass))}>
             {showHeader === false ? null : renderHeader()}
             {renderDays()}
             {renderCells()}
