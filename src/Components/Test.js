@@ -38,22 +38,22 @@ function Test(props) {
             <ResponsiveLayout >
                 <div className={classes.header}>PORONGA</div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset >
+            <ResponsiveLayout setOffset multiplier={1}>
                 <div className={classes.red}></div>
             </ResponsiveLayout>
-            {/* <ResponsiveLayout setOffset setOffset multiplier={20}>
+            <ResponsiveLayout setOffset >
                 <div className={classes.green} ></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset multiplier={20}>
+            <ResponsiveLayout setOffset >
                 <div className={classes.blue}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset multiplier={10}>
+            <ResponsiveLayout setOffset >
                 <div className={classes.white}></div>
-            </ResponsiveLayout> */}
+            </ResponsiveLayout>
             <ResponsiveLayout setOffset  >
                 <div className={classes.pink}></div>
             </ResponsiveLayout>
-        </ResponsiveLayout>
+        </ResponsiveLayout >
     );
 }
 

@@ -52,34 +52,54 @@ function useResponsiveOffset({ offsetArr, responsiveArr, multipliers }) {
     }, []);
 
     useEffect(() => {
-        let auxFractions = {};
-        let acumHeight = 0;
-        let acumMulti = 0;
-        let count = 0;
         const length = responsiveArr.length;
-        const split = 100 / responsiveArr.length;
-        const keys = Object.keys(multipliers);
-        keys.forEach((key) => {
-            if (multipliers[key]) {
-                const multi = multipliers[key] / 100;
-                acumMulti += multi;
-                acumHeight += (1 + multi) * split
-                count++;
-                auxFractions[key] = 1 + multi;
-            }
-        });
-        if (acumMulti <= 1) {
-            const responsiveCount = length - count;
-            const calc = ((100 - acumHeight) / split) / responsiveCount;
+        if (length > 1) {
+            let auxFractions = {};
+            let acumHeight = 0;
+            let acumMulti = 0;
+            let count = 0;
+            Object.values(multipliers).forEach((value) => {
+                return value !== false ? count++ : count;
+            });
+            const noMultiCount = length - count;
+            const split = 100 / responsiveArr.length;
+            const keys = Object.keys(multipliers);
             keys.forEach((key) => {
-                if (!multipliers[key]) {
-                    auxFractions[key] = calc;
+                if (multipliers[key]) {
+                    // 50 / 100 * 3 + 1
+                    // const multi = multipliers[key] / 100;
+                    const multi = ((multipliers[key] / 100) * noMultiCount) + 1;
+                    acumMulti += multi;
+                    acumHeight += multi * split;
+                    auxFractions[key] = multi;
                 }
             });
-            setMultis(auxFractions);
-        } else {
-            console.log("mas de 100")
-        };
+            if (acumMulti <= length) {
+                if (count === length) {
+                    const arr = Object.entries(auxFractions);
+                    let min = Number.POSITIVE_INFINITY
+                    let key = "";
+                    for (const value of arr) {
+                        const aux = Math.min(min, value[1]);
+                        key = aux !== min ? value[0] : key;
+                        min = aux;
+                    }
+                    multipliers[key] = false;
+                    count--;
+                    acumHeight = acumHeight - (min * 100)
+                }
+
+                const calc = ((100 - acumHeight) / split) / noMultiCount;
+                keys.forEach((key) => {
+                    if (!multipliers[key]) {
+                        auxFractions[key] = calc;
+                    }
+                });
+                setMultis(auxFractions);
+            } else {
+                console.log("mas de 100")
+            };
+        }
 
     }, [multipliers, responsiveArr.length, height]);
 
