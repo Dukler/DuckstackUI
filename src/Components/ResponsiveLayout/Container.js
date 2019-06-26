@@ -27,8 +27,6 @@ const memoChildren = memoizeOne(createChildren);
 
 function Container({ children, ...rest }) {
     const [state, setState] = useState(memoChildren(children));
-    // const [offset, responsive, childrenWithProps] = memoChildren(children);
-    // const state = memoChildren(children);
     const refsMap = useResponsiveOffset({
         offsetArr: state.offset,
         responsiveArr: state.responsive,

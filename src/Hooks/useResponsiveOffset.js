@@ -54,7 +54,7 @@ function useResponsiveOffset({ offsetArr, responsiveArr, multipliers }) {
     useEffect(() => {
         const length = responsiveArr.length;
         if (length > 1) {
-            let auxFractions = {};
+            let auxMultis = {};
             let acumHeight = 0;
             let acumMulti = 0;
             let count = 0;
@@ -71,12 +71,12 @@ function useResponsiveOffset({ offsetArr, responsiveArr, multipliers }) {
                     const multi = ((multipliers[key] / 100) * noMultiCount) + 1;
                     acumMulti += multi;
                     acumHeight += multi * split;
-                    auxFractions[key] = multi;
+                    auxMultis[key] = multi;
                 }
             });
             if (acumMulti <= length) {
                 if (count === length) {
-                    const arr = Object.entries(auxFractions);
+                    const arr = Object.entries(auxMultis);
                     let min = Number.POSITIVE_INFINITY
                     let key = "";
                     for (const value of arr) {
@@ -92,10 +92,10 @@ function useResponsiveOffset({ offsetArr, responsiveArr, multipliers }) {
                 const calc = ((100 - acumHeight) / split) / noMultiCount;
                 keys.forEach((key) => {
                     if (!multipliers[key]) {
-                        auxFractions[key] = calc;
+                        auxMultis[key] = calc;
                     }
                 });
-                setMultis(auxFractions);
+                setMultis(auxMultis);
             } else {
                 console.log("mas de 100")
             };
