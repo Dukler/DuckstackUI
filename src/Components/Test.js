@@ -35,22 +35,22 @@ function Test(props) {
 
     return (
         <ResponsiveLayout container>
-            <ResponsiveLayout >
+            <ResponsiveLayout static >
                 <div className={classes.header}>PORONGA</div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset multiplier={1}>
+            <ResponsiveLayout  >
                 <div className={classes.red}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset >
-                <div className={classes.green} ></div>
+            <ResponsiveLayout  >
+                <div className={classes.green}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset >
+            <ResponsiveLayout  >
                 <div className={classes.blue}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset >
+            <ResponsiveLayout  >
                 <div className={classes.white}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout setOffset  >
+            <ResponsiveLayout  >
                 <div className={classes.pink}></div>
             </ResponsiveLayout>
         </ResponsiveLayout >

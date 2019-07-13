@@ -10,6 +10,12 @@ const useStyles = makeStyles(theme => ({
 	Grid: {}
 }));
 
+function GridEmpty() {
+	return (
+		< MGrid item />
+	);
+}
+
 function Grid(props) {
 	const { componentsState, wrapperState } = props;
 	const classes = useStyles();
@@ -19,7 +25,8 @@ function Grid(props) {
 		wrapperState,
 		parents: ["All"],
 		styleContainers: {
-			Default: MGrid
+			Default: MGrid,
+			Empty: GridEmpty
 		}
 	});
 

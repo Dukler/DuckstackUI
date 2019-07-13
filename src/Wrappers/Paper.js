@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
     main: {
         width: 'auto',
         display: 'block', // Fix IE 11 issue.
+
     },
     paper: {
         display: 'flex',
@@ -14,6 +15,7 @@ const useStyles = makeStyles(theme => ({
         //alignItems: 'center',
         padding: theme.spacing(1, 2, 2),
         width: "100%",
+        height: '100%'
     },
 }));
 
@@ -22,12 +24,12 @@ function Paper(props) {
     const classes = useStyles();
 
     return (
-        <main className={classes.main}>
+        <>
             <CssBaseline />
             <MPaper className={classes.paper}>
                 {children}
             </MPaper>
-        </main>
+        </>
     )
 };
 

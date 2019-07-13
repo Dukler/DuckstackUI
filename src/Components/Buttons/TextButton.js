@@ -2,10 +2,18 @@ import React, { useCallback } from 'react';
 import MButton from '@material-ui/core/Button';
 import { useDispatch } from 'redux-react-hook';
 import { objectRequired } from '../../Utils/customProptypes';
+import { makeStyles } from "@material-ui/core/styles";
 
-const TextButton = props => {
+const useStyles = makeStyles(theme => ({
+  button: props => ({
+    ...props
+  })
+}));
+
+function TextButton(props) {
   const filter = ["tes2", "tes3"]
   const dispatch = useDispatch()
+  const classes = useStyles(props.styles);
 
   const post = (json) => {
     console.log(json);
@@ -27,6 +35,7 @@ const TextButton = props => {
 
   return (
     <MButton
+      className={classes.button}
       onClick={handleClick({
         ids: ["userName", "userPassword"],
         action: actions.onClick

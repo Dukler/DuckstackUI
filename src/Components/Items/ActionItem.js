@@ -30,12 +30,10 @@ const createSecondary = memoize((extProperties) => (
     </ListItemSecondaryAction> : null
 ));
 
-const createSecondaryWithCheck = memoize((extProperties, hasCheck) => (
-    extProperties.secondaryWithCheck && hasCheck ? createSecondary(extProperties) :
+const createSecondaryAndCheck = memoize((extProperties, hasCheck) => (
+    extProperties.secondaryAndCheck && hasCheck ? createSecondary(extProperties) :
         !hasCheck ? createSecondary(extProperties) : null
 ));
-
-//ItemRow = memo(({ index, style, data }) =>
 
 const ActionItem = React.memo(({ index, style, data }) => {
     const [checked, setChecked] = React.useState([0]);
@@ -75,7 +73,7 @@ const ActionItem = React.memo(({ index, style, data }) => {
             <ListItem button onClick={handleClick()} key={index}>
                 {createCheck(extProperties.hasCheck, showCheck, checked, item.id)}
                 <ListItemText primary={primary} />
-                {createSecondaryWithCheck(extProperties, showCheck)}
+                {createSecondaryAndCheck(extProperties, showCheck)}
             </ListItem>
         </div>
     );

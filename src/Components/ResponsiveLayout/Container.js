@@ -13,12 +13,11 @@ const createChildren = (children) => {
     children.forEach((child, index) => {
         const refName = `child-${index}`;
         childrenWithProps.push(React.cloneElement(child, { refName, key: index }));
-        if (child.props.setOffset) {
+        if (child.props.static) {
+            offset.push(refName);
+        } else {
             responsive.push(refName);
             multipliers[refName] = isNotUndefined(child.props.multiplier, false);
-        } else {
-            offset.push(refName);
-
         }
     });
     return { offset, responsive, childrenWithProps, multipliers }
