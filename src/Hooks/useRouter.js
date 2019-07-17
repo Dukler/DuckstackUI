@@ -7,6 +7,7 @@ function useRouter() {
 	const LinkList = (
 		<DynamicComponents element="linkList" wrapper={{ id: "root" }} />
 	);
+
 	const ContentRoutes = (
 		<Switch>
 			<DynamicComponents element="contentRoutes" />
@@ -14,7 +15,7 @@ function useRouter() {
 	);
 	const Router = BrowserRouter;
 
-	return [Router, LinkList, ContentRoutes];
+	return [Router, ContentRoutes, LinkList];
 }
 
 export default useRouter;

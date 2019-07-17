@@ -1,8 +1,8 @@
-import update from "immutability-helper";
 import reduceReducer from "reduce-reducers";
 import { inputFields } from "./inputFields";
 import { buttons } from "./buttons";
-import { overlays } from "../common/overlays";
+import { overlays } from "../../reducers/overlays";
+import { stateHandler } from "../../reducers/stateHandler";
 
 const initialState = [];
 
@@ -10,7 +10,8 @@ const reducer = reduceReducer(
 	componentsReducer,
 	inputFields,
 	overlays,
-	buttons
+	buttons,
+	(state, action) => stateHandler(state, action, "COMPONENT")
 );
 export default reducer;
 
@@ -19,10 +20,6 @@ function componentsReducer(state = initialState, action) {
 		? action.payload
 		: { id: null, ...null };
 	switch (action.type) {
-		case "UPDATE":
-			return update(state, {
-				byIds: { [id]: { $merge: payload } }
-			});
 		case "INIT_DATA_SUCCEEDED":
 			const { components, componentsPool } = { ...payload };
 			try {

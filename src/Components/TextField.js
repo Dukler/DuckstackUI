@@ -16,7 +16,7 @@ function TextField(props) {
 	const { ...extras } = state.extProperties;
 
 	useEffect(() => {
-		dispatch({ type: "UPDATE", payload: { id: props.id, value: state.value ? state.value : "" } })
+		dispatch({ type: "UPDATE_COMPONENT", payload: { id: props.id, value: state.value ? state.value : "" } })
 	}, [dispatch, props.id, state.value])
 
 	const handleChange = useCallback(

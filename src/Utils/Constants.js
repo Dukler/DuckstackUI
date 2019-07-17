@@ -3,7 +3,7 @@ let auxApi;
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     auxApi = "http://localhost:8081/api/"
 } else {
-    auxApi = "https://duckstackui-backend.herokuapp.com/api/"
+    auxApi = "https://dsbackend.herokuapp.com/api/"
 }
 export const constants = {
     api: auxApi,

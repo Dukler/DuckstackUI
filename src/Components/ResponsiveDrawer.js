@@ -71,13 +71,13 @@ function ResponsiveDrawer(props) {
 	const [state, dispatch] = useComponent(props.id);
 	const matches = useMediaQuery(theme.breakpoints.up("sm"));
 	const [peek, setPeek] = useState(false);
-	const [Router, LinkList, ContentRoutes] = useRouter();
+	const [Router, ContentRoutes, LinkList] = useRouter();
 
 	let peekTime;
 
 	useEffect(() => {
 		dispatch({
-			type: "UPDATE",
+			type: "UPDATE_COMPONENT",
 			payload: { id: props.id, mobileOpen: false, open: true }
 		});
 	}, [dispatch, props.id]);

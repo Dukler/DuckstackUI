@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef } from "react";
-import { useDispatch, useMappedState } from "redux-react-hook";
+import React, { useCallback, useEffect, useRef, useContext } from "react";
+import { useDispatch, useMappedState, StoreContext } from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
 import { ThemeProvider } from "@material-ui/styles";
@@ -18,6 +18,7 @@ function UI() {
 		[]
 	);
 	const { isLoading, componentsPool, theme } = useMappedState(mapState);
+	const store = useContext(StoreContext)
 
 	useEffect(() => {
 		if (!init.current) {
@@ -31,6 +32,7 @@ function UI() {
 			Object.keys(componentsPool).forEach(key => {
 				componentsPool[key].preload();
 			});
+			console.log(store.getState())
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isLoading]);
