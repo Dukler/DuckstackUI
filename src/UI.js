@@ -40,16 +40,14 @@ function UI() {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<div className="UI" style={{ height: "100vh" }}>
-				<section>
-					{isLoading ? null : (
-						<ThemeProvider theme={dsTheme(theme)}>
-							<DynamicComponents
-								element="components"
-								wrapper={{ id: "root" }}
-							/>
-						</ThemeProvider>
-					)}
-				</section>
+				{isLoading ? null : (
+					<ThemeProvider theme={dsTheme(theme)}>
+						<DynamicComponents
+							element="components"
+							wrapper={{ id: "root" }}
+						/>
+					</ThemeProvider>
+				)}
 			</div>
 		</Suspense>
 	);
