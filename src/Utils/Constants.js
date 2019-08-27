@@ -1,4 +1,5 @@
 const ui = "ui/update/";
+const doEndpoint = "do/";
 let auxApi;
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     auxApi = "http://localhost:8081/api/"
@@ -9,11 +10,11 @@ export const constants = {
     api: auxApi,
     ui: {
         uiEndpoint: ui,
-        login: ui + "Login",
+        login: doEndpoint + "login",
         home: ui + "Home",
         main: ui + "Main",
     },
-    login: "user/login",
+    login: auxApi + doEndpoint + "login",
     save: "save/Client",
     httpStatus: { ok: 200 },
 };

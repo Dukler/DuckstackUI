@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useContext } from "react";
+import React, { useCallback, useEffect, useRef, useContext, Suspense } from "react";
 import { useDispatch, useMappedState, StoreContext } from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
@@ -12,13 +12,13 @@ function UI() {
 	const mapState = useCallback(
 		state => ({
 			isLoading: state["root"]["isLoading"],
-			componentsPool: state["root"]["componentsPool"],
+			// componentsPool: state["root"]["componentsPool"],
 			theme: state["theme"]
 		}),
 		[]
 	);
-	const { isLoading, componentsPool, theme } = useMappedState(mapState);
-	const store = useContext(StoreContext)
+	const { isLoading, theme } = useMappedState(mapState);
+	const store = useContext(StoreContext);
 
 	useEffect(() => {
 		if (!init.current) {
@@ -29,25 +29,29 @@ function UI() {
 			init.current = true;
 		}
 		if (!isLoading) {
-			Object.keys(componentsPool).forEach(key => {
-				componentsPool[key].preload();
-			});
+			// Object.keys(componentsPool).forEach(key => {
+			// 	componentsPool[key].preload();
+			// });
 			console.log(store.getState())
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isLoading]);
 
 	return (
-		<div className="UI" style={{ height: "100vh" }}>
-			{isLoading ? null : (
-				<ThemeProvider theme={dsTheme(theme)}>
-					<DynamicComponents
-						element="components"
-						wrapper={{ id: "root" }}
-					/>
-				</ThemeProvider>
-			)}
-		</div>
+		<Suspense fallback={<div>Loading...</div>}>
+			<div className="UI" style={{ height: "100vh" }}>
+				<section>
+					{isLoading ? null : (
+						<ThemeProvider theme={dsTheme(theme)}>
+							<DynamicComponents
+								element="components"
+								wrapper={{ id: "root" }}
+							/>
+						</ThemeProvider>
+					)}
+				</section>
+			</div>
+		</Suspense>
 	);
 };
 

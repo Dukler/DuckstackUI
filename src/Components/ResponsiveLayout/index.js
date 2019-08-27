@@ -12,6 +12,7 @@ function ResponsiveLayout({ children,
         <Render {...rest}>
             {children}
         </Render>
+        // <div>mierda</div>
         // React.createElement(ThisShit)
         // <div ref={ref} style={style}>{children}</div>
     );

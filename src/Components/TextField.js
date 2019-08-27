@@ -15,8 +15,11 @@ function TextField(props) {
 	const [state, dispatch] = useComponent(props.id);
 	const { ...extras } = state.extProperties;
 
+
 	useEffect(() => {
-		dispatch({ type: "UPDATE_COMPONENT", payload: { id: props.id, value: state.value ? state.value : "" } })
+		// dispatch({ type: "UPDATE_COMPONENT", payload: { id: props.id, value: state.value ? state.value : "" } })
+		// console.log("test")
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch, props.id, state.value])
 
 	const handleChange = useCallback(
@@ -39,7 +42,8 @@ function TextField(props) {
 		<MTextField
 			id={state.id}
 			className={classes.textField}
-			value={state.value ? state.value : ""}
+			// value={state.value ? state.value : ""}
+			value={state.value}
 			onChange={handleChange({ type: "INPUT_VALUE" })}
 			{...extras}
 			onFocus={handleFocus}

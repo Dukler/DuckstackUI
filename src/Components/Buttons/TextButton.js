@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import MButton from '@material-ui/core/Button';
-import { useDispatch } from 'redux-react-hook';
 import { objectRequired } from '../../Utils/customProptypes';
 import { makeStyles } from "@material-ui/core/styles";
+import useActions from '../../Actions/useActions';
 
 const useStyles = makeStyles(theme => ({
   button: props => ({
@@ -11,23 +11,27 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function TextButton(props) {
-  const filter = ["tes2", "tes3"]
-  const dispatch = useDispatch()
   const classes = useStyles(props.styles);
-
-  const post = (json) => {
-    console.log(json);
-  }
+  const [actionDispatch] = useActions()
 
   const handleClick = useCallback(
     (props) =>
       (event) => {
         event.persist();
-        dispatch({ type: "SUBMIT_JSON", payload: { filter, post } })
+        // dispatch({ type: "SUBMIT_JSON", payload: { filter, post } })
+        actionDispatch({
+          type: "SUBMIT_WRAPPER_VALUES",
+          payload: {
+            id: "loginForm",
+            callback: {
+              type: "SAVE_LOGIN_TOKEN"
+            }
+          }
+        })
         //const json = getPairByIds({ ids: props.ids, pair: props.pair });
         //eventHandler[props.action]({ json });
       },
-    [dispatch, filter]
+    [actionDispatch]
   );
   const { label, ...extras } = props.extProperties;
 

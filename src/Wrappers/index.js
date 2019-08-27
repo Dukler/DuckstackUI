@@ -1,7 +1,8 @@
 export function isLowerCase(str) {
 	return str === str.toLowerCase() && str !== str.toUpperCase();
 }
-export const getWrapper = props => {
+
+export const initWrapper = props => {
 	let Wrapper = null;
 	let isHtml = false;
 	const { wrapper, instance } = props;

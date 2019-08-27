@@ -1,4 +1,4 @@
-import { getWrapper } from "../../../Wrappers";
+import { initWrapper } from "../../../Wrappers";
 import reduceReducer from "reduce-reducers";
 import { overlays } from "../../reducers/overlays";
 
@@ -18,7 +18,7 @@ function wrappersReducer(state = initialState, action) {
 					wrappers.ids.forEach(cmp => {
 						const wrapper = wrappers.byIds[cmp];
 						const lazyID = wrappers.byIds[cmp].lazyID;
-						[wrapper.LazyWrapper, wrapper.isHtml] = getWrapper({
+						[wrapper.LazyWrapper, wrapper.isHtml] = initWrapper({
 							wrapper,
 							instance: componentsPool[lazyID]
 						});

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import useResponsiveOffset from "../../Hooks/useResponsiveOffset";
 import memoizeOne from 'memoize-one';
 import { isNotUndefined } from "../../Utils";
+import RefMapContext from './context';
 
-export const RefMapContext = React.createContext();
+
 
 const createChildren = (children) => {
     let offset = [];

@@ -26,6 +26,7 @@ function componentsReducer(state = initialState, action) {
 				components.ids.forEach(cmp => {
 					const lazyID = components.byIds[cmp].lazyID;
 					components.byIds[cmp].AsyncImport = componentsPool[lazyID];
+					components.byIds[cmp].value = components.byIds[cmp].value ? components.byIds[cmp].value : "";
 				});
 				return components;
 			} catch (error) {

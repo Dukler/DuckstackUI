@@ -1,8 +1,10 @@
-import Loadable from 'react-loadable'
+// import Loadable from 'react-loadable'
+import React from "react";
 
 
-const LazyComponent = props => {
-    const { type, LoadingComponent, create, className, root } = props;
+const LazyComponent = (props) => {
+    // LoadingComponent
+    const { type, create, className, root } = props;
     const getImport = () => {
         switch (type) {
             default:
@@ -14,12 +16,12 @@ const LazyComponent = props => {
         }
     }
     const enhance = () => {
-        const comp = Loadable({
-            loader: getImport(),
-            loading: () => LoadingComponent ? LoadingComponent : null
-        })
+        // const comp = Loadable({
+        //     loader: getImport(),
+        //     loading: () => LoadingComponent ? LoadingComponent : null
+        // })
+        const comp = React.lazy(getImport());
         if (create) {
-            const React = require('react')
             return React.createElement(comp);
         } else {
             return comp;

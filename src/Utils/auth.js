@@ -1,33 +1,36 @@
-import {headerJsonApi, requestJson} from "./network";
-import {constants} from "./Constants";
+import { headerJsonApi, requestJson } from "./network";
+import { constants } from "./Constants";
 
-export const getToken = () =>{
-    return localStorage.getItem('bToken');
+const jwtToken = "loginToken"
+
+export const getLoginToken = () => {
+    return localStorage.getItem(jwtToken);
 };
 
-export const setToken = (props) =>{
-    if (props.status && props.account.token !== getToken()){
-        localStorage.setItem('bToken',props.account.token);
-    }
+export const setLoginToken = (token) => {
+    localStorage.setItem(jwtToken, token);
+};
+
+export const removeLoginToken = () => {
+    localStorage.removeItem(jwtToken);
+};
+
+export const isLoggedIn = () => {
+    return !!(getLoginToken());
 };
 
 export const login = (props) => {
     const config = {
         method: "POST",
-        headers: headerJsonApi({type:'login'}),
+        headers: headerJsonApi({ type: 'login' }),
         body: JSON.stringify(props.json),
     };
     requestJson({
         config,
-        url:constants.login,
-        callback:setToken
+        url: constants.login,
+        callback: setLoginToken
     });
 };
 
-export const loggedIn = () =>{
-    return !!(getToken());
-};
 
-export const removeToken = () =>{
-    localStorage.removeItem('bToken');
-};
+
