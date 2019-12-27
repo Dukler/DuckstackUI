@@ -22,6 +22,8 @@ function SimpleList({ componentsState, wrapperState, children, ...rest }) {
     const Item = componentsState[extProps.item];
     const itemData = createItemData(list, classes, Item, showCheck);
     const mouseDownTimer = useRef();
+    const itemHeight = 48;
+    const minHeight = itemHeight * 3;
 
     const handleClickAway = () => {
         setShowCheck(false);
@@ -46,18 +48,18 @@ function SimpleList({ componentsState, wrapperState, children, ...rest }) {
         setComponents(
             extProps.order.map(key => {
                 return (key === "list") ?
-                    renderList(itemData, null, Item, listHandlers, classes) :
+                    renderList(itemData, Item, listHandlers, classes, minHeight) :
                     createComp(componentsState[key])
             })
         );
-    }, [Item, classes, componentsState, extProps.order, handleShowCheck, itemData])
+    }, [Item, classes, componentsState, extProps.order, handleShowCheck, itemData, minHeight])
 
     return (
         <ResponsiveLayout container>
             <ResponsiveLayout static>
                 <div className={classes.header}>PORONGA</div>
             </ResponsiveLayout>
-            <ResponsiveLayout >
+            <ResponsiveLayout>
                 {components}
             </ResponsiveLayout>
         </ResponsiveLayout>

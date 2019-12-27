@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { useDispatch } from 'redux-react-hook';
 import { objectRequired } from "../Utils/customProptypes";
+import useActions from './../Actions/useActions';
 
 
 const useStyles = makeStyles(theme => ({
@@ -109,6 +110,7 @@ function PrimarySearchAppBar(props) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
+    const [actionDispatch] = useActions();
 
 
     const handleProfileMenuOpen = event => {
@@ -140,6 +142,15 @@ function PrimarySearchAppBar(props) {
             dispatch({ type: 'TOGGLE_MOBILE_OPEN', payload: { id: "responsiveDrawer" } });
         }
     };
+    const logout = () => {
+        actionDispatch({
+            type: "DELETE_LOGIN_TOKEN",
+        })
+        actionDispatch({
+            type: "REFRESH",
+        })
+        window.location.replace("localhost:3000");
+    }
 
     const renderMenu = (
         <Menu
@@ -151,8 +162,10 @@ function PrimarySearchAppBar(props) {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
         </Menu>
     );
+
 
     const renderMobileMenu = (
         <Menu

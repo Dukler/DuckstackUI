@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useResponsiveOffset from "../../Hooks/useResponsiveOffset";
-import memoizeOne from 'memoize-one';
 import { isNotUndefined } from "../../Utils";
 import RefMapContext from './context';
-
 
 
 const createChildren = (children) => {
@@ -23,10 +21,10 @@ const createChildren = (children) => {
     });
     return { offset, responsive, childrenWithProps, multipliers }
 };
-const memoChildren = memoizeOne(createChildren);
 
 function Container({ children, ...rest }) {
-    const [state, setState] = useState(memoChildren(children));
+    const [state, setState] = useState(createChildren(children));
+
     const refsMap = useResponsiveOffset({
         offsetArr: state.offset,
         responsiveArr: state.responsive,
@@ -35,9 +33,8 @@ function Container({ children, ...rest }) {
     });
 
     useEffect(() => {
-        setState(memoChildren(children));
+        setState(createChildren(children));
     }, [children]);
-
 
     return (
         <RefMapContext.Provider value={refsMap}>

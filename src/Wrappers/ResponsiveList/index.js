@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { VariableSizeList } from 'react-window'
 import { makeStyles } from "@material-ui/core/styles";
 import { List } from '@material-ui/core';
@@ -98,24 +98,17 @@ function ResponsiveList({ componentsState, wrapperState, children, ...rest }) {
     const sectionCount = data.length;
     const classes = useStyles({ itemSize });
     const extProps = wrapperState.extProperties;
-    const [components, setComponents] = useState([]);
     const itemSizes = createItemSizes(sectionCount, source.list, itemSize);//move this to server side
 
 
-    useEffect(() => {
-        setComponents(
-            extProps.order.map(key => {
-                return (key === "list") ?
-                    createList(sectionCount, itemSizes, source, componentsState, extProps, classes, itemSize) :
-                    createComp(componentsState[key])
-            })
-        )
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [classes, componentsState, extProps, sectionCount, source])
 
     return (
         <List className={classes.root} subheader={<li />} >
-            {components}
+            {extProps.order.map(key => {
+                return (key === "list") ?
+                    createList(sectionCount, itemSizes, source, componentsState, extProps, classes, itemSize) :
+                    createComp(componentsState[key])
+            })}
         </List>
     )
 }

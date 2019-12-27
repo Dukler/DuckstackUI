@@ -6,7 +6,6 @@ function Item({ children, refName }) {
 
     const refsMap = useContext(RefMapContext);
 
-    // console.log("rl");
     return (
         <div ref={refsMap[refName]}>{children}</div>
     );

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import MTextField from "@material-ui/core/TextField";
 import useComponent from "../Hooks/useComponent";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,13 +14,6 @@ function TextField(props) {
 	const classes = useStyles(props.styles);
 	const [state, dispatch] = useComponent(props.id);
 	const { ...extras } = state.extProperties;
-
-
-	useEffect(() => {
-		// dispatch({ type: "UPDATE_COMPONENT", payload: { id: props.id, value: state.value ? state.value : "" } })
-		// console.log("test")
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [dispatch, props.id, state.value])
 
 	const handleChange = useCallback(
 		action => event => {

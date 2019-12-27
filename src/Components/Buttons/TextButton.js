@@ -28,8 +28,9 @@ function TextButton(props) {
             }
           }
         })
-        //const json = getPairByIds({ ids: props.ids, pair: props.pair });
-        //eventHandler[props.action]({ json });
+        // actionDispatch({
+        //   type: "REFRESH"
+        // })
       },
     [actionDispatch]
   );

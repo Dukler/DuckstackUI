@@ -15,19 +15,27 @@ const initialState = { currentMonth: new Date(), selectedDate: new Date(), weekC
 function Calendar(props) {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { currentMonth, selectedDate, weekCount, startDate, endDate } = state;
-    const { calendarClass, dayClass, renderDay, picker, showHeader } = props;
+    const { calendarClass, dayClass, renderDay, picker, showHeader, calendarDispatch } = props;
+
 
     const { headerRef, daysRef, bodyRef, containerRef } = useResponsiveOffset({
         offsetArr: ['headerRef', 'daysRef'],
         responsiveArr: ['bodyRef'],
-
     });
 
     useEffect(() => {
+        if (calendarDispatch) {
+            calendarDispatch({ dispatch })
+        }
         switch (picker) {
             case "week":
                 const currentDate = new Date();
-                dispatch({ payload: { startDate: startOfWeek(currentDate), endDate: endOfWeek(currentDate) } });
+                dispatch({
+                    payload: {
+                        startDate: startOfWeek(currentDate),
+                        endDate: endOfWeek(currentDate)
+                    }
+                });
                 dispatch({ type: "COUNT_WEEKS" });
                 break;
             default:
@@ -35,10 +43,7 @@ function Calendar(props) {
                 dispatch({ type: "COUNT_WEEKS" });
                 break;
         };
-        // return () => {
-        //     effect
-        // };
-    }, [currentMonth, picker]);
+    }, [currentMonth, picker, calendarDispatch]);
 
 
 
@@ -159,4 +164,3 @@ function Calendar(props) {
 };
 
 export default Calendar
-

@@ -5,12 +5,18 @@ import { StoreContext } from 'redux-react-hook';
 import { getWrapper, getComponentsValues } from '../Store/selectors';
 import { constants } from './../Utils/Constants';
 import { submitJson } from '../Utils/api';
-import { setLoginToken, getLoginToken } from '../Utils/auth';
+import { setLoginToken, getLoginToken, removeLoginToken } from '../Utils/auth';
 
 
 
 function defaultDispatch({ dispatch, state, type, payload }) {
     switch (type) {
+        case "REFRESH":
+            window.location.reload(false);
+            break;
+        case "DELETE_LOGIN_TOKEN":
+            removeLoginToken();
+            break;
         case "SAVE_LOGIN_TOKEN":
             setLoginToken(payload.response);
             console.log(getLoginToken());
@@ -25,7 +31,6 @@ function defaultDispatch({ dispatch, state, type, payload }) {
                         dispatch({ type: cb.type, payload: { ...pl, response } })
                     }
                 });
-            console.log();
             break;
         case "SUBMIT_WRAPPER_VALUES":
             const swvWrapper = getWrapper({ state, id: payload.id });

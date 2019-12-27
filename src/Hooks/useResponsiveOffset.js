@@ -35,7 +35,13 @@ function useResponsiveOffset({ offsetArr, responsiveArr, multipliers }) {
             responsiveArr.forEach(ref => {
                 const currentRef = responsiveRefs[ref].current;
                 const calc = split * isNotUndefined(multis[ref], 1);
-                currentRef.style.height = `${calc}px`;
+                if (currentRef.style) {
+                    currentRef.style.height = `${calc}px`;
+                } else {
+                    const style = { height: `${calc}px` };
+                    currentRef.style = style;
+                }
+
             });
         };
     }, [offsetRefs, responsiveRefs, containerRef, offsetArr, responsiveArr, multis, trigger]);

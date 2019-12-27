@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useContext, Suspense } from "react";
+import React, { useCallback, useEffect, useRef, useContext, Suspense, useState } from "react";
 import { useDispatch, useMappedState, StoreContext } from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
 import { constants } from "./Utils/Constants";
@@ -8,17 +8,27 @@ import { dsTheme } from "./Theme/dsTheme";
 function UI() {
 	const dispatch = useDispatch();
 	const init = useRef(false);
+	const [shells, setShells] = useState([]);
+	const [appPath, setAppPath] = useState("");
+
+	// 
+
 
 	const mapState = useCallback(
 		state => ({
 			isLoading: state["root"]["isLoading"],
-			// componentsPool: state["root"]["componentsPool"],
-			theme: state["theme"]
+			componentsPool: state["root"]["componentsPool"],
+			theme: state["theme"],
+			wrappers: state["wrappers"]["byIds"]
 		}),
 		[]
 	);
-	const { isLoading, theme } = useMappedState(mapState);
+	const { isLoading, theme, componentsPool, wrappers } = useMappedState(mapState);
+	// console.log(componentsPool);
 	const store = useContext(StoreContext);
+	// console.log(store.getState());
+	// console.log(wrappers);
+	// const [preload, setPreload] = useState([]);
 
 	useEffect(() => {
 		if (!init.current) {
@@ -29,23 +39,39 @@ function UI() {
 			init.current = true;
 		}
 		if (!isLoading) {
-			// Object.keys(componentsPool).forEach(key => {
-			// 	componentsPool[key].preload();
-			// });
-			console.log(store.getState())
+			let i = 0;
+			let arr = [];
+			let testList = [];
+			Object.keys(componentsPool).forEach(key => {
+				// console.log(componentsPool[key]);
+				i++;
+				arr[i] = componentsPool[key];
+				componentsPool[key].preload();
+			});
+			Object.keys(wrappers).forEach(key => {
+				// console.log(componentsPool[key]);
+				if (wrappers[key].extProperties && wrappers[key].extProperties.Shell) {
+					testList.push(key);
+				}
+				setShells(testList);
+			});
+			setAppPath(window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1));
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isLoading]);
+
+	}, [componentsPool, dispatch, isLoading, wrappers]);
+
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={null}>
 			<div className="UI" style={{ height: "100vh" }}>
 				{isLoading ? null : (
 					<ThemeProvider theme={dsTheme(theme)}>
-						<DynamicComponents
-							element="components"
-							wrapper={{ id: "root" }}
-						/>
+						{
+							<DynamicComponents
+								element="components"
+								wrapper={{ id: shells.includes(appPath) ? appPath : "root" }}
+							/>
+						}
 					</ThemeProvider>
 				)}
 			</div>

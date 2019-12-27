@@ -3,36 +3,19 @@ import React from "react";
 
 
 const LazyComponent = (props) => {
-    // LoadingComponent
-    const { type, create, className, root } = props;
-    const getImport = () => {
-        switch (type) {
-            default:
-                return () => import(
-                    /* webpackMode: "lazy", 
-                    webpackChunkName: '[request]' */
-                    `../${root}/${className}`
-                );
-        }
-    }
-    const enhance = () => {
-        // const comp = Loadable({
-        //     loader: getImport(),
-        //     loading: () => LoadingComponent ? LoadingComponent : null
-        // })
-        const comp = React.lazy(getImport());
-        if (create) {
-            return React.createElement(comp);
-        } else {
-            return comp;
-        }
-    }
+    const { create, className, root } = props;
+    // const importString = className === "SimpleList" ? `../${root}/${className}/index` : `../${root}/${className}`
+    // const importStatement = className === "SimpleList" ? () => import(`../${root}/${className}/index`) : () => import(`../${root}/${className}`)
+    const importStatement = () => import(`../${root}/${className}`);
+    const Component = React.lazy(importStatement);
 
-    return enhance();
+    Component.preload = importStatement;
 
-};
+    if (create) {
+        return React.createElement(Component);
+    } else {
+        return Component;
+    }
+}
 
 export default LazyComponent;
-
-/* webpackMode: "lazy",
-webpackChunkName: '[request]' */

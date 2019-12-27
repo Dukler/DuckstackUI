@@ -25,6 +25,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.1",
     "react-virtualized-auto-sizer": "^1.0.2",
+    "react-virtuoso": "^0.12.3",
     "react-window": "^1.8.5",
     "reduce-reducers": "^1.0.4",
     "redux": "^4.0.4",
