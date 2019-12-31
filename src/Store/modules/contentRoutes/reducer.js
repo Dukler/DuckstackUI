@@ -32,4 +32,4 @@ function routeReducer(state = initialState, action) {
             return state;
     }
 }
-//{ components, wrappers, contentRoutes, linkList }
+//{ components, containers, contentRoutes, linkList }

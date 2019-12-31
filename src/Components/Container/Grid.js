@@ -1,7 +1,7 @@
 import React from "react";
 import MGrid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import useWrapper from "../../Hooks/useWrapper";
+import useContainer from "../../Hooks/useContainer";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -17,12 +17,12 @@ function GridEmpty() {
 }
 
 function Grid(props) {
-	const { componentsState, wrapperState } = props;
+	const { componentsState, containerState } = props;
 	const classes = useStyles();
 
-	const { All } = useWrapper({
+	const { All } = useContainer({
 		componentsState,
-		wrapperState,
+		containerState,
 		parents: ["All"],
 		styleContainers: {
 			Default: MGrid,
@@ -32,7 +32,7 @@ function Grid(props) {
 
 	return (
 		<div className={classes.root}>
-			<MGrid {...wrapperState.extProperties}>{All}</MGrid>
+			<MGrid {...containerState.extProperties}>{All}</MGrid>
 		</div>
 	);
 };

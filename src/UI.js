@@ -19,15 +19,15 @@ function UI() {
 			isLoading: state["root"]["isLoading"],
 			componentsPool: state["root"]["componentsPool"],
 			theme: state["theme"],
-			wrappers: state["wrappers"]["byIds"]
+			containers: state["containers"]["byIds"]
 		}),
 		[]
 	);
-	const { isLoading, theme, componentsPool, wrappers } = useMappedState(mapState);
+	const { isLoading, theme, componentsPool, containers } = useMappedState(mapState);
 	// console.log(componentsPool);
 	const store = useContext(StoreContext);
 	// console.log(store.getState());
-	// console.log(wrappers);
+	// console.log(containers);
 	// const [preload, setPreload] = useState([]);
 
 	useEffect(() => {
@@ -48,9 +48,9 @@ function UI() {
 				arr[i] = componentsPool[key];
 				componentsPool[key].preload();
 			});
-			Object.keys(wrappers).forEach(key => {
+			Object.keys(containers).forEach(key => {
 				// console.log(componentsPool[key]);
-				if (wrappers[key].extProperties && wrappers[key].extProperties.Shell) {
+				if (containers[key].extProperties && containers[key].extProperties.Shell) {
 					testList.push(key);
 				}
 				setShells(testList);
@@ -58,7 +58,7 @@ function UI() {
 			setAppPath(window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1));
 		}
 
-	}, [componentsPool, dispatch, isLoading, wrappers]);
+	}, [componentsPool, dispatch, isLoading, containers]);
 
 
 	return (
@@ -69,7 +69,7 @@ function UI() {
 						{
 							<DynamicComponents
 								element="components"
-								wrapper={{ id: shells.includes(appPath) ? appPath : "root" }}
+								container={{ id: shells.includes(appPath) ? appPath : "root" }}
 							/>
 						}
 					</ThemeProvider>

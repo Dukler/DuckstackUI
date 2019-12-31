@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import classNames from "classnames";
 import React from "react";
-import useWrapper from "../../Hooks/useWrapper";
+import useContainer from "../../Hooks/useContainer";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -61,11 +61,11 @@ function Helper(props) {
 
 function ExpansionPanel(props) {
 	const classes = useStyles();
-	const { wrapperState, componentsState } = props;
+	const { containerState, componentsState } = props;
 
-	const { Summary, Details, Actions } = useWrapper({
+	const { Summary, Details, Actions } = useContainer({
 		componentsState,
-		wrapperState,
+		containerState,
 		parents: ["Summary", "Details", "Actions"],
 		styleContainers: {
 			Default: React.Fragment,
@@ -77,7 +77,7 @@ function ExpansionPanel(props) {
 
 	return (
 		<div className={classes.root}>
-			<MExpansionPanel {...wrapperState.extProperties}>
+			<MExpansionPanel {...containerState.extProperties}>
 				<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 					{Summary}
 				</ExpansionPanelSummary>

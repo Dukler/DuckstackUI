@@ -1,9 +1,9 @@
-const getWrappersState = state => state.wrappers
+const getContainersState = state => state.containers
 const getComponentsState = state => state.components
 
-export const getWrapper = ({ state, id }) => {
-    // console.log("getWrapper", state, id)
-    return getWrappersState(state).byIds[id]
+export const getContainer = ({ state, id }) => {
+    // console.log("getContainer", state, id)
+    return getContainersState(state).byIds[id]
 }
 
 export const getComponents = ({ state, ids }) => {

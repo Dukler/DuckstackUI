@@ -12,11 +12,11 @@ const createComp = ({ AsyncImport, ...cleanComp }) => (
     <AsyncImport key={cleanComp.id} {...cleanComp} />
 );
 
-function SimpleList({ componentsState, wrapperState, children, ...rest }) {
+function SimpleList({ componentsState, containerState, children, ...rest }) {
     const classes = useStyles();
     const [showCheck, setShowCheck] = React.useState(false);
     const [components, setComponents] = useState([]);
-    const extProps = wrapperState.extProperties;
+    const extProps = containerState.extProperties;
     const source = require('../../../MockData/turnosR.json');
     const list = extProps.isDivided ? source["15"] : source;
     const Item = componentsState[extProps.item];

@@ -5,7 +5,7 @@ import { Switch, BrowserRouter } from "react-router-dom";
 function useRouter() {
 
 	const LinkList = (
-		<DynamicComponents element="linkList" wrapper={{ id: "root" }} />
+		<DynamicComponents element="linkList" container={{ id: "root" }} />
 	);
 
 	const ContentRoutes = (

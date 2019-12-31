@@ -148,16 +148,16 @@ const useToolbarStyles = makeStyles(theme => ({
 	highlight:
 		theme.palette.type === "light"
 			? {
-					color: theme.palette.secondary.main,
-					backgroundColor: lighten(
-						theme.palette.secondary.light,
-						0.85
-					)
-			  }
+				color: theme.palette.secondary.main,
+				backgroundColor: lighten(
+					theme.palette.secondary.light,
+					0.85
+				)
+			}
 			: {
-					color: theme.palette.text.primary,
-					backgroundColor: theme.palette.secondary.dark
-			  },
+				color: theme.palette.text.primary,
+				backgroundColor: theme.palette.secondary.dark
+			},
 	spacer: {
 		flex: "1 1 100%"
 	},
@@ -185,10 +185,10 @@ const EnhancedTableToolbar = props => {
 						{numSelected} selected
 					</Typography>
 				) : (
-					<Typography variant="h6" id="tableTitle">
-						Nutrition
+						<Typography variant="h6" id="tableTitle">
+							Nutrition
 					</Typography>
-				)}
+					)}
 			</div>
 			<div className={classes.spacer} />
 			<div className={classes.actions}>
@@ -199,12 +199,12 @@ const EnhancedTableToolbar = props => {
 						</IconButton>
 					</Tooltip>
 				) : (
-					<Tooltip title="Filter list">
-						<IconButton aria-label="Filter list">
-							<FilterListIcon />
-						</IconButton>
-					</Tooltip>
-				)}
+						<Tooltip title="Filter list">
+							<IconButton aria-label="Filter list">
+								<FilterListIcon />
+							</IconButton>
+						</Tooltip>
+					)}
 			</div>
 		</Toolbar>
 	);
@@ -226,7 +226,7 @@ const useStyles = makeStyles(theme => ({
 	table: {
 		minWidth: 750
 	},
-	tableWrapper: {
+	tableContainer: {
 		overflowX: "auto"
 	}
 }));
@@ -296,7 +296,7 @@ function EnhancedTable() {
 		<div className={classes.root}>
 			<Paper className={classes.paper}>
 				<EnhancedTableToolbar numSelected={selected.length} />
-				<div className={classes.tableWrapper}>
+				<div className={classes.tableContainer}>
 					<Table
 						className={classes.table}
 						aria-labelledby="tableTitle"

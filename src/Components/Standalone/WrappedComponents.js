@@ -4,31 +4,31 @@ import DynamicComponents from "../../BeLazy/DynamicComponents";
 import useFilteredList from "../../Hooks/useFilteredList";
 
 function WrappedComponents(props) {
-	const { wrapper } = props;
-	const wrapperState = useClassState({
-		id: wrapper.id,
-		element: "wrappers"
+	const { container } = props;
+	const containerState = useClassState({
+		id: container.id,
+		element: "containers"
 	});
-	const isList = wrapperState.components.length > 1 ? true : false;
+	const isList = containerState.components.length > 1 ? true : false;
 	const componentsState = useFilteredList({
-		filter: wrapperState.components,
+		filter: containerState.components,
 		element: "components"
 	});
-	const { LazyWrapper, extProperties, isHtml } = wrapperState;
+	const { LazyContainer, extProperties, isHtml } = containerState;
 	const { AsyncImport, ...cleanComp } = !isList
-		? componentsState[wrapperState.components[0]]
+		? componentsState[containerState.components[0]]
 		: { ...null };
-	const wrapperProps = isHtml
+	const containerProps = isHtml
 		? { ...extProperties }
-		: { componentsState, wrapperState };
+		: { componentsState, containerState };
 	return (
-		<LazyWrapper {...wrapperProps}>
+		<LazyContainer {...containerProps}>
 			{isList ? (
-				<DynamicComponents element="components" wrapper={wrapper} />
+				<DynamicComponents element="components" container={container} />
 			) : (
 					<AsyncImport key={cleanComp.id} {...cleanComp} />
 				)}
-		</LazyWrapper>
+		</LazyContainer>
 	);
 };
 

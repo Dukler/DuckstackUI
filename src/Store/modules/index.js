@@ -4,7 +4,7 @@ import root from './root/reducer'
 import theme from './theme/reducer'
 import contentRoutes from './contentRoutes/reducer'
 import linkList from './linkList/reducer'
-import wrappers from './wrappers/reducer'
+import containers from './containers/reducer'
 
 export default combineReducers({
     components,
@@ -12,5 +12,5 @@ export default combineReducers({
     theme,
     contentRoutes,
     linkList,
-    wrappers
+    containers
 });

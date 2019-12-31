@@ -20,16 +20,16 @@ const getParentProps = ({ ParentComponent, comp }) => {
 	return ParentComponent === React.Fragment
 		? null
 		: {
-			...comp.wrapper,
+			...comp.container,
 			styles: { ...comp.styles }
 		};
 }
 
-function useWrapper(props) {
-	const order = props.wrapperState.components;
+function useContainer(props) {
+	const order = props.containerState.components;
 	const list = props.componentsState;
 	const styleContainers = props.styleContainers;
-	const render = props.wrapperState.renderComponents;
+	const render = props.containerState.renderComponents;
 	const ordList = orderList(list, order);
 
 	let renders = {};
@@ -70,4 +70,4 @@ function useWrapper(props) {
 	return renders;
 }
 
-export default useWrapper;
+export default useContainer;

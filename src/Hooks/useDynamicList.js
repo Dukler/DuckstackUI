@@ -10,15 +10,15 @@ function useDynamicList(props) {
 
     const mapState = useCallback(
         state => ({
-            wrapper: props.wrapper ? state["wrappers"]["byIds"][props.wrapper.id] : null,
+            container: props.container ? state["containers"]["byIds"][props.container.id] : null,
             list: state[props.element]["byIds"],
             order: state[props.element]["ids"],
         }), [props]
     );
-    const { wrapper, list, order } = useMappedState(mapState);
+    const { container, list, order } = useMappedState(mapState);
 
-    const filter = props.element === "linkList" ? wrapper.extProperties.linkList :
-        props.wrapper ? wrapper.components : props.components;
+    const filter = props.element === "linkList" ? container.extProperties.linkList :
+        props.container ? container.components : props.components;
 
 
     useEffect(() => {

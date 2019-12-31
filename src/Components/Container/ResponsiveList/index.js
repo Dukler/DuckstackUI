@@ -91,13 +91,13 @@ const createComp = ({ AsyncImport, ...cleanComp }) => (
 );
 
 
-function ResponsiveList({ componentsState, wrapperState, children, ...rest }) {
+function ResponsiveList({ componentsState, containerState, children, ...rest }) {
     const itemSize = 58;
     const source = require('../../../MockData/turnos.json');
     const data = source.list;
     const sectionCount = data.length;
     const classes = useStyles({ itemSize });
-    const extProps = wrapperState.extProperties;
+    const extProps = containerState.extProperties;
     const itemSizes = createItemSizes(sectionCount, source.list, itemSize);//move this to server side
 
 

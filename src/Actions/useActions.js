@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { useContext } from 'react';
 import { StoreContext } from 'redux-react-hook';
-import { getWrapper, getComponentsValues } from '../Store/selectors';
+import { getContainer, getComponentsValues } from '../Store/selectors';
 import { constants } from './../Utils/Constants';
 import { submitJson } from '../Utils/api';
 import { setLoginToken, getLoginToken, removeLoginToken } from '../Utils/auth';
@@ -33,8 +33,8 @@ function defaultDispatch({ dispatch, state, type, payload }) {
                 });
             break;
         case "SUBMIT_WRAPPER_VALUES":
-            const swvWrapper = getWrapper({ state, id: payload.id });
-            const swvData = getComponentsValues({ state, ids: swvWrapper.components });
+            const swvContainer = getContainer({ state, id: payload.id });
+            const swvData = getComponentsValues({ state, ids: swvContainer.components });
             submitJson({ url: constants.login, body: swvData })
                 .then(response => {
                     if (payload.callback) {
