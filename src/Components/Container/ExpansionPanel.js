@@ -61,10 +61,10 @@ function Helper(props) {
 
 function ExpansionPanel(props) {
 	const classes = useStyles();
-	const { containerState, componentsState } = props;
+	const { containerState, standalonesState } = props;
 
 	const { Summary, Details, Actions } = useContainer({
-		componentsState,
+		standalonesState,
 		containerState,
 		parents: ["Summary", "Details", "Actions"],
 		styleContainers: {

@@ -13,6 +13,7 @@ function containersReducer(state = initialState, action) {
 	switch (action.type) {
 		case "INIT_DATA_SUCCEEDED":
 			const { containers, componentsPool } = { ...action.payload };
+			console.log()
 			try {
 				if (containers.ids) {
 					containers.ids.forEach(cmp => {

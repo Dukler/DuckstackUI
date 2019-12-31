@@ -6,12 +6,12 @@ const LazyComponent = (props) => {
     const { create, className, root } = props;
     // const importString = className === "SimpleList" ? `../${root}/${className}/index` : `../${root}/${className}`
     // const importStatement = className === "SimpleList" ? () => import(`../${root}/${className}/index`) : () => import(`../${root}/${className}`)
-    let name = root === "Components" ? "Standalone" : root;
-    name = root === "Components/Items" ? "Standalone/Items" : name;
-    name = root === "Components/Buttons" ? "Standalone/Buttons" : name;
-    name = root === "Components/Pickers" ? "Standalone/Pickers" : name;
+    let name = root === "Standalone" ? "Standalone" : root;
+    name = root === "Standalone/Items" ? "Standalone/Items" : name;
+    name = root === "Standalone/Buttons" ? "Standalone/Buttons" : name;
+    name = root === "Standalone/Pickers" ? "Standalone/Pickers" : name;
     name = root === "Containers" ? "Container" : name;
-    const importStatement = () => import(`../Components/${name}/${className}`);
+    const importStatement = () => import(`../Components/${root}/${className}`);
     const Component = React.lazy(importStatement);
 
     Component.preload = importStatement;

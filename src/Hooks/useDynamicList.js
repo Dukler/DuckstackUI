@@ -17,10 +17,11 @@ function useDynamicList(props) {
     );
     const { container, list, order } = useMappedState(mapState);
 
+
     const filter = props.element === "linkList" ? container.extProperties.linkList :
-        props.container ? container.components : props.components;
+        props.container ? container.standalones : props.standalones;
 
-
+    console.log()
     useEffect(() => {
         const aux = filter ? filter.map(
             item => list[item]

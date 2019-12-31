@@ -5,11 +5,13 @@ import useDynamicList from '../Hooks/useDynamicList';
 
 function DynamicComponents(props) {
     const [list] = useDynamicList(props);
+    console.log()
 
     return (
         <>
             {list.map(comp => {
                 const { AsyncImport, ...cleanComp } = comp;
+                console.log()
                 return (
                     <AsyncImport
                         key={comp.id}

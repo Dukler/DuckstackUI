@@ -26,7 +26,7 @@ function UI() {
 	const { isLoading, theme, componentsPool, containers } = useMappedState(mapState);
 	// console.log(componentsPool);
 	const store = useContext(StoreContext);
-	// console.log(store.getState());
+	console.log(store.getState());
 	// console.log(containers);
 	// const [preload, setPreload] = useState([]);
 
@@ -68,7 +68,7 @@ function UI() {
 					<ThemeProvider theme={dsTheme(theme)}>
 						{
 							<DynamicComponents
-								element="components"
+								element="standalones"
 								container={{ id: shells.includes(appPath) ? appPath : "root" }}
 							/>
 						}

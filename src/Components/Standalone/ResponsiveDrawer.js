@@ -5,7 +5,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import useRouter from "../../Hooks/useRouter";
-import useComponent from "../../Hooks/useComponent";
+import useStandalone from "../../Hooks/useStandalone";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import { objectRequired } from "../../Utils/customProptypes";
 
@@ -68,7 +68,7 @@ function ResponsiveDrawer(props) {
 	//const { theme } = props;
 	const classes = useStyles();
 	const theme = useTheme();
-	const [state, dispatch] = useComponent(props.id);
+	const [state, dispatch] = useStandalone(props.id);
 	const matches = useMediaQuery(theme.breakpoints.up("sm"));
 	const [peek, setPeek] = useState(false);
 	const [Router, ContentRoutes, LinkList] = useRouter();

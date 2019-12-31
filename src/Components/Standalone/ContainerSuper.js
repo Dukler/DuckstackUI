@@ -3,28 +3,29 @@ import useClassState from "../../Hooks/useClassState";
 import DynamicComponents from "../../BeLazy/DynamicComponents";
 import useFilteredList from "../../Hooks/useFilteredList";
 
-function WrappedComponents(props) {
+function ContainerSuper(props) {
 	const { container } = props;
 	const containerState = useClassState({
 		id: container.id,
 		element: "containers"
 	});
-	const isList = containerState.components.length > 1 ? true : false;
-	const componentsState = useFilteredList({
-		filter: containerState.components,
-		element: "components"
+	const isList = containerState.standalones.length > 1 ? true : false;
+	const standalonesState = useFilteredList({
+		filter: containerState.standalones,
+		element: "standalones"
 	});
 	const { LazyContainer, extProperties, isHtml } = containerState;
 	const { AsyncImport, ...cleanComp } = !isList
-		? componentsState[containerState.components[0]]
+		? standalonesState[containerState.standalones[0]]
 		: { ...null };
 	const containerProps = isHtml
 		? { ...extProperties }
-		: { componentsState, containerState };
+		: { standalonesState, containerState };
+	console.log();
 	return (
 		<LazyContainer {...containerProps}>
 			{isList ? (
-				<DynamicComponents element="components" container={container} />
+				<DynamicComponents element="standalones" container={container} />
 			) : (
 					<AsyncImport key={cleanComp.id} {...cleanComp} />
 				)}
@@ -32,4 +33,4 @@ function WrappedComponents(props) {
 	);
 };
 
-export default WrappedComponents;
+export default ContainerSuper;

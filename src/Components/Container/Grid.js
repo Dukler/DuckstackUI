@@ -17,11 +17,11 @@ function GridEmpty() {
 }
 
 function Grid(props) {
-	const { componentsState, containerState } = props;
+	const { standalonesState, containerState } = props;
 	const classes = useStyles();
 
 	const { All } = useContainer({
-		componentsState,
+		standalonesState,
 		containerState,
 		parents: ["All"],
 		styleContainers: {

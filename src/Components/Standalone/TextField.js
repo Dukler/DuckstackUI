@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import MTextField from "@material-ui/core/TextField";
-import useComponent from "../../Hooks/useComponent";
+import useStandalone from "../../Hooks/useStandalone";
 import { makeStyles } from "@material-ui/core/styles";
 import { objectRequired } from "../../Utils/customProptypes";
 
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 
 function TextField(props) {
 	const classes = useStyles(props.styles);
-	const [state, dispatch] = useComponent(props.id);
+	const [state, dispatch] = useStandalone(props.id);
 	const { ...extras } = state.extProperties;
 
 	const handleChange = useCallback(

@@ -12,14 +12,14 @@ const createComp = ({ AsyncImport, ...cleanComp }) => (
     <AsyncImport key={cleanComp.id} {...cleanComp} />
 );
 
-function SimpleList({ componentsState, containerState, children, ...rest }) {
+function SimpleList({ standalonesState, containerState, children, ...rest }) {
     const classes = useStyles();
     const [showCheck, setShowCheck] = React.useState(false);
     const [components, setComponents] = useState([]);
     const extProps = containerState.extProperties;
     const source = require('../../../MockData/turnosR.json');
     const list = extProps.isDivided ? source["15"] : source;
-    const Item = componentsState[extProps.item];
+    const Item = standalonesState[extProps.item];
     const itemData = createItemData(list, classes, Item, showCheck);
     const mouseDownTimer = useRef();
     const itemHeight = 48;
@@ -50,10 +50,10 @@ function SimpleList({ componentsState, containerState, children, ...rest }) {
             extProps.order.map(key => {
                 return (key === "list") ?
                     renderList(itemData, Item, listHandlers, classes, minHeight) :
-                    createComp(componentsState[key])
+                    createComp(standalonesState[key])
             })
         );
-    }, [Item, classes, componentsState, extProps.order, handleShowCheck, itemData, minHeight])
+    }, [Item, classes, standalonesState, extProps.order, handleShowCheck, itemData, minHeight])
 
     return (
         <ResponsiveLayout container>

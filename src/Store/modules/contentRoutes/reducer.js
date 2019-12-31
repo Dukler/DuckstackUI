@@ -20,7 +20,7 @@ function routeReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD_ROUTE_COMPONENT":
             return update(state, {
-                byIds: { [id]: { components: { $push: payload } } }
+                byIds: { [id]: { standalones: { $push: payload } } }
             });
         case "INIT_DATA_SUCCEEDED":
             const contentRoutes = { ...action.payload.contentRoutes };
@@ -32,4 +32,4 @@ function routeReducer(state = initialState, action) {
             return state;
     }
 }
-//{ components, containers, contentRoutes, linkList }
+//{ standalones, containers, contentRoutes, linkList }

@@ -7,7 +7,7 @@ import { stateHandler } from "../../reducers/stateHandler";
 const initialState = [];
 
 const reducer = reduceReducer(
-	componentsReducer,
+	standalonesReducer,
 	inputFields,
 	overlays,
 	buttons,
@@ -15,22 +15,22 @@ const reducer = reduceReducer(
 );
 export default reducer;
 
-function componentsReducer(state = initialState, action) {
+function standalonesReducer(state = initialState, action) {
 	const { id, ...payload } = action.payload
 		? action.payload
 		: { id: null, ...null };
 	switch (action.type) {
 		case "INIT_DATA_SUCCEEDED":
-			const { components, componentsPool } = { ...payload };
+			const { standalones, componentsPool } = { ...payload };
 			try {
-				components.ids.forEach(cmp => {
-					const lazyID = components.byIds[cmp].lazyID;
-					components.byIds[cmp].AsyncImport = componentsPool[lazyID];
-					components.byIds[cmp].value = components.byIds[cmp].value ? components.byIds[cmp].value : "";
+				standalones.ids.forEach(cmp => {
+					const lazyID = standalones.byIds[cmp].lazyID;
+					standalones.byIds[cmp].AsyncImport = componentsPool[lazyID];
+					standalones.byIds[cmp].value = standalones.byIds[cmp].value ? standalones.byIds[cmp].value : "";
 				});
-				return components;
+				return standalones;
 			} catch (error) {
-				console.log("error componentsinit");
+				console.log("error standalonesinit");
 			}
 			break;
 		default:

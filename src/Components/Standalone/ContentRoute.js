@@ -4,6 +4,7 @@ import DynamicComponents from "../../BeLazy/DynamicComponents";
 import { withRouter } from "react-router-dom";
 
 function ContentRoute(props) {
+	console.log();
 
 	return (
 		<Route
@@ -12,8 +13,8 @@ function ContentRoute(props) {
 			path={props.path}
 			render={() => (
 				<DynamicComponents
-					element="components"
-					components={props.components}
+					element="standalones"
+					standalones={props.standalones}
 				/>
 			)}
 		/>

@@ -1,13 +1,13 @@
 const getContainersState = state => state.containers
-const getComponentsState = state => state.components
+const getStandalonesState = state => state.standalones
 
 export const getContainer = ({ state, id }) => {
     // console.log("getContainer", state, id)
     return getContainersState(state).byIds[id]
 }
 
-export const getComponents = ({ state, ids }) => {
-    const list = getComponentsState(state).byIds
+export const getStandalones = ({ state, ids }) => {
+    const list = getStandalonesState(state).byIds
     return Object.keys(list)
         .filter(key => ids.includes(key))
         .reduce((obj, key) => {
@@ -16,8 +16,8 @@ export const getComponents = ({ state, ids }) => {
         }, {});
 }
 
-export const getComponentsValues = ({ state, ids }) => {
-    const list = getComponentsState(state).byIds
+export const getStandalonesValues = ({ state, ids }) => {
+    const list = getStandalonesState(state).byIds
     return Object.keys(list)
         .filter(key => ids.includes(key))
         .reduce((obj, key) => {

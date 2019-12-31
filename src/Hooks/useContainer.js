@@ -26,16 +26,16 @@ const getParentProps = ({ ParentComponent, comp }) => {
 }
 
 function useContainer(props) {
-	const order = props.containerState.components;
-	const list = props.componentsState;
+	const order = props.containerState.standalones;
+	const list = props.standalonesState;
 	const styleContainers = props.styleContainers;
-	const render = props.containerState.renderComponents;
+	const render = props.containerState.renderStandalones;
 	const ordList = orderList(list, order);
 
 	let renders = {};
 	props.parents.forEach(parent => {
 		if (render[parent]) {
-			const filter = render[parent].components;
+			const filter = render[parent].standalones;
 			let list = [];
 			list.push(...ordList.filter(item => filter.includes(item.id)));
 			list = addEmptySpace({ filter, list });

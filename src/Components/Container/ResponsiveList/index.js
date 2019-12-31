@@ -69,7 +69,7 @@ const createItemSizes = memoize((sectionCount, data, itemSize) => (
 ));
 
 
-const createList = memoize((sectionCount, itemSizes, source, componentsState, extProps, classes, itemSize) => (
+const createList = memoize((sectionCount, itemSizes, source, standalonesState, extProps, classes, itemSize) => (
     <AutoSizer key="list">
         {({ height, width }) => (
             <VariableSizeList
@@ -77,7 +77,7 @@ const createList = memoize((sectionCount, itemSizes, source, componentsState, ex
                 width={width}
                 itemCount={sectionCount}
                 itemSize={index => itemSizes[index]}
-                itemData={createSectionData(source, componentsState[extProps.item], classes, itemSize, width)}
+                itemData={createSectionData(source, standalonesState[extProps.item], classes, itemSize, width)}
             >
                 {Section}
             </VariableSizeList>
@@ -91,7 +91,7 @@ const createComp = ({ AsyncImport, ...cleanComp }) => (
 );
 
 
-function ResponsiveList({ componentsState, containerState, children, ...rest }) {
+function ResponsiveList({ standalonesState, containerState, children, ...rest }) {
     const itemSize = 58;
     const source = require('../../../MockData/turnos.json');
     const data = source.list;
@@ -106,8 +106,8 @@ function ResponsiveList({ componentsState, containerState, children, ...rest }) 
         <List className={classes.root} subheader={<li />} >
             {extProps.order.map(key => {
                 return (key === "list") ?
-                    createList(sectionCount, itemSizes, source, componentsState, extProps, classes, itemSize) :
-                    createComp(componentsState[key])
+                    createList(sectionCount, itemSizes, source, standalonesState, extProps, classes, itemSize) :
+                    createComp(standalonesState[key])
             })}
         </List>
     )
