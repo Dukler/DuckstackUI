@@ -1,7 +1,7 @@
 import React from "react";
-import useClassState from "../Hooks/useClassState";
-import DynamicComponents from "../BeLazy/DynamicComponents";
-import useFilteredList from "../Hooks/useFilteredList";
+import useClassState from "../../Hooks/useClassState";
+import DynamicComponents from "../../BeLazy/DynamicComponents";
+import useFilteredList from "../../Hooks/useFilteredList";
 
 function WrappedComponents(props) {
 	const { wrapper } = props;

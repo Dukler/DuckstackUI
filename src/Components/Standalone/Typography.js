@@ -1,8 +1,8 @@
 import React from "react";
 import MTypography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import useHtmlReact from "../Hooks/useHtmlReact";
-import { objectRequired } from "../Utils/customProptypes";
+import useHtmlReact from "../../Hooks/useHtmlReact";
+import { objectRequired } from "../../Utils/customProptypes";
 
 const useStyles = makeStyles(theme => ({
 	component: props => ({

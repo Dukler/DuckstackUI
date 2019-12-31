@@ -1,4 +1,4 @@
-import ContentRoute from './../../../Components/ContentRoute';
+import ContentRoute from './../../../Components/Standalone/ContentRoute';
 import reduceReducer from "reduce-reducers";
 import { stateHandler } from "../../reducers/stateHandler";
 import update from "immutability-helper";

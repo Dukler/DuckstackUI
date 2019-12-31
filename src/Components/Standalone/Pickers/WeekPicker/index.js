@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useStyles } from './styles'
 import Calendar from '../../Calendar/index'
-import { objectRequired } from "../../../Utils/customProptypes";
+import { objectRequired } from "../../../../Utils/customProptypes";
 
 function WeekPicker() {
     const classes = useStyles();

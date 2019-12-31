@@ -93,7 +93,7 @@ const createComp = ({ AsyncImport, ...cleanComp }) => (
 
 function ResponsiveList({ componentsState, wrapperState, children, ...rest }) {
     const itemSize = 58;
-    const source = require('../../MockData/turnos.json');
+    const source = require('../../../MockData/turnos.json');
     const data = source.list;
     const sectionCount = data.length;
     const classes = useStyles({ itemSize });

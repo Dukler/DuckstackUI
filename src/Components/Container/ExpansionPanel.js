@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import classNames from "classnames";
 import React from "react";
-import useWrapper from "../Hooks/useWrapper";
+import useWrapper from "../../Hooks/useWrapper";
 
 const useStyles = makeStyles(theme => ({
 	root: {

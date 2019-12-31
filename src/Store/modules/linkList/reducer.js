@@ -1,4 +1,4 @@
-import LinkItem from '../../../Components/Items/LinkItem';
+import LinkItem from '../../../Components/Standalone/Items/LinkItem';
 
 const initialState = [];
 

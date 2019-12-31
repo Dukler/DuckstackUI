@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import MChip from "@material-ui/core/Chip";
-import { objectRequired } from "../Utils/customProptypes";
+import { objectRequired } from "../../Utils/customProptypes";
 
 const useStyles = makeStyles(theme => ({
 	root: {

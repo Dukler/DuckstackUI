@@ -4,10 +4,10 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
-import useRouter from "../Hooks/useRouter";
-import useComponent from "./../Hooks/useComponent";
+import useRouter from "../../Hooks/useRouter";
+import useComponent from "../../Hooks/useComponent";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
-import { objectRequired } from "../Utils/customProptypes";
+import { objectRequired } from "../../Utils/customProptypes";
 
 const drawerWidth = 240;
 

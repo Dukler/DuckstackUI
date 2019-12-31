@@ -1,7 +1,7 @@
 import React from "react";
 import MGrid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import useWrapper from "../Hooks/useWrapper";
+import useWrapper from "../../Hooks/useWrapper";
 
 const useStyles = makeStyles(theme => ({
 	root: {

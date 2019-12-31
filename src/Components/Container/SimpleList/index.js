@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import memoize from 'memoize-one';
 import { useStyles } from './styles'
-import ResponsiveLayout from '../../Components/ResponsiveLayout/index';
+import ResponsiveLayout from '../../Standalone/ResponsiveLayout/index';
 import { renderList } from './renderList';
 
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
@@ -17,13 +17,14 @@ function SimpleList({ componentsState, wrapperState, children, ...rest }) {
     const [showCheck, setShowCheck] = React.useState(false);
     const [components, setComponents] = useState([]);
     const extProps = wrapperState.extProperties;
-    const source = require('../../MockData/turnosR.json');
+    const source = require('../../../MockData/turnosR.json');
     const list = extProps.isDivided ? source["15"] : source;
     const Item = componentsState[extProps.item];
     const itemData = createItemData(list, classes, Item, showCheck);
     const mouseDownTimer = useRef();
     const itemHeight = 48;
     const minHeight = itemHeight * 3;
+    console.log()
 
     const handleClickAway = () => {
         setShowCheck(false);

@@ -10,8 +10,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { useDispatch } from 'redux-react-hook';
-import { objectRequired } from "../Utils/customProptypes";
-import useActions from './../Actions/useActions';
+import { objectRequired } from "../../Utils/customProptypes";
+import useActions from '../../Actions/useActions';
 
 
 const useStyles = makeStyles(theme => ({

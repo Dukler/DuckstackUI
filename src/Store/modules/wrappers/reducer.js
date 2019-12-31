@@ -1,4 +1,4 @@
-import { initWrapper } from "../../../Wrappers";
+import { initWrapper } from "../../../Components/Container";
 import reduceReducer from "reduce-reducers";
 import { overlays } from "../../reducers/overlays";
 

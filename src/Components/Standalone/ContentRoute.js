@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import DynamicComponents from "./../BeLazy/DynamicComponents";
+import DynamicComponents from "../../BeLazy/DynamicComponents";
 import { withRouter } from "react-router-dom";
 
 function ContentRoute(props) {

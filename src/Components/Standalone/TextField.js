@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import MTextField from "@material-ui/core/TextField";
-import useComponent from "../Hooks/useComponent";
+import useComponent from "../../Hooks/useComponent";
 import { makeStyles } from "@material-ui/core/styles";
-import { objectRequired } from "../Utils/customProptypes";
+import { objectRequired } from "../../Utils/customProptypes";
 
 const useStyles = makeStyles(theme => ({
 	textField: props => ({

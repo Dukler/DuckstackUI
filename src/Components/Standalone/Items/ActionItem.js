@@ -37,6 +37,7 @@ const createSecondaryAndCheck = memoize((extProperties, hasCheck) => (
 
 const ActionItem = React.memo(({ index, style, data }) => {
     const [checked, setChecked] = React.useState([0]);
+    console.log();
     const { list, itemProps, showCheck } = data;
     const { extProperties } = itemProps;
     const item = list[index];

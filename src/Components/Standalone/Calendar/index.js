@@ -7,8 +7,8 @@ import RightIcon from '@material-ui/icons/ChevronRightRounded';
 import LeftIcon from '@material-ui/icons/ChevronLeftRounded';
 import classNames from 'classnames';
 import { reducer } from './reducer'
-import { isNotUndefined } from '../../Utils';
-import useResponsiveOffset from '../../Hooks/useResponsiveOffset';
+import { isNotUndefined } from '../../../Utils';
+import useResponsiveOffset from '../../../Hooks/useResponsiveOffset';
 
 const initialState = { currentMonth: new Date(), selectedDate: new Date(), weekCount: 0, startDate: null, endDate: null };
 

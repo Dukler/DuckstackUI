@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import MButton from '@material-ui/core/Button';
-import { objectRequired } from '../../Utils/customProptypes';
+import { objectRequired } from '../../../Utils/customProptypes';
 import { makeStyles } from "@material-ui/core/styles";
-import useActions from '../../Actions/useActions';
+import useActions from '../../../Actions/useActions';
 
 const useStyles = makeStyles(theme => ({
   button: props => ({
