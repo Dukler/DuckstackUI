@@ -2,10 +2,10 @@ import React from 'react';
 import { compose } from 'redux';
 import { useContext } from 'react';
 import { StoreContext } from 'redux-react-hook';
-import { getContainer, getStandalonesValues } from '../Store/selectors';
-import { constants } from './../Utils/Constants';
-import { submitJson } from '../Utils/api';
-import { setLoginToken, getLoginToken, removeLoginToken } from '../Utils/auth';
+import { getContainer, getStandalonesValues } from '../../Store/selectors';
+import { constants } from '../../Utils/Constants';
+import { submitJson } from '../../Utils/api';
+import { setLoginToken, getLoginToken, removeLoginToken } from '../../Utils/auth';
 
 
 

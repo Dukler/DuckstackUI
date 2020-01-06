@@ -11,7 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { useDispatch } from 'redux-react-hook';
 import { objectRequired } from "../../Utils/customProptypes";
-import useActions from '../../Actions/useActions';
+import useActions from '../../Hooks/Actions/useActions';
 
 
 const useStyles = makeStyles(theme => ({
