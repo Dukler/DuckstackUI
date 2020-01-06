@@ -1,7 +1,7 @@
 import React from "react";
-import useClassState from "../../Hooks/useClassState";
+import useClassState from "../../Hooks/State/useClassState";
 import DynamicComponents from "../../BeLazy/DynamicComponents";
-import useFilteredList from "../../Hooks/useFilteredList";
+import useFilteredList from "../../Hooks/Helper/useFilteredList";
 
 function ContainerSuper(props) {
 	const { container } = props;

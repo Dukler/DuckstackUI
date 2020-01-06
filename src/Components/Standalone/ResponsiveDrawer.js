@@ -4,8 +4,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
-import useRouter from "../../Hooks/useRouter";
-import useStandalone from "../../Hooks/useStandalone";
+import useRouter from "../../Hooks/Component/useRouter";
+import useStandalone from "../../Hooks/State/useStandalone";
 import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import { objectRequired } from "../../Utils/customProptypes";
 

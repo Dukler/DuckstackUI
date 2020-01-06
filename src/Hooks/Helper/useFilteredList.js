@@ -1,10 +1,10 @@
-import useElement from "./useElement";
+import useElement from "../State/useElement";
 import { useMemo, useRef } from "react";
 
 
 
 function useFilteredList(props) {
-    const {filter, element} = props;
+    const { filter, element } = props;
     const [list] = useElement(element);
     let refFiltered = useRef([]);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import useDynamicList from '../Hooks/useDynamicList';
+import useDynamicList from '../Hooks/Helper/useDynamicList';
 
 
 function DynamicComponents(props) {

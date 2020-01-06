@@ -1,7 +1,7 @@
 import React from "react";
 // import { makeStyles } from "@material-ui/core/styles";
 import { objectRequired } from "../../Utils/customProptypes";
-import useRouter from '../../Hooks/useRouter';
+import useRouter from '../../Hooks/Component/useRouter';
 
 // const useStyles = makeStyles(theme => ({
 //     root: {

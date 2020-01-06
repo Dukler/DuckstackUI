@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useResponsiveOffset from "../../../Hooks/useResponsiveOffset";
+import useResponsiveOffset from "../../../Hooks/Helper/useResponsiveOffset";
 import { isNotUndefined } from "../../../Utils";
 import RefMapContext from './context';
 

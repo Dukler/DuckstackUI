@@ -1,5 +1,5 @@
 import React from "react";
-import { orderList } from "../Utils";
+import { orderList } from "../../Utils";
 
 const addEmptySpace = ({ filter, list }) => {
 	let emptyList = list;
