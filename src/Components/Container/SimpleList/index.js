@@ -24,7 +24,7 @@ function SimpleList({ standalonesState, containerState, children, ...rest }) {
     const mouseDownTimer = useRef();
     const itemHeight = 48;
     const minHeight = itemHeight * 3;
-    console.log()
+
 
     const handleClickAway = () => {
         setShowCheck(false);

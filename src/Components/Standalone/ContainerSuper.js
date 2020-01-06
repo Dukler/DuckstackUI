@@ -21,7 +21,7 @@ function ContainerSuper(props) {
 	const containerProps = isHtml
 		? { ...extProperties }
 		: { standalonesState, containerState };
-	console.log();
+	;
 	return (
 		<LazyContainer {...containerProps}>
 			{isList ? (

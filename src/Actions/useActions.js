@@ -43,7 +43,6 @@ function defaultDispatch({ dispatch, state, type, payload }) {
                         dispatch({ type: cb.type, payload: { ...pl, response } })
                     }
                 });
-            console.log();
             break;
         case "test":
             console.log("test");

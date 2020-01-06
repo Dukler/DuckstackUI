@@ -21,7 +21,7 @@ function useDynamicList(props) {
     const filter = props.element === "linkList" ? container.extProperties.linkList :
         props.container ? container.standalones : props.standalones;
 
-    console.log()
+
     useEffect(() => {
         const aux = filter ? filter.map(
             item => list[item]

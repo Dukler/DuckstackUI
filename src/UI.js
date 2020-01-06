@@ -26,7 +26,7 @@ function UI() {
 	const { isLoading, theme, componentsPool, containers } = useMappedState(mapState);
 	// console.log(componentsPool);
 	const store = useContext(StoreContext);
-	console.log(store.getState());
+
 	// console.log(containers);
 	// const [preload, setPreload] = useState([]);
 
@@ -56,9 +56,10 @@ function UI() {
 				setShells(testList);
 			});
 			setAppPath(window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1));
+			console.log(store.getState());
 		}
 
-	}, [componentsPool, dispatch, isLoading, containers]);
+	}, [componentsPool, dispatch, isLoading, containers, store]);
 
 
 	return (

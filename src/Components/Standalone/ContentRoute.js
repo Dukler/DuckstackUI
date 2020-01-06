@@ -4,7 +4,7 @@ import DynamicComponents from "../../BeLazy/DynamicComponents";
 import { withRouter } from "react-router-dom";
 
 function ContentRoute(props) {
-	console.log();
+	;
 
 	return (
 		<Route
