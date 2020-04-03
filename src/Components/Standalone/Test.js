@@ -1,6 +1,6 @@
 import React from "react";
-import ResponsiveLayout from "./ResponsiveLayout";
-import { makeStyles } from "@material-ui/core/styles";
+import ResponsiveLayout from "../Container/ResponsiveLayout";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(theme => ({
     red: {
@@ -25,35 +25,33 @@ export const useStyles = makeStyles(theme => ({
     },
     header: {
         height: "80px"
-    },
-}))
-
-
+    }
+}));
 
 function Test(props) {
     const classes = useStyles();
 
     return (
         <ResponsiveLayout container>
-            <ResponsiveLayout static >
+            <ResponsiveLayout static>
                 <div className={classes.header}>PORONGA</div>
             </ResponsiveLayout>
-            <ResponsiveLayout  >
+            <ResponsiveLayout>
                 <div className={classes.red}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout  >
+            <ResponsiveLayout>
                 <div className={classes.green}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout  >
+            <ResponsiveLayout>
                 <div className={classes.blue}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout  >
+            <ResponsiveLayout>
                 <div className={classes.white}></div>
             </ResponsiveLayout>
-            <ResponsiveLayout  >
+            <ResponsiveLayout>
                 <div className={classes.pink}></div>
             </ResponsiveLayout>
-        </ResponsiveLayout >
+        </ResponsiveLayout>
     );
 }
 
