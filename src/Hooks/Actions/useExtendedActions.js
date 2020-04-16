@@ -12,19 +12,18 @@ export default function useExtendedActions(props) {
         //onMount filtered actions - once
         Object.entries(actions).forEach(([key, value]) => {
             const {subType, event, ...action} = value;
-            console.log();
             switch (subType) {
                 case "event":
                     componentRef.current.addEventListener(event, () => {
                         actionDispatch({
-                            ...action
+                            ...action,
                         });
                     });
                     break;
 
                 default:
                     actionDispatch({
-                        ...action
+                        ...action,
                     });
                     break;
             }

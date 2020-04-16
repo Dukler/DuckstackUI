@@ -1,36 +1,38 @@
 import React from "react";
 import MTypography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import useHtmlReact from "../../Hooks/Component/useHtmlReact";
-import { objectRequired } from "../../Utils/customProptypes";
+import {objectRequired} from "../../Utils/customProptypes";
 
-const useStyles = makeStyles(theme => ({
-	component: props => ({
-		fontSize: theme.typography.pxToRem(props.component.fontSize),
-		color: theme.palette.text[props.component.color]
-	})
+const useStyles = makeStyles((theme) => ({
+    component: ({fontSize, color, ...styles}) => ({
+        fontSize: theme.typography.pxToRem(fontSize),
+        color: theme.palette.text[color],
+        ...styles,
+    }),
 }));
 
 function Typography(props) {
-	const classes = useStyles(props.styles);
-	let value = props.value;
-	const { isHtml, ...typoProps } = props.extProperties;
-	[value] = useHtmlReact({
-		value,
-		shouldParse: isHtml
-	});
-
-
-	return (
-		<MTypography className={classes.component} {...typoProps}>
-			{value}
-		</MTypography>
-	);
+    const classes = useStyles(props.styles.component);
+    let value = props.value;
+    const {isHtml, ...typoProps} = props.extProperties;
+    [value] = useHtmlReact({
+        value,
+        shouldParse: isHtml,
+    });
+    return (
+        <MTypography
+            className={classes.component}
+            style={{height: "250px"}}
+            {...typoProps}
+        >
+            {value}
+        </MTypography>
+    );
 }
 
-
 Typography.propTypes = {
-	styles: objectRequired
+    styles: objectRequired,
 };
 
 export default Typography;

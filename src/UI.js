@@ -4,7 +4,7 @@ import React, {
     useRef,
     useContext,
     Suspense,
-    useState
+    useState,
 } from "react";
 import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
@@ -19,28 +19,24 @@ function UI() {
     const [appPath, setAppPath] = useState("");
 
     const mapState = useCallback(
-        state => ({
+        (state) => ({
             isLoading: state["root"]["isLoading"],
             componentsPool: state["root"]["componentsPool"],
             theme: state["theme"],
-            containers: state["containers"]["byIds"]
+            containers: state["containers"]["byIds"],
         }),
         []
     );
     const {isLoading, theme, componentsPool, containers} = useMappedState(
         mapState
     );
-    // console.log(componentsPool);
     const store = useContext(StoreContext);
-
-    // console.log(containers);
-    // const [preload, setPreload] = useState([]);
 
     useEffect(() => {
         if (!init.current) {
             dispatch({
                 type: "INIT_DATA_REQUESTED",
-                payload: {url: constants.api + constants.ui.home}
+                payload: {url: constants.api + constants.ui.home},
             });
             init.current = true;
         }
@@ -48,14 +44,12 @@ function UI() {
             let i = 0;
             let arr = [];
             let testList = [];
-            Object.keys(componentsPool).forEach(key => {
-                // console.log(componentsPool[key]);
+            Object.keys(componentsPool).forEach((key) => {
                 i++;
                 arr[i] = componentsPool[key];
                 componentsPool[key].preload();
             });
-            Object.keys(containers).forEach(key => {
-                // console.log(componentsPool[key]);
+            Object.keys(containers).forEach((key) => {
                 if (
                     containers[key].extProperties &&
                     containers[key].extProperties.Shell
@@ -84,7 +78,7 @@ function UI() {
                                 container={{
                                     id: shells.includes(appPath)
                                         ? appPath
-                                        : "root"
+                                        : "root",
                                 }}
                             />
                         }

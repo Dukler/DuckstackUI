@@ -8,14 +8,14 @@ import LeftIcon from "@material-ui/icons/ChevronLeftRounded";
 import classNames from "classnames";
 import {reducer} from "./reducer";
 import {isNotUndefined} from "../../../Utils";
-import useResponsiveOffset from "../../../Hooks/Helper/useResponsiveOffset";
+import useResponsiveOffset from "../../../Hooks/Layout/useResponsiveOffset/index";
 
 const initialState = {
     currentMonth: new Date(),
     selectedDate: new Date(),
     weekCount: 0,
     startDate: null,
-    endDate: null
+    endDate: null,
 };
 
 function Calendar(props) {
@@ -27,12 +27,12 @@ function Calendar(props) {
         renderDay,
         picker,
         showHeader,
-        calendarDispatch
+        calendarDispatch,
     } = props;
 
     const {headerRef, daysRef, bodyRef, containerRef} = useResponsiveOffset({
-        offsetArr: ["headerRef", "daysRef"],
-        responsiveArr: ["bodyRef"]
+        staticArr: ["headerRef", "daysRef"],
+        responsiveArr: ["bodyRef"],
     });
 
     useEffect(() => {
@@ -45,8 +45,8 @@ function Calendar(props) {
                 dispatch({
                     payload: {
                         startDate: startOfWeek(currentDate),
-                        endDate: endOfWeek(currentDate)
-                    }
+                        endDate: endOfWeek(currentDate),
+                    },
                 });
                 dispatch({type: "COUNT_WEEKS"});
                 break;
@@ -71,7 +71,7 @@ function Calendar(props) {
             date,
             selectedDate,
             isInCurrentMonth,
-            dayComponent
+            dayComponent,
         });
         return (
             <div
@@ -173,7 +173,7 @@ function Calendar(props) {
         // return <div ref={bodyRef} className="body" style={{ height: `calc(100% - 30px)` }} >{rows}</div>;
     };
 
-    const onDateClick = day => {
+    const onDateClick = (day) => {
         dispatch({payload: {selectedDate: day}});
     };
 

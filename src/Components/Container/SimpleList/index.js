@@ -1,14 +1,14 @@
 import React, {useRef, useState, useEffect, useCallback} from "react";
 import memoize from "memoize-one";
 import {useStyles} from "./styles";
-import ResponsiveLayout from "../../Container/ResponsiveLayout/index";
+// import ResponsiveLayout from "../../Container/ResponsiveLayout/index";
 import {renderList} from "./renderList";
 
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
     list,
     classes,
     itemProps,
-    showCheck
+    showCheck,
 }));
 
 const createComp = ({AsyncImport, ...cleanComp}) => (
@@ -33,7 +33,7 @@ function SimpleList({standalonesState, containerState, children, ...rest}) {
     };
 
     const handleShowCheck = useCallback(
-        e => {
+        (e) => {
             if (Item.extProperties.hasCheck) {
                 if (e.type === "mousedown" || e.type === "touchstart") {
                     mouseDownTimer.current = setTimeout(() => {
@@ -51,7 +51,7 @@ function SimpleList({standalonesState, containerState, children, ...rest}) {
     useEffect(() => {
         const listHandlers = {handleClickAway, handleShowCheck};
         setComponents(
-            extProps.order.map(key => {
+            extProps.order.map((key) => {
                 return key === "list"
                     ? renderList(
                           itemData,
@@ -70,17 +70,18 @@ function SimpleList({standalonesState, containerState, children, ...rest}) {
         extProps.order,
         handleShowCheck,
         itemData,
-        minHeight
+        minHeight,
     ]);
 
-    return (
-        <ResponsiveLayout container>
-            <ResponsiveLayout static>
-                <div className={classes.header}>PORONGA</div>
-            </ResponsiveLayout>
-            <ResponsiveLayout>{components}</ResponsiveLayout>
-        </ResponsiveLayout>
-    );
+    // return (
+    //     <ResponsiveLayout container>
+    //         <ResponsiveLayout static>
+    //             <div className={classes.header}>PORONGA</div>
+    //         </ResponsiveLayout>
+    //         <ResponsiveLayout>{components}</ResponsiveLayout>
+    //     </ResponsiveLayout>
+    // );
+    return components;
 }
 
 export default SimpleList;

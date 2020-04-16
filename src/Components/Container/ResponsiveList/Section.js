@@ -1,16 +1,19 @@
-import React from 'react'
-import { FixedSizeList } from 'react-window'
+import React from "react";
+import {FixedSizeList} from "react-window";
 import ListSubheader from "@material-ui/core/ListSubheader";
-import memoize from 'memoize-one';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import memoize from "memoize-one";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
-    list, classes, itemProps, showCheck
+    list,
+    classes,
+    itemProps,
+    showCheck,
 }));
 
-const Section = React.memo(function Section({ index, style, data }) {
-    const { source, Item, classes, itemSize, width } = data;
-    const { subHeaders, list } = source;
+const Section = React.memo(function Section({index, style, data}) {
+    const {source, Item, classes, itemSize, width} = data;
+    const {subHeaders, list} = source;
     const itemCount = list[index].length;
     //const { height } = style;
     const [showCheck, setShowCheck] = React.useState(false);
@@ -19,7 +22,7 @@ const Section = React.memo(function Section({ index, style, data }) {
 
     const handleClickAway = () => {
         setShowCheck(false);
-    }
+    };
 
     const handleShowCheck = (e) => {
         if (Item.extProperties.hasCheck) {
@@ -28,23 +31,22 @@ const Section = React.memo(function Section({ index, style, data }) {
                     //e.persist();
                     setShowCheck(true);
                 }, 1500);
-
             } else {
                 clearTimeout(mouseDownTimer);
             }
         }
-    }
-    // const handleTest = (e) => {
-    //     console.log("asd")
-    // }
+    };
 
     return (
         <div style={style} key={`section-${index}`}>
             <li className={classes.listSection}>
-                <ul style={{ height: style.height }} className={classes.ul} >
-                    <ListSubheader className={classes.subHeader} >{subHeaders[index]}</ListSubheader>
-                    <ClickAwayListener onClickAway={handleClickAway} >
-                        <div style={{ height: "100%", width: "100%" }}
+                <ul style={{height: style.height}} className={classes.ul}>
+                    <ListSubheader className={classes.subHeader}>
+                        {subHeaders[index]}
+                    </ListSubheader>
+                    <ClickAwayListener onClickAway={handleClickAway}>
+                        <div
+                            style={{height: "100%", width: "100%"}}
                             onMouseDown={handleShowCheck}
                             onMouseUp={handleShowCheck}
                             onTouchStart={handleShowCheck}
@@ -66,7 +68,7 @@ const Section = React.memo(function Section({ index, style, data }) {
                 </ul>
             </li>
         </div>
-    )
-})
+    );
+});
 
 export default Section;

@@ -3,19 +3,18 @@ import {makeStyles} from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import Icon from "@material-ui/core/Icon";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     fab: {
-        margin: theme.spacing(1)
+        margin: theme.spacing(1),
     },
     extendedIcon: {
-        marginRight: theme.spacing(1)
-    }
+        marginRight: theme.spacing(1),
+    },
 }));
 
 export default function FloatingActionButton(props) {
     const classes = useStyles();
     const {extProperties} = props;
-    console.log(props);
     const {extended, icon, label, ...btnProps} = extProperties;
     const iconClassName =
         btnProps.variant === "extended" ? classes.extended : null;

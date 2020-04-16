@@ -1,4 +1,7 @@
 import React from "react";
+import useContainer from "./../../../Hooks/Component/useContainer";
+import Container from "./Container";
+import Item from "./Item";
 
 function ResponsiveLayout({
     children,
@@ -6,11 +9,32 @@ function ResponsiveLayout({
     item = false,
     ...rest
 }) {
-    const Render = container
-        ? require("./Container").default
-        : require("./Item").default;
+    const {standalonesState, containerState} = rest;
+    const {All} = useContainer({
+        standalonesState,
+        containerState,
+        parents: ["All"],
+        styleContainers: {
+            Default: React.Fragment,
+        },
+    });
 
-    return <Render {...rest}>{children}</Render>;
+    return (
+        <Container>
+            {All.map((item, index) => {
+                return (
+                    <Item
+                        key={index}
+                        static={
+                            !containerState.extProperties.Responsive[item.key]
+                        }
+                    >
+                        {All[index]}
+                    </Item>
+                );
+            })}
+        </Container>
+    );
 }
 
 export default ResponsiveLayout;
