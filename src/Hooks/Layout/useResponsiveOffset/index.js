@@ -12,7 +12,7 @@ const createRefs = (staticArray) => {
 };
 const memoRefs = memoizeOne(createRefs);
 
-function removeShit(height, defaultHeight) {
+function parseHeight(height, defaultHeight) {
     let h = defaultHeight;
     console.log();
     if (height.includes("px")) {
@@ -58,14 +58,14 @@ function useResponsiveOffset({staticArr, responsiveArr, multipliers}) {
         observer.observe(containerRef.current);
     }, [observer, containerRef]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let offset = 0;
         staticArr.forEach((refName) => {
             const ref = staticRefs[refName].current;
             offset =
                 offset +
                 (isNotNull(ref)
-                    ? removeShit(
+                    ? parseHeight(
                           ref.style.height,
                           ref.getBoundingClientRect().height
                       )
@@ -107,7 +107,7 @@ function useResponsiveOffset({staticArr, responsiveArr, multipliers}) {
         };
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const length = responsiveArr.length;
         if (length > 1) {
             let auxMultis = {};

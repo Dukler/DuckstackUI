@@ -47,7 +47,7 @@ function UI() {
             Object.keys(componentsPool).forEach((key) => {
                 i++;
                 arr[i] = componentsPool[key];
-                componentsPool[key].preload();
+                // componentsPool[key].preload();
             });
             Object.keys(containers).forEach((key) => {
                 if (

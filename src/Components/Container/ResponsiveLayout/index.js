@@ -14,9 +14,6 @@ function ResponsiveLayout({
         standalonesState,
         containerState,
         parents: ["All"],
-        styleContainers: {
-            Default: React.Fragment,
-        },
     });
 
     return (

@@ -4,13 +4,13 @@ import {isNotUndefined} from "../../../Utils";
 import RefMapContext from "./context";
 
 const createChildren = (children) => {
-    let offset = [];
+    let staticArray = [];
     let responsive = [];
     let multipliers = {};
     children.forEach((child, index) => {
         const refName = child.props.children.props.id;
         if (child.props.static) {
-            offset.push(refName);
+            staticArray.push(refName);
         } else {
             responsive.push(refName);
             multipliers[refName] = isNotUndefined(
@@ -19,14 +19,14 @@ const createChildren = (children) => {
             );
         }
     });
-    return {offset, responsive, multipliers};
+    return {staticArray, responsive, multipliers};
 };
 
 function Container({children, ...rest}) {
     const [state, setState] = useState(createChildren(children));
 
     const refsMap = useResponsiveOffset({
-        staticArr: state.offset,
+        staticArr: state.staticArray,
         responsiveArr: state.responsive,
         container: "containerRef",
         multipliers: state.multipliers,
