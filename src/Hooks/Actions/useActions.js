@@ -21,27 +21,31 @@ function defaultDispatch({dispatch, state, type, payload}) {
             break;
         case "SUBMIT_COMPONENTS_VALUES":
             const scvData = getStandalonesValues({state, ids: payload.ids});
-            submitJson({url: constants.login, body: scvData}).then(response => {
-                if (payload.callback) {
-                    const cb = payload.callback;
-                    const pl = cb.payload ? cb.payload : null;
-                    dispatch({type: cb.type, payload: {...pl, response}});
+            submitJson({url: constants.login, body: scvData}).then(
+                (response) => {
+                    if (payload.callback) {
+                        const cb = payload.callback;
+                        const pl = cb.payload ? cb.payload : null;
+                        dispatch({type: cb.type, payload: {...pl, response}});
+                    }
                 }
-            });
+            );
             break;
-        case "SUBMIT_WRAPPER_VALUES":
+        case "SUBMIT_CONTAINER_VALUES":
             const swvContainer = getContainer({state, id: payload.id});
             const swvData = getStandalonesValues({
                 state,
-                ids: swvContainer.standalones
+                ids: swvContainer.standalones,
             });
-            submitJson({url: constants.login, body: swvData}).then(response => {
-                if (payload.callback) {
-                    const cb = payload.callback;
-                    const pl = cb.payload ? cb.payload : null;
-                    dispatch({type: cb.type, payload: {...pl, response}});
+            submitJson({url: constants.login, body: swvData}).then(
+                (response) => {
+                    if (payload.callback) {
+                        const cb = payload.callback;
+                        const pl = cb.payload ? cb.payload : null;
+                        dispatch({type: cb.type, payload: {...pl, response}});
+                    }
                 }
-            });
+            );
             break;
         case "test":
             console.log("test");
@@ -57,7 +61,7 @@ function useActions() {
         dispatch = actionDispatch,
         state = store.getState(),
         type,
-        payload
+        payload,
     }) => compose(defaultDispatch({dispatch, state, type, payload}));
 
     const actionsContext = React.createContext(actionDispatch);

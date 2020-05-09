@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect, useCallback} from "react";
 import memoize from "memoize-one";
 import {useStyles} from "./styles";
-// import ResponsiveLayout from "../../Container/ResponsiveLayout/index";
 import {renderList} from "./renderList";
 
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
@@ -15,18 +14,29 @@ const createComp = ({AsyncImport, ...cleanComp}) => (
     <AsyncImport key={cleanComp.id} {...cleanComp} />
 );
 
-function SimpleList({standalonesState, containerState, children, ...rest}) {
+function SimpleList(props) {
     const classes = useStyles();
-    const [showCheck, setShowCheck] = React.useState(false);
+    const {standalonesState, containerState} = props;
+    const [showCheck, setShowCheck] = useState(false);
     const [components, setComponents] = useState([]);
+    const [list, setList] = useState([]);
     const extProps = containerState.extProperties;
-    const source = require("../../../MockData/turnosR.json");
-    const list = extProps.isDivided ? source["15"] : source;
     const Item = standalonesState[extProps.item];
-    const itemData = createItemData(list, classes, Item, showCheck);
     const mouseDownTimer = useRef();
     const itemHeight = 48;
     const minHeight = itemHeight * 3;
+
+    const source = require("../../../MockData/turnosR.json");
+
+    useEffect(() => {
+        const day = containerState.sourceIndex
+            ? containerState.sourceIndex[0]
+            : null;
+        const auxList = source[day];
+        setList(auxList ? auxList : []);
+    }, [source, containerState.sourceIndex]);
+
+    const itemData = createItemData(list, classes, Item, showCheck);
 
     const handleClickAway = () => {
         setShowCheck(false);

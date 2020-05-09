@@ -1,39 +1,48 @@
 import reduceReducer from "reduce-reducers";
-import { inputFields } from "./inputFields";
-import { buttons } from "./buttons";
-import { overlays } from "../../reducers/overlays";
-import { stateHandler } from "../../reducers/stateHandler";
+import {textInput} from "./textInput";
+import {button} from "./button";
+import {picker} from "./picker";
+import {stateHandler} from "../../reducers/stateHandler";
+import {overlays} from "./../containers/overlays";
+import update from "immutability-helper";
 
 const initialState = [];
 
 const reducer = reduceReducer(
-	standalonesReducer,
-	inputFields,
-	overlays,
-	buttons,
-	(state, action) => stateHandler(state, action, "COMPONENT")
+    standalonesReducer,
+    textInput,
+    overlays,
+    button,
+    (state, action) => stateHandler(state, action, "COMPONENT"),
+    picker
 );
 export default reducer;
 
 function standalonesReducer(state = initialState, action) {
-	const { id, ...payload } = action.payload
-		? action.payload
-		: { id: null, ...null };
-	switch (action.type) {
-		case "INIT_DATA_SUCCEEDED":
-			const { standalones, componentsPool } = { ...payload };
-			try {
-				standalones.ids.forEach(cmp => {
-					const lazyID = standalones.byIds[cmp].lazyID;
-					standalones.byIds[cmp].AsyncImport = componentsPool[lazyID];
-					standalones.byIds[cmp].value = standalones.byIds[cmp].value ? standalones.byIds[cmp].value : "";
-				});
-				return standalones;
-			} catch (error) {
-				console.log("error standalonesinit");
-			}
-			break;
-		default:
-			return state;
-	}
+    const {id, ...payload} = action.payload
+        ? action.payload
+        : {id: null, ...null};
+    switch (action.type) {
+        case "INIT_DATA_SUCCEEDED":
+            const {standalones, componentsPool} = {...payload};
+            try {
+                standalones.ids.forEach((cmp) => {
+                    const lazyID = standalones.byIds[cmp].lazyID;
+                    standalones.byIds[cmp].AsyncImport = componentsPool[lazyID];
+                    standalones.byIds[cmp].value = standalones.byIds[cmp].value
+                        ? standalones.byIds[cmp].value
+                        : "";
+                });
+                return standalones;
+            } catch (error) {
+                console.log("error standalonesinit");
+            }
+            break;
+        case "UPDATE_STANDALONE":
+            return update(state, {
+                byIds: {[id]: {[payload.attribute]: {$set: payload.value}}},
+            });
+        default:
+            return state;
+    }
 }

@@ -1,11 +1,11 @@
-import LinkItem from '../../../Components/Standalone/Items/LinkItem';
+import LinkItem from "../../../Component/Standalone/Items/LinkItem";
 
 const initialState = [];
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case "INIT_DATA_SUCCEEDED":
-            const linkList = { ...action.payload.linkList };
+            const linkList = {...action.payload.linkList};
             try {
                 if (linkList.ids) {
                     linkList.ids.forEach((cmp) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import {orderList} from "../../Utils";
+import StandaloneSuper from "./../../Component/StandaloneSuper";
 
 const addEmptySpace = ({filter, list}) => {
     let emptyList = list;
@@ -47,12 +48,13 @@ function useContainer(props) {
             list.push(...ordList.filter((item) => filter.includes(item.id)));
             list = addEmptySpace({filter, list});
             renders[parent] = list.map((comp) => {
-                const {AsyncImport, ...cleanComp} = comp;
+                // const {AsyncImport, ...cleanComp} = comp;
                 if (comp.id === "empty") {
                     return <styleContainers.Empty key={comp.key} />;
                 } else if (null !== getParentProps({ParentComponent, comp})) {
                     //if it has no parent props, then there is no parent
-                    return <AsyncImport key={comp.id} {...cleanComp} />;
+                    // return <AsyncImport key={comp.id} {...cleanComp} />;
+                    return <StandaloneSuper key={comp.id} {...comp} />;
                 } else {
                     ParentComponent = getStyle(styleContainers.Default);
                     parentProps = getParentProps({
@@ -61,7 +63,7 @@ function useContainer(props) {
                     });
                     return (
                         <ParentComponent key={comp.id} {...parentProps}>
-                            <AsyncImport {...cleanComp} />
+                            <StandaloneSuper key={comp.id} {...comp} />
                         </ParentComponent>
                     );
                 }

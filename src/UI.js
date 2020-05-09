@@ -36,7 +36,9 @@ function UI() {
         if (!init.current) {
             dispatch({
                 type: "INIT_DATA_REQUESTED",
-                payload: {url: constants.api + constants.ui.home},
+                payload: {
+                    url: constants.api + constants.ui.home,
+                },
             });
             init.current = true;
         }
@@ -65,7 +67,9 @@ function UI() {
             );
             console.log(store.getState());
         }
-    }, [componentsPool, dispatch, isLoading, containers, store]);
+        //[componentsPool, dispatch, isLoading, containers, store]
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch, isLoading, store, componentsPool]);
 
     return (
         <Suspense fallback={null}>

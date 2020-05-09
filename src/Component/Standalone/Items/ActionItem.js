@@ -22,7 +22,7 @@ const createCheck = memoize((hasCheck, showCheck, checked, id) =>
     ) : null
 );
 
-const createSecondary = memoize(extProperties =>
+const createSecondary = memoize((extProperties) =>
     extProperties.hasSecondary ? (
         <ListItemSecondaryAction>
             <IconButton edge="end" aria-label="Comments">
@@ -46,7 +46,7 @@ const ActionItem = React.memo(({index, style, data}) => {
     const {extProperties} = itemProps;
     const item = list[index];
 
-    const {primary} = item;
+    const {primary} = item !== undefined ? item : "";
 
     const handleToggle = useCallback(
         (value, event) => {
@@ -65,25 +65,29 @@ const ActionItem = React.memo(({index, style, data}) => {
     );
 
     const handleClick = useCallback(
-        props => event => {
+        (props) => (event) => {
             event.preventDefault();
-            handleToggle(item.id, event);
+            if (item !== undefined) {
+                handleToggle(item.id, event);
+            }
         },
-        [handleToggle, item.id]
+        [handleToggle, item]
     );
 
     return (
         <div style={style}>
-            <ListItem button onClick={handleClick()} key={index}>
-                {createCheck(
-                    extProperties.hasCheck,
-                    showCheck,
-                    checked,
-                    item.id
-                )}
-                <ListItemText primary={primary} />
-                {createSecondaryAndCheck(extProperties, showCheck)}
-            </ListItem>
+            {item === undefined ? null : (
+                <ListItem button onClick={handleClick()} key={index}>
+                    {createCheck(
+                        extProperties.hasCheck,
+                        showCheck,
+                        checked,
+                        item.id
+                    )}
+                    <ListItemText primary={primary} />
+                    {createSecondaryAndCheck(extProperties, showCheck)}
+                </ListItem>
+            )}
         </div>
     );
 }, areEqual);

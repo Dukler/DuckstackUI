@@ -9,6 +9,7 @@ import classNames from "classnames";
 import {reducer} from "./reducer";
 import {isNotUndefined} from "../../../Utils";
 import useResponsiveOffset from "../../../Hooks/Layout/useResponsiveOffset/index";
+import {useDispatch} from "redux-react-hook";
 
 const initialState = {
     currentMonth: new Date(),
@@ -20,6 +21,7 @@ const initialState = {
 
 function Calendar(props) {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const storeDispatch = useDispatch();
     const {currentMonth, selectedDate, weekCount, startDate, endDate} = state;
     const {
         calendarClass,
@@ -34,6 +36,15 @@ function Calendar(props) {
         staticArr: ["headerRef", "daysRef"],
         responsiveArr: ["bodyRef"],
     });
+
+    useEffect(() => {
+        onDateClick(new Date());
+        // console.log();
+        // if (onSelectedChange) {
+        //     onSelectedChange(selectedDate);
+        // }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (calendarDispatch) {
@@ -67,12 +78,14 @@ function Calendar(props) {
                 {/* <span className="bg">{formattedDate}</span> */}
             </>
         );
-        const customDay = renderDay({
-            date,
-            selectedDate,
-            isInCurrentMonth,
-            dayComponent,
-        });
+        const actualDay = renderDay
+            ? renderDay({
+                  date,
+                  selectedDate,
+                  isInCurrentMonth,
+                  dayComponent,
+              })
+            : dayComponent;
         return (
             <div
                 className={classNames(
@@ -88,7 +101,7 @@ function Calendar(props) {
                 key={date}
                 onClick={() => onDateClick(new Date(date))}
             >
-                {customDay ? customDay : dayComponent}
+                {actualDay}
             </div>
         );
     };
@@ -175,6 +188,14 @@ function Calendar(props) {
 
     const onDateClick = (day) => {
         dispatch({payload: {selectedDate: day}});
+        if (props.onDateClick) {
+            props.onDateClick(day);
+        } else {
+            storeDispatch({
+                type: "SELECTED_PICKER",
+                payload: {id: props.id, selected: [day]},
+            });
+        }
     };
 
     const nextMonth = () => {

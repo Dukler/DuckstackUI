@@ -14,7 +14,6 @@ const memoRefs = memoizeOne(createRefs);
 
 function parseHeight(height, defaultHeight) {
     let h = defaultHeight;
-    console.log();
     if (height.includes("px")) {
         h = height.substring(0, height.length - 2);
     }
@@ -39,24 +38,6 @@ function useResponsiveOffset({staticArr, responsiveArr, multipliers}) {
         trigger,
         containerHeight,
     } = state;
-
-    //measures container's responsive size
-    let observer = new ResizeObserver(function (entries) {
-        entries.forEach(function (entry) {
-            const h = entry.contentRect.height;
-            if (h > 0 && h !== containerHeight) {
-                console.log(entry.contentRect.height);
-                dispatch({
-                    type: "SET_CONTAINERHEIGHT",
-                    payload: h,
-                });
-            }
-        });
-    });
-
-    useEffect(() => {
-        observer.observe(containerRef.current);
-    }, [observer, containerRef]);
 
     useLayoutEffect(() => {
         let offset = 0;
@@ -98,13 +79,30 @@ function useResponsiveOffset({staticArr, responsiveArr, multipliers}) {
     ]);
 
     useEffect(() => {
+        //measures container's responsive size
+        let observer = new ResizeObserver(function (entries) {
+            entries.forEach(function (entry) {
+                const h = entry.contentRect.height;
+                if (h > 0 && h !== containerHeight) {
+                    dispatch({
+                        type: "SET_CONTAINERHEIGHT",
+                        payload: h,
+                    });
+                }
+            });
+        });
+        observer.observe(containerRef.current);
+
+        //trigger on window resize
         window.addEventListener("resize", dispatch({type: "SET_TRIGGER"}));
         return () => {
             window.removeEventListener(
                 "resize",
                 dispatch({type: "SET_TRIGGER"})
             );
+            observer.disconnect();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useLayoutEffect(() => {
