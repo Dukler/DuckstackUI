@@ -12,6 +12,19 @@ export default reducer;
 
 function containersReducer(state = initialState, action) {
     switch (action.type) {
+        case "NEW_STANDALONE":
+            return action.payload.treePosition.type === "container" &&
+                !state.byIds[
+                    action.payload.treePosition.id
+                ].standalones.includes(action.payload.id)
+                ? update(state, {
+                      byIds: {
+                          [action.payload.treePosition.id]: {
+                              standalones: {$push: [action.payload.id]},
+                          },
+                      },
+                  })
+                : state;
         case "INIT_DATA_SUCCEEDED":
             const {containers, componentsPool} = {...action.payload};
             try {

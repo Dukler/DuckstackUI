@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-import MSpeedDial from '@material-ui/lab/SpeedDial';
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
-import FileCopyIcon from '@material-ui/icons/FileCopyOutlined';
-import SaveIcon from '@material-ui/icons/Save';
-import PrintIcon from '@material-ui/icons/Print';
-import ShareIcon from '@material-ui/icons/Share';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { objectRequired } from '../../Utils/customProptypes';
+import React, {useState} from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import MSpeedDial from "@material-ui/lab/SpeedDial";
+import SpeedDialIcon from "@material-ui/lab/SpeedDialIcon";
+import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
+import {objectRequired} from "../../../Utils/customProptypes";
+import DialIcons from "./DialIcons";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         height: 380,
     },
     speedDial: {
         height: 380,
-        position: 'absolute',
+        position: "absolute",
         bottom: theme.spacing(2),
         right: theme.spacing(10),
         //top: theme.spacing(1),
@@ -36,19 +31,23 @@ const useStyles = makeStyles(theme => ({
     // },
 }));
 
-
-
 function SpeedDial(props) {
     const classes = useStyles();
-    const [state, setState] = useState({ open: false, hidden: false, direction: 'up' })
+    const [state, setState] = useState({
+        open: false,
+        hidden: false,
+        direction: "up",
+    });
 
-    const actions = [
-        { icon: <FileCopyIcon />, name: 'Copy' },
-        { icon: <SaveIcon />, name: 'Save' },
-        { icon: <PrintIcon />, name: 'Print' },
-        { icon: <ShareIcon />, name: 'Share' },
-        { icon: <DeleteIcon />, name: 'Delete' },
-    ];
+    // const iconComponents = [
+    //     {icon: <FileCopyIcon />, name: "Copy"},
+    //     {icon: <SaveIcon />, name: "Save"},
+    //     {icon: <PrintIcon />, name: "Print"},
+    //     {icon: <ShareIcon />, name: "Share"},
+    //     {icon: <DeleteIcon />, name: "Delete"},
+    // ];
+    const iconComponents = DialIcons(props.extProperties.iconComponents);
+
     // const handleVisibility = () => {
     //     setState(state => ({
     //         open: false,
@@ -86,7 +85,7 @@ function SpeedDial(props) {
     //     });
     // };
 
-    const { hidden, open, direction } = state;
+    const {hidden, open, direction} = state;
 
     return (
         <MSpeedDial
@@ -103,7 +102,7 @@ function SpeedDial(props) {
             open={open}
             direction={direction}
         >
-            {actions.map(action => (
+            {iconComponents.map((action) => (
                 <SpeedDialAction
                     className={classes.action}
                     key={action.name}
@@ -116,11 +115,10 @@ function SpeedDial(props) {
             ))}
         </MSpeedDial>
     );
-
 }
 
 SpeedDial.propTypes = {
-    styles: objectRequired
+    styles: objectRequired,
 };
 
 export default SpeedDial;

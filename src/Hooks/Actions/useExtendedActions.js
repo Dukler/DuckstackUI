@@ -5,28 +5,21 @@ import {useRef} from "react";
 
 export default function useExtendedActions(props) {
     const {actions} = props;
-    const [actionDispatch] = useActions();
+    const [actionDispatch] = useActions(props.reducer);
     const componentRef = useRef();
 
     useEffect(() => {
         //onMount filtered actions - once
-        Object.entries(actions).forEach(([key, value]) => {
-            const {subType, event, ...action} = value;
-            switch (subType) {
-                case "event":
-                    componentRef.current.addEventListener(event, () => {
-                        actionDispatch({
-                            ...action,
-                        });
-                    });
-                    break;
-
-                default:
+        actions.forEach((action) => {
+            const eventName = Object.keys(action)[0];
+            const events = action[eventName];
+            events.forEach((event) => {
+                componentRef.current.addEventListener(eventName, () => {
                     actionDispatch({
-                        ...action,
+                        ...event,
                     });
-                    break;
-            }
+                });
+            });
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

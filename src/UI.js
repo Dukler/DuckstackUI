@@ -3,7 +3,6 @@ import React, {
     useEffect,
     useRef,
     useContext,
-    Suspense,
     useState,
 } from "react";
 import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
@@ -12,9 +11,12 @@ import {constants} from "./Utils/Constants";
 import {ThemeProvider} from "@material-ui/styles";
 import {dsTheme} from "./Theme/dsTheme";
 
+export const Portal = React.createContext();
+
 function UI() {
     const dispatch = useDispatch();
     const init = useRef(false);
+    const portal = useRef();
     const [shells, setShells] = useState([]);
     const [appPath, setAppPath] = useState("");
 
@@ -65,6 +67,23 @@ function UI() {
                     window.location.pathname.lastIndexOf("/") + 1
                 )
             );
+            // dispatch({
+            //     type: "NEW_STANDALONE",
+            //     payload: {
+            //         id: "testDialog",
+            //         lazyID: "Typography",
+            //         treePosition: {type: "container", id: "root"},
+            //         value: "Location",
+            //         styles: {
+            //             name: "Text",
+            //             component: {
+            //                 fontSize: 15,
+            //                 color: "primary",
+            //                 zIndex: 100000,
+            //             },
+            //         },
+            //     },
+            // });
             console.log(store.getState());
         }
         //[componentsPool, dispatch, isLoading, containers, store]
@@ -72,7 +91,7 @@ function UI() {
     }, [dispatch, isLoading, store, componentsPool]);
 
     return (
-        <Suspense fallback={null}>
+        <Portal.Provider value={portal}>
             <div className="UI" style={{height: "100vh"}}>
                 {isLoading ? null : (
                     <ThemeProvider theme={dsTheme(theme)}>
@@ -89,7 +108,7 @@ function UI() {
                     </ThemeProvider>
                 )}
             </div>
-        </Suspense>
+        </Portal.Provider>
     );
 }
 

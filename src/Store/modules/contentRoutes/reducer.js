@@ -11,14 +11,20 @@ const reducer = reduceReducer(routeReducer, (state, action) =>
 export default reducer;
 
 function routeReducer(state = initialState, action) {
-    const {id, ...payload} = action.payload
-        ? action.payload
-        : {id: null, ...null};
     switch (action.type) {
-        case "ADD_ROUTE_COMPONENT":
-            return update(state, {
-                byIds: {[id]: {standalones: {$push: payload}}},
-            });
+        case "NEW_STANDALONE":
+            return action.payload.treePosition.type === "route" &&
+                !state.byIds[
+                    action.payload.treePosition.id
+                ].standalones.includes(action.payload.id)
+                ? update(state, {
+                      byIds: {
+                          [action.payload.treePosition.id]: {
+                              standalones: {$push: [action.payload.id]},
+                          },
+                      },
+                  })
+                : state;
         case "INIT_DATA_SUCCEEDED":
             const contentRoutes = {...action.payload.contentRoutes};
             contentRoutes.ids.forEach((cmp) => {
