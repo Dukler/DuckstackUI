@@ -83,6 +83,7 @@ function standalonesReducer(state = initialState, action) {
                 standalones.ids.forEach((cmp) => {
                     const lazyID = standalones.byIds[cmp].lazyID;
                     standalones.byIds[cmp].AsyncImport = componentsPool[lazyID];
+                    standalones.byIds[cmp].type = "standalone";
                     standalones.byIds[cmp].value = standalones.byIds[cmp].value
                         ? standalones.byIds[cmp].value
                         : "";

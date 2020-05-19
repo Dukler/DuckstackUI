@@ -27,14 +27,15 @@ function WeekPicker(props) {
 
     return (
         <Calendar
-            renderDay={({
-                date,
-                selectedDate,
-                isInCurrentMonth,
-                dayComponent,
-            }) => {
-                // return <div>dick</div>
-            }}
+            {...props}
+            // renderDay={({
+            //     date,
+            //     selectedDate,
+            //     isInCurrentMonth,
+            //     dayComponent,
+            // }) => {
+            //     // return <div>dick</div>
+            // }}
             calendarDispatch={({dispatch}) => {
                 // calendarDispatch = dispatch;
             }}

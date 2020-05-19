@@ -19,24 +19,29 @@ function SimpleList(props) {
     const {standalonesState, containerState} = props;
     const [showCheck, setShowCheck] = useState(false);
     const [components, setComponents] = useState([]);
+    const [minHeight, setMinHeight] = useState([]);
     const [list, setList] = useState([]);
     const extProps = containerState.extProperties;
     const Item = standalonesState[extProps.item];
     const mouseDownTimer = useRef();
     const itemHeight = 48;
-    const minHeight = itemHeight * 3;
+    // const minHeight = itemHeight * 3.1;
+    const itemData = createItemData(list, classes, Item, showCheck);
 
     const source = require("../../../MockData/turnosR.json");
+
+    useEffect(() => {
+        setMinHeight(1 + list.length * itemHeight);
+    }, [list.length]);
 
     useEffect(() => {
         const day = containerState.sourceIndex
             ? containerState.sourceIndex[0]
             : null;
         const auxList = source[day];
+        console.log();
         setList(auxList ? auxList : []);
     }, [source, containerState.sourceIndex]);
-
-    const itemData = createItemData(list, classes, Item, showCheck);
 
     const handleClickAway = () => {
         setShowCheck(false);
@@ -62,6 +67,7 @@ function SimpleList(props) {
         const listHandlers = {handleClickAway, handleShowCheck};
         setComponents(
             extProps.order.map((key) => {
+                console.log();
                 return key === "list"
                     ? renderList(
                           itemData,

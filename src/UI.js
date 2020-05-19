@@ -97,7 +97,7 @@ function UI() {
                     <ThemeProvider theme={dsTheme(theme)}>
                         {
                             <DynamicComponents
-                                element="standalones"
+                                element="root"
                                 container={{
                                     id: shells.includes(appPath)
                                         ? appPath

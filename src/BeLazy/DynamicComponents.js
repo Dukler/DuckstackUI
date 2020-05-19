@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import useDynamicList from "../Hooks/Helper/useDynamicList";
-import StandaloneSuper from "./../Component/StandaloneSuper";
+import RenderComponent from "./../Component/RenderComponent";
 
 function DynamicComponents(props) {
     const [list] = useDynamicList(props);
@@ -9,13 +9,7 @@ function DynamicComponents(props) {
     return (
         <>
             {list.map((comp) => {
-                const {AsyncImport, ...cleanComp} = comp;
-                console.log();
-                if (props.element === "standalones") {
-                    return <StandaloneSuper key={comp.id} {...comp} />;
-                } else {
-                    return <AsyncImport key={comp.id} {...cleanComp} />;
-                }
+                return <RenderComponent key={comp.id} {...comp} />;
             })}
         </>
     );

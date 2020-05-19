@@ -31,6 +31,7 @@ function containersReducer(state = initialState, action) {
                 if (containers.ids) {
                     containers.ids.forEach((cmp) => {
                         const container = containers.byIds[cmp];
+                        container.type = "container";
                         const lazyID = containers.byIds[cmp].lazyID;
                         [
                             container.LazyContainer,

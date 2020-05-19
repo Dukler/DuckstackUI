@@ -1,19 +1,14 @@
 import React from "react";
-import useClassState from "../../Hooks/State/useClassState";
 import DynamicComponents from "../../BeLazy/DynamicComponents";
 import useFilteredList from "../../Hooks/Helper/useFilteredList";
 import useSideEffect from "./../../Hooks/LazyHook/useSideEffect";
 
 function ContainerSuper(props) {
-    const {container} = props;
-    const containerState = useClassState({
-        id: container.id,
-        element: "containers",
-    });
+    // const {container} = props;
+    const containerState = props;
     const isList = containerState.standalones.length > 1 ? true : false;
     const standalonesState = useFilteredList({
         filter: containerState.standalones,
-        element: "standalones",
     });
     const {LazyContainer, extProperties, isHtml} = containerState;
 
@@ -26,13 +21,14 @@ function ContainerSuper(props) {
         : {standalonesState, containerState};
 
     useSideEffect(containerState);
-
+    console.log();
     return (
         <LazyContainer {...containerProps}>
             {isList ? (
                 <DynamicComponents
                     element="standalones"
-                    container={container}
+                    // container={{id: props.id}}
+                    components={props.standalones}
                 />
             ) : (
                 <AsyncImport key={cleanComp.id} {...cleanComp} />
