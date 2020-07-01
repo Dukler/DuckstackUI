@@ -4,7 +4,6 @@ import React, {
     useRef,
     useContext,
     useState,
-    Suspense,
 } from "react";
 import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
@@ -71,24 +70,20 @@ function UI() {
     }, [dispatch, isLoading, store, componentsPool]);
 
     return (
-        <Suspense fallback={null}>
-            <div className="UI" style={{height: "100vh"}}>
-                {isLoading ? null : (
-                    <ThemeProvider theme={dsTheme(theme)}>
-                        {
-                            <DynamicComponents
-                                element="root"
-                                container={{
-                                    id: shells.includes(appPath)
-                                        ? appPath
-                                        : "root",
-                                }}
-                            />
-                        }
-                    </ThemeProvider>
-                )}
-            </div>
-        </Suspense>
+        <div className="UI" style={{height: "100vh"}}>
+            {isLoading ? null : (
+                <ThemeProvider theme={dsTheme(theme)}>
+                    {
+                        <DynamicComponents
+                            element="root"
+                            container={{
+                                id: shells.includes(appPath) ? appPath : "root",
+                            }}
+                        />
+                    }
+                </ThemeProvider>
+            )}
+        </div>
     );
 }
 

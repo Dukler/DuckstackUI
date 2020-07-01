@@ -1,15 +1,12 @@
-import { useDispatch } from 'redux-react-hook';
-import useClassState from './useClassState';
-
-
+import {useDispatch} from "redux-react-hook";
+import useClassState from "./useClassState";
 
 function useStandalone(id) {
+    const state = useClassState({id, element: "standalones"});
 
-    const state = useClassState({ id, element: "standalones" })
+    const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
-
-    return [state, dispatch]
+    return [state, dispatch];
 }
 
-export default useStandalone
+export default useStandalone;
