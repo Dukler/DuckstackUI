@@ -7,7 +7,7 @@ import RightIcon from "@material-ui/icons/ChevronRightRounded";
 import LeftIcon from "@material-ui/icons/ChevronLeftRounded";
 import classNames from "classnames";
 import {reducer} from "./reducer";
-import {isNotUndefined} from "../../../Utils";
+import {isUndefined} from "../../../Utils";
 import useResponsiveOffset from "../../../Hooks/Layout/useResponsiveOffset/index";
 import {useDispatch} from "redux-react-hook";
 
@@ -39,10 +39,6 @@ function Calendar(props) {
 
     useEffect(() => {
         onDateClick(new Date());
-        // console.log();
-        // if (onSelectedChange) {
-        //     onSelectedChange(selectedDate);
-        // }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -96,7 +92,7 @@ function Calendar(props) {
                             ? "selected"
                             : ""
                     }`,
-                    isNotUndefined(dayClass)
+                    isUndefined(dayClass)
                 )}
                 key={date}
                 onClick={() => onDateClick(new Date(date))}
@@ -209,7 +205,7 @@ function Calendar(props) {
     return (
         <div
             ref={containerRef}
-            className={classNames("calendar", isNotUndefined(calendarClass))}
+            className={classNames("calendar", isUndefined(calendarClass))}
         >
             {showHeader === false ? null : renderHeader()}
             {renderDays()}

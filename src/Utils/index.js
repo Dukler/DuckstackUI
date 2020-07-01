@@ -18,7 +18,7 @@ export const orderList = (list, order) => {
     return aux.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 };
 
-export const isNotUndefined = (object, returnValue) => {
+export const isUndefined = (object, returnValue) => {
     return typeof object !== "undefined"
         ? object
         : typeof returnValue !== "undefined"

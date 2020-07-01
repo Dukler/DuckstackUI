@@ -1,0 +1,25 @@
+{
+	"__comment": "This example of an action creates a new Typography located in the root of the application",
+	"type": "NEW_STANDALONE",
+	"payload": {
+		"id": "testDialog",
+		"lazyID": "Typography",
+		"systemInfo": {
+			"treePosition": {
+				"storeReducer": "containers",
+				"id": "root"
+			},
+			"selfDestruct": true
+		},
+		"value": "Location",
+		"styles": {
+			"name": "Text",
+			"component": {
+				"fontSize": 15,
+				"color": "primary",
+				"zIndex": 100000
+			}
+		},
+		"extProperties": {}
+	}
+}

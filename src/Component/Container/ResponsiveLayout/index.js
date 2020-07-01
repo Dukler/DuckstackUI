@@ -9,9 +9,9 @@ function ResponsiveLayout({
     item = false,
     ...rest
 }) {
-    const {standalonesState, containerState} = rest;
+    const {componentsState, containerState} = rest;
     const {All} = useContainer({
-        standalonesState,
+        componentsState,
         containerState,
         parents: ["All"],
     });

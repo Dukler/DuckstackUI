@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FileCopyIcon from "@material-ui/icons/FileCopyOutlined";
 import SaveIcon from "@material-ui/icons/Save";
@@ -8,7 +8,6 @@ import AddIcon from "@material-ui/icons/Add";
 import CreateIcon from "@material-ui/icons/Create";
 import useExtendedActions from "./../../../Hooks/Actions/useExtendedActions";
 import dialReducer from "./reducer";
-import {Portal} from "./../../../UI";
 
 const iconSelector = (key) => {
     switch (key) {
@@ -48,10 +47,9 @@ export default function DialIcons(icons) {
 }
 
 function ExtendedIcon({Icon, actions}) {
-    const portal = useContext(Portal);
     const iconRef = useExtendedActions({
         actions,
-        reducer: (props) => dialReducer({action: {...props}, portal}),
+        reducer: (props) => dialReducer({action: {...props}}),
     });
 
     return <Icon ref={iconRef} />;

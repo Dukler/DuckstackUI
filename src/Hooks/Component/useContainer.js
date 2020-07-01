@@ -31,8 +31,8 @@ function getStyle(style) {
 }
 
 function useContainer(props) {
-    const order = props.containerState.standalones;
-    const list = props.standalonesState;
+    const order = props.containerState.components;
+    const list = props.componentsState;
     const styleContainers = props.styleContainers;
     const render = props.containerState.renderStandalones;
     const ordList = orderList(list, order);

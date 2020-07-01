@@ -6,7 +6,7 @@ import {stateHandler} from "../../reducers/stateHandler";
 import {overlays} from "./../containers/overlays";
 import update from "immutability-helper";
 import LazyComponent from "./../../../BeLazy/LazyComponent";
-import {isNotUndefined} from "./../../../Utils/index";
+import {isUndefined} from "./../../../Utils/index";
 
 const initialState = [];
 
@@ -31,7 +31,7 @@ function standalonesReducer(state = initialState, action) {
                     byIds: {
                         [id]: {
                             disabled: {
-                                $set: !isNotUndefined(
+                                $set: !isUndefined(
                                     state.byIds[id].disabled,
                                     false
                                 ),
@@ -42,41 +42,50 @@ function standalonesReducer(state = initialState, action) {
             } else {
                 return state;
             }
-        case "NEW_STANDALONE":
-            if (!state.ids.includes(id)) {
-                console.log();
-                const {treePosition, ...compAttributes} = action.payload;
-                const {component, ...styles} = compAttributes.styles;
-                const top = isNotUndefined(component.top, 0);
-                const left = isNotUndefined(component.left, 0);
-                const position = isNotUndefined(component.position, "absolute");
-                component.top = top < 0 ? 0 : top;
-                component.left = left < 0 ? 0 : left;
-                component.position = position < 0 ? 0 : position;
+        case "DELETE_STANDALONE_SUCCEEDED":
+            if (state.ids.includes(id)) {
+                const index = state.ids.indexOf(id);
+                const {[id]: value, ...withoutStantalone} = state.byIds;
                 return update(state, {
-                    ids: {$push: [id]},
-                    byIds: {
-                        $merge: {
-                            [id]: {
-                                AsyncImport: LazyComponent({
-                                    root: "Standalone",
-                                    className: compAttributes.lazyID,
-                                }),
-                                ...compAttributes,
-                                extProperties: {
-                                    ...compAttributes.extProperties,
-                                },
-                                styles: {
-                                    component,
-                                    ...styles,
-                                },
-                            },
-                        },
-                    },
+                    byIds: {$set: withoutStantalone},
+                    ids: {$splice: [[index, 1]]},
                 });
             } else {
                 return state;
             }
+        case "NEW_STANDALONE_SUCCEEDED":
+            const {pool, ...compAttributes} = action.payload;
+            const {component, ...styles} = compAttributes.styles;
+            const top = isUndefined(component.top, 0);
+            const left = isUndefined(component.left, 0);
+            const position = isUndefined(component.position, "absolute");
+            component.top = top < 0 ? 0 : top;
+            component.left = left < 0 ? 0 : left;
+            component.position = position;
+            compAttributes.type = "standalone";
+            compAttributes.systemInfo.newComponent = true;
+            return update(state, {
+                ids: {$push: [id]},
+                byIds: {
+                    $merge: {
+                        [id]: {
+                            AsyncImport: isUndefined(
+                                pool[compAttributes.lazyID],
+                                LazyComponent({
+                                    root: "Standalone",
+                                    className: compAttributes.lazyID,
+                                })
+                            ),
+                            ...compAttributes,
+                            styles: {
+                                component,
+                                ...styles,
+                            },
+                        },
+                    },
+                },
+            });
+
         case "INIT_DATA_SUCCEEDED":
             const {standalones, componentsPool} = {...payload};
             try {

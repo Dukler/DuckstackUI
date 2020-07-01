@@ -9,7 +9,6 @@ const LazyComponents = (props) => {
                 root: props[component],
             });
         });
-        console.log();
         return pool;
     } catch (error) {
         console.log("error in component pool");

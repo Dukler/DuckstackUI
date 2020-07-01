@@ -1,0 +1,6 @@
+{
+	"type": "TOGGLE_DISABLE_STANDALONE",
+	"payload": {
+		"id": "testDialog"
+	}
+}

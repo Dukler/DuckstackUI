@@ -16,22 +16,22 @@ const createComp = ({AsyncImport, ...cleanComp}) => (
 
 function SimpleList(props) {
     const classes = useStyles();
-    const {standalonesState, containerState} = props;
+    const {componentsState, containerState} = props;
     const [showCheck, setShowCheck] = useState(false);
     const [components, setComponents] = useState([]);
-    const [minHeight, setMinHeight] = useState([]);
+    const [minHeight, setMinHeight] = useState(0);
     const [list, setList] = useState([]);
     const extProps = containerState.extProperties;
-    const Item = standalonesState[extProps.item];
+    const Item = componentsState[extProps.item];
     const mouseDownTimer = useRef();
     const itemHeight = 48;
-    // const minHeight = itemHeight * 3.1;
+
     const itemData = createItemData(list, classes, Item, showCheck);
 
     const source = require("../../../MockData/turnosR.json");
 
     useEffect(() => {
-        setMinHeight(1 + list.length * itemHeight);
+        setMinHeight(list.length * (itemHeight + 1));
     }, [list.length]);
 
     useEffect(() => {
@@ -39,7 +39,6 @@ function SimpleList(props) {
             ? containerState.sourceIndex[0]
             : null;
         const auxList = source[day];
-        console.log();
         setList(auxList ? auxList : []);
     }, [source, containerState.sourceIndex]);
 
@@ -67,7 +66,6 @@ function SimpleList(props) {
         const listHandlers = {handleClickAway, handleShowCheck};
         setComponents(
             extProps.order.map((key) => {
-                console.log();
                 return key === "list"
                     ? renderList(
                           itemData,
@@ -76,13 +74,13 @@ function SimpleList(props) {
                           classes,
                           minHeight
                       )
-                    : createComp(standalonesState[key]);
+                    : createComp(componentsState[key]);
             })
         );
     }, [
         Item,
         classes,
-        standalonesState,
+        componentsState,
         extProps.order,
         handleShowCheck,
         itemData,

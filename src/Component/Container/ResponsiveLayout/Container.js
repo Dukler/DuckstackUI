@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import useResponsiveOffset from "../../../Hooks/Layout/useResponsiveOffset/index";
-import {isNotUndefined} from "../../../Utils";
+import {isUndefined} from "../../../Utils";
 import RefMapContext from "./context";
 
 const createChildren = (children) => {
@@ -13,10 +13,7 @@ const createChildren = (children) => {
             staticArray.push(refName);
         } else {
             responsive.push(refName);
-            multipliers[refName] = isNotUndefined(
-                child.props.multiplier,
-                false
-            );
+            multipliers[refName] = isUndefined(child.props.multiplier, false);
         }
     });
     return {staticArray, responsive, multipliers};

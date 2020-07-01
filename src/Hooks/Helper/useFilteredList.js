@@ -4,10 +4,7 @@ import {StoreContext} from "redux-react-hook";
 function useFilteredList(props) {
     const store = useContext(StoreContext);
     const state = store.getState();
-    // const filter = props.filter ? props.filter : [];
     const filter = props.filter ? props.filter : [];
-    // const [list] = useElement(element);
-    console.log();
     const list = {...state.standalones.byIds, ...state.containers.byIds};
     let refFiltered = useRef([]);
 

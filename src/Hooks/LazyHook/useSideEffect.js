@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {useDispatch} from "redux-react-hook";
 
-//make this hook so it can do side effects based on linked values
+//this is a hook API that dispatches ---state.hooks.SideEffect---
 export default function useSideEffect(state) {
     const dispatch = useDispatch();
     const {hooks} = state;

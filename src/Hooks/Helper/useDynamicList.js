@@ -27,12 +27,11 @@ function useDynamicList(props) {
                     ];
 
                 default:
-                    console.log();
                     return [
                         {...state.standalones.byIds, ...state.containers.byIds},
                         [...state.standalones.ids, ...state.containers.ids],
                         props.container
-                            ? container.standalones
+                            ? container.components
                             : props.components,
                     ];
             }

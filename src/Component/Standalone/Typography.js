@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 function Typography(props) {
     const classes = useStyles(props.styles.component);
     let value = props.value;
-    const {isHtml, ...typoProps} = props.extProperties;
+    const {isHtml} = props.extProperties;
     [value] = useHtmlReact({
         value,
         shouldParse: isHtml,
@@ -24,7 +24,8 @@ function Typography(props) {
         <MTypography
             className={classes.component}
             style={{height: "250px"}}
-            {...typoProps}
+            {...props.params}
+            // name="fname"
         >
             {value}
         </MTypography>

@@ -1,7 +1,11 @@
 import ContentRoute from "./../../../Component/Standalone/ContentRoute";
 import reduceReducer from "reduce-reducers";
 import {stateHandler} from "../../reducers/stateHandler";
-import update from "immutability-helper";
+
+import {
+    subtractComponent,
+    addComponent,
+} from "./../../commonFunctions/stateEdit";
 
 const initialState = [];
 
@@ -11,20 +15,18 @@ const reducer = reduceReducer(routeReducer, (state, action) =>
 export default reducer;
 
 function routeReducer(state = initialState, action) {
+    const {systemInfo} = action.payload ? action.payload : {...null};
+    const {treePosition} = systemInfo ? systemInfo : {...null};
     switch (action.type) {
-        case "NEW_STANDALONE":
-            return action.payload.treePosition.type === "route" &&
-                !state.byIds[
-                    action.payload.treePosition.id
-                ].standalones.includes(action.payload.id)
-                ? update(state, {
-                      byIds: {
-                          [action.payload.treePosition.id]: {
-                              standalones: {$push: [action.payload.id]},
-                          },
-                      },
-                  })
-                : state;
+        case "SUBTRACT_COMPONENT":
+            return subtractComponent(
+                treePosition,
+                state,
+                action,
+                "contentRoutes"
+            );
+        case "ADD_COMPONENT":
+            return addComponent(treePosition, state, action, "contentRoutes");
         case "INIT_DATA_SUCCEEDED":
             const contentRoutes = {...action.payload.contentRoutes};
             contentRoutes.ids.forEach((cmp) => {
@@ -35,4 +37,3 @@ function routeReducer(state = initialState, action) {
             return state;
     }
 }
-//{ standalones, containers, contentRoutes, linkList }

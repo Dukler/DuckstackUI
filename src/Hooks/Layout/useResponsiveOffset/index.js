@@ -1,5 +1,5 @@
 import {useEffect, useLayoutEffect, createRef, useReducer} from "react";
-import {isNotNull, isNotUndefined} from "../../../Utils";
+import {isNotNull, isUndefined} from "../../../Utils";
 import memoizeOne from "memoize-one";
 import {rOffsetReducer} from "./rOffsetReducer";
 
@@ -57,8 +57,7 @@ function useResponsiveOffset({staticArr, responsiveArr, multipliers}) {
             const split = total / responsiveArr.length;
             responsiveArr.forEach((responsiveRefName) => {
                 const currentRef = responsiveRefs[responsiveRefName].current;
-                const calc =
-                    split * isNotUndefined(multis[responsiveRefName], 1);
+                const calc = split * isUndefined(multis[responsiveRefName], 1);
                 if (currentRef.style) {
                     currentRef.style.height = `${calc}px`;
                 } else {

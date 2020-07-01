@@ -1,40 +1,38 @@
 import React from "react";
 import MGrid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import useContainer from "../../Hooks/Component/useContainer";
 
-const useStyles = makeStyles(theme => ({
-	root: {
-		flexGrow: 1
-	},
-	Grid: {}
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    Grid: {},
 }));
 
 function GridEmpty() {
-	return (
-		< MGrid item />
-	);
+    return <MGrid item />;
 }
 
 function Grid(props) {
-	const { standalonesState, containerState } = props;
-	const classes = useStyles();
+    const {componentsState, containerState} = props;
+    const classes = useStyles();
 
-	const { All } = useContainer({
-		standalonesState,
-		containerState,
-		parents: ["All"],
-		styleContainers: {
-			Default: MGrid,
-			Empty: GridEmpty
-		}
-	});
+    const {All} = useContainer({
+        componentsState,
+        containerState,
+        parents: ["All"],
+        styleContainers: {
+            Default: MGrid,
+            Empty: GridEmpty,
+        },
+    });
 
-	return (
-		<div className={classes.root}>
-			<MGrid {...containerState.extProperties}>{All}</MGrid>
-		</div>
-	);
-};
+    return (
+        <div className={classes.root}>
+            <MGrid {...containerState.params}>{All}</MGrid>
+        </div>
+    );
+}
 
 export default Grid;

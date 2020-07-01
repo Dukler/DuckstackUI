@@ -4,6 +4,7 @@ import React, {
     useRef,
     useContext,
     useState,
+    Suspense,
 } from "react";
 import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
 import DynamicComponents from "./BeLazy/DynamicComponents";
@@ -11,12 +12,9 @@ import {constants} from "./Utils/Constants";
 import {ThemeProvider} from "@material-ui/styles";
 import {dsTheme} from "./Theme/dsTheme";
 
-export const Portal = React.createContext();
-
 function UI() {
     const dispatch = useDispatch();
     const init = useRef(false);
-    const portal = useRef();
     const [shells, setShells] = useState([]);
     const [appPath, setAppPath] = useState("");
 
@@ -51,7 +49,7 @@ function UI() {
             Object.keys(componentsPool).forEach((key) => {
                 i++;
                 arr[i] = componentsPool[key];
-                // componentsPool[key].preload();
+                componentsPool[key].preload();
             });
             Object.keys(containers).forEach((key) => {
                 if (
@@ -67,31 +65,13 @@ function UI() {
                     window.location.pathname.lastIndexOf("/") + 1
                 )
             );
-            // dispatch({
-            //     type: "NEW_STANDALONE",
-            //     payload: {
-            //         id: "testDialog",
-            //         lazyID: "Typography",
-            //         treePosition: {type: "container", id: "root"},
-            //         value: "Location",
-            //         styles: {
-            //             name: "Text",
-            //             component: {
-            //                 fontSize: 15,
-            //                 color: "primary",
-            //                 zIndex: 100000,
-            //             },
-            //         },
-            //     },
-            // });
             console.log(store.getState());
         }
-        //[componentsPool, dispatch, isLoading, containers, store]
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, isLoading, store, componentsPool]);
 
     return (
-        <Portal.Provider value={portal}>
+        <Suspense fallback={null}>
             <div className="UI" style={{height: "100vh"}}>
                 {isLoading ? null : (
                     <ThemeProvider theme={dsTheme(theme)}>
@@ -108,7 +88,7 @@ function UI() {
                     </ThemeProvider>
                 )}
             </div>
-        </Portal.Provider>
+        </Suspense>
     );
 }
 

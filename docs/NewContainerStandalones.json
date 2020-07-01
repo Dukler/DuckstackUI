@@ -1,0 +1,42 @@
+{
+	"__comment": "This example of an action creates a new Typography located in the root of the application",
+	"type": "NEW_CONTAINER_STANDALONES",
+	"payload": {
+		"id": "testForm",
+		"lazyID": "Paper",
+		"systemInfo": {
+			"treePosition": {
+				"type": "container",
+				"id": "root"
+			}
+		},
+		"standalones": [
+			{
+				"id": "email",
+				"lazyID": "TextField",
+				"ExtProperties": {
+					"label": "email"
+				},
+				"Params": {
+					"type": "text",
+					"autoComplete": "",
+					"margin": "normal",
+					"variant": "outlined"
+				}
+			},
+			{
+				"ID": "password",
+				"LazyID": "TextField",
+				"ExtProperties": {
+					"label": "password"
+				},
+				"Params": {
+					"type": "password",
+					"autoComplete": "",
+					"margin": "normal",
+					"variant": "outlined"
+				}
+			}
+		]
+	}
+}
