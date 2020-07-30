@@ -20,6 +20,7 @@ function Typography(props) {
         value,
         shouldParse: isHtml,
     });
+
     return (
         <MTypography
             className={classes.component}

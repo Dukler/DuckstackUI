@@ -3,7 +3,7 @@ import useActions from "./useActions";
 import {useEffect} from "react";
 import {useRef} from "react";
 
-export default function useExtendedActions(props) {
+export default function useEventActions(props) {
     const {actions} = props;
     const [actionDispatch] = useActions(props.reducer);
     const componentRef = useRef();

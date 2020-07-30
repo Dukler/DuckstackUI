@@ -1,11 +1,16 @@
-import {useContext, useState, useEffect} from "react";
-import {StoreContext} from "redux-react-hook";
+import {useState, useEffect, useCallback} from "react";
+import {useSelector, shallowEqual} from "react-redux";
 import {orderList} from "../../Utils";
 
 function useDynamicList(props) {
     const [dynamicList, setDynamicList] = useState([]);
-    const store = useContext(StoreContext);
-    const state = store.getState();
+    // const store = useStore();
+
+    const getLinkList = useCallback((state) => {
+        return state;
+    }, []);
+    // const state = useSelector(selector: Function, equalityFn?: Function)
+    const state = useSelector(getLinkList, shallowEqual);
     const container = props.container
         ? state["containers"]["byIds"][props.container.id]
         : null;

@@ -1,6 +1,4 @@
 import {initContainer} from "../../../Component/Container";
-import reduceReducer from "reduce-reducers";
-import {overlays} from "./overlays";
 import update from "immutability-helper";
 import {
     subtractComponent,
@@ -11,9 +9,10 @@ import LazyComponent from "./../../../BeLazy/LazyComponent";
 
 const initialState = [];
 
-const reducer = reduceReducer(containersReducer, (state, action) =>
-    overlays(state, action, "CONTAINER")
-);
+// const reducer = reduceReducer(containersReducer, (state, action) =>
+//     overlays(state, action, "CONTAINER")
+// );
+const reducer = containersReducer;
 export default reducer;
 
 function containersReducer(state = initialState, action) {
@@ -21,6 +20,20 @@ function containersReducer(state = initialState, action) {
     const {systemInfo} = action.payload ? action.payload : {...null};
     const {treePosition} = systemInfo ? systemInfo : {...null};
     switch (action.type) {
+        case "ADD_DISPATCHER":
+            if (state.ids.includes(id)) {
+                return update(state, {
+                    byIds: {
+                        [id]: {
+                            dispatch: {
+                                $set: payload.dispatch,
+                            },
+                        },
+                    },
+                });
+            }
+            return state;
+
         case "NEW_CONTAINER_SUCCEEDED":
             const {pool, ...compAttributes} = payload;
             const {component, ...styles} = compAttributes.styles;
@@ -75,7 +88,8 @@ function containersReducer(state = initialState, action) {
                     containers.ids.forEach((cmp) => {
                         const container = containers.byIds[cmp];
                         container.type = "container";
-                        const lazyID = containers.byIds[cmp].lazyID;
+
+                        const lazyID = container.lazyID;
                         [
                             container.LazyContainer,
                             container.isHtml,
@@ -83,6 +97,7 @@ function containersReducer(state = initialState, action) {
                             container,
                             instance: componentsPool[lazyID],
                         });
+                        container.dispatch = null;
                     });
                 }
             } catch (error) {

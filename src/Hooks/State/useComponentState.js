@@ -1,5 +1,6 @@
 import {useCallback} from "react";
-import {useMappedState} from "redux-react-hook";
+// import {useMappedState} from "redux-react-hook";
+import {useSelector, shallowEqual} from "react-redux";
 
 export default function useComponentState({id}) {
     const mapState = useCallback(
@@ -10,11 +11,13 @@ export default function useComponentState({id}) {
         [id]
     );
 
-    const {container, standalone} = useMappedState(mapState);
+    const {container, standalone} = useSelector(mapState, shallowEqual);
 
-    const [componentState, isContainer] = container
-        ? [container, true]
-        : [standalone, false];
+    const componentState = {
+        ...container,
+        ...standalone,
+    };
+    const isContainer = container ? true : false;
 
     return [componentState, isContainer];
 }

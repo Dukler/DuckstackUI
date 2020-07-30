@@ -1,20 +1,23 @@
-import {useContext} from "react";
-import {useDispatch, StoreContext} from "redux-react-hook";
+import {useSelector, shallowEqual} from "react-redux";
 import actionReducer from "./reducer";
 import {compose} from "redux";
+import {useCallback} from "react";
 
 function useActions(reducer) {
-    const store = useContext(StoreContext);
-    const dispatch = useDispatch();
-    const actionDispatch = (props) =>
-        compose(
-            actionReducer({
-                state: store.getState(),
-                ...props,
-            }),
-            reducer(props),
-            dispatch(props)
-        );
+    // const store = useStore();
+    const state = useSelector((state) => state, shallowEqual);
+    const actionDispatch = useCallback(
+        (props) => {
+            compose(
+                actionReducer({
+                    state,
+                    ...props,
+                }),
+                reducer(props)
+            );
+        },
+        [reducer, state]
+    );
     return [actionDispatch];
 }
 

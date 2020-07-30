@@ -3,7 +3,6 @@ import {textInput} from "./textInput";
 import {button} from "./button";
 import {picker} from "./picker";
 import {stateHandler} from "../../reducers/stateHandler";
-import {overlays} from "./../containers/overlays";
 import update from "immutability-helper";
 import LazyComponent from "./../../../BeLazy/LazyComponent";
 import {isUndefined} from "./../../../Utils/index";
@@ -13,7 +12,6 @@ const initialState = [];
 const reducer = reduceReducer(
     standalonesReducer,
     textInput,
-    overlays,
     button,
     (state, action) => stateHandler(state, action, "COMPONENT"),
     picker
@@ -25,6 +23,19 @@ function standalonesReducer(state = initialState, action) {
         ? action.payload
         : {id: null, ...null};
     switch (action.type) {
+        case "ADD_DISPATCHER":
+            if (state.ids.includes(id)) {
+                return update(state, {
+                    byIds: {
+                        [id]: {
+                            dispatch: {
+                                $set: payload.dispatch,
+                            },
+                        },
+                    },
+                });
+            }
+            return state;
         case "TOGGLE_DISABLE_STANDALONE":
             if (state.ids.includes(id)) {
                 return update(state, {
@@ -91,11 +102,23 @@ function standalonesReducer(state = initialState, action) {
             try {
                 standalones.ids.forEach((cmp) => {
                     const lazyID = standalones.byIds[cmp].lazyID;
+                    // const augParams = {
+                    //     ...standalones.byIds[cmp].params,
+                    //     ref: React.createRef(),
+                    // };
+                    // const augSystem = {
+                    //     ...standalones.byIds[cmp].systemInfo,
+                    //     path: "/Standalone/" + standalones.byIds[cmp].lazyID,
+                    // };
                     standalones.byIds[cmp].AsyncImport = componentsPool[lazyID];
+                    // standalones.byIds[cmp].params = augParams;
                     standalones.byIds[cmp].type = "standalone";
+                    standalones.byIds[cmp].reducer =
+                        componentsPool[lazyID].reducer;
                     standalones.byIds[cmp].value = standalones.byIds[cmp].value
                         ? standalones.byIds[cmp].value
                         : "";
+                    // standalones.byIds[cmp].systemInfo = augSystem;
                 });
                 return standalones;
             } catch (error) {

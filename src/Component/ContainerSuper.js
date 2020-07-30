@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import DynamicComponents from "../BeLazy/DynamicComponents";
 import useFilteredList from "../Hooks/Helper/useFilteredList";
-import useSideEffect from "../Hooks/LazyHook/useSideEffect";
 import RenderComponent from "./RenderComponent";
 
 function ContainerSuper(props) {
@@ -21,7 +20,7 @@ function ContainerSuper(props) {
         ? {...extProperties}
         : {componentsState, containerState};
 
-    useSideEffect(containerState);
+    // useStateChange(containerState);
 
     useEffect(() => {
         // return () => {

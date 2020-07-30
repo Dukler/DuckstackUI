@@ -3,6 +3,9 @@ import memoize from "memoize-one";
 import {useStyles} from "./styles";
 import {renderList} from "./renderList";
 
+import reducer from "./reducer";
+import useComponent from "./../../../Hooks/Component/useComponent/index";
+
 const createItemData = memoize((list, classes, itemProps, showCheck) => ({
     list,
     classes,
@@ -25,6 +28,7 @@ function SimpleList(props) {
     const Item = componentsState[extProps.item];
     const mouseDownTimer = useRef();
     const itemHeight = 48;
+    const [state] = useComponent({reducer, ...containerState});
 
     const itemData = createItemData(list, classes, Item, showCheck);
 
@@ -35,12 +39,10 @@ function SimpleList(props) {
     }, [list.length]);
 
     useEffect(() => {
-        const day = containerState.sourceIndex
-            ? containerState.sourceIndex[0]
-            : null;
+        const day = state.sourceIndex ? state.sourceIndex[0] : null;
         const auxList = source[day];
         setList(auxList ? auxList : []);
-    }, [source, containerState.sourceIndex]);
+    }, [source, state.sourceIndex]);
 
     const handleClickAway = () => {
         setShowCheck(false);

@@ -9,7 +9,7 @@ export function* newContainerStandalones(action) {
         );
         yield call(checkContainer, container);
         const pool = yield select(getComponentsPool);
-        yield console.log("fuckpussy");
+        yield console.log("ncs");
         yield put({
             type: "NEW_CONTAINER_SUCCEEDED",
             payload: {...action.payload, pool},

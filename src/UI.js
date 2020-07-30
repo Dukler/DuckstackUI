@@ -1,11 +1,6 @@
-import React, {
-    useCallback,
-    useEffect,
-    useRef,
-    useContext,
-    useState,
-} from "react";
-import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
+import React, {useEffect, useRef, useState} from "react";
+// import {useDispatch, useMappedState, StoreContext} from "redux-react-hook";
+import {useDispatch, useStore, useSelector, shallowEqual} from "react-redux";
 import DynamicComponents from "./BeLazy/DynamicComponents";
 import {constants} from "./Utils/Constants";
 import {ThemeProvider} from "@material-ui/styles";
@@ -17,20 +12,20 @@ function UI() {
     const [shells, setShells] = useState([]);
     const [appPath, setAppPath] = useState("");
 
-    const mapState = useCallback(
-        (state) => ({
-            isLoading: state["root"]["isLoading"],
-            componentsPool: state["root"]["componentsPool"],
-            theme: state["theme"],
-            containers: state["containers"]["byIds"],
-        }),
-        []
+    const mapState = (state) => ({
+        isLoading: state["root"]["isLoading"],
+        componentsPool: state["root"]["componentsPool"],
+        theme: state["theme"],
+        containers: state["containers"]["byIds"],
+    });
+    // const {isLoading, theme, componentsPool, containers} = useMappedState(
+    //     mapState
+    // );
+    const store = useStore();
+    const {isLoading, theme, componentsPool, containers} = useSelector(
+        mapState,
+        shallowEqual
     );
-    const {isLoading, theme, componentsPool, containers} = useMappedState(
-        mapState
-    );
-    const store = useContext(StoreContext);
-
     useEffect(() => {
         if (!init.current) {
             dispatch({
@@ -64,7 +59,7 @@ function UI() {
                     window.location.pathname.lastIndexOf("/") + 1
                 )
             );
-            console.log(store.getState());
+            // console.log(store.getState());
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, isLoading, store, componentsPool]);

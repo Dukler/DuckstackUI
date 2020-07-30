@@ -6,7 +6,7 @@ import PrintIcon from "@material-ui/icons/Print";
 import ShareIcon from "@material-ui/icons/Share";
 import AddIcon from "@material-ui/icons/Add";
 import CreateIcon from "@material-ui/icons/Create";
-import useExtendedActions from "./../../../Hooks/Actions/useExtendedActions";
+import useEventActions from "./../../../Hooks/Actions/useEventActions";
 import dialReducer from "./reducer";
 
 const iconSelector = (key) => {
@@ -47,7 +47,7 @@ export default function DialIcons(icons) {
 }
 
 function ExtendedIcon({Icon, actions}) {
-    const iconRef = useExtendedActions({
+    const iconRef = useEventActions({
         actions,
         reducer: (props) => dialReducer({action: {...props}}),
     });

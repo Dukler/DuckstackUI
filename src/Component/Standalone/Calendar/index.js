@@ -1,7 +1,8 @@
-import {isSameDay, startOfWeek} from "date-fns";
+import {isSameDay, startOfWeek, getDay} from "date-fns";
+// import getDay from "date-fns/get_day";
 import {addDays, endOfWeek, isSameMonth} from "date-fns/esm";
 import format from "date-fns/format";
-import React, {useEffect, useReducer} from "react";
+import React, {useEffect} from "react";
 import "./Calendar.css";
 import RightIcon from "@material-ui/icons/ChevronRightRounded";
 import LeftIcon from "@material-ui/icons/ChevronLeftRounded";
@@ -9,7 +10,7 @@ import classNames from "classnames";
 import {reducer} from "./reducer";
 import {isUndefined} from "../../../Utils";
 import useResponsiveOffset from "../../../Hooks/Layout/useResponsiveOffset/index";
-import {useDispatch} from "redux-react-hook";
+import useComponent from "../../../Hooks/Component/useComponent/index";
 
 const initialState = {
     currentMonth: new Date(),
@@ -20,17 +21,14 @@ const initialState = {
 };
 
 function Calendar(props) {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    const storeDispatch = useDispatch();
+    const [state, dispatch] = useComponent({
+        reducer,
+        ...initialState,
+        hooks: props.hooks,
+    });
     const {currentMonth, selectedDate, weekCount, startDate, endDate} = state;
-    const {
-        calendarClass,
-        dayClass,
-        renderDay,
-        picker,
-        showHeader,
-        calendarDispatch,
-    } = props;
+    const {calendarClass, dayClass, renderDay} = props;
+    const {showHeader, picker} = props.extProperties;
 
     const {headerRef, daysRef, bodyRef, containerRef} = useResponsiveOffset({
         staticArr: ["headerRef", "daysRef"],
@@ -43,13 +41,11 @@ function Calendar(props) {
     }, []);
 
     useEffect(() => {
-        if (calendarDispatch) {
-            calendarDispatch({dispatch});
-        }
         switch (picker) {
             case "week":
                 const currentDate = new Date();
                 dispatch({
+                    type: "UPDATE_CALENDAR",
                     payload: {
                         startDate: startOfWeek(currentDate),
                         endDate: endOfWeek(currentDate),
@@ -62,7 +58,7 @@ function Calendar(props) {
                 dispatch({type: "COUNT_WEEKS"});
                 break;
         }
-    }, [currentMonth, picker, calendarDispatch]);
+    }, [currentMonth, dispatch, picker]);
 
     const dayRender = ({date, dateFormat}) => {
         const formattedDate = format(date, dateFormat);
@@ -183,13 +179,13 @@ function Calendar(props) {
     };
 
     const onDateClick = (day) => {
-        dispatch({payload: {selectedDate: day}});
+        dispatch({type: "UPDATE_CALENDAR", payload: {selectedDate: day}});
         if (props.onDateClick) {
             props.onDateClick(day);
         } else {
-            storeDispatch({
-                type: "SELECTED_PICKER",
-                payload: {id: props.id, selected: [day]},
+            dispatch({
+                type: "UPDATE_CALENDAR",
+                payload: {id: props.id, selected: [getDay(day)]},
             });
         }
     };

@@ -7,8 +7,6 @@ export default function dialReducer({action}) {
         case "NEW_ITEM":
             // const mainPortal = ReactDOM.findDOMNode("mainPortal");
 
-            console.log("pelotudo");
-
             // return <Modal />;
             return (
                 <div style={{position: "relative", zIndex: "10000"}}>Pija</div>

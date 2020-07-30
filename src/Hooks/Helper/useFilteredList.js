@@ -1,9 +1,8 @@
-import {useMemo, useRef, useContext} from "react";
-import {StoreContext} from "redux-react-hook";
+import {useMemo, useRef} from "react";
+import {useSelector, shallowEqual} from "react-redux";
 
 function useFilteredList(props) {
-    const store = useContext(StoreContext);
-    const state = store.getState();
+    const state = useSelector((state) => state, shallowEqual);
     const filter = props.filter ? props.filter : [];
     const list = {...state.standalones.byIds, ...state.containers.byIds};
     let refFiltered = useRef([]);

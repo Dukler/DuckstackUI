@@ -1,5 +1,5 @@
-import {useDispatch} from "redux-react-hook";
 import useClassState from "./useClassState";
+import {useDispatch} from "react-redux";
 
 function useStandalone(id) {
     const state = useClassState({id, element: "standalones"});
